@@ -6150,7 +6150,7 @@
       var environment = {
         production: false,
         // endpoint: "http://localhost:3000",
-        endpoint: "https://143.198.109.141",
+        endpoint: "https://143.198.109.141/api",
         CRYPT_PSEUDO: "storm/betweenus?...",
         CRYPT_PASS: "0@8between.us",
         CRYPT_PSEUDO_MODEL: "storm://betweenus?...",
@@ -18160,7 +18160,7 @@
 
       var config = {
         // url: 'http://localhost:4000/',
-        url: 'https://143.198.109.141',
+        url: 'https://143.198.109.141/api',
         options: {}
       };
       /**
