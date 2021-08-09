@@ -9100,7 +9100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const config = {
     // url: 'http://localhost:4000/',
-    url: 'https://143.198.109.141/api',
+    url: 'https://143.198.109.141/socket',
     options: {}
 };
 /**
