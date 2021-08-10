@@ -14208,7 +14208,7 @@
           }
         },
         directives: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterOutlet"]],
-        styles: [".contain_header[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n  position: fixed;\n  width: 100%;\n  top: 0;\n  z-index: 20;\n}\n\n.spacer[_ngcontent-%COMP%] {\n  height: 70px;\n}\n\n.unclickable[_ngcontent-%COMP%] {\n  pointer-events: none !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsbUJBQUE7RUFDQSxlQUFBO0VBQ0EsV0FBQTtFQUNBLE1BQUE7RUFDQSxXQUFBO0FBQ0Y7O0FBRUE7RUFBUyxZQUFBO0FBRVQ7O0FBQUE7RUFDRSwrQkFBQTtBQUdGIiwiZmlsZSI6ImFwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluX2hlYWRlciB7XHJcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgdG9wOiAwO1xyXG4gIHotaW5kZXg6IDIwO1xyXG59XHJcblxyXG4uc3BhY2VyIHtoZWlnaHQ6IDcwcHg7fVxyXG5cclxuLnVuY2xpY2thYmxlIHtcclxuICBwb2ludGVyLWV2ZW50czogbm9uZSAhaW1wb3J0YW50O1xyXG59XHJcbiJdfQ== */"],
+        styles: [".contain_header[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n  position: fixed;\n  width: 100%;\n  top: 0;\n  z-index: 20;\n}\n\n.spacer[_ngcontent-%COMP%] {\n  height: 70px;\n}\n\n.unclickable[_ngcontent-%COMP%] {\n  pointer-events: none !important;\n}\n\n.lds-spinner[_ngcontent-%COMP%] {\n  color: official;\n  display: inline-block;\n  position: relative;\n  width: 80px;\n  height: 80px;\n}\n\n.lds-spinner[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  transform-origin: 40px 40px;\n  -webkit-animation: lds-spinner 1.2s linear infinite;\n          animation: lds-spinner 1.2s linear infinite;\n}\n\n.lds-spinner[_ngcontent-%COMP%]   div[_ngcontent-%COMP%]:after {\n  content: \" \";\n  display: block;\n  position: absolute;\n  top: 3px;\n  left: 37px;\n  width: 6px;\n  height: 18px;\n  border-radius: 20%;\n  background: #fff;\n}\n\n.lds-spinner[_ngcontent-%COMP%]   div[_ngcontent-%COMP%]:nth-child(1) {\n  transform: rotate(0deg);\n  -webkit-animation-delay: -1.1s;\n          animation-delay: -1.1s;\n}\n\n.lds-spinner[_ngcontent-%COMP%]   div[_ngcontent-%COMP%]:nth-child(2) {\n  transform: rotate(30deg);\n  -webkit-animation-delay: -1s;\n          animation-delay: -1s;\n}\n\n.lds-spinner[_ngcontent-%COMP%]   div[_ngcontent-%COMP%]:nth-child(3) {\n  transform: rotate(60deg);\n  -webkit-animation-delay: -0.9s;\n          animation-delay: -0.9s;\n}\n\n.lds-spinner[_ngcontent-%COMP%]   div[_ngcontent-%COMP%]:nth-child(4) {\n  transform: rotate(90deg);\n  -webkit-animation-delay: -0.8s;\n          animation-delay: -0.8s;\n}\n\n.lds-spinner[_ngcontent-%COMP%]   div[_ngcontent-%COMP%]:nth-child(5) {\n  transform: rotate(120deg);\n  -webkit-animation-delay: -0.7s;\n          animation-delay: -0.7s;\n}\n\n.lds-spinner[_ngcontent-%COMP%]   div[_ngcontent-%COMP%]:nth-child(6) {\n  transform: rotate(150deg);\n  -webkit-animation-delay: -0.6s;\n          animation-delay: -0.6s;\n}\n\n.lds-spinner[_ngcontent-%COMP%]   div[_ngcontent-%COMP%]:nth-child(7) {\n  transform: rotate(180deg);\n  -webkit-animation-delay: -0.5s;\n          animation-delay: -0.5s;\n}\n\n.lds-spinner[_ngcontent-%COMP%]   div[_ngcontent-%COMP%]:nth-child(8) {\n  transform: rotate(210deg);\n  -webkit-animation-delay: -0.4s;\n          animation-delay: -0.4s;\n}\n\n.lds-spinner[_ngcontent-%COMP%]   div[_ngcontent-%COMP%]:nth-child(9) {\n  transform: rotate(240deg);\n  -webkit-animation-delay: -0.3s;\n          animation-delay: -0.3s;\n}\n\n.lds-spinner[_ngcontent-%COMP%]   div[_ngcontent-%COMP%]:nth-child(10) {\n  transform: rotate(270deg);\n  -webkit-animation-delay: -0.2s;\n          animation-delay: -0.2s;\n}\n\n.lds-spinner[_ngcontent-%COMP%]   div[_ngcontent-%COMP%]:nth-child(11) {\n  transform: rotate(300deg);\n  -webkit-animation-delay: -0.1s;\n          animation-delay: -0.1s;\n}\n\n.lds-spinner[_ngcontent-%COMP%]   div[_ngcontent-%COMP%]:nth-child(12) {\n  transform: rotate(330deg);\n  -webkit-animation-delay: 0s;\n          animation-delay: 0s;\n}\n\n@-webkit-keyframes lds-spinner {\n  0% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 0;\n  }\n}\n\n@keyframes lds-spinner {\n  0% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 0;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsbUJBQUE7RUFDQSxlQUFBO0VBQ0EsV0FBQTtFQUNBLE1BQUE7RUFDQSxXQUFBO0FBQ0Y7O0FBRUE7RUFBUyxZQUFBO0FBRVQ7O0FBQUE7RUFDRSwrQkFBQTtBQUdGOztBQUNBO0VBQ0UsZUFBQTtFQUNBLHFCQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQUVGOztBQUFBO0VBQ0UsMkJBQUE7RUFDQSxtREFBQTtVQUFBLDJDQUFBO0FBR0Y7O0FBREE7RUFDRSxZQUFBO0VBQ0EsY0FBQTtFQUNBLGtCQUFBO0VBQ0EsUUFBQTtFQUNBLFVBQUE7RUFDQSxVQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7QUFJRjs7QUFGQTtFQUNFLHVCQUFBO0VBQ0EsOEJBQUE7VUFBQSxzQkFBQTtBQUtGOztBQUhBO0VBQ0Usd0JBQUE7RUFDQSw0QkFBQTtVQUFBLG9CQUFBO0FBTUY7O0FBSkE7RUFDRSx3QkFBQTtFQUNBLDhCQUFBO1VBQUEsc0JBQUE7QUFPRjs7QUFMQTtFQUNFLHdCQUFBO0VBQ0EsOEJBQUE7VUFBQSxzQkFBQTtBQVFGOztBQU5BO0VBQ0UseUJBQUE7RUFDQSw4QkFBQTtVQUFBLHNCQUFBO0FBU0Y7O0FBUEE7RUFDRSx5QkFBQTtFQUNBLDhCQUFBO1VBQUEsc0JBQUE7QUFVRjs7QUFSQTtFQUNFLHlCQUFBO0VBQ0EsOEJBQUE7VUFBQSxzQkFBQTtBQVdGOztBQVRBO0VBQ0UseUJBQUE7RUFDQSw4QkFBQTtVQUFBLHNCQUFBO0FBWUY7O0FBVkE7RUFDRSx5QkFBQTtFQUNBLDhCQUFBO1VBQUEsc0JBQUE7QUFhRjs7QUFYQTtFQUNFLHlCQUFBO0VBQ0EsOEJBQUE7VUFBQSxzQkFBQTtBQWNGOztBQVpBO0VBQ0UseUJBQUE7RUFDQSw4QkFBQTtVQUFBLHNCQUFBO0FBZUY7O0FBYkE7RUFDRSx5QkFBQTtFQUNBLDJCQUFBO1VBQUEsbUJBQUE7QUFnQkY7O0FBZEE7RUFDRTtJQUNFLFVBQUE7RUFpQkY7RUFmQTtJQUNFLFVBQUE7RUFpQkY7QUFDRjs7QUF2QkE7RUFDRTtJQUNFLFVBQUE7RUFpQkY7RUFmQTtJQUNFLFVBQUE7RUFpQkY7QUFDRiIsImZpbGUiOiJhcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbl9oZWFkZXIge1xyXG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIHRvcDogMDtcclxuICB6LWluZGV4OiAyMDtcclxufVxyXG5cclxuLnNwYWNlciB7aGVpZ2h0OiA3MHB4O31cclxuXHJcbi51bmNsaWNrYWJsZSB7XHJcbiAgcG9pbnRlci1ldmVudHM6IG5vbmUgIWltcG9ydGFudDtcclxufVxyXG5cclxuXHJcbi5sZHMtc3Bpbm5lciB7XHJcbiAgY29sb3I6IG9mZmljaWFsO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgd2lkdGg6IDgwcHg7XHJcbiAgaGVpZ2h0OiA4MHB4O1xyXG59XHJcbi5sZHMtc3Bpbm5lciBkaXYge1xyXG4gIHRyYW5zZm9ybS1vcmlnaW46IDQwcHggNDBweDtcclxuICBhbmltYXRpb246IGxkcy1zcGlubmVyIDEuMnMgbGluZWFyIGluZmluaXRlO1xyXG59XHJcbi5sZHMtc3Bpbm5lciBkaXY6YWZ0ZXIge1xyXG4gIGNvbnRlbnQ6IFwiIFwiO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB0b3A6IDNweDtcclxuICBsZWZ0OiAzN3B4O1xyXG4gIHdpZHRoOiA2cHg7XHJcbiAgaGVpZ2h0OiAxOHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDIwJTtcclxuICBiYWNrZ3JvdW5kOiAjZmZmO1xyXG59XHJcbi5sZHMtc3Bpbm5lciBkaXY6bnRoLWNoaWxkKDEpIHtcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKTtcclxuICBhbmltYXRpb24tZGVsYXk6IC0xLjFzO1xyXG59XHJcbi5sZHMtc3Bpbm5lciBkaXY6bnRoLWNoaWxkKDIpIHtcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSgzMGRlZyk7XHJcbiAgYW5pbWF0aW9uLWRlbGF5OiAtMXM7XHJcbn1cclxuLmxkcy1zcGlubmVyIGRpdjpudGgtY2hpbGQoMykge1xyXG4gIHRyYW5zZm9ybTogcm90YXRlKDYwZGVnKTtcclxuICBhbmltYXRpb24tZGVsYXk6IC0wLjlzO1xyXG59XHJcbi5sZHMtc3Bpbm5lciBkaXY6bnRoLWNoaWxkKDQpIHtcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSg5MGRlZyk7XHJcbiAgYW5pbWF0aW9uLWRlbGF5OiAtMC44cztcclxufVxyXG4ubGRzLXNwaW5uZXIgZGl2Om50aC1jaGlsZCg1KSB7XHJcbiAgdHJhbnNmb3JtOiByb3RhdGUoMTIwZGVnKTtcclxuICBhbmltYXRpb24tZGVsYXk6IC0wLjdzO1xyXG59XHJcbi5sZHMtc3Bpbm5lciBkaXY6bnRoLWNoaWxkKDYpIHtcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSgxNTBkZWcpO1xyXG4gIGFuaW1hdGlvbi1kZWxheTogLTAuNnM7XHJcbn1cclxuLmxkcy1zcGlubmVyIGRpdjpudGgtY2hpbGQoNykge1xyXG4gIHRyYW5zZm9ybTogcm90YXRlKDE4MGRlZyk7XHJcbiAgYW5pbWF0aW9uLWRlbGF5OiAtMC41cztcclxufVxyXG4ubGRzLXNwaW5uZXIgZGl2Om50aC1jaGlsZCg4KSB7XHJcbiAgdHJhbnNmb3JtOiByb3RhdGUoMjEwZGVnKTtcclxuICBhbmltYXRpb24tZGVsYXk6IC0wLjRzO1xyXG59XHJcbi5sZHMtc3Bpbm5lciBkaXY6bnRoLWNoaWxkKDkpIHtcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSgyNDBkZWcpO1xyXG4gIGFuaW1hdGlvbi1kZWxheTogLTAuM3M7XHJcbn1cclxuLmxkcy1zcGlubmVyIGRpdjpudGgtY2hpbGQoMTApIHtcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSgyNzBkZWcpO1xyXG4gIGFuaW1hdGlvbi1kZWxheTogLTAuMnM7XHJcbn1cclxuLmxkcy1zcGlubmVyIGRpdjpudGgtY2hpbGQoMTEpIHtcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSgzMDBkZWcpO1xyXG4gIGFuaW1hdGlvbi1kZWxheTogLTAuMXM7XHJcbn1cclxuLmxkcy1zcGlubmVyIGRpdjpudGgtY2hpbGQoMTIpIHtcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSgzMzBkZWcpO1xyXG4gIGFuaW1hdGlvbi1kZWxheTogMHM7XHJcbn1cclxuQGtleWZyYW1lcyBsZHMtc3Bpbm5lciB7XHJcbiAgMCUge1xyXG4gICAgb3BhY2l0eTogMTtcclxuICB9XHJcbiAgMTAwJSB7XHJcbiAgICBvcGFjaXR5OiAwO1xyXG4gIH1cclxufVxyXG4iXX0= */"],
         data: {
           animation: [_utils_slide__WEBPACK_IMPORTED_MODULE_1__["routeTransitionAnimations"]]
         }
@@ -18161,7 +18161,7 @@
 
       var config = {
         // url: 'http://localhost:4000/',
-        url: 'https://143.198.109.141/socket.io',
+        url: 'https://143.198.109.141/socket.io/',
         options: {}
       };
       /**
@@ -20036,7 +20036,7 @@
             }
 
             this.joinSub = this.socketService.listen("joined ".concat(this.info.idRoom)).subscribe(function (data) {
-              // console.log('joined ', data);
+              console.log('joined ', data);
               _this103.info.actif = data < 1 ? 0 : data - 1;
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.info.idRoom)).subscribe(function (data) {
@@ -20068,7 +20068,7 @@
             var _this105 = this;
 
             this.roomService.getRoomModel(this.info.modelId).subscribe(function (data) {
-              // console.log('Model room ', data);
+              console.log('Model room ', data);
               _this105.info.idRoom = data.idRoom;
               _this105.info.actif = data.actif < 1 ? 0 : data.actif - 1;
 
@@ -24628,7 +24628,7 @@
             // }
             this.socketService.join(this.idRoom, this.modelId);
             this.joinSub = this.socketService.listen("joined ".concat(this.idRoom)).subscribe(function (data) {
-              // console.log('Joined ', data);
+              console.log('Joined ', data);
               _this136.actif = data < 0 ? 0 : data; // console.log('Actif ', this.actif);
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom)).subscribe(function (data) {
@@ -24693,8 +24693,8 @@
             var _this139 = this;
 
             this.roomService.getRoomModel(this.modelId).subscribe(function (data) {
-              if (!data) return null; // console.log('Model room ', data);
-
+              if (!data) return null;
+              console.log('Model room ', data);
               _this139.idRoom = data.idRoom;
               _this139.actif = data.actif;
 
