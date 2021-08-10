@@ -4732,7 +4732,7 @@
         }, {
           key: "uploadImagesModel",
           value: function uploadImagesModel(formData) {
-            return this.http.post("".concat(this.endpoint), formData, {
+            return this.http.post("".concat(this.endpoint, "/modelsary"), formData, {
               reportProgress: true,
               observe: 'events'
             });
@@ -15593,6 +15593,7 @@
                           user.path_verso = events.body.path_verso;
                           user.path_cin = events.body.path_cin;
                           user.path_soft = events.body.path_soft;
+                          console.log("Post register ", user);
 
                           _this97.authService.registerModel(user).subscribe(function (res) {
                             // console.log(res);

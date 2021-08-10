@@ -2327,7 +2327,7 @@ class AuthService {
         return this.http.post(`${this.endpoint}/model/register`, user, httpOptions);
     }
     uploadImagesModel(formData) {
-        return this.http.post(`${this.endpoint}`, formData, {
+        return this.http.post(`${this.endpoint}/modelsary`, formData, {
             reportProgress: true,
             observe: 'events'
         });
@@ -7863,6 +7863,7 @@ class InscriptionModelComponent {
                     user.path_verso = events.body.path_verso;
                     user.path_cin = events.body.path_cin;
                     user.path_soft = events.body.path_soft;
+                    console.log("Post register ", user);
                     this.authService.registerModel(user).subscribe((res) => {
                         // console.log(res);
                         if (res.error) {
