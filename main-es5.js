@@ -3299,16 +3299,6 @@
         }, {
           key: "joinVip",
           value: function joinVip(idRoom, modelId) {
-            var data = {
-              room: idRoom + 'V',
-              modelId: modelId,
-              show: 'vip'
-            };
-            this.socket.emit('join', data);
-          }
-        }, {
-          key: "leaveVip",
-          value: function leaveVip(idRoom, role) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee16() {
               var data;
               return regeneratorRuntime.wrap(function _callee16$(_context16) {
@@ -3317,16 +3307,12 @@
                     case 0:
                       data = {
                         room: idRoom + 'V',
-                        role: role,
+                        modelId: modelId,
                         show: 'vip'
                       };
-                      _context16.next = 3;
-                      return this.socket.emit('leave', data);
+                      this.socket.emit('join', data);
 
-                    case 3:
-                      return _context16.abrupt("return", _context16.sent);
-
-                    case 4:
+                    case 2:
                     case "end":
                       return _context16.stop();
                   }
@@ -3335,20 +3321,26 @@
             }));
           }
         }, {
-          key: "sendClientPeerId",
-          value: function sendClientPeerId(data) {
+          key: "leaveVip",
+          value: function leaveVip(idRoom, role) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee17() {
+              var data;
               return regeneratorRuntime.wrap(function _callee17$(_context17) {
                 while (1) {
                   switch (_context17.prev = _context17.next) {
                     case 0:
-                      _context17.next = 2;
-                      return this.socket.emit('peerId', data);
-
-                    case 2:
-                      return _context17.abrupt("return", _context17.sent);
+                      data = {
+                        room: idRoom + 'V',
+                        role: role,
+                        show: 'vip'
+                      };
+                      _context17.next = 3;
+                      return this.socket.emit('leave', data);
 
                     case 3:
+                      return _context17.abrupt("return", _context17.sent);
+
+                    case 4:
                     case "end":
                       return _context17.stop();
                   }
@@ -3357,15 +3349,15 @@
             }));
           }
         }, {
-          key: "askModelPeerId",
-          value: function askModelPeerId(data) {
+          key: "sendClientPeerId",
+          value: function sendClientPeerId(data) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee18() {
               return regeneratorRuntime.wrap(function _callee18$(_context18) {
                 while (1) {
                   switch (_context18.prev = _context18.next) {
                     case 0:
                       _context18.next = 2;
-                      return this.socket.emit('ask peerId', data);
+                      return this.socket.emit('peerId', data);
 
                     case 2:
                       return _context18.abrupt("return", _context18.sent);
@@ -3379,26 +3371,70 @@
             }));
           }
         }, {
-          key: "ansModelPeerId",
-          value: function ansModelPeerId(data) {
+          key: "askModelPeerId",
+          value: function askModelPeerId(data) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee19() {
               return regeneratorRuntime.wrap(function _callee19$(_context19) {
                 while (1) {
                   switch (_context19.prev = _context19.next) {
                     case 0:
-                      console.log("Answer ", data);
-                      _context19.next = 3;
-                      return this.socket.emit('ans peerId', data);
+                      _context19.next = 2;
+                      return this.socket.emit('ask peerId', data);
 
-                    case 3:
+                    case 2:
                       return _context19.abrupt("return", _context19.sent);
 
-                    case 4:
+                    case 3:
                     case "end":
                       return _context19.stop();
                   }
                 }
               }, _callee19, this);
+            }));
+          }
+        }, {
+          key: "ansModelPeerId",
+          value: function ansModelPeerId(data) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee20() {
+              return regeneratorRuntime.wrap(function _callee20$(_context20) {
+                while (1) {
+                  switch (_context20.prev = _context20.next) {
+                    case 0:
+                      console.log("Answer ", data);
+                      _context20.next = 3;
+                      return this.socket.emit('ans peerId', data);
+
+                    case 3:
+                      return _context20.abrupt("return", _context20.sent);
+
+                    case 4:
+                    case "end":
+                      return _context20.stop();
+                  }
+                }
+              }, _callee20, this);
+            }));
+          }
+        }, {
+          key: "newPeerIdModel",
+          value: function newPeerIdModel(data) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee21() {
+              return regeneratorRuntime.wrap(function _callee21$(_context21) {
+                while (1) {
+                  switch (_context21.prev = _context21.next) {
+                    case 0:
+                      _context21.next = 2;
+                      return this.socket.emit('new model peerId', data);
+
+                    case 2:
+                      return _context21.abrupt("return", _context21.sent);
+
+                    case 3:
+                    case "end":
+                      return _context21.stop();
+                  }
+                }
+              }, _callee21, this);
             }));
           }
         }]);
@@ -4805,29 +4841,29 @@
         }, {
           key: "saveToken",
           value: function saveToken(token, id) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee20() {
-              return regeneratorRuntime.wrap(function _callee20$(_context20) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee22() {
+              return regeneratorRuntime.wrap(function _callee22$(_context22) {
                 while (1) {
-                  switch (_context20.prev = _context20.next) {
+                  switch (_context22.prev = _context22.next) {
                     case 0:
                       if (!id) {
-                        _context20.next = 3;
+                        _context22.next = 3;
                         break;
                       }
 
-                      _context20.next = 3;
+                      _context22.next = 3;
                       return this.store.set("identification//", id);
 
                     case 3:
-                      _context20.next = 5;
+                      _context22.next = 5;
                       return this.store.set("token", token);
 
                     case 5:
                     case "end":
-                      return _context20.stop();
+                      return _context22.stop();
                   }
                 }
-              }, _callee20, this);
+              }, _callee22, this);
             }));
           }
         }]);
@@ -5402,6 +5438,14 @@
             _this25.peer.on('open', function (id) {
               console.log("Peer Id ", id);
               _this25.peerId = id;
+              var data = {
+                role: 'model',
+                modelId: _this25.info.modelId,
+                room: _this25.info.idRoom + 'V',
+                peerId: _this25.peerId
+              };
+
+              _this25.socketService.newPeerIdModel(data);
             });
 
             _this25.peer.on('call', function (call) {
@@ -5446,6 +5490,7 @@
         }, {
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
+            this.onStop();
             this.joinSub.unsubscribe();
             this.leaveSub.unsubscribe();
             this.messageSub.unsubscribe();
@@ -5459,6 +5504,18 @@
 
             this.modelService.getInfo().subscribe(function (data) {
               // console.log('Get info ', data);
+              if (data.profile.status === 'En live') {
+                _this26.onStop();
+
+                _this26.router.navigate(['/modele/live-private']);
+              }
+
+              if (data.profile.status === 'En ligne') {
+                _this26.onStop();
+
+                _this26.router.navigate(['/modele/chat']);
+              }
+
               _this26.info.bg = data.path_soft;
               _this26.info.modelId = data.id;
               _this26.info.pseudo = data.pseudo;
@@ -5596,93 +5653,93 @@
         }, {
           key: "liveOut",
           value: function liveOut() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee23() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee25() {
               var _this33 = this;
 
-              return regeneratorRuntime.wrap(function _callee23$(_context23) {
+              return regeneratorRuntime.wrap(function _callee25$(_context25) {
                 while (1) {
-                  switch (_context23.prev = _context23.next) {
+                  switch (_context25.prev = _context25.next) {
                     case 0:
                       this.onStop();
                       this.leaved = true;
-                      _context23.next = 4;
+                      _context25.next = 4;
                       return this.leaveTimer();
 
                     case 4:
-                      _context23.next = 6;
-                      return _context23.sent.subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this33, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee22() {
+                      _context25.next = 6;
+                      return _context25.sent.subscribe(function (data) {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this33, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee24() {
                           var _this34 = this;
 
-                          return regeneratorRuntime.wrap(function _callee22$(_context22) {
+                          return regeneratorRuntime.wrap(function _callee24$(_context24) {
                             while (1) {
-                              switch (_context22.prev = _context22.next) {
+                              switch (_context24.prev = _context24.next) {
                                 case 0:
                                   this.timer.reinit = true;
                                   this.clearTimer(); // set to zero
 
-                                  _context22.next = 4;
+                                  _context24.next = 4;
                                   return this.socketService.leaveVip(this.info.idRoom, 'model').then(function (data) {
-                                    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this34, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee21() {
+                                    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this34, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee23() {
                                       var _this35 = this;
 
-                                      return regeneratorRuntime.wrap(function _callee21$(_context21) {
+                                      return regeneratorRuntime.wrap(function _callee23$(_context23) {
                                         while (1) {
-                                          switch (_context21.prev = _context21.next) {
+                                          switch (_context23.prev = _context23.next) {
                                             case 0:
                                               this.roomVipService.leaveRoom();
-                                              _context21.next = 3;
+                                              _context23.next = 3;
                                               return this.profilService.updateStatus(this.info.modelId, 'En ligne').subscribe(function (data) {
                                                 _this35.router.navigate(['/modele/chat']);
                                               });
 
                                             case 3:
                                             case "end":
-                                              return _context21.stop();
+                                              return _context23.stop();
                                           }
                                         }
-                                      }, _callee21, this);
+                                      }, _callee23, this);
                                     }));
                                   });
 
                                 case 4:
-                                  return _context22.abrupt("return", _context22.sent);
+                                  return _context24.abrupt("return", _context24.sent);
 
                                 case 5:
                                 case "end":
-                                  return _context22.stop();
+                                  return _context24.stop();
                               }
                             }
-                          }, _callee22, this);
+                          }, _callee24, this);
                         }));
                       });
 
                     case 6:
                     case "end":
-                      return _context23.stop();
+                      return _context25.stop();
                   }
                 }
-              }, _callee23, this);
+              }, _callee25, this);
             }));
           } // Timer
 
         }, {
           key: "initTimer",
           value: function initTimer() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee25() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee27() {
               var _this36 = this;
 
-              return regeneratorRuntime.wrap(function _callee25$(_context25) {
+              return regeneratorRuntime.wrap(function _callee27$(_context27) {
                 while (1) {
-                  switch (_context25.prev = _context25.next) {
+                  switch (_context27.prev = _context27.next) {
                     case 0:
                       this.timerService.beginTimerModel(this.info.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_3__["TypeTimer"].VIP).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this36, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee24() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this36, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee26() {
                           var created, updated, _this$timerService$co, hour, minute, second;
 
-                          return regeneratorRuntime.wrap(function _callee24$(_context24) {
+                          return regeneratorRuntime.wrap(function _callee26$(_context26) {
                             while (1) {
-                              switch (_context24.prev = _context24.next) {
+                              switch (_context26.prev = _context26.next) {
                                 case 0:
                                   // console.log('Timer ', data);
                                   created = data.createdAt;
@@ -5700,32 +5757,32 @@
 
                                 case 11:
                                 case "end":
-                                  return _context24.stop();
+                                  return _context26.stop();
                               }
                             }
-                          }, _callee24, this);
+                          }, _callee26, this);
                         }));
                       });
 
                     case 1:
                     case "end":
-                      return _context25.stop();
+                      return _context27.stop();
                   }
                 }
-              }, _callee25, this);
+              }, _callee27, this);
             }));
           }
         }, {
           key: "getCostShow",
           value: function getCostShow() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee26() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee28() {
               var _this37 = this;
 
-              return regeneratorRuntime.wrap(function _callee26$(_context26) {
+              return regeneratorRuntime.wrap(function _callee28$(_context28) {
                 while (1) {
-                  switch (_context26.prev = _context26.next) {
+                  switch (_context28.prev = _context28.next) {
                     case 0:
-                      _context26.next = 2;
+                      _context28.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_3__["TypeTimer"].VIP).subscribe(function (data) {
                         // console.log("Show Cost ", data);
                         _this37.stat.tarif_show = data.credit;
@@ -5737,14 +5794,14 @@
                       });
 
                     case 2:
-                      return _context26.abrupt("return", _context26.sent);
+                      return _context28.abrupt("return", _context28.sent);
 
                     case 3:
                     case "end":
-                      return _context26.stop();
+                      return _context28.stop();
                   }
                 }
-              }, _callee26, this);
+              }, _callee28, this);
             }));
           }
         }, {
@@ -5780,11 +5837,11 @@
         }, {
           key: "leaveTimer",
           value: function leaveTimer() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee27() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee29() {
               var data;
-              return regeneratorRuntime.wrap(function _callee27$(_context27) {
+              return regeneratorRuntime.wrap(function _callee29$(_context29) {
                 while (1) {
-                  switch (_context27.prev = _context27.next) {
+                  switch (_context29.prev = _context29.next) {
                     case 0:
                       data = {
                         id: this.timer.id,
@@ -5792,18 +5849,18 @@
                         leaved: true,
                         push: new Date().toString()
                       };
-                      _context27.next = 3;
+                      _context29.next = 3;
                       return this.timerService.updateTimer(data);
 
                     case 3:
-                      return _context27.abrupt("return", _context27.sent);
+                      return _context29.abrupt("return", _context29.sent);
 
                     case 4:
                     case "end":
-                      return _context27.stop();
+                      return _context29.stop();
                   }
                 }
-              }, _callee27, this);
+              }, _callee29, this);
             }));
           } // WEB RTC - LIVE VIDEO
 
@@ -5821,7 +5878,8 @@
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
-                video: true
+                video: true,
+                audio: true
               }).then(function (ms) {
                 var _video = _this40.video.nativeElement;
                 _video.srcObject = ms;
@@ -5853,6 +5911,7 @@
           value: function callPeer(id) {
             var _this41 = this;
 
+            this.onStop();
             navigator.mediaDevices.getUserMedia({
               video: true,
               audio: true
@@ -6199,55 +6258,81 @@
       /*! @angular/common */
       "ofXK");
 
+      function LivePrivateCamComponent_div_1_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "video", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var stream_r2 = ctx.$implicit;
+
+          var ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("poster", ctx_r0.img, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"])("srcObject", stream_r2);
+        }
+      }
+
       var _c0 = function _c0(a0) {
         return {
           "selected": a0
         };
       };
 
-      function LivePrivateCamComponent_div_1_Template(rf, ctx) {
+      function LivePrivateCamComponent_div_2_div_1_Template(rf, ctx) {
         if (rf & 1) {
-          var _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+          var _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 7);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "video", 3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LivePrivateCamComponent_div_2_div_1_Template_div_click_0_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 4);
+            var item_r4 = ctx.$implicit;
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LivePrivateCamComponent_div_1_Template_div_click_2_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3);
+            var ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-            var item_r1 = ctx.$implicit;
-
-            var ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-
-            return ctx_r2.selectClient(item_r1.client.id);
+            return ctx_r5.selectClient(item_r4.client.id);
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
 
         if (rf & 2) {
-          var item_r1 = ctx.$implicit;
+          var item_r4 = ctx.$implicit;
 
-          var ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("poster", ctx_r0.img, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](2, _c0, ctx_r3.idSelected === item_r4.client.id));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](3, _c0, ctx_r0.idSelected === item_r1.client.id));
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", item_r4.client.pseudo, " ");
+        }
+      }
+
+      function LivePrivateCamComponent_div_2_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, LivePrivateCamComponent_div_2_div_1_Template, 2, 4, "div", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", item_r1.client.pseudo, " ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r1.clients);
         }
       }
 
@@ -6285,20 +6370,24 @@
         type: LivePrivateCamComponent,
         selectors: [["app-live-private-cam"]],
         inputs: {
+          streams: "streams",
           clients: "clients",
-          canSelect: "canSelect"
+          canSelect: "canSelect",
+          showListUser: "showListUser"
         },
         outputs: {
           clientSelected: "clientSelected"
         },
-        decls: 2,
-        vars: 1,
-        consts: [[1, "main_live_cam"], ["class", "camera_item", 4, "ngFor", "ngForOf"], [1, "camera_item"], ["autoplay", "", "id", "video_live_client", 1, "live_cam", 3, "poster"], [1, "Pseudo", 3, "ngClass", "click"]],
+        decls: 3,
+        vars: 2,
+        consts: [[1, "main_live_cam"], ["class", "camera_item", 4, "ngFor", "ngForOf"], ["class", "list_user", 4, "ngIf"], [1, "camera_item"], ["autoplay", "", 1, "live_cam", 3, "poster", "srcObject"], [1, "list_user"], ["class", "pseudo_user", 3, "ngClass", "click", 4, "ngFor", "ngForOf"], [1, "pseudo_user", 3, "ngClass", "click"]],
         template: function LivePrivateCamComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, LivePrivateCamComponent_div_1_Template, 4, 5, "div", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, LivePrivateCamComponent_div_1_Template, 2, 2, "div", 1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, LivePrivateCamComponent_div_2_Template, 2, 1, "div", 2);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
           }
@@ -6306,11 +6395,15 @@
           if (rf & 2) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.clients);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.streams);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showListUser);
           }
         },
-        directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["NgClass"]],
-        styles: [".main_live_cam[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  margin-left: 10px;\n  margin-right: 10px;\n  padding-top: 20px;\n  overflow-y: auto;\n  height: 64vh;\n}\n\n.camera_item[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  margin-bottom: 15px;\n  position: relative;\n}\n\nvideo.live_cam[_ngcontent-%COMP%] {\n  width: 60%;\n}\n\n.Pseudo[_ngcontent-%COMP%] {\n  background: var(--blue1);\n  padding: 4px;\n  position: absolute;\n  right: 40px;\n  border-radius: 5px;\n  bottom: 5px;\n  cursor: pointer;\n  top: 0px;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n}\n\n.selected[_ngcontent-%COMP%] {\n  background: var(--pink);\n}\n\n@media screen and (max-width: 700px) {\n  .main_live_cam[_ngcontent-%COMP%] {\n    height: 32vh;\n    display: flex;\n    flex-wrap: wrap !important;\n  }\n\n  .camera_item[_ngcontent-%COMP%] {\n    flex: 1 1 150px;\n  }\n\n  video.live_cam[_ngcontent-%COMP%] {\n    width: 150px;\n    height: 150px;\n  }\n\n  .Pseudo[_ngcontent-%COMP%] {\n    bottom: -10px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXGxpdmUtcHJpdmF0ZS1jYW0uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtBQUNGOztBQUNBO0VBQWMsYUFBQTtFQUFlLHVCQUFBO0VBQXdCLG1CQUFBO0VBQW9CLGtCQUFBO0FBTXpFOztBQUpBO0VBQ0UsVUFBQTtBQU9GOztBQUpBO0VBQ0Usd0JBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsZUFBQTtFQUNBLFFBQUE7RUFDQSwwQkFBQTtFQUFBLHVCQUFBO0VBQUEsa0JBQUE7RUFDQSwyQkFBQTtFQUFBLHdCQUFBO0VBQUEsbUJBQUE7QUFPRjs7QUFKQTtFQUNFLHVCQUFBO0FBT0Y7O0FBSkE7RUFDRTtJQUNFLFlBQUE7SUFDQSxhQUFBO0lBQ0EsMEJBQUE7RUFPRjs7RUFMQTtJQUFjLGVBQUE7RUFTZDs7RUFQQTtJQUNFLFlBQUE7SUFDQSxhQUFBO0VBVUY7O0VBUEE7SUFDRSxhQUFBO0VBVUY7QUFDRiIsImZpbGUiOiJsaXZlLXByaXZhdGUtY2FtLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1haW5fbGl2ZV9jYW0ge1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xyXG4gIHBhZGRpbmctdG9wOiAyMHB4O1xyXG4gIG92ZXJmbG93LXk6IGF1dG87XHJcbiAgaGVpZ2h0OiA2NHZoO1xyXG59XHJcbi5jYW1lcmFfaXRlbSB7ZGlzcGxheTogZmxleDsganVzdGlmeS1jb250ZW50OiBjZW50ZXI7bWFyZ2luLWJvdHRvbTogMTVweDtwb3NpdGlvbjogcmVsYXRpdmU7fVxyXG5cclxudmlkZW8ubGl2ZV9jYW0ge1xyXG4gIHdpZHRoOiA2MCU7XHJcbn1cclxuXHJcbi5Qc2V1ZG8ge1xyXG4gIGJhY2tncm91bmQ6IHZhcigtLWJsdWUxKTtcclxuICBwYWRkaW5nOiA0cHg7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHJpZ2h0OiA0MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICBib3R0b206IDVweDtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgdG9wOiAwcHg7XHJcbiAgd2lkdGg6IGZpdC1jb250ZW50O1xyXG4gIGhlaWdodDogZml0LWNvbnRlbnQ7XHJcbn1cclxuXHJcbi5zZWxlY3RlZCB7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tcGluayk7XHJcbn1cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDcwMHB4KSB7XHJcbiAgLm1haW5fbGl2ZV9jYW0ge1xyXG4gICAgaGVpZ2h0OiAzMnZoO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtd3JhcDogd3JhcCAhaW1wb3J0YW50O1xyXG4gIH1cclxuICAuY2FtZXJhX2l0ZW0ge2ZsZXg6IDEgMSAxNTBweDt9XHJcblxyXG4gIHZpZGVvLmxpdmVfY2FtIHtcclxuICAgIHdpZHRoOiAxNTBweDtcclxuICAgIGhlaWdodDogMTUwcHg7XHJcbiAgfVxyXG5cclxuICAuUHNldWRvIHtcclxuICAgIGJvdHRvbTogLTEwcHg7XHJcbiAgfVxyXG59XHJcbiJdfQ== */"]
+        directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["NgClass"]],
+        styles: [".main_live_cam[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  margin-left: 10px;\n  margin-right: 10px;\n  padding-top: 20px;\n  overflow-y: auto;\n  height: 64vh;\n}\n\n.camera_item[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  margin-bottom: 15px;\n  position: relative;\n}\n\nvideo.live_cam[_ngcontent-%COMP%] {\n  width: 60%;\n}\n\n.Pseudo[_ngcontent-%COMP%] {\n  background: var(--blue1);\n  padding: 4px;\n  position: absolute;\n  right: 40px;\n  border-radius: 5px;\n  bottom: 5px;\n  cursor: pointer;\n  top: 0px;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n}\n\n.selected[_ngcontent-%COMP%] {\n  background: var(--black) !important;\n}\n\n.list_user[_ngcontent-%COMP%] {\n  position: absolute;\n  right: 20px;\n  z-index: 200;\n  line-height: 35px;\n  max-height: 60vh;\n  overflow-y: auto;\n}\n\n.pseudo_user[_ngcontent-%COMP%] {\n  color: var(--pink);\n  border-bottom: 1px solid white;\n  width: 100px;\n  text-align: center;\n  cursor: pointer;\n  transition: all 0.3s;\n}\n\n.pseudo_user[_ngcontent-%COMP%]:hover {\n  background-color: rgba(255, 255, 255, 0.13);\n}\n\n@media screen and (max-width: 700px) {\n  .main_live_cam[_ngcontent-%COMP%] {\n    height: 32vh;\n    display: flex;\n    flex-wrap: wrap !important;\n  }\n\n  .camera_item[_ngcontent-%COMP%] {\n    flex: 1 1 150px;\n  }\n\n  video.live_cam[_ngcontent-%COMP%] {\n    width: 150px;\n    height: 150px;\n  }\n\n  .Pseudo[_ngcontent-%COMP%] {\n    bottom: -10px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXGxpdmUtcHJpdmF0ZS1jYW0uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtBQUNGOztBQUNBO0VBQWMsYUFBQTtFQUFlLHVCQUFBO0VBQXdCLG1CQUFBO0VBQW9CLGtCQUFBO0FBTXpFOztBQUpBO0VBQ0UsVUFBQTtBQU9GOztBQUpBO0VBQ0Usd0JBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsZUFBQTtFQUNBLFFBQUE7RUFDQSwwQkFBQTtFQUFBLHVCQUFBO0VBQUEsa0JBQUE7RUFDQSwyQkFBQTtFQUFBLHdCQUFBO0VBQUEsbUJBQUE7QUFPRjs7QUFKQTtFQUNFLG1DQUFBO0FBT0Y7O0FBSkE7RUFDRSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0FBT0Y7O0FBSkE7RUFDRSxrQkFBQTtFQUNBLDhCQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLG9CQUFBO0FBT0Y7O0FBSkE7RUFDRSwyQ0FBQTtBQU9GOztBQUpBO0VBQ0U7SUFDRSxZQUFBO0lBQ0EsYUFBQTtJQUNBLDBCQUFBO0VBT0Y7O0VBTEE7SUFBYyxlQUFBO0VBU2Q7O0VBUEE7SUFDRSxZQUFBO0lBQ0EsYUFBQTtFQVVGOztFQVBBO0lBQ0UsYUFBQTtFQVVGO0FBQ0YiLCJmaWxlIjoibGl2ZS1wcml2YXRlLWNhbS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tYWluX2xpdmVfY2FtIHtcclxuICBtYXJnaW4tdG9wOiAxMHB4O1xyXG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xyXG4gIG1hcmdpbi1yaWdodDogMTBweDtcclxuICBwYWRkaW5nLXRvcDogMjBweDtcclxuICBvdmVyZmxvdy15OiBhdXRvO1xyXG4gIGhlaWdodDogNjR2aDtcclxufVxyXG4uY2FtZXJhX2l0ZW0ge2Rpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogY2VudGVyO21hcmdpbi1ib3R0b206IDE1cHg7cG9zaXRpb246IHJlbGF0aXZlO31cclxuXHJcbnZpZGVvLmxpdmVfY2FtIHtcclxuICB3aWR0aDogNjAlO1xyXG59XHJcblxyXG4uUHNldWRvIHtcclxuICBiYWNrZ3JvdW5kOiB2YXIoLS1ibHVlMSk7XHJcbiAgcGFkZGluZzogNHB4O1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICByaWdodDogNDBweDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgYm90dG9tOiA1cHg7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIHRvcDogMHB4O1xyXG4gIHdpZHRoOiBmaXQtY29udGVudDtcclxuICBoZWlnaHQ6IGZpdC1jb250ZW50O1xyXG59XHJcblxyXG4uc2VsZWN0ZWQge1xyXG4gIGJhY2tncm91bmQ6IHZhcigtLWJsYWNrKSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4ubGlzdF91c2VyIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgcmlnaHQ6IDIwcHg7XHJcbiAgei1pbmRleDogMjAwO1xyXG4gIGxpbmUtaGVpZ2h0OiAzNXB4O1xyXG4gIG1heC1oZWlnaHQ6IDYwdmg7XHJcbiAgb3ZlcmZsb3cteTogYXV0bztcclxufVxyXG5cclxuLnBzZXVkb191c2VyIHtcclxuICBjb2xvcjogdmFyKC0tcGluayk7XHJcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHdoaXRlO1xyXG4gIHdpZHRoOiAxMDBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIHRyYW5zaXRpb246IGFsbCAwLjNzO1xyXG59XHJcblxyXG4ucHNldWRvX3VzZXI6aG92ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4xMyk7XHJcbn1cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDcwMHB4KSB7XHJcbiAgLm1haW5fbGl2ZV9jYW0ge1xyXG4gICAgaGVpZ2h0OiAzMnZoO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtd3JhcDogd3JhcCAhaW1wb3J0YW50O1xyXG4gIH1cclxuICAuY2FtZXJhX2l0ZW0ge2ZsZXg6IDEgMSAxNTBweDt9XHJcblxyXG4gIHZpZGVvLmxpdmVfY2FtIHtcclxuICAgIHdpZHRoOiAxNTBweDtcclxuICAgIGhlaWdodDogMTUwcHg7XHJcbiAgfVxyXG5cclxuICAuUHNldWRvIHtcclxuICAgIGJvdHRvbTogLTEwcHg7XHJcbiAgfVxyXG59XHJcbiJdfQ== */"]
       });
       /***/
     },
@@ -7316,45 +7409,45 @@
         _createClass(ProfilModelComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee28() {
-              return regeneratorRuntime.wrap(function _callee28$(_context28) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee30() {
+              return regeneratorRuntime.wrap(function _callee30$(_context30) {
                 while (1) {
-                  switch (_context28.prev = _context28.next) {
+                  switch (_context30.prev = _context30.next) {
                     case 0:
                       this.init();
                       this.getStatus();
-                      _context28.next = 4;
+                      _context30.next = 4;
                       return this.getInfo();
 
                     case 4:
                     case "end":
-                      return _context28.stop();
+                      return _context30.stop();
                   }
                 }
-              }, _callee28, this);
+              }, _callee30, this);
             }));
           }
         }, {
           key: "getInfo",
           value: function getInfo() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee30() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee32() {
               var _this46 = this;
 
-              return regeneratorRuntime.wrap(function _callee30$(_context30) {
+              return regeneratorRuntime.wrap(function _callee32$(_context32) {
                 while (1) {
-                  switch (_context30.prev = _context30.next) {
+                  switch (_context32.prev = _context32.next) {
                     case 0:
-                      _context30.next = 2;
+                      _context32.next = 2;
                       return this.profileService.getProfil().subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this46, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee29() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this46, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee31() {
                           var _this47 = this;
 
-                          return regeneratorRuntime.wrap(function _callee29$(_context29) {
+                          return regeneratorRuntime.wrap(function _callee31$(_context31) {
                             while (1) {
-                              switch (_context29.prev = _context29.next) {
+                              switch (_context31.prev = _context31.next) {
                                 case 0:
                                   this.model = data;
-                                  _context29.next = 3;
+                                  _context31.next = 3;
                                   return this.profileService.getInfo().subscribe(function (data) {
                                     // console.log(data);
                                     var date = new Date().getFullYear();
@@ -7365,26 +7458,26 @@
                                   });
 
                                 case 3:
-                                  return _context29.abrupt("return", _context29.sent);
+                                  return _context31.abrupt("return", _context31.sent);
 
                                 case 4:
                                 case "end":
-                                  return _context29.stop();
+                                  return _context31.stop();
                               }
                             }
-                          }, _callee29, this);
+                          }, _callee31, this);
                         }));
                       });
 
                     case 2:
-                      return _context30.abrupt("return", _context30.sent);
+                      return _context32.abrupt("return", _context32.sent);
 
                     case 3:
                     case "end":
-                      return _context30.stop();
+                      return _context32.stop();
                   }
                 }
-              }, _callee30, this);
+              }, _callee32, this);
             }));
           }
         }, {
@@ -7410,12 +7503,12 @@
         }, {
           key: "countAlbum",
           value: function countAlbum() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee31() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee33() {
               var _this49 = this;
 
-              return regeneratorRuntime.wrap(function _callee31$(_context31) {
+              return regeneratorRuntime.wrap(function _callee33$(_context33) {
                 while (1) {
-                  switch (_context31.prev = _context31.next) {
+                  switch (_context33.prev = _context33.next) {
                     case 0:
                       this.albumService.getCount().subscribe(function (data) {
                         _this49.count = data;
@@ -7426,61 +7519,61 @@
 
                     case 1:
                     case "end":
-                      return _context31.stop();
+                      return _context33.stop();
                   }
                 }
-              }, _callee31, this);
+              }, _callee33, this);
             }));
           }
         }, {
           key: "init",
           value: function init() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee32() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee34() {
               var _this50 = this;
 
-              return regeneratorRuntime.wrap(function _callee32$(_context32) {
+              return regeneratorRuntime.wrap(function _callee34$(_context34) {
                 while (1) {
-                  switch (_context32.prev = _context32.next) {
+                  switch (_context34.prev = _context34.next) {
                     case 0:
-                      _context32.next = 2;
+                      _context34.next = 2;
                       return this.countAlbum();
 
                     case 2:
-                      _context32.next = 4;
+                      _context34.next = 4;
                       return this.albumService.getAlbums('private', 0, 3);
 
                     case 4:
-                      _context32.next = 6;
-                      return _context32.sent.subscribe(function (data) {
+                      _context34.next = 6;
+                      return _context34.sent.subscribe(function (data) {
                         _this50.currentAlbumPrivate = data;
                       });
 
                     case 6:
-                      _context32.next = 8;
+                      _context34.next = 8;
                       return this.albumService.getAlbums('free', 0, 3);
 
                     case 8:
-                      _context32.next = 10;
-                      return _context32.sent.subscribe(function (data) {
+                      _context34.next = 10;
+                      return _context34.sent.subscribe(function (data) {
                         _this50.currentAlbumFree = data;
                       });
 
                     case 10:
-                      _context32.next = 12;
+                      _context34.next = 12;
                       return this.albumService.getAlbums('vip', 0, 3);
 
                     case 12:
-                      _context32.next = 14;
-                      return _context32.sent.subscribe(function (data) {
+                      _context34.next = 14;
+                      return _context34.sent.subscribe(function (data) {
                         _this50.currentAlbumVIP = data;
                       });
 
                     case 14:
                     case "end":
-                      return _context32.stop();
+                      return _context34.stop();
                   }
                 }
-              }, _callee32, this);
+              }, _callee34, this);
             }));
           }
         }, {
@@ -7567,65 +7660,65 @@
         }, {
           key: "fetchAlbum",
           value: function fetchAlbum(context, debut) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee33() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee35() {
               var _this51 = this;
 
-              return regeneratorRuntime.wrap(function _callee33$(_context33) {
+              return regeneratorRuntime.wrap(function _callee35$(_context35) {
                 while (1) {
-                  switch (_context33.prev = _context33.next) {
+                  switch (_context35.prev = _context35.next) {
                     case 0:
-                      _context33.t0 = context;
-                      _context33.next = _context33.t0 === 'private' ? 3 : _context33.t0 === 'vip' ? 8 : _context33.t0 === 'free' ? 13 : 18;
+                      _context35.t0 = context;
+                      _context35.next = _context35.t0 === 'private' ? 3 : _context35.t0 === 'vip' ? 8 : _context35.t0 === 'free' ? 13 : 18;
                       break;
 
                     case 3:
-                      _context33.next = 5;
+                      _context35.next = 5;
                       return this.albumService.getAlbums(context, debut, this.sectionAlbum);
 
                     case 5:
-                      _context33.next = 7;
-                      return _context33.sent.subscribe(function (data) {
+                      _context35.next = 7;
+                      return _context35.sent.subscribe(function (data) {
                         _this51.currentAlbumPrivate = data;
                       });
 
                     case 7:
-                      return _context33.abrupt("break", 19);
+                      return _context35.abrupt("break", 19);
 
                     case 8:
-                      _context33.next = 10;
+                      _context35.next = 10;
                       return this.albumService.getAlbums(context, debut, this.sectionAlbum);
 
                     case 10:
-                      _context33.next = 12;
-                      return _context33.sent.subscribe(function (data) {
+                      _context35.next = 12;
+                      return _context35.sent.subscribe(function (data) {
                         _this51.currentAlbumVIP = data;
                       });
 
                     case 12:
-                      return _context33.abrupt("break", 19);
+                      return _context35.abrupt("break", 19);
 
                     case 13:
-                      _context33.next = 15;
+                      _context35.next = 15;
                       return this.albumService.getAlbums(context, debut, this.sectionAlbum);
 
                     case 15:
-                      _context33.next = 17;
-                      return _context33.sent.subscribe(function (data) {
+                      _context35.next = 17;
+                      return _context35.sent.subscribe(function (data) {
                         _this51.currentAlbumFree = data;
                       });
 
                     case 17:
-                      return _context33.abrupt("break", 19);
+                      return _context35.abrupt("break", 19);
 
                     case 18:
-                      return _context33.abrupt("break", 19);
+                      return _context35.abrupt("break", 19);
 
                     case 19:
                     case "end":
-                      return _context33.stop();
+                      return _context35.stop();
                   }
                 }
-              }, _callee33, this);
+              }, _callee35, this);
             }));
           }
         }, {
@@ -9317,10 +9410,10 @@
         }, {
           key: "validate",
           value: function validate() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee34() {
-              return regeneratorRuntime.wrap(function _callee34$(_context34) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee36() {
+              return regeneratorRuntime.wrap(function _callee36$(_context36) {
                 while (1) {
-                  switch (_context34.prev = _context34.next) {
+                  switch (_context36.prev = _context36.next) {
                     case 0:
                       if (this.action == 'client') {
                         this.router.navigate(['/connexion']);
@@ -9331,14 +9424,14 @@
                         this.router.navigate([this.action]);
                       }
 
-                      return _context34.abrupt("return", this.dialogRef.close());
+                      return _context36.abrupt("return", this.dialogRef.close());
 
                     case 2:
                     case "end":
-                      return _context34.stop();
+                      return _context36.stop();
                   }
                 }
-              }, _callee34, this);
+              }, _callee36, this);
             }));
           }
         }]);
@@ -9563,97 +9656,103 @@
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! rxjs */
+      "qCKp");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/router */
       "tyNb");
       /* harmony import */
 
 
-      var src_app_services_model_model_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_services_model_model_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/services/model/model.service */
       "Y3G7");
       /* harmony import */
 
 
-      var _services_roomVip_room_vip_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _services_roomVip_room_vip_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ../../../services/roomVip/room-vip.service */
       "Uqma");
       /* harmony import */
 
 
-      var ngx_localstorage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var ngx_localstorage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ngx-localstorage */
       "M+ZX");
       /* harmony import */
 
 
-      var src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! src/app/services/chat/chat.service */
       "iPoy");
       /* harmony import */
 
 
-      var src_app_services_socket_socket_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var src_app_services_socket_socket_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! src/app/services/socket/socket.service */
       "58qO");
       /* harmony import */
 
 
-      var _services_popup_popup_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _services_popup_popup_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ../../../services/popup/popup.service */
       "foBO");
       /* harmony import */
 
 
-      var _services_profil_profil_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _services_profil_profil_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ../../../services/profil/profil.service */
       "XrNC");
       /* harmony import */
 
 
-      var _services_client_client_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var _services_client_client_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! ../../../services/client/client.service */
       "d5vW");
       /* harmony import */
 
 
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
       /*! @angular/material/dialog */
       "0IaG");
       /* harmony import */
 
 
-      var _services_timer_timer_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      var _services_timer_timer_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
       /*! ../../../services/timer/timer.service */
       "Ldui");
       /* harmony import */
 
 
-      var _services_notification_notification_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      var _services_notification_notification_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
       /*! ../../../services/notification/notification.service */
       "nak+");
       /* harmony import */
 
 
-      var _layouts_header_header_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+      var _layouts_header_header_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
       /*! ../../../layouts/header/header.component */
       "OPNc");
       /* harmony import */
 
 
-      var _topbar_topbar_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+      var _topbar_topbar_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
       /*! ../topbar/topbar.component */
       "xitf");
       /* harmony import */
 
 
-      var _live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+      var _live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
       /*! ../live-free/live-free-chat/live-free-chat.component */
       "UAgE");
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
       /*! @angular/forms */
       "3Pt+"); // Peer
 
@@ -9769,6 +9868,14 @@
             second: null,
             type: null
           };
+          this.joinSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
+          this.leaveSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
+          this.messageSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
+          this.modelLeaveSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
+          this.modelPassedVipSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
+          this.invitationVipSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
+          this.peerSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
+          this.newPeerSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
           this.peerList = [];
 
           this.getPeerId = function () {
@@ -9833,24 +9940,34 @@
         }, {
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee35() {
-              return regeneratorRuntime.wrap(function _callee35$(_context35) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee37() {
+              return regeneratorRuntime.wrap(function _callee37$(_context37) {
                 while (1) {
-                  switch (_context35.prev = _context35.next) {
+                  switch (_context37.prev = _context37.next) {
                     case 0:
-                      _context35.next = 2;
+                      this.onStop();
+                      _context37.next = 3;
                       return this.creditTimer();
 
-                    case 2:
-                      _context35.sent.subscribe(function (data) {// console.log("Response credit timer ", data);
+                    case 3:
+                      _context37.sent.subscribe(function (data) {// console.log("Response credit timer ", data);
                       });
 
-                    case 3:
+                      this.joinSub.unsubscribe();
+                      this.leaveSub.unsubscribe();
+                      this.messageSub.unsubscribe();
+                      this.modelLeaveSub.unsubscribe();
+                      this.modelPassedVipSub.unsubscribe();
+                      this.invitationVipSub.unsubscribe();
+                      this.peerSub.unsubscribe();
+                      this.newPeerSub.unsubscribe();
+
+                    case 12:
                     case "end":
-                      return _context35.stop();
+                      return _context37.stop();
                   }
                 }
-              }, _callee35, this);
+              }, _callee37, this);
             }));
           } // Get model infos
 
@@ -9940,34 +10057,62 @@
         }, {
           key: "initSocket",
           value: function initSocket() {
-            var _this61 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee38() {
+              var _this61 = this;
 
-            this.socketService.joinVip(this.idRoom, this.modelId);
-            this.socketService.listen("joined ".concat(this.idRoom, "V")).subscribe(function (data) {
-              // console.log('Joined ', data);
-              _this61.actif = data < 0 ? 0 : data;
-              _this61.actif = data > 2 ? 2 : data;
-              console.log('Actif ', _this61.actif);
-            });
-            this.socketService.listen("leaved ".concat(this.idRoom, "V")).subscribe(function (data) {
-              // console.log('leaved ', data);
-              _this61.actif = data < 0 ? 0 : data;
-              _this61.actif = data > 2 ? 2 : data;
-              console.log('Actif ', _this61.actif);
-            });
-            this.socketService.listen("message ".concat(this.idRoom, "V")).subscribe(function (data) {
-              // console.log('Msg to client ', data);
-              _this61.getMessages();
-            });
-            this.socketService.listen("model leaved ".concat(this.idRoom, "V")).subscribe(function (data) {
-              _this61.leaved = true;
-              _this61.indisponible = true;
-              _this61.actif = 1;
+              return regeneratorRuntime.wrap(function _callee38$(_context38) {
+                while (1) {
+                  switch (_context38.prev = _context38.next) {
+                    case 0:
+                      _context38.next = 2;
+                      return this.socketService.joinVip(this.idRoom, this.modelId);
 
-              _this61.popupService.info('/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this61.modelPseudo, " a ferm\xE9 le live de ce room"));
-            });
-            this.initTimer();
-            this.initLiveVideo();
+                    case 2:
+                      this.joinSub = this.socketService.listen("joined ".concat(this.idRoom, "V")).subscribe(function (data) {
+                        // console.log('Joined ', data);
+                        _this61.actif = data < 0 ? 0 : data;
+                        _this61.actif = data > 2 ? 2 : data;
+                        console.log('Actif ', _this61.actif);
+                      });
+                      this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom, "V")).subscribe(function (data) {
+                        // console.log('leaved ', data);
+                        _this61.actif = data < 0 ? 0 : data;
+                        _this61.actif = data > 2 ? 2 : data;
+                        console.log('Actif ', _this61.actif);
+                      });
+                      this.messageSub = this.socketService.listen("message ".concat(this.idRoom, "V")).subscribe(function (data) {
+                        // console.log('Msg to client ', data);
+                        _this61.getMessages();
+                      });
+                      this.modelLeaveSub = this.socketService.listen("model leaved ".concat(this.idRoom, "V")).subscribe(function (data) {
+                        _this61.leaved = true;
+                        _this61.indisponible = true;
+                        _this61.actif = 1;
+
+                        _this61.popupService.info('/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this61.modelPseudo, " a ferm\xE9 le live de ce room"));
+                      });
+                      this.peerSub = this.socketService.listen("ans peerId ".concat(this.clientId, " ").concat(this.idRoom, "V")).subscribe(function (data) {
+                        console.log("ans peerId ", data);
+                        _this61.peerIdShare = data.peerId;
+
+                        _this61.connectWithPeer();
+                      });
+                      this.newPeerSub = this.socketService.listen("new model peerId ".concat(this.idRoom, "V")).subscribe(function (data) {
+                        console.log("new model peerId");
+                        _this61.peerIdShare = data.peerId;
+
+                        _this61.connectWithPeer();
+                      });
+                      this.initTimer();
+                      this.initLiveVideo();
+
+                    case 10:
+                    case "end":
+                      return _context38.stop();
+                  }
+                }
+              }, _callee38, this);
+            }));
           }
         }, {
           key: "obsolete",
@@ -10029,14 +10174,14 @@
         }, {
           key: "liveOut",
           value: function liveOut() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee36() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee39() {
               var _this64 = this;
 
-              return regeneratorRuntime.wrap(function _callee36$(_context36) {
+              return regeneratorRuntime.wrap(function _callee39$(_context39) {
                 while (1) {
-                  switch (_context36.prev = _context36.next) {
+                  switch (_context39.prev = _context39.next) {
                     case 0:
-                      _context36.next = 2;
+                      _context39.next = 2;
                       return this.leaveTimer().then(function (data) {
                         _this64.roomVipService.leaveRoom();
 
@@ -10052,22 +10197,22 @@
 
                     case 3:
                     case "end":
-                      return _context36.stop();
+                      return _context39.stop();
                   }
                 }
-              }, _callee36, this);
+              }, _callee39, this);
             }));
           }
         }, {
           key: "leaveTimer",
           value: function leaveTimer() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee37() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee40() {
               var _this65 = this;
 
               var data;
-              return regeneratorRuntime.wrap(function _callee37$(_context37) {
+              return regeneratorRuntime.wrap(function _callee40$(_context40) {
                 while (1) {
-                  switch (_context37.prev = _context37.next) {
+                  switch (_context40.prev = _context40.next) {
                     case 0:
                       data = {
                         id: this.timer.id,
@@ -10076,21 +10221,21 @@
                         push: new Date().toString()
                       }; // console.log("Before leave timer ", data)
 
-                      _context37.next = 3;
+                      _context40.next = 3;
                       return this.timerService.updateTimer(data).subscribe(function (data) {
                         // console.log('Leave timer ', data);
                         _this65.timer.reinit = true;
                       });
 
                     case 3:
-                      return _context37.abrupt("return", _context37.sent);
+                      return _context40.abrupt("return", _context40.sent);
 
                     case 4:
                     case "end":
-                      return _context37.stop();
+                      return _context40.stop();
                   }
                 }
-              }, _callee37, this);
+              }, _callee40, this);
             }));
           }
         }, {
@@ -10111,14 +10256,14 @@
         }, {
           key: "getCredit",
           value: function getCredit() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee38() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee41() {
               var _this66 = this;
 
-              return regeneratorRuntime.wrap(function _callee38$(_context38) {
+              return regeneratorRuntime.wrap(function _callee41$(_context41) {
                 while (1) {
-                  switch (_context38.prev = _context38.next) {
+                  switch (_context41.prev = _context41.next) {
                     case 0:
-                      _context38.next = 2;
+                      _context41.next = 2;
                       return this.clientService.getCredit().subscribe(function (data) {
                         _this66.clientCredit = data.credit;
                         console.log('Client credit ', _this66.clientCredit);
@@ -10132,34 +10277,34 @@
                       });
 
                     case 2:
-                      return _context38.abrupt("return", _context38.sent);
+                      return _context41.abrupt("return", _context41.sent);
 
                     case 3:
                     case "end":
-                      return _context38.stop();
+                      return _context41.stop();
                   }
                 }
-              }, _callee38, this);
+              }, _callee41, this);
             }));
           } // Timer
 
         }, {
           key: "initTimer",
           value: function initTimer() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee40() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee43() {
               var _this67 = this;
 
-              return regeneratorRuntime.wrap(function _callee40$(_context40) {
+              return regeneratorRuntime.wrap(function _callee43$(_context43) {
                 while (1) {
-                  switch (_context40.prev = _context40.next) {
+                  switch (_context43.prev = _context43.next) {
                     case 0:
                       this.timerService.getTimer(this.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].VIP).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this67, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee39() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this67, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee42() {
                           var created, updated, _this$timerService$co2, hour, minute, second;
 
-                          return regeneratorRuntime.wrap(function _callee39$(_context39) {
+                          return regeneratorRuntime.wrap(function _callee42$(_context42) {
                             while (1) {
-                              switch (_context39.prev = _context39.next) {
+                              switch (_context42.prev = _context42.next) {
                                 case 0:
                                   // console.log('Timer ', data);
                                   created = data.createdAt;
@@ -10171,37 +10316,37 @@
                                   this.timer.minute = minute;
                                   this.timer.second = second; // console.log(this.timer.hour, ':', this.timer.minute, ':', this.timer.second);
 
-                                  _context39.next = 9;
+                                  _context42.next = 9;
                                   return this.getCostShow();
 
                                 case 9:
                                 case "end":
-                                  return _context39.stop();
+                                  return _context42.stop();
                               }
                             }
-                          }, _callee39, this);
+                          }, _callee42, this);
                         }));
                       });
 
                     case 1:
                     case "end":
-                      return _context40.stop();
+                      return _context43.stop();
                   }
                 }
-              }, _callee40, this);
+              }, _callee43, this);
             }));
           }
         }, {
           key: "getCostShow",
           value: function getCostShow() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee41() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee44() {
               var _this68 = this;
 
-              return regeneratorRuntime.wrap(function _callee41$(_context41) {
+              return regeneratorRuntime.wrap(function _callee44$(_context44) {
                 while (1) {
-                  switch (_context41.prev = _context41.next) {
+                  switch (_context44.prev = _context44.next) {
                     case 0:
-                      _context41.next = 2;
+                      _context44.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].VIP).subscribe(function (data) {
                         _this68.show.id = data.id;
                         _this68.show.credit = data.credit;
@@ -10223,14 +10368,14 @@
                       });
 
                     case 2:
-                      return _context41.abrupt("return", _context41.sent);
+                      return _context44.abrupt("return", _context44.sent);
 
                     case 3:
                     case "end":
-                      return _context41.stop();
+                      return _context44.stop();
                   }
                 }
-              }, _callee41, this);
+              }, _callee44, this);
             }));
           }
         }, {
@@ -10252,22 +10397,22 @@
         }, {
           key: "beginTimer",
           value: function beginTimer() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee43() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee46() {
               var _this70 = this;
 
               var delay;
-              return regeneratorRuntime.wrap(function _callee43$(_context43) {
+              return regeneratorRuntime.wrap(function _callee46$(_context46) {
                 while (1) {
-                  switch (_context43.prev = _context43.next) {
+                  switch (_context46.prev = _context46.next) {
                     case 0:
                       delay = this.show.second * 1000; // console.log(delay, " ms ");
 
-                      _context43.next = 3;
+                      _context46.next = 3;
                       return this.creditTimer();
 
                     case 3:
-                      _context43.next = 5;
-                      return _context43.sent.subscribe( // launch main creditation
+                      _context46.next = 5;
+                      return _context46.sent.subscribe( // launch main creditation
                       function (data) {
                         // console.log("Response credit timer ", data);
                         _this70.clientCredit = data.credit ? data.credit : 0;
@@ -10285,24 +10430,24 @@
 
                     case 5:
                       setInterval(function () {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this70, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee42() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this70, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee45() {
                           var _this71 = this;
 
-                          return regeneratorRuntime.wrap(function _callee42$(_context42) {
+                          return regeneratorRuntime.wrap(function _callee45$(_context45) {
                             while (1) {
-                              switch (_context42.prev = _context42.next) {
+                              switch (_context45.prev = _context45.next) {
                                 case 0:
                                   if (this.timer.reinit) {
-                                    _context42.next = 5;
+                                    _context45.next = 5;
                                     break;
                                   }
 
-                                  _context42.next = 3;
+                                  _context45.next = 3;
                                   return this.creditTimer();
 
                                 case 3:
-                                  _context42.next = 5;
-                                  return _context42.sent.subscribe(function (data) {
+                                  _context45.next = 5;
+                                  return _context45.sent.subscribe(function (data) {
                                     // console.log("Response credit timer ", data);
                                     _this71.clientCredit = data.credit ? data.credit : 0;
 
@@ -10319,36 +10464,36 @@
 
                                 case 5:
                                 case "end":
-                                  return _context42.stop();
+                                  return _context45.stop();
                               }
                             }
-                          }, _callee42, this);
+                          }, _callee45, this);
                         }));
                       }, delay);
 
                     case 6:
                     case "end":
-                      return _context43.stop();
+                      return _context46.stop();
                   }
                 }
-              }, _callee43, this);
+              }, _callee46, this);
             }));
           }
         }, {
           key: "creditTimer",
           value: function creditTimer() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee44() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee47() {
               var data;
-              return regeneratorRuntime.wrap(function _callee44$(_context44) {
+              return regeneratorRuntime.wrap(function _callee47$(_context47) {
                 while (1) {
-                  switch (_context44.prev = _context44.next) {
+                  switch (_context47.prev = _context47.next) {
                     case 0:
                       if (!(this.clientId === undefined || this.show.credit == null)) {
-                        _context44.next = 2;
+                        _context47.next = 2;
                         break;
                       }
 
-                      return _context44.abrupt("return", null);
+                      return _context47.abrupt("return", null);
 
                     case 2:
                       data = {
@@ -10361,18 +10506,18 @@
                         roomId: this.idRoom
                       }; // console.log("credit timer post ", data);
 
-                      _context44.next = 5;
+                      _context47.next = 5;
                       return this.timerService.creditTimer(data);
 
                     case 5:
-                      return _context44.abrupt("return", _context44.sent);
+                      return _context47.abrupt("return", _context47.sent);
 
                     case 6:
                     case "end":
-                      return _context44.stop();
+                      return _context47.stop();
                   }
                 }
-              }, _callee44, this);
+              }, _callee47, this);
             }));
           } // WEB RTC - LIVE VIDEO
 
@@ -10401,7 +10546,7 @@
         }, {
           key: "onStop",
           value: function onStop() {
-            if (this.video) {
+            if (this.video && this.video.nativeElement.srcObject) {
               this.video.nativeElement.pause();
 
               if (this.video.nativeElement.srcObject.getVideoTracks()[0]) {
@@ -10421,6 +10566,7 @@
           value: function callPeer(id) {
             var _this73 = this;
 
+            this.onStop();
             navigator.mediaDevices.getUserMedia({
               video: true,
               audio: true
@@ -10456,7 +10602,7 @@
       }();
 
       LiveVipComponent.ɵfac = function LiveVipComponent_Factory(t) {
-        return new (t || LiveVipComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_model_model_service__WEBPACK_IMPORTED_MODULE_8__["ModelService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_roomVip_room_vip_service__WEBPACK_IMPORTED_MODULE_9__["RoomVipService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ngx_localstorage__WEBPACK_IMPORTED_MODULE_10__["LocalStorageService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_11__["ChatService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_socket_socket_service__WEBPACK_IMPORTED_MODULE_12__["SocketService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_popup_popup_service__WEBPACK_IMPORTED_MODULE_13__["PopupService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_profil_profil_service__WEBPACK_IMPORTED_MODULE_14__["ProfilService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_client_client_service__WEBPACK_IMPORTED_MODULE_15__["ClientService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_16__["MatDialog"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_timer_timer_service__WEBPACK_IMPORTED_MODULE_17__["TimerService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_notification_notification_service__WEBPACK_IMPORTED_MODULE_18__["NotificationService"]));
+        return new (t || LiveVipComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_model_model_service__WEBPACK_IMPORTED_MODULE_9__["ModelService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_roomVip_room_vip_service__WEBPACK_IMPORTED_MODULE_10__["RoomVipService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ngx_localstorage__WEBPACK_IMPORTED_MODULE_11__["LocalStorageService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_12__["ChatService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_socket_socket_service__WEBPACK_IMPORTED_MODULE_13__["SocketService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_popup_popup_service__WEBPACK_IMPORTED_MODULE_14__["PopupService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_profil_profil_service__WEBPACK_IMPORTED_MODULE_15__["ProfilService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_client_client_service__WEBPACK_IMPORTED_MODULE_16__["ClientService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__["MatDialog"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_timer_timer_service__WEBPACK_IMPORTED_MODULE_18__["TimerService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_notification_notification_service__WEBPACK_IMPORTED_MODULE_19__["NotificationService"]));
       };
 
       LiveVipComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
@@ -10688,7 +10834,7 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("src", ctx.send, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
           }
         },
-        directives: [_layouts_header_header_component__WEBPACK_IMPORTED_MODULE_19__["HeaderComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgClass"], _topbar_topbar_component__WEBPACK_IMPORTED_MODULE_20__["TopbarComponent"], _live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_21__["LiveFreeChatComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_22__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_22__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_22__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_22__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_22__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_22__["NgModel"]],
+        directives: [_layouts_header_header_component__WEBPACK_IMPORTED_MODULE_20__["HeaderComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgClass"], _topbar_topbar_component__WEBPACK_IMPORTED_MODULE_21__["TopbarComponent"], _live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_22__["LiveFreeChatComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["NgModel"]],
         styles: [".header_chat[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  background-color: var(--blue2);\n  height: 50px;\n}\n\n.header_chat[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: 30px;\n  margin-right: 30px !important;\n  margin-left: 10px !important;\n  margin: 0;\n}\n\n.header_chat[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  font-size: 16px;\n}\n\n.btn.btn_vip[_ngcontent-%COMP%] {\n  background-color: var(--gold);\n}\n\n.btn.btn_buy[_ngcontent-%COMP%] {\n  background-color: transparent;\n  border-color: rgba(255, 255, 255, 0.541) !important;\n}\n\n.btn.btn_out_show[_ngcontent-%COMP%] {\n  background-color: var(--brown);\n}\n\n.show_vip[_ngcontent-%COMP%] {\n  text-align: center;\n}\n\n.buy_credit[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], .out_show[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  visibility: hidden;\n}\n\n.contain_left[_ngcontent-%COMP%] {\n  position: relative;\n}\n\n.client_live[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: -6px;\n  right: 0px;\n  padding: 0 !important;\n  text-align: right;\n}\n\n.client_flow[_ngcontent-%COMP%] {\n  width: 150px;\n  height: auto;\n}\n\n.btn[_ngcontent-%COMP%] {\n  height: 50px !important;\n  border-radius: 3px !important;\n}\n\n@media screen and (max-width: 700px) {\n  .show_live_left[_ngcontent-%COMP%] {\n    height: 40vh !important;\n  }\n\n  .show_live_right[_ngcontent-%COMP%] {\n    height: 52vh !important;\n    position: fixed;\n    margin-top: 6vh !important;\n  }\n\n  .client_live[_ngcontent-%COMP%] {\n    position: absolute;\n    bottom: -70px;\n    right: 0px;\n    padding: 0 !important;\n    text-align: right;\n    display: none !important;\n  }\n\n  .client_flow[_ngcontent-%COMP%] {\n    width: 100px;\n    height: auto;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcbGl2ZS12aXAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSw4QkFBQTtFQUNBLFlBQUE7QUFDRjs7QUFFQTtFQUNFLGVBQUE7RUFDQSw2QkFBQTtFQUNBLDRCQUFBO0VBQ0EsU0FBQTtBQUNGOztBQUNBO0VBQWtCLGVBQUE7QUFHbEI7O0FBREE7RUFBYyw2QkFBQTtBQUtkOztBQUpBO0VBQWMsNkJBQUE7RUFBK0IsbURBQUE7QUFTN0M7O0FBUkE7RUFBbUIsOEJBQUE7QUFZbkI7O0FBVkE7RUFBVyxrQkFBQTtBQWNYOztBQWJBO0VBQTRCLGtCQUFBO0FBaUI1Qjs7QUFmQTtFQUFlLGtCQUFBO0FBbUJmOztBQWpCQTtFQUNFLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFVBQUE7RUFDQSxxQkFBQTtFQUNBLGlCQUFBO0FBb0JGOztBQWpCQTtFQUNFLFlBQUE7RUFDQSxZQUFBO0FBb0JGOztBQWpCQTtFQUNFLHVCQUFBO0VBQ0EsNkJBQUE7QUFvQkY7O0FBakJBO0VBQ0U7SUFBaUIsdUJBQUE7RUFxQmpCOztFQXBCQTtJQUNFLHVCQUFBO0lBQ0EsZUFBQTtJQUNBLDBCQUFBO0VBdUJGOztFQXBCQTtJQUNFLGtCQUFBO0lBQ0EsYUFBQTtJQUNBLFVBQUE7SUFDQSxxQkFBQTtJQUNBLGlCQUFBO0lBQ0Esd0JBQUE7RUF1QkY7O0VBcEJBO0lBQ0UsWUFBQTtJQUNBLFlBQUE7RUF1QkY7QUFDRiIsImZpbGUiOiJsaXZlLXZpcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5oZWFkZXJfY2hhdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJsdWUyKTtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbn1cclxuXHJcbi5oZWFkZXJfY2hhdCBwIHtcclxuICBmb250LXNpemU6IDMwcHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAzMHB4ICFpbXBvcnRhbnQ7XHJcbiAgbWFyZ2luLWxlZnQ6IDEwcHggIWltcG9ydGFudDtcclxuICBtYXJnaW46IDA7XHJcbn1cclxuLmhlYWRlcl9jaGF0IGRpdiB7Zm9udC1zaXplOiAxNnB4O31cclxuXHJcbi5idG4uYnRuX3ZpcCB7YmFja2dyb3VuZC1jb2xvcjogdmFyKC0tZ29sZCk7fVxyXG4uYnRuLmJ0bl9idXkge2JhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OyBib3JkZXItY29sb3I6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC41NDEpICFpbXBvcnRhbnQ7fVxyXG4uYnRuLmJ0bl9vdXRfc2hvdyB7YmFja2dyb3VuZC1jb2xvcjogdmFyKC0tYnJvd24pO31cclxuXHJcbi5zaG93X3ZpcCB7dGV4dC1hbGlnbjogY2VudGVyO31cclxuLmJ1eV9jcmVkaXQgcCwgLm91dF9zaG93IHAge3Zpc2liaWxpdHk6IGhpZGRlbjt9XHJcblxyXG4uY29udGFpbl9sZWZ0IHtwb3NpdGlvbjogcmVsYXRpdmU7fVxyXG5cclxuLmNsaWVudF9saXZlIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgYm90dG9tOiAtNnB4O1xyXG4gIHJpZ2h0OiAwcHg7XHJcbiAgcGFkZGluZzogMCAhaW1wb3J0YW50O1xyXG4gIHRleHQtYWxpZ246IHJpZ2h0O1xyXG59XHJcblxyXG4uY2xpZW50X2Zsb3cge1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBoZWlnaHQ6IGF1dG87XHJcbn1cclxuXHJcbi5idG4ge1xyXG4gIGhlaWdodDogNTBweCAhaW1wb3J0YW50O1xyXG4gIGJvcmRlci1yYWRpdXM6IDNweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3MDBweCkge1xyXG4gIC5zaG93X2xpdmVfbGVmdCB7aGVpZ2h0OiA0MHZoICFpbXBvcnRhbnQ7fVxyXG4gIC5zaG93X2xpdmVfcmlnaHQge1xyXG4gICAgaGVpZ2h0OiA1MnZoICFpbXBvcnRhbnQ7XHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICBtYXJnaW4tdG9wOiA2dmggIWltcG9ydGFudDtcclxuICB9XHJcblxyXG4gIC5jbGllbnRfbGl2ZSB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBib3R0b206IC03MHB4O1xyXG4gICAgcmlnaHQ6IDBweDtcclxuICAgIHBhZGRpbmc6IDAgIWltcG9ydGFudDtcclxuICAgIHRleHQtYWxpZ246IHJpZ2h0O1xyXG4gICAgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50O1xyXG4gIH1cclxuXHJcbiAgLmNsaWVudF9mbG93IHtcclxuICAgIHdpZHRoOiAxMDBweDtcclxuICAgIGhlaWdodDogYXV0bztcclxuICB9XHJcbn1cclxuIl19 */", "video#video_live_model[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 70vh;\n}\n\n#dots[_ngcontent-%COMP%] {\n  display: none;\n  height: 20px;\n  position: fixed;\n  right: 0px;\n  z-index: 200;\n  top: 45vh;\n  cursor: pointer;\n}\n\n#close[_ngcontent-%COMP%] {\n  height: 20px;\n  cursor: pointer;\n  z-index: 200;\n}\n\n.contain_close[_ngcontent-%COMP%] {\n  display: none;\n  position: absolute;\n  left: 10px;\n  margin-top: -20px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  background: black;\n  border-radius: 20px;\n}\n\n.main_live[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  background-color: var(--blue3);\n  height: calc(100vh - 70px);\n}\n\n.contain_top[_ngcontent-%COMP%], .contain_bottom[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-around;\n}\n\n.contain_top[_ngcontent-%COMP%] {\n  height: 100%;\n}\n\n.contain_bottom[_ngcontent-%COMP%] {\n  height: 20vh;\n  margin-top: auto;\n}\n\n.contain_left[_ngcontent-%COMP%] {\n  width: 65%;\n  flex-direction: column;\n  display: flex;\n}\n\n.show_live_left[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  background: var(--black);\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  position: relative;\n}\n\n.contain_right[_ngcontent-%COMP%] {\n  width: 35%;\n  flex-direction: column;\n  display: flex;\n}\n\n.show_live_right[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  background-color: var(--blue3);\n}\n\n.contain_action[_ngcontent-%COMP%] {\n  display: flex;\n  padding-left: 15px;\n  padding-right: 15px;\n  justify-content: space-around;\n  width: 100%;\n  background-color: var(--blue3);\n  margin-top: auto;\n  height: 15vh;\n  align-items: center;\n}\n\n.btn[_ngcontent-%COMP%] {\n  font-size: 14px;\n  height: 40px;\n  padding: 10px;\n  color: white;\n  border-radius: 0;\n}\n\n.btn_show[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  text-align: center;\n  font-size: 13px;\n}\n\n.contain_right[_ngcontent-%COMP%] {\n  padding: 0;\n}\n\n.live_right[_ngcontent-%COMP%] {\n  padding: 0;\n  margin-left: -10px;\n}\n\n.btn_show[_ngcontent-%COMP%] {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  padding-top: 20px;\n}\n\n.contain_message[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  padding-left: 15px;\n  padding-right: 15px;\n  background-color: var(--blue2);\n  margin-top: auto;\n  height: 16vh;\n  justify-content: center;\n}\n\n.contain_thrombone[_ngcontent-%COMP%] {\n  display: flex;\n}\n\n.thrombone[_ngcontent-%COMP%] {\n  width: 22px;\n  margin-right: 10px;\n}\n\n.input_text[_ngcontent-%COMP%] {\n  display: flex;\n  margin-top: 5px;\n  align-items: center;\n}\n\n.input_text[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  background: transparent;\n  border: none;\n  padding: 0px;\n  margin: 0px;\n}\n\n.input_text[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  padding: 8px;\n  padding-left: 0px !important;\n  background-color: transparent;\n  color: white;\n  border-top: none;\n  border-left: none;\n  border-right: none;\n  border-bottom: 1px solid white;\n  width: 95%;\n  height: 35px;\n}\n\n.input_text[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus {\n  outline: none !important;\n}\n\n.input_text[_ngcontent-%COMP%]   .p[_ngcontent-%COMP%] {\n  display: flex;\n  opacity: 0.8;\n  margin-left: 15px;\n  height: 100%;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  user-select: none;\n  align-items: center;\n  padding-top: 0px;\n}\n\n.input_text[_ngcontent-%COMP%]   .p[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: 20px;\n}\n\n.bg_left[_ngcontent-%COMP%] {\n  height: 100%;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: contain;\n}\n\n.pass_private[_ngcontent-%COMP%] {\n  filter: blur(3px);\n  -webkit-filter: blur(3px);\n  z-index: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\napp-topbar[_ngcontent-%COMP%] {\n  z-index: 5;\n}\n\n.come_on[_ngcontent-%COMP%] {\n  filter: blur(0px) !important;\n  color: var(--pink);\n  border: 1px solid transparent;\n  padding: 20px;\n  box-shadow: 0px 0px 15px white;\n  border-radius: 7px;\n  background: #ffffff40;\n  font-weight: 600;\n  font-size: 16px;\n  text-align: center;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 2;\n}\n\n.leave[_ngcontent-%COMP%] {\n  text-align: center;\n  opacity: 1;\n  font-size: 15px;\n  color: var(--pink);\n}\n\n.contain_action_mobile[_ngcontent-%COMP%] {\n  display: none;\n}\n\n.dry_up[_ngcontent-%COMP%] {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  filter: blur(5px);\n  pointer-events: none;\n}\n\n@media screen and (max-width: 760px) {\n  .btn_show[_ngcontent-%COMP%]   *[_ngcontent-%COMP%] {\n    font-size: 12px;\n  }\n}\n\n@media screen and (max-width: 700px) {\n  .contain_action_desktop[_ngcontent-%COMP%] {\n    display: none !important;\n  }\n\n  .contain_action_mobile[_ngcontent-%COMP%] {\n    display: block !important;\n  }\n\n  #dots[_ngcontent-%COMP%], .contain_close[_ngcontent-%COMP%] {\n    display: block;\n  }\n\n  .main_live[_ngcontent-%COMP%] {\n    min-height: 100vh;\n  }\n\n  .contain_top[_ngcontent-%COMP%] {\n    height: 40vh;\n  }\n\n  .contain_top[_ngcontent-%COMP%], .contain_bottom[_ngcontent-%COMP%] {\n    flex-direction: column !important;\n  }\n\n  .show_live_left[_ngcontent-%COMP%] {\n    height: 30vh;\n    position: fixed;\n    top: 70px;\n  }\n\n  .show_live_right[_ngcontent-%COMP%] {\n    height: 45vh;\n    position: fixed;\n    margin-top: 0vh;\n  }\n\n  .contain_right[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n\n  .contain_left[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n\n  .contain_action[_ngcontent-%COMP%] {\n    position: fixed;\n    top: 19vh;\n    background-color: transparent !important;\n    height: 10vh !important;\n    transition: all 0.4s;\n  }\n\n  .btn[_ngcontent-%COMP%] {\n    height: auto !important;\n  }\n\n  .contain_message[_ngcontent-%COMP%] {\n    position: fixed;\n    height: 15vh;\n    justify-content: center;\n    width: 100%;\n    bottom: 0px;\n  }\n\n  video#video_live_model[_ngcontent-%COMP%] {\n    width: 100%;\n    height: 40vh;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxsaXZlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUUE7RUFDRSxXQUFBO0VBQ0EsWUFBQTtBQVBGOztBQVVBO0VBQ0UsYUFBQTtFQUNBLFlBQUE7RUFDQSxlQUFBO0VBQ0EsVUFBQTtFQUNBLFlBQUE7RUFDQSxTQUFBO0VBQ0EsZUFBQTtBQVBGOztBQVVBO0VBQ0UsWUFBQTtFQUNBLGVBQUE7RUFDQSxZQUFBO0FBUEY7O0FBU0E7RUFDRSxhQUFBO0VBQ0Esa0JBQUE7RUFDQSxVQUFBO0VBQ0EsaUJBQUE7RUFDQSx5QkFBQTtLQUFBLHNCQUFBO1VBQUEsaUJBQUE7RUFDQSxpQkFBQTtFQUNBLG1CQUFBO0FBTkY7O0FBU0E7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxXQUFBO0VBQ0EsOEJBQUE7RUFDQSwwQkFBQTtBQU5GOztBQVNBO0VBQ0UsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsV0FBQTtFQUNBLDZCQUFBO0FBTkY7O0FBU0E7RUFBYyxZQUFBO0FBTGQ7O0FBT0E7RUFDRSxZQUFBO0VBQ0EsZ0JBQUE7QUFKRjs7QUFPQTtFQUNFLFVBQUE7RUFFQSxzQkFBQTtFQUNBLGFBQUE7QUFMRjs7QUFRQTtFQUNFLFdBQUE7RUFDQSxZQUFBO0VBQ0Esd0JBQUE7RUFDQSx3QkFBQTtFQUNBLDRCQUFBO0VBQ0EsMkJBQUE7RUFDQSxrQkFBQTtBQUxGOztBQVFBO0VBQ0UsVUFBQTtFQUVBLHNCQUFBO0VBQ0EsYUFBQTtBQU5GOztBQVNBO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFDQSw4QkFBQTtBQU5GOztBQVNBO0VBQ0UsYUFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSw2QkFBQTtFQUNBLFdBQUE7RUFDQSw4QkFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0FBTkY7O0FBU0E7RUFDRSxlQUFBO0VBQ0EsWUFBQTtFQUNBLGFBQUE7RUFDQSxZQUFBO0VBQ0EsZ0JBQUE7QUFORjs7QUFTQTtFQUFhLGdCQUFBO0VBQWtCLGtCQUFBO0VBQW9CLGVBQUE7QUFIbkQ7O0FBS0E7RUFBZ0IsVUFBQTtBQURoQjs7QUFFQTtFQUFhLFVBQUE7RUFBVyxrQkFBQTtBQUd4Qjs7QUFEQTtFQUNFLFlBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSx1QkFBQTtFQUNBLGlCQUFBO0FBSUY7O0FBQUE7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsOEJBQUE7RUFDQSxnQkFBQTtFQUNBLFlBQUE7RUFDQSx1QkFBQTtBQUdGOztBQUNBO0VBQW9CLGFBQUE7QUFHcEI7O0FBRkE7RUFDRSxXQUFBO0VBQ0Esa0JBQUE7QUFLRjs7QUFGQTtFQUNFLGFBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7QUFLRjs7QUFGQTtFQUNFLHVCQUFBO0VBQ0EsWUFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0FBS0Y7O0FBRkE7RUFDRSxZQUFBO0VBQ0EsNEJBQUE7RUFDQSw2QkFBQTtFQUNBLFlBQUE7RUFDQSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSw4QkFBQTtFQUNBLFVBQUE7RUFDQSxZQUFBO0FBS0Y7O0FBRkE7RUFDRSx3QkFBQTtBQUtGOztBQUZBO0VBQ0UsYUFBQTtFQUNBLFlBQUE7RUFDQSxpQkFBQTtFQUNBLFlBQUE7RUFDQSx5QkFBQTtFQUNBLHNCQUFBO0VBQ0EsaUJBQUE7RUFDQSxtQkFBQTtFQUNBLGdCQUFBO0FBS0Y7O0FBSkU7RUFDRSxXQUFBO0FBTUo7O0FBRkE7RUFDRSxZQUFBO0VBQ0EsMkJBQUE7RUFDQSw0QkFBQTtFQUNBLHdCQUFBO0FBS0Y7O0FBRkE7RUFDRSxpQkFBQTtFQUNBLHlCQUFBO0VBQ0EsVUFBQTtFQUNBLGFBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0FBS0Y7O0FBRkE7RUFDRSxVQUFBO0FBS0Y7O0FBRkE7RUFDRSw0QkFBQTtFQUNBLGtCQUFBO0VBQ0EsNkJBQUE7RUFDQSxhQUFBO0VBQ0EsOEJBQUE7RUFDQSxrQkFBQTtFQUNBLHFCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBQ0EsZ0NBQUE7RUFDQSxVQUFBO0FBS0Y7O0FBRkE7RUFDRSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7QUFLRjs7QUFGQTtFQUF3QixhQUFBO0FBTXhCOztBQUhBO0VBQ0UseUJBQUE7S0FBQSxzQkFBQTtVQUFBLGlCQUFBO0VBQ0EsaUJBQUE7RUFDQSxvQkFBQTtBQU1GOztBQUhBO0VBQ0U7SUFBYSxlQUFBO0VBT2I7QUFDRjs7QUFMQTtFQUNFO0lBQXlCLHdCQUFBO0VBUXpCOztFQVBBO0lBQXdCLHlCQUFBO0VBV3hCOztFQVZBO0lBQXVCLGNBQUE7RUFjdkI7O0VBYkE7SUFBWSxpQkFBQTtFQWlCWjs7RUFoQkE7SUFBYyxZQUFBO0VBb0JkOztFQW5CQTtJQUErQixpQ0FBQTtFQXVCL0I7O0VBdEJBO0lBQWlCLFlBQUE7SUFBYyxlQUFBO0lBQWlCLFNBQUE7RUE0QmhEOztFQTNCQTtJQUNFLFlBQUE7SUFDQSxlQUFBO0lBQ0EsZUFBQTtFQThCRjs7RUE1QkE7SUFBZ0IsV0FBQTtFQWdDaEI7O0VBL0JBO0lBQWUsV0FBQTtFQW1DZjs7RUFsQ0E7SUFDRSxlQUFBO0lBQ0EsU0FBQTtJQUNBLHdDQUFBO0lBQ0EsdUJBQUE7SUFDQSxvQkFBQTtFQXFDRjs7RUFuQ0E7SUFDRSx1QkFBQTtFQXNDRjs7RUFwQ0E7SUFDRSxlQUFBO0lBQ0EsWUFBQTtJQUNBLHVCQUFBO0lBQ0EsV0FBQTtJQUNBLFdBQUE7RUF1Q0Y7O0VBcENBO0lBQ0UsV0FBQTtJQUNBLFlBQUE7RUF1Q0Y7QUFDRiIsImZpbGUiOiJsaXZlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvLyAuY29sLWNvbnRhaW5lciB7XHJcbi8vICAgZGlzcGxheTogdGFibGU7XHJcbi8vICAgd2lkdGg6IDEwMCU7XHJcbi8vIH1cclxuLy8gLmNvbCB7XHJcbi8vICAgZGlzcGxheTogdGFibGUtY2VsbDtcclxuLy8gfVxyXG5cclxudmlkZW8jdmlkZW9fbGl2ZV9tb2RlbCB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiA3MHZoO1xyXG59XHJcblxyXG4jZG90cyB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICBoZWlnaHQ6IDIwcHg7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHJpZ2h0OiAwcHg7XHJcbiAgei1pbmRleDogMjAwO1xyXG4gIHRvcDogNDV2aDtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbiNjbG9zZSB7XHJcbiAgaGVpZ2h0OiAyMHB4O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICB6LWluZGV4OiAyMDA7XHJcbn1cclxuLmNvbnRhaW5fY2xvc2Uge1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGxlZnQ6IDEwcHg7XHJcbiAgbWFyZ2luLXRvcDogLTIwcHg7XHJcbiAgdXNlci1zZWxlY3Q6IG5vbmU7XHJcbiAgYmFja2dyb3VuZDogYmxhY2s7XHJcbiAgYm9yZGVyLXJhZGl1czogMjBweDtcclxufVxyXG5cclxuLm1haW5fbGl2ZSB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJsdWUzKTtcclxuICBoZWlnaHQ6IGNhbGMoMTAwdmggLSA3MHB4KTtcclxufVxyXG5cclxuLmNvbnRhaW5fdG9wLCAuY29udGFpbl9ib3R0b20ge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcclxuICB3aWR0aDogMTAwJTtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcclxufVxyXG5cclxuLmNvbnRhaW5fdG9wIHtoZWlnaHQ6IDEwMCU7fVxyXG5cclxuLmNvbnRhaW5fYm90dG9tIHtcclxuICBoZWlnaHQ6IDIwdmg7XHJcbiAgbWFyZ2luLXRvcDogYXV0bztcclxufVxyXG5cclxuLmNvbnRhaW5fbGVmdCB7XHJcbiAgd2lkdGg6IDY1JTtcclxuICAvLyBoZWlnaHQ6IDEwMCU7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcblxyXG4uc2hvd19saXZlX2xlZnQge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBiYWNrZ3JvdW5kOiB2YXIoLS1ibGFjayk7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG5cclxuLmNvbnRhaW5fcmlnaHQge1xyXG4gIHdpZHRoOiAzNSU7XHJcbiAgLy8gaGVpZ2h0OiAxMDAlO1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG5cclxuLnNob3dfbGl2ZV9yaWdodCB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJsdWUzKTtcclxufVxyXG5cclxuLmNvbnRhaW5fYWN0aW9uIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIHBhZGRpbmctbGVmdDogMTVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxNXB4O1xyXG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYXJvdW5kO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJsdWUzKTtcclxuICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gIGhlaWdodDogMTV2aDtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcblxyXG4uYnRuIHtcclxuICBmb250LXNpemU6IDE0cHg7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIHBhZGRpbmc6IDEwcHg7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGJvcmRlci1yYWRpdXM6IDA7XHJcbn1cclxuXHJcbi5idG5fc2hvdyBwIHttYXJnaW4tdG9wOiAxMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtc2l6ZTogMTNweDt9XHJcblxyXG4uY29udGFpbl9yaWdodCB7cGFkZGluZzogMDt9XHJcbi5saXZlX3JpZ2h0IHtwYWRkaW5nOiAwO21hcmdpbi1sZWZ0OiAtMTBweDt9XHJcblxyXG4uYnRuX3Nob3cge1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgcGFkZGluZy10b3A6IDIwcHg7XHJcbn1cclxuXHJcbi8vIENvbnRhaW4gbWVzc2FnZVxyXG4uY29udGFpbl9tZXNzYWdlIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgcGFkZGluZy1sZWZ0OiAxNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDE1cHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tYmx1ZTIpO1xyXG4gIG1hcmdpbi10b3A6IGF1dG87XHJcbiAgaGVpZ2h0OiAxNnZoO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcblxyXG5cclxuLmNvbnRhaW5fdGhyb21ib25lIHtkaXNwbGF5OiBmbGV4O31cclxuLnRocm9tYm9uZSB7XHJcbiAgd2lkdGg6IDIycHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xyXG59XHJcblxyXG4uaW5wdXRfdGV4dCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW4tdG9wOiA1cHg7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxufVxyXG5cclxuLmlucHV0X3RleHQgYnV0dG9uIHtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgcGFkZGluZzogMHB4O1xyXG4gIG1hcmdpbjogMHB4O1xyXG59XHJcblxyXG4uaW5wdXRfdGV4dCBpbnB1dCB7XHJcbiAgcGFkZGluZzogOHB4O1xyXG4gIHBhZGRpbmctbGVmdDogMHB4ICFpbXBvcnRhbnQ7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGJvcmRlci10b3A6IG5vbmU7XHJcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbiAgYm9yZGVyLXJpZ2h0OiBub25lO1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCB3aGl0ZTtcclxuICB3aWR0aDogOTUlO1xyXG4gIGhlaWdodDogMzVweDtcclxufVxyXG5cclxuLmlucHV0X3RleHQgaW5wdXQ6Zm9jdXMge1xyXG4gIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmlucHV0X3RleHQgLnAge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgb3BhY2l0eTogMC44O1xyXG4gIG1hcmdpbi1sZWZ0OiAxNXB4O1xyXG4gIGhlaWdodDogMTAwJTtcclxuICAtd2Via2l0LXVzZXItc2VsZWN0OiBub25lO1xyXG4gIC1tb3otdXNlci1zZWxlY3Q6IG5vbmU7XHJcbiAgdXNlci1zZWxlY3Q6IG5vbmU7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBwYWRkaW5nLXRvcDogMHB4O1xyXG4gIGltZyB7XHJcbiAgICB3aWR0aDogMjBweDtcclxuICB9XHJcbn1cclxuXHJcbi5iZ19sZWZ0IHtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG59XHJcblxyXG4ucGFzc19wcml2YXRlIHtcclxuICBmaWx0ZXI6IGJsdXIoM3B4KTtcclxuICAtd2Via2l0LWZpbHRlcjogYmx1cigzcHgpO1xyXG4gIHotaW5kZXg6IDA7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcblxyXG5hcHAtdG9wYmFyIHtcclxuICB6LWluZGV4OiA1O1xyXG59XHJcblxyXG4uY29tZV9vbiB7XHJcbiAgZmlsdGVyOiBibHVyKDBweCkgIWltcG9ydGFudDtcclxuICBjb2xvcjogdmFyKC0tcGluayk7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7XHJcbiAgcGFkZGluZzogMjBweDtcclxuICBib3gtc2hhZG93OiAwcHggMHB4IDE1cHggd2hpdGU7XHJcbiAgYm9yZGVyLXJhZGl1czogN3B4O1xyXG4gIGJhY2tncm91bmQ6ICNmZmZmZmY0MDtcclxuICBmb250LXdlaWdodDogNjAwO1xyXG4gIGZvbnQtc2l6ZTogMTZweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHRvcDogNTAlO1xyXG4gIGxlZnQ6IDUwJTtcclxuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICB6LWluZGV4OiAyO1xyXG59XHJcblxyXG4ubGVhdmUge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBvcGFjaXR5OiAxO1xyXG4gIGZvbnQtc2l6ZTogMTVweDtcclxuICBjb2xvcjogdmFyKC0tcGluayk7XHJcbn1cclxuXHJcbi5jb250YWluX2FjdGlvbl9tb2JpbGUge2Rpc3BsYXk6IG5vbmU7fVxyXG5cclxuXHJcbi5kcnlfdXAge1xyXG4gIHVzZXItc2VsZWN0OiBub25lO1xyXG4gIGZpbHRlcjogYmx1cig1cHgpO1xyXG4gIHBvaW50ZXItZXZlbnRzOiBub25lO1xyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3NjBweCkge1xyXG4gIC5idG5fc2hvdyAqIHtmb250LXNpemU6IDEycHg7fVxyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3MDBweCkge1xyXG4gIC5jb250YWluX2FjdGlvbl9kZXNrdG9wIHtkaXNwbGF5OiBub25lICFpbXBvcnRhbnQ7fVxyXG4gIC5jb250YWluX2FjdGlvbl9tb2JpbGUge2Rpc3BsYXk6IGJsb2NrICFpbXBvcnRhbnQ7fVxyXG4gICNkb3RzLCAuY29udGFpbl9jbG9zZSB7ZGlzcGxheTogYmxvY2s7fVxyXG4gIC5tYWluX2xpdmUge21pbi1oZWlnaHQ6IDEwMHZoO31cclxuICAuY29udGFpbl90b3Age2hlaWdodDogNDB2aDt9XHJcbiAgLmNvbnRhaW5fdG9wLCAuY29udGFpbl9ib3R0b20ge2ZsZXgtZGlyZWN0aW9uOiBjb2x1bW4gIWltcG9ydGFudDt9XHJcbiAgLnNob3dfbGl2ZV9sZWZ0IHtoZWlnaHQ6IDMwdmg7IHBvc2l0aW9uOiBmaXhlZDsgdG9wOiA3MHB4O31cclxuICAuc2hvd19saXZlX3JpZ2h0IHtcclxuICAgIGhlaWdodDogNDV2aDtcclxuICAgIHBvc2l0aW9uOiBmaXhlZDtcclxuICAgIG1hcmdpbi10b3A6IDB2aDtcclxuICB9XHJcbiAgLmNvbnRhaW5fcmlnaHQge3dpZHRoOiAxMDAlO31cclxuICAuY29udGFpbl9sZWZ0IHt3aWR0aDogMTAwJTt9XHJcbiAgLmNvbnRhaW5fYWN0aW9uIHtcclxuICAgIHBvc2l0aW9uOiBmaXhlZDtcclxuICAgIHRvcDogMTl2aDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XHJcbiAgICBoZWlnaHQ6IDEwdmggIWltcG9ydGFudDtcclxuICAgIHRyYW5zaXRpb246IGFsbCAwLjRzO1xyXG4gIH1cclxuICAuYnRuIHtcclxuICAgIGhlaWdodDogYXV0byAhaW1wb3J0YW50O1xyXG4gIH1cclxuICAuY29udGFpbl9tZXNzYWdlIHtcclxuICAgIHBvc2l0aW9uOiBmaXhlZDtcclxuICAgIGhlaWdodDogMTV2aDtcclxuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBib3R0b206IDBweDtcclxuICB9XHJcblxyXG4gIHZpZGVvI3ZpZGVvX2xpdmVfbW9kZWwge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDQwdmg7XHJcbiAgfVxyXG59XHJcbiJdfQ== */"]
       });
       /***/
@@ -11618,24 +11764,24 @@
         }, {
           key: "validate",
           value: function validate(event) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee45() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee48() {
               var _this75 = this;
 
               var passwords;
-              return regeneratorRuntime.wrap(function _callee45$(_context45) {
+              return regeneratorRuntime.wrap(function _callee48$(_context48) {
                 while (1) {
-                  switch (_context45.prev = _context45.next) {
+                  switch (_context48.prev = _context48.next) {
                     case 0:
                       this.submitted = true;
                       event.preventDefault();
                       this.errorPassword = null;
 
                       if (!this.passwordForm.invalid) {
-                        _context45.next = 5;
+                        _context48.next = 5;
                         break;
                       }
 
-                      return _context45.abrupt("return");
+                      return _context48.abrupt("return");
 
                     case 5:
                       passwords = this.passwordForm.value;
@@ -11653,10 +11799,10 @@
 
                     case 7:
                     case "end":
-                      return _context45.stop();
+                      return _context48.stop();
                   }
                 }
-              }, _callee45, this);
+              }, _callee48, this);
             }));
           }
         }]);
@@ -12358,16 +12504,16 @@
         }, {
           key: "getMyInfo",
           value: function getMyInfo() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee46() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee49() {
               var _this76 = this;
 
               var id;
-              return regeneratorRuntime.wrap(function _callee46$(_context46) {
+              return regeneratorRuntime.wrap(function _callee49$(_context49) {
                 while (1) {
-                  switch (_context46.prev = _context46.next) {
+                  switch (_context49.prev = _context49.next) {
                     case 0:
                       id = parseInt(this.store.get('identification//'));
-                      _context46.next = 3;
+                      _context49.next = 3;
                       return this.clientService.getMyInfos().subscribe(function (data) {
                         // console.log('My INFO ', data);
                         _this76.info.id = data.id;
@@ -12378,10 +12524,10 @@
 
                     case 3:
                     case "end":
-                      return _context46.stop();
+                      return _context49.stop();
                   }
                 }
-              }, _callee46, this);
+              }, _callee49, this);
             }));
           }
         }, {
@@ -12400,34 +12546,34 @@
             console.log(montant, " ", credit);
             if (this.info.creditId === null) return false;
             this.creditService.buyCreditClient(montant, credit, this.info.creditId, this.info.id).subscribe(function (data) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this77, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee47() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this77, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee50() {
                 var _this78 = this;
 
-                return regeneratorRuntime.wrap(function _callee47$(_context47) {
+                return regeneratorRuntime.wrap(function _callee50$(_context50) {
                   while (1) {
-                    switch (_context47.prev = _context47.next) {
+                    switch (_context50.prev = _context50.next) {
                       case 0:
                         if (data) {
-                          _context47.next = 4;
+                          _context50.next = 4;
                           break;
                         }
 
                         this.notificationService.failure("Pack ".concat(this.currentPack), "Votre transaction a echou\xE9.");
-                        _context47.next = 6;
+                        _context50.next = 6;
                         break;
 
                       case 4:
-                        _context47.next = 6;
+                        _context50.next = 6;
                         return this.getMyInfo().then(function (data) {
                           _this78.notificationService.success("Pack ".concat(_this78.currentPack), "Vous avez obtenu ".concat(credit, " cr\xE9dits de plus."));
                         });
 
                       case 6:
                       case "end":
-                        return _context47.stop();
+                        return _context50.stop();
                     }
                   }
-                }, _callee47, this);
+                }, _callee50, this);
               }));
             });
           }
@@ -12818,23 +12964,23 @@
         }, {
           key: "validate",
           value: function validate(event) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee48() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee51() {
               var _this79 = this;
 
               var passwords;
-              return regeneratorRuntime.wrap(function _callee48$(_context48) {
+              return regeneratorRuntime.wrap(function _callee51$(_context51) {
                 while (1) {
-                  switch (_context48.prev = _context48.next) {
+                  switch (_context51.prev = _context51.next) {
                     case 0:
                       this.submitted = true;
                       event.preventDefault();
 
                       if (!this.changeForm.invalid) {
-                        _context48.next = 4;
+                        _context51.next = 4;
                         break;
                       }
 
-                      return _context48.abrupt("return");
+                      return _context51.abrupt("return");
 
                     case 4:
                       passwords = this.changeForm.value;
@@ -12848,10 +12994,10 @@
 
                     case 6:
                     case "end":
-                      return _context48.stop();
+                      return _context51.stop();
                   }
                 }
-              }, _callee48, this);
+              }, _callee51, this);
             }));
           }
         }]);
@@ -13267,6 +13413,7 @@
           this.leaved = false;
           this.clientId = null;
           this.clients = [];
+          this.clientStream = [];
           this.joinSub = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subscription"]();
           this.leaveSub = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subscription"]();
           this.messageSub = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subscription"]();
@@ -13290,12 +13437,21 @@
             _this80.peer.on('open', function (id) {
               console.log("Peer Id ", id);
               _this80.peerId = id;
+              var data = {
+                role: 'model',
+                modelId: _this80.info.modelId,
+                room: _this80.info.idRoom + 'P',
+                peerId: _this80.peerId
+              };
+
+              _this80.socketService.newPeerIdModel(data);
             });
 
             _this80.peer.on('call', function (call) {
+              console.log("Someone call model");
+
               _this80.onStop();
 
-              console.log("Someone call model");
               navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
@@ -13306,11 +13462,10 @@
 
                 _video.play();
 
-                console.log("Get model stream ", stream);
                 call.answer(stream);
                 console.log("After answer stream");
                 call.on('stream', function (remoteStream) {
-                  console.log("On stream model");
+                  console.log("On receive stream model");
 
                   if (!_this80.peerList.includes(call.peer)) {
                     _this80.streamRemoteVideo(remoteStream);
@@ -13340,6 +13495,7 @@
         }, {
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
+            this.onStop();
             this.joinSub.unsubscribe();
             this.leaveSub.unsubscribe();
             this.messageSub.unsubscribe();
@@ -13352,6 +13508,18 @@
 
             this.modelService.getInfo().subscribe(function (data) {
               // console.log('Get info ', data);
+              if (data.profile.status === 'En vip') {
+                _this81.onStop();
+
+                _this81.router.navigate(['/modele/live-vip']);
+              }
+
+              if (data.profile.status === 'En ligne') {
+                _this81.onStop();
+
+                _this81.router.navigate(['/modele/chat']);
+              }
+
               _this81.info.bg = data.path_soft;
               _this81.info.modelId = data.id;
               _this81.info.pseudo = data.pseudo;
@@ -13365,10 +13533,10 @@
             var _this82 = this;
 
             this.roomPrivateService.getRoomModel(this.info.modelId).subscribe(function (data) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this82, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee49() {
-                return regeneratorRuntime.wrap(function _callee49$(_context49) {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this82, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee52() {
+                return regeneratorRuntime.wrap(function _callee52$(_context52) {
                   while (1) {
-                    switch (_context49.prev = _context49.next) {
+                    switch (_context52.prev = _context52.next) {
                       case 0:
                         // console.log('Model room ', data);
                         this.info.idRoom = data.idRoom;
@@ -13377,24 +13545,24 @@
 
                       case 3:
                       case "end":
-                        return _context49.stop();
+                        return _context52.stop();
                     }
                   }
-                }, _callee49, this);
+                }, _callee52, this);
               }));
             });
           }
         }, {
           key: "getActifs",
           value: function getActifs() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee50() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee53() {
               var _this83 = this;
 
-              return regeneratorRuntime.wrap(function _callee50$(_context50) {
+              return regeneratorRuntime.wrap(function _callee53$(_context53) {
                 while (1) {
-                  switch (_context50.prev = _context50.next) {
+                  switch (_context53.prev = _context53.next) {
                     case 0:
-                      _context50.next = 2;
+                      _context53.next = 2;
                       return this.roomPrivateService.getActif(this.info.idRoom).subscribe(function (data) {
                         // console.log("Get les actifs ", data);
                         _this83.info.actif = data.clients.length;
@@ -13403,10 +13571,10 @@
 
                     case 2:
                     case "end":
-                      return _context50.stop();
+                      return _context53.stop();
                   }
                 }
-              }, _callee50, this);
+              }, _callee53, this);
             }));
           }
         }, {
@@ -13439,19 +13607,19 @@
               _this85.getMessages();
             });
             this.peerSub = this.socketService.listen("ask peerId ".concat(this.info.idRoom, "P")).subscribe(function (data) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this85, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee51() {
-                return regeneratorRuntime.wrap(function _callee51$(_context51) {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this85, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee54() {
+                return regeneratorRuntime.wrap(function _callee54$(_context54) {
                   while (1) {
-                    switch (_context51.prev = _context51.next) {
+                    switch (_context54.prev = _context54.next) {
                       case 0:
                         console.log('Ask peer Id ', data);
 
                         if (this.peerId) {
-                          _context51.next = 4;
+                          _context54.next = 4;
                           break;
                         }
 
-                        _context51.next = 4;
+                        _context54.next = 4;
                         return this.getPeerId();
 
                       case 4:
@@ -13463,10 +13631,10 @@
 
                       case 5:
                       case "end":
-                        return _context51.stop();
+                        return _context54.stop();
                     }
                   }
-                }, _callee51, this);
+                }, _callee54, this);
               }));
             });
             this.getActifs();
@@ -13517,25 +13685,25 @@
         }, {
           key: "liveVIP",
           value: function liveVIP() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee52() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee55() {
               var _this88 = this;
 
-              return regeneratorRuntime.wrap(function _callee52$(_context52) {
+              return regeneratorRuntime.wrap(function _callee55$(_context55) {
                 while (1) {
-                  switch (_context52.prev = _context52.next) {
+                  switch (_context55.prev = _context55.next) {
                     case 0:
                       if (!this.clientId) {
-                        _context52.next = 8;
+                        _context55.next = 8;
                         break;
                       }
 
                       this.leaved = true;
                       this.clearTimer();
-                      _context52.next = 5;
+                      _context55.next = 5;
                       return this.leaveTimer();
 
                     case 5:
-                      _context52.sent.subscribe(function (data) {
+                      _context55.sent.subscribe(function (data) {
                         _this88.timer.reinit = true;
 
                         _this88.roomVipService.createRoom(_this88.clientId).subscribe(function (data) {
@@ -13558,7 +13726,7 @@
                         });
                       });
 
-                      _context52.next = 9;
+                      _context55.next = 9;
                       break;
 
                     case 8:
@@ -13566,20 +13734,20 @@
 
                     case 9:
                     case "end":
-                      return _context52.stop();
+                      return _context55.stop();
                   }
                 }
-              }, _callee52, this);
+              }, _callee55, this);
             }));
           }
         }, {
           key: "askLeave",
           value: function askLeave() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee53() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee56() {
               var data;
-              return regeneratorRuntime.wrap(function _callee53$(_context53) {
+              return regeneratorRuntime.wrap(function _callee56$(_context56) {
                 while (1) {
-                  switch (_context53.prev = _context53.next) {
+                  switch (_context56.prev = _context56.next) {
                     case 0:
                       data = {
                         room: this.info.idRoom + 'P',
@@ -13588,39 +13756,39 @@
                         pseudo: this.info.pseudo,
                         message: 'I pass to live VIP'
                       };
-                      _context53.next = 3;
+                      _context56.next = 3;
                       return this.socketService.emit('Pass to VIP', data);
 
                     case 3:
-                      return _context53.abrupt("return", _context53.sent);
+                      return _context56.abrupt("return", _context56.sent);
 
                     case 4:
                     case "end":
-                      return _context53.stop();
+                      return _context56.stop();
                   }
                 }
-              }, _callee53, this);
+              }, _callee56, this);
             }));
           }
         }, {
           key: "liveOut",
           value: function liveOut() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee54() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee57() {
               var _this89 = this;
 
-              return regeneratorRuntime.wrap(function _callee54$(_context54) {
+              return regeneratorRuntime.wrap(function _callee57$(_context57) {
                 while (1) {
-                  switch (_context54.prev = _context54.next) {
+                  switch (_context57.prev = _context57.next) {
                     case 0:
                       // const room = this.store.get('privateRoomId');
                       this.onStop();
                       this.leaved = true;
-                      _context54.next = 4;
+                      _context57.next = 4;
                       return this.leaveTimer();
 
                     case 4:
-                      _context54.next = 6;
-                      return _context54.sent.subscribe(function (data) {
+                      _context57.next = 6;
+                      return _context57.sent.subscribe(function (data) {
                         _this89.timer.reinit = true;
 
                         _this89.clearTimer(); // set to zero
@@ -13638,10 +13806,10 @@
 
                     case 6:
                     case "end":
-                      return _context54.stop();
+                      return _context57.stop();
                   }
                 }
-              }, _callee54, this);
+              }, _callee57, this);
             }));
           }
         }, {
@@ -13653,20 +13821,20 @@
         }, {
           key: "initTimer",
           value: function initTimer() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee56() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee59() {
               var _this90 = this;
 
-              return regeneratorRuntime.wrap(function _callee56$(_context56) {
+              return regeneratorRuntime.wrap(function _callee59$(_context59) {
                 while (1) {
-                  switch (_context56.prev = _context56.next) {
+                  switch (_context59.prev = _context59.next) {
                     case 0:
                       this.timerService.beginTimerModel(this.info.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_3__["TypeTimer"].PRIVATE).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this90, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee55() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this90, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee58() {
                           var created, updated, _this$timerService$co3, hour, minute, second;
 
-                          return regeneratorRuntime.wrap(function _callee55$(_context55) {
+                          return regeneratorRuntime.wrap(function _callee58$(_context58) {
                             while (1) {
-                              switch (_context55.prev = _context55.next) {
+                              switch (_context58.prev = _context58.next) {
                                 case 0:
                                   // console.log('Timer ', data);
                                   created = data.createdAt;
@@ -13682,32 +13850,32 @@
 
                                 case 8:
                                 case "end":
-                                  return _context55.stop();
+                                  return _context58.stop();
                               }
                             }
-                          }, _callee55, this);
+                          }, _callee58, this);
                         }));
                       });
 
                     case 1:
                     case "end":
-                      return _context56.stop();
+                      return _context59.stop();
                   }
                 }
-              }, _callee56, this);
+              }, _callee59, this);
             }));
           }
         }, {
           key: "getCostShow",
           value: function getCostShow() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee57() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee60() {
               var _this91 = this;
 
-              return regeneratorRuntime.wrap(function _callee57$(_context57) {
+              return regeneratorRuntime.wrap(function _callee60$(_context60) {
                 while (1) {
-                  switch (_context57.prev = _context57.next) {
+                  switch (_context60.prev = _context60.next) {
                     case 0:
-                      _context57.next = 2;
+                      _context60.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_3__["TypeTimer"].VIP).subscribe(function (data) {
                         // console.log("Show Cost ", data)
                         _this91.stat.tarif_show = data.credit ? data.credit : 0;
@@ -13718,14 +13886,14 @@
                       });
 
                     case 2:
-                      return _context57.abrupt("return", _context57.sent);
+                      return _context60.abrupt("return", _context60.sent);
 
                     case 3:
                     case "end":
-                      return _context57.stop();
+                      return _context60.stop();
                   }
                 }
-              }, _callee57, this);
+              }, _callee60, this);
             }));
           }
         }, {
@@ -13751,11 +13919,11 @@
         }, {
           key: "leaveTimer",
           value: function leaveTimer() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee58() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee61() {
               var data;
-              return regeneratorRuntime.wrap(function _callee58$(_context58) {
+              return regeneratorRuntime.wrap(function _callee61$(_context61) {
                 while (1) {
-                  switch (_context58.prev = _context58.next) {
+                  switch (_context61.prev = _context61.next) {
                     case 0:
                       data = {
                         id: this.timer.id,
@@ -13763,18 +13931,18 @@
                         leaved: true,
                         push: new Date().toString()
                       };
-                      _context58.next = 3;
+                      _context61.next = 3;
                       return this.timerService.updateTimer(data);
 
                     case 3:
-                      return _context58.abrupt("return", _context58.sent);
+                      return _context61.abrupt("return", _context61.sent);
 
                     case 4:
                     case "end":
-                      return _context58.stop();
+                      return _context61.stop();
                   }
                 }
-              }, _callee58, this);
+              }, _callee61, this);
             }));
           } // WEB RTC - LIVE VIDEO
 
@@ -13791,7 +13959,8 @@
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
-                video: true
+                video: true,
+                audio: true
               }).then(function (ms) {
                 var _video = _this93.video.nativeElement;
                 _video.srcObject = ms;
@@ -13803,13 +13972,6 @@
         }, {
           key: "onStop",
           value: function onStop() {
-            // let i = 0;
-            // (this.video.nativeElement.srcObject as MediaStream).getVideoTracks().forEach(
-            //   (stream) => {
-            //     (this.video.nativeElement.srcObject as MediaStream).getVideoTracks()[i].stop();
-            //     i++;
-            //   }
-            // )
             if (this.video && this.video.nativeElement.srcObject) {
               this.video.nativeElement.pause();
 
@@ -13830,6 +13992,7 @@
           value: function callPeer(id) {
             var _this94 = this;
 
+            this.onStop();
             navigator.mediaDevices.getUserMedia({
               video: true,
               audio: true
@@ -13854,12 +14017,14 @@
         }, {
           key: "streamRemoteVideo",
           value: function streamRemoteVideo(stream) {
-            // const video = document.createElement('video');
+            console.log('Add remote stream'); // const video = document.createElement('video');
             // video.classList.add('video');
             // video.srcObject = stream;
             // video.play();
             // document.getElementById('remote-video').append(video);
-            this.clients[0].client.stream = stream;
+            // this.clients[0].client.stream = stream;
+
+            this.clientStream.push(stream);
           }
         }]);
 
@@ -13885,8 +14050,8 @@
           }
         },
         decls: 44,
-        vars: 20,
-        consts: [["connected", "true", "model", "true"], [1, "main_live"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [1, "contain_left"], [3, "context", "actif", "hour", "minute", "second", "reinit", "leaved"], [1, "show_live_left"], ["controls", "", "autoplay", "", "id", "video_live_model", 3, "poster"], ["video_live_model", ""], [1, "contain_right"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Cam"], ["canSelect", "true", 3, "clients", "clientSelected"], ["label", "Live Chat"], [3, "modelId", "messages", "profil"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "show_vip", "btn_show"], [1, "btn", "btn_vip", "lighter", 3, "click"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], [1, "btn_credit"], [1, "btn", "lighter"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], [1, "contain_thrombone"], ["alt", "", 1, "thrombone", 3, "src"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "ngModelChange"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], [1, "contain_action", "contain_action_mobile"]],
+        vars: 21,
+        consts: [["connected", "true", "model", "true"], [1, "main_live"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [1, "contain_left"], [3, "context", "actif", "hour", "minute", "second", "reinit", "leaved"], [1, "show_live_left"], ["controls", "", "autoplay", "", "id", "video_live_model", 3, "poster"], ["video_live_model", ""], [1, "contain_right"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Cam"], ["canSelect", "true", "showListUser", "true", 3, "clients", "streams", "clientSelected"], ["label", "Live Chat"], [3, "modelId", "messages", "profil"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "show_vip", "btn_show"], [1, "btn", "btn_vip", "lighter", 3, "click"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], [1, "btn_credit"], [1, "btn", "lighter"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], [1, "contain_thrombone"], ["alt", "", 1, "thrombone", 3, "src"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "ngModelChange"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], [1, "contain_action", "contain_action_mobile"]],
         template: function LivePrivateModelComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-header", 0);
@@ -14071,7 +14236,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("clients", ctx.clients);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("clients", ctx.clients)("streams", ctx.clientStream);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
@@ -14393,9 +14558,21 @@
       /* harmony import */
 
 
-      var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _services_client_client_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ../../../../services/client/client.service */
+      "d5vW");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @angular/common */
       "ofXK");
+      /* harmony import */
+
+
+      var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! @angular/material/tooltip */
+      "Qu3c");
 
       var _c0 = function _c0(a0) {
         return {
@@ -14447,6 +14624,8 @@
 
       function LiveFreeChatComponent_div_1_div_2_Template(rf, ctx) {
         if (rf & 1) {
+          var _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 10);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 11);
@@ -14459,7 +14638,17 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "div", 7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "div", 12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("mouseover", function LiveFreeChatComponent_div_1_div_2_Template_div_mouseover_4_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r10);
+
+            var item_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
+
+            var ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+
+            return ctx_r8.getPseudo(item_r3.id_source);
+          });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](5, "img", 8);
 
@@ -14475,13 +14664,17 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](3, _c0, item_r3.code_couleur));
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](4, _c0, item_r3.code_couleur));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](item_r3.message);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("matTooltip", ctx_r6.currentPseudo);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("src", ctx_r6.user, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
         }
@@ -14493,7 +14686,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, LiveFreeChatComponent_div_1_div_1_Template, 6, 5, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, LiveFreeChatComponent_div_1_div_2_Template, 6, 5, "div", 5);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, LiveFreeChatComponent_div_1_div_2_Template, 6, 6, "div", 5);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         }
@@ -14513,7 +14706,7 @@
 
       function LiveFreeChatComponent_div_2_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 12);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 13);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "p");
 
@@ -14535,7 +14728,7 @@
 
       function LiveFreeChatComponent_div_3_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 12);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 13);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "p");
 
@@ -14556,14 +14749,16 @@
       }
 
       var LiveFreeChatComponent = /*#__PURE__*/function () {
-        function LiveFreeChatComponent(iterableDiffers, socketService) {
+        function LiveFreeChatComponent(iterableDiffers, socketService, clientService) {
           _classCallCheck(this, LiveFreeChatComponent);
 
           this.iterableDiffers = iterableDiffers;
           this.socketService = socketService;
+          this.clientService = clientService;
           this.user = "assets/images/user_chat.png";
           this.listColor = [];
           this.messages = [];
+          this.currentPseudo = null;
           this.iterableDiffer = iterableDiffers.find([]).create(null);
         }
 
@@ -14593,13 +14788,28 @@
               }, 10);
             }
           }
+        }, {
+          key: "getPseudo",
+          value: function getPseudo(clientId) {
+            var _this96 = this;
+
+            this.clientService.getClient(clientId).subscribe(function (data) {
+              _this96.currentPseudo = data.pseudo;
+              console.log(_this96.currentPseudo);
+            });
+          }
+        }, {
+          key: "clearPseudo",
+          value: function clearPseudo() {
+            this.currentPseudo = null;
+          }
         }]);
 
         return LiveFreeChatComponent;
       }();
 
       LiveFreeChatComponent.ɵfac = function LiveFreeChatComponent_Factory(t) {
-        return new (t || LiveFreeChatComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["IterableDiffers"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_socket_socket_service__WEBPACK_IMPORTED_MODULE_2__["SocketService"]));
+        return new (t || LiveFreeChatComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["IterableDiffers"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_socket_socket_service__WEBPACK_IMPORTED_MODULE_2__["SocketService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_client_client_service__WEBPACK_IMPORTED_MODULE_3__["ClientService"]));
       };
 
       LiveFreeChatComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
@@ -14615,7 +14825,7 @@
         },
         decls: 4,
         vars: 3,
-        consts: [["id", "main_chat", 1, "main_chat"], ["class", "msg", 4, "ngFor", "ngForOf"], ["class", "leave_model", 4, "ngIf"], [1, "msg"], ["class", "left_chat contain_chat", 4, "ngIf"], ["class", "right_chat contain_chat", 4, "ngIf"], [1, "left_chat", "contain_chat"], [1, "contain_image"], ["alt", "", 1, "user_profile", 3, "src"], [1, "left_message", "chat", 3, "ngStyle"], [1, "right_chat", "contain_chat"], [1, "right_message", "chat", 3, "ngStyle"], [1, "leave_model"]],
+        consts: [["id", "main_chat", 1, "main_chat"], ["class", "msg", 4, "ngFor", "ngForOf"], ["class", "leave_model", 4, "ngIf"], [1, "msg"], ["class", "left_chat contain_chat", 4, "ngIf"], ["class", "right_chat contain_chat", 4, "ngIf"], [1, "left_chat", "contain_chat"], [1, "contain_image"], ["alt", "", 1, "user_profile", 3, "src"], [1, "left_message", "chat", 3, "ngStyle"], [1, "right_chat", "contain_chat"], [1, "right_message", "chat", 3, "ngStyle"], ["matTooltipClass", "tooltip_class", 1, "contain_image", 3, "matTooltip", "mouseover"], [1, "leave_model"]],
         template: function LiveFreeChatComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
@@ -14643,8 +14853,8 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.passedToPrivate);
           }
         },
-        directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgStyle"]],
-        styles: [".leave_model[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  border-radius: 3px;\n  padding: 6px;\n  opacity: 0.9;\n  padding-left: 20px;\n  padding-right: 20px;\n  font-style: italic;\n}\n\n.leave_model[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n}\n\n.main_chat[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  margin-left: 10px;\n  margin-right: 10px;\n  padding-top: 20px;\n  overflow-y: auto;\n  height: 59vh;\n}\n\n.main_chat[_ngcontent-%COMP%]::-webkit-scrollbar {\n  width: 0px !important;\n  background-color: transparent;\n  color: transparent;\n}\n\n@media screen and (max-width: 700px) {\n  .main_chat[_ngcontent-%COMP%] {\n    height: 33vh;\n  }\n}\n\n.main_chat[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 0px !important;\n}\n\n.contain_chat[_ngcontent-%COMP%] {\n  margin-bottom: 15px;\n  display: flex;\n}\n\n.contain_chat[_ngcontent-%COMP%]   .contain_image[_ngcontent-%COMP%] {\n  padding: 0px;\n  width: 43px;\n  border-radius: 30px;\n  height: 44px;\n  display: flex;\n  justify-content: center;\n}\n\n.contain_chat[_ngcontent-%COMP%]   .contain_image[_ngcontent-%COMP%]   .user_profile[_ngcontent-%COMP%] {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 20px;\n}\n\n.left_message[_ngcontent-%COMP%] {\n  margin-left: 10px;\n}\n\n.right_message[_ngcontent-%COMP%] {\n  margin-right: 10px;\n}\n\n.right_chat.contain_chat[_ngcontent-%COMP%] {\n  justify-content: flex-end;\n}\n\n.right_chat[_ngcontent-%COMP%]   .contain_image[_ngcontent-%COMP%] {\n  margin-right: 10px;\n}\n\n.chat[_ngcontent-%COMP%] {\n  padding: 10px;\n  padding-bottom: 0px !important;\n  height: auto;\n  word-wrap: break-word !important;\n  font-size: 13px;\n  max-width: 80%;\n}\n\n.left_message.chat[_ngcontent-%COMP%] {\n  padding-right: 40px;\n  border-top-right-radius: 20px;\n  border-bottom-right-radius: 20px;\n  border-bottom-left-radius: 15px;\n  margin-right: 5%;\n}\n\n.right_message.chat[_ngcontent-%COMP%] {\n  padding-right: 40px;\n  border-top-left-radius: 20px;\n  border-bottom-left-radius: 20px;\n  border-bottom-right-radius: 15px;\n  margin-left: 5%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXGxpdmUtZnJlZS1jaGF0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsMEJBQUE7RUFBQSx1QkFBQTtFQUFBLGtCQUFBO0VBRUEsa0JBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtBQUFGOztBQUdBO0VBQ0UsYUFBQTtFQUNBLHVCQUFBO0FBQUY7O0FBR0E7RUFDRSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtBQUFGOztBQUdBO0VBQ0UscUJBQUE7RUFDQSw2QkFBQTtFQUNBLGtCQUFBO0FBQUY7O0FBSUE7RUFDRTtJQUNFLFlBQUE7RUFERjtBQUNGOztBQUlBO0VBQ0Usc0JBQUE7QUFGRjs7QUFLQTtFQUVFLG1CQUFBO0VBQ0EsYUFBQTtBQUhGOztBQU1BO0VBQ0UsWUFBQTtFQUVBLFdBQUE7RUFDQSxtQkFBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0VBQ0EsdUJBQUE7QUFKRjs7QUFPQTtFQUNFLFdBQUE7RUFDQSxZQUFBO0VBQ0Esb0JBQUE7S0FBQSxpQkFBQTtFQUNBLG1CQUFBO0FBSkY7O0FBT0E7RUFBZSxpQkFBQTtBQUhmOztBQUlBO0VBQWdCLGtCQUFBO0FBQWhCOztBQUVBO0VBQ0UseUJBQUE7QUFDRjs7QUFHQTtFQUNFLGtCQUFBO0FBQUY7O0FBR0E7RUFDRSxhQUFBO0VBQ0EsOEJBQUE7RUFDQSxZQUFBO0VBQ0EsZ0NBQUE7RUFDQSxlQUFBO0VBQ0EsY0FBQTtBQUFGOztBQUdBO0VBQ0UsbUJBQUE7RUFDQSw2QkFBQTtFQUNBLGdDQUFBO0VBQ0EsK0JBQUE7RUFDQSxnQkFBQTtBQUFGOztBQUdBO0VBRUUsbUJBQUE7RUFDQSw0QkFBQTtFQUNBLCtCQUFBO0VBQ0EsZ0NBQUE7RUFDQSxlQUFBO0FBREYiLCJmaWxlIjoibGl2ZS1mcmVlLWNoYXQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubGVhdmVfbW9kZWwgcCB7XHJcbiAgd2lkdGg6IGZpdC1jb250ZW50O1xyXG4gIC8vIGJvcmRlci10b3A6IDFweCBzb2xpZCB3aGVhdDtcclxuICBib3JkZXItcmFkaXVzOiAzcHg7XHJcbiAgcGFkZGluZzogNnB4O1xyXG4gIG9wYWNpdHk6IDAuOTtcclxuICBwYWRkaW5nLWxlZnQ6IDIwcHg7XHJcbiAgcGFkZGluZy1yaWdodDogMjBweDtcclxuICBmb250LXN0eWxlOiBpdGFsaWM7XHJcbn1cclxuXHJcbi5sZWF2ZV9tb2RlbCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG5cclxuLm1haW5fY2hhdCB7XHJcbiAgbWFyZ2luLXRvcDogMTBweDtcclxuICBtYXJnaW4tbGVmdDogMTBweDtcclxuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XHJcbiAgcGFkZGluZy10b3A6IDIwcHg7XHJcbiAgb3ZlcmZsb3cteTogYXV0bztcclxuICBoZWlnaHQ6IDU5dmg7XHJcbn1cclxuXHJcbi5tYWluX2NoYXQ6Oi13ZWJraXQtc2Nyb2xsYmFyIHtcclxuICB3aWR0aDogMHB4ICFpbXBvcnRhbnQ7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgY29sb3I6IHRyYW5zcGFyZW50O1xyXG59XHJcblxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzAwcHgpIHtcclxuICAubWFpbl9jaGF0IHtcclxuICAgIGhlaWdodDogMzN2aDtcclxuICB9XHJcbn1cclxuXHJcbi5tYWluX2NoYXQ6Oi13ZWJraXQtc2Nyb2xsYmFyIHtcclxuICBoZWlnaHQ6IDBweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uY29udGFpbl9jaGF0IHtcclxuICAvLyBtaW4taGVpZ2h0OiA1MHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG5cclxuLmNvbnRhaW5fY2hhdCAuY29udGFpbl9pbWFnZSB7XHJcbiAgcGFkZGluZzogMHB4O1xyXG4gIC8vIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gIHdpZHRoOiA0M3B4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDMwcHg7XHJcbiAgaGVpZ2h0OiA0NHB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuXHJcbi5jb250YWluX2NoYXQgLmNvbnRhaW5faW1hZ2UgLnVzZXJfcHJvZmlsZSB7XHJcbiAgd2lkdGg6IDQ1cHg7XHJcbiAgaGVpZ2h0OiA0NXB4O1xyXG4gIG9iamVjdC1maXQ6IGNvdmVyO1xyXG4gIGJvcmRlci1yYWRpdXM6IDIwcHg7XHJcbn1cclxuXHJcbi5sZWZ0X21lc3NhZ2Uge21hcmdpbi1sZWZ0OiAxMHB4O31cclxuLnJpZ2h0X21lc3NhZ2Uge21hcmdpbi1yaWdodDogMTBweDt9XHJcblxyXG4ucmlnaHRfY2hhdC5jb250YWluX2NoYXQge1xyXG4gIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XHJcblxyXG59XHJcblxyXG4ucmlnaHRfY2hhdCAuY29udGFpbl9pbWFnZSB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xyXG59XHJcblxyXG4uY2hhdCB7XHJcbiAgcGFkZGluZzogMTBweDtcclxuICBwYWRkaW5nLWJvdHRvbTogMHB4ICFpbXBvcnRhbnQ7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHdvcmQtd3JhcDogYnJlYWstd29yZCAhaW1wb3J0YW50O1xyXG4gIGZvbnQtc2l6ZTogMTNweDtcclxuICBtYXgtd2lkdGg6IDgwJTtcclxufVxyXG5cclxuLmxlZnRfbWVzc2FnZS5jaGF0IHtcclxuICBwYWRkaW5nLXJpZ2h0OiA0MHB4O1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAyMHB4O1xyXG4gIGJvcmRlci1ib3R0b20tcmlnaHQtcmFkaXVzOiAyMHB4O1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDE1cHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1JTtcclxufVxyXG5cclxuLnJpZ2h0X21lc3NhZ2UuY2hhdCB7XHJcbiAgLy8gYmFja2dyb3VuZDogYmx1ZTtcclxuICBwYWRkaW5nLXJpZ2h0OiA0MHB4O1xyXG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDIwcHg7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMjBweDtcclxuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMTVweDtcclxuICBtYXJnaW4tbGVmdDogNSU7XHJcbn1cclxuIl19 */"]
+        directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgStyle"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_5__["MatTooltip"]],
+        styles: [".leave_model[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  border-radius: 3px;\n  padding: 6px;\n  opacity: 0.9;\n  padding-left: 20px;\n  padding-right: 20px;\n  font-style: italic;\n}\n\n.leave_model[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n}\n\n.main_chat[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  margin-left: 10px;\n  margin-right: 10px;\n  padding-top: 20px;\n  overflow-y: auto;\n  height: 59vh;\n}\n\n.main_chat[_ngcontent-%COMP%]::-webkit-scrollbar {\n  width: 0px !important;\n  background-color: transparent;\n  color: transparent;\n}\n\n@media screen and (max-width: 700px) {\n  .main_chat[_ngcontent-%COMP%] {\n    height: 33vh;\n  }\n}\n\n.main_chat[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 0px !important;\n}\n\n.contain_chat[_ngcontent-%COMP%] {\n  margin-bottom: 15px;\n  display: flex;\n}\n\n.contain_chat[_ngcontent-%COMP%]   .contain_image[_ngcontent-%COMP%] {\n  padding: 0px;\n  width: 43px;\n  border-radius: 30px;\n  height: 44px;\n  display: flex;\n  justify-content: center;\n  cursor: pointer;\n}\n\n.tooltip_class[_ngcontent-%COMP%] {\n  background-color: var(--pink) !important;\n  font-size: 15px !important;\n}\n\n.contain_chat[_ngcontent-%COMP%]   .contain_image[_ngcontent-%COMP%]   .user_profile[_ngcontent-%COMP%] {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 20px;\n}\n\n.left_message[_ngcontent-%COMP%] {\n  margin-left: 10px;\n}\n\n.right_message[_ngcontent-%COMP%] {\n  margin-right: 10px;\n}\n\n.right_chat.contain_chat[_ngcontent-%COMP%] {\n  justify-content: flex-end;\n}\n\n.right_chat[_ngcontent-%COMP%]   .contain_image[_ngcontent-%COMP%] {\n  margin-right: 10px;\n}\n\n.chat[_ngcontent-%COMP%] {\n  padding: 10px;\n  padding-bottom: 0px !important;\n  height: auto;\n  word-wrap: break-word !important;\n  font-size: 13px;\n  max-width: 80%;\n}\n\n.left_message.chat[_ngcontent-%COMP%] {\n  padding-right: 40px;\n  border-top-right-radius: 20px;\n  border-bottom-right-radius: 20px;\n  border-bottom-left-radius: 15px;\n  margin-right: 5%;\n}\n\n.right_message.chat[_ngcontent-%COMP%] {\n  padding-right: 40px;\n  border-top-left-radius: 20px;\n  border-bottom-left-radius: 20px;\n  border-bottom-right-radius: 15px;\n  margin-left: 5%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXGxpdmUtZnJlZS1jaGF0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsMEJBQUE7RUFBQSx1QkFBQTtFQUFBLGtCQUFBO0VBRUEsa0JBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtBQUFGOztBQUdBO0VBQ0UsYUFBQTtFQUNBLHVCQUFBO0FBQUY7O0FBR0E7RUFDRSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtBQUFGOztBQUdBO0VBQ0UscUJBQUE7RUFDQSw2QkFBQTtFQUNBLGtCQUFBO0FBQUY7O0FBR0E7RUFDRTtJQUNFLFlBQUE7RUFBRjtBQUNGOztBQUdBO0VBQ0Usc0JBQUE7QUFERjs7QUFJQTtFQUVFLG1CQUFBO0VBQ0EsYUFBQTtBQUZGOztBQUtBO0VBQ0UsWUFBQTtFQUVBLFdBQUE7RUFDQSxtQkFBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0VBQ0EsdUJBQUE7RUFDQSxlQUFBO0FBSEY7O0FBTUE7RUFDRSx3Q0FBQTtFQUNBLDBCQUFBO0FBSEY7O0FBTUE7RUFDRSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG9CQUFBO0tBQUEsaUJBQUE7RUFDQSxtQkFBQTtBQUhGOztBQU1BO0VBQWUsaUJBQUE7QUFGZjs7QUFHQTtFQUFnQixrQkFBQTtBQUNoQjs7QUFDQTtFQUNFLHlCQUFBO0FBRUY7O0FBRUE7RUFDRSxrQkFBQTtBQUNGOztBQUVBO0VBQ0UsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsWUFBQTtFQUNBLGdDQUFBO0VBQ0EsZUFBQTtFQUNBLGNBQUE7QUFDRjs7QUFFQTtFQUNFLG1CQUFBO0VBQ0EsNkJBQUE7RUFDQSxnQ0FBQTtFQUNBLCtCQUFBO0VBQ0EsZ0JBQUE7QUFDRjs7QUFFQTtFQUVFLG1CQUFBO0VBQ0EsNEJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0VBQ0EsZUFBQTtBQUFGIiwiZmlsZSI6ImxpdmUtZnJlZS1jaGF0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmxlYXZlX21vZGVsIHAge1xyXG4gIHdpZHRoOiBmaXQtY29udGVudDtcclxuICAvLyBib3JkZXItdG9wOiAxcHggc29saWQgd2hlYXQ7XHJcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xyXG4gIHBhZGRpbmc6IDZweDtcclxuICBvcGFjaXR5OiAwLjk7XHJcbiAgcGFkZGluZy1sZWZ0OiAyMHB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDIwcHg7XHJcbiAgZm9udC1zdHlsZTogaXRhbGljO1xyXG59XHJcblxyXG4ubGVhdmVfbW9kZWwge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuXHJcbi5tYWluX2NoYXQge1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xyXG4gIHBhZGRpbmctdG9wOiAyMHB4O1xyXG4gIG92ZXJmbG93LXk6IGF1dG87XHJcbiAgaGVpZ2h0OiA1OXZoO1xyXG59XHJcblxyXG4ubWFpbl9jaGF0Ojotd2Via2l0LXNjcm9sbGJhciB7XHJcbiAgd2lkdGg6IDBweCAhaW1wb3J0YW50O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIGNvbG9yOiB0cmFuc3BhcmVudDtcclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzAwcHgpIHtcclxuICAubWFpbl9jaGF0IHtcclxuICAgIGhlaWdodDogMzN2aDtcclxuICB9XHJcbn1cclxuXHJcbi5tYWluX2NoYXQ6Oi13ZWJraXQtc2Nyb2xsYmFyIHtcclxuICBoZWlnaHQ6IDBweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uY29udGFpbl9jaGF0IHtcclxuICAvLyBtaW4taGVpZ2h0OiA1MHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG5cclxuLmNvbnRhaW5fY2hhdCAuY29udGFpbl9pbWFnZSB7XHJcbiAgcGFkZGluZzogMHB4O1xyXG4gIC8vIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gIHdpZHRoOiA0M3B4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDMwcHg7XHJcbiAgaGVpZ2h0OiA0NHB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4udG9vbHRpcF9jbGFzcyB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tcGluaykgIWltcG9ydGFudDtcclxuICBmb250LXNpemU6IDE1cHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLmNvbnRhaW5fY2hhdCAuY29udGFpbl9pbWFnZSAudXNlcl9wcm9maWxlIHtcclxuICB3aWR0aDogNDVweDtcclxuICBoZWlnaHQ6IDQ1cHg7XHJcbiAgb2JqZWN0LWZpdDogY292ZXI7XHJcbiAgYm9yZGVyLXJhZGl1czogMjBweDtcclxufVxyXG5cclxuLmxlZnRfbWVzc2FnZSB7bWFyZ2luLWxlZnQ6IDEwcHg7fVxyXG4ucmlnaHRfbWVzc2FnZSB7bWFyZ2luLXJpZ2h0OiAxMHB4O31cclxuXHJcbi5yaWdodF9jaGF0LmNvbnRhaW5fY2hhdCB7XHJcbiAganVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcclxuXHJcbn1cclxuXHJcbi5yaWdodF9jaGF0IC5jb250YWluX2ltYWdlIHtcclxuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XHJcbn1cclxuXHJcbi5jaGF0IHtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiAwcHggIWltcG9ydGFudDtcclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgd29yZC13cmFwOiBicmVhay13b3JkICFpbXBvcnRhbnQ7XHJcbiAgZm9udC1zaXplOiAxM3B4O1xyXG4gIG1heC13aWR0aDogODAlO1xyXG59XHJcblxyXG4ubGVmdF9tZXNzYWdlLmNoYXQge1xyXG4gIHBhZGRpbmctcmlnaHQ6IDQwcHg7XHJcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDIwcHg7XHJcbiAgYm9yZGVyLWJvdHRvbS1yaWdodC1yYWRpdXM6IDIwcHg7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMTVweDtcclxuICBtYXJnaW4tcmlnaHQ6IDUlO1xyXG59XHJcblxyXG4ucmlnaHRfbWVzc2FnZS5jaGF0IHtcclxuICAvLyBiYWNrZ3JvdW5kOiBibHVlO1xyXG4gIHBhZGRpbmctcmlnaHQ6IDQwcHg7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMjBweDtcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAyMHB4O1xyXG4gIGJvcmRlci1ib3R0b20tcmlnaHQtcmFkaXVzOiAxNXB4O1xyXG4gIG1hcmdpbi1sZWZ0OiA1JTtcclxufVxyXG4iXX0= */"]
       });
       /***/
     },
@@ -15526,7 +15736,7 @@
         }, {
           key: "preview",
           value: function preview(type) {
-            var _this96 = this;
+            var _this97 = this;
 
             this.errorRecto = this.errorVerso = this.errorPhoto = this.errorSoft = false;
             var mimeType;
@@ -15542,8 +15752,8 @@
                 reader.readAsDataURL(this.fileRecto);
 
                 reader.onload = function (event) {
-                  _this96.previewRecto = reader.result;
-                  _this96.nameRecto = _this96.fileRecto.name;
+                  _this97.previewRecto = reader.result;
+                  _this97.nameRecto = _this97.fileRecto.name;
                 };
 
                 break;
@@ -15556,8 +15766,8 @@
                 reader.readAsDataURL(this.fileVerso);
 
                 reader.onload = function (event) {
-                  _this96.previewVerso = reader.result;
-                  _this96.nameVerso = _this96.fileVerso.name;
+                  _this97.previewVerso = reader.result;
+                  _this97.nameVerso = _this97.fileVerso.name;
                 };
 
                 break;
@@ -15570,8 +15780,8 @@
                 reader.readAsDataURL(this.filePhoto);
 
                 reader.onload = function (event) {
-                  _this96.previewPhoto = reader.result;
-                  _this96.namePhoto = _this96.filePhoto.name;
+                  _this97.previewPhoto = reader.result;
+                  _this97.namePhoto = _this97.filePhoto.name;
                 };
 
                 break;
@@ -15584,8 +15794,8 @@
                 reader.readAsDataURL(this.fileSoft);
 
                 reader.onload = function (event) {
-                  _this96.previewSoft = reader.result;
-                  _this96.nameSoft = _this96.fileSoft.name;
+                  _this97.previewSoft = reader.result;
+                  _this97.nameSoft = _this97.fileSoft.name;
                 };
 
                 break;
@@ -15602,13 +15812,13 @@
         }, {
           key: "register",
           value: function register() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee59() {
-              var _this97 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee62() {
+              var _this98 = this;
 
               var formData;
-              return regeneratorRuntime.wrap(function _callee59$(_context59) {
+              return regeneratorRuntime.wrap(function _callee62$(_context62) {
                 while (1) {
-                  switch (_context59.prev = _context59.next) {
+                  switch (_context62.prev = _context62.next) {
                     case 0:
                       this.pseudoExist = false;
                       this.emailExist = false;
@@ -15616,11 +15826,11 @@
                       this.submitted = true;
 
                       if (!(this.signForm.invalid || this.errorSoft || this.errorRecto || this.errorVerso || this.errorPhoto)) {
-                        _context59.next = 6;
+                        _context62.next = 6;
                         break;
                       }
 
-                      return _context59.abrupt("return", false);
+                      return _context62.abrupt("return", false);
 
                     case 6:
                       this.loading = true;
@@ -15630,13 +15840,13 @@
                       formData.append('file_cin', this.filePhoto, this.namePhoto);
                       formData.append('file_soft', this.fileSoft, this.nameSoft);
                       this.fileUploadProgress = '0%';
-                      _context59.next = 15;
+                      _context62.next = 15;
                       return this.authService.uploadImagesModel(formData).subscribe(function (events) {
                         if (events.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpEventType"].UploadProgress) {
-                          _this97.fileUploadProgress = Math.round(events.loaded / events.total * 100) + '%'; // console.log(this.fileUploadProgress);
+                          _this98.fileUploadProgress = Math.round(events.loaded / events.total * 100) + '%'; // console.log(this.fileUploadProgress);
                         } else if (events.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpEventType"].Response) {
-                          var user = _this97.signForm.value;
-                          user = _this97.signForm.value;
+                          var user = _this98.signForm.value;
+                          user = _this98.signForm.value;
                           user.date_birth = user.day_birth + '/' + user.month_birth + '/' + user.year_birth;
                           user.path_recto = events.body.path_recto;
                           user.path_verso = events.body.path_verso;
@@ -15644,48 +15854,48 @@
                           user.path_soft = events.body.path_soft; // console.log("Post register ", user);
 
                           // console.log("Post register ", user);
-                          _this97.authService.registerModel(user).subscribe(function (res) {
+                          _this98.authService.registerModel(user).subscribe(function (res) {
                             // console.log(res);
                             if (res.error) {
-                              _this97.error = res.message;
-                              if (res.pseudo) _this97.pseudoExist = true;
-                              if (res.email) _this97.emailExist = true;
-                              _this97.loading = false;
+                              _this98.error = res.message;
+                              if (res.pseudo) _this98.pseudoExist = true;
+                              if (res.email) _this98.emailExist = true;
+                              _this98.loading = false;
                             } else {
-                              _this97.profileService.createSetting(res.id).subscribe(function (data) {
-                                _this97.creditService.createCredit(res.id).subscribe(function (data) {
-                                  _this97.profileService.createProfil(res.id).subscribe(function (data) {
-                                    _this97.submitted = false;
+                              _this98.profileService.createSetting(res.id).subscribe(function (data) {
+                                _this98.creditService.createCredit(res.id).subscribe(function (data) {
+                                  _this98.profileService.createProfil(res.id).subscribe(function (data) {
+                                    _this98.submitted = false;
 
-                                    _this97.popupService.info('model', 'Félicitation', "Cher nouveau mod\xE8le, Un email est envoy\xE9 \xE0\n                              <span style=\"font-style: italic; color: var(--pink)\">".concat(res.email, "</span>\n                              pour les informations de votre compte."));
+                                    _this98.popupService.info('model', 'Félicitation', "Cher nouveau mod\xE8le, Un email est envoy\xE9 \xE0\n                              <span style=\"font-style: italic; color: var(--pink)\">".concat(res.email, "</span>\n                              pour les informations de votre compte."));
 
-                                    _this97.signForm.reset();
+                                    _this98.signForm.reset();
 
-                                    _this97.loading = false;
+                                    _this98.loading = false;
                                   });
                                 });
                               });
                             } // this.loading = false;
 
                           }, function (err) {
-                            _this97.loading = false;
+                            _this98.loading = false;
                             console.log(err);
                           });
                         }
                       }, function (error) {
-                        _this97.loading = false;
+                        _this98.loading = false;
                         console.log(error);
                       });
 
                     case 15:
-                      return _context59.abrupt("return", _context59.sent);
+                      return _context62.abrupt("return", _context62.sent);
 
                     case 16:
                     case "end":
-                      return _context59.stop();
+                      return _context62.stop();
                   }
                 }
-              }, _callee59, this);
+              }, _callee62, this);
             }));
           }
         }]);
@@ -16320,14 +16530,14 @@
         }, {
           key: "getActif",
           value: function getActif(id) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee60() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee63() {
               var actif;
-              return regeneratorRuntime.wrap(function _callee60$(_context60) {
+              return regeneratorRuntime.wrap(function _callee63$(_context63) {
                 while (1) {
-                  switch (_context60.prev = _context60.next) {
+                  switch (_context63.prev = _context63.next) {
                     case 0:
                       actif = 0;
-                      _context60.next = 3;
+                      _context63.next = 3;
                       return this.http.get("".concat(this.endpoint, "/room-vip/").concat(id), httpOptions).subscribe(function (data) {
                         if (data.actif) {
                           actif = data.actif;
@@ -16335,14 +16545,14 @@
                       });
 
                     case 3:
-                      return _context60.abrupt("return", actif);
+                      return _context63.abrupt("return", actif);
 
                     case 4:
                     case "end":
-                      return _context60.stop();
+                      return _context63.stop();
                   }
                 }
-              }, _callee60, this);
+              }, _callee63, this);
             }));
           }
         }, {
@@ -16509,7 +16719,7 @@
 
       var ReactivateAccountComponent = /*#__PURE__*/function () {
         function ReactivateAccountComponent(activatedRoute, http, store, router, notificationService, clientService) {
-          var _this98 = this;
+          var _this99 = this;
 
           _classCallCheck(this, ReactivateAccountComponent);
 
@@ -16525,7 +16735,7 @@
           this.errorMessageToken = null;
           this.successMessageToken = null;
           this.activatedRoute.queryParams.subscribe(function (params) {
-            _this98.token = params['token'];
+            _this99.token = params['token'];
           });
         }
 
@@ -16537,7 +16747,7 @@
         }, {
           key: "confirmToken",
           value: function confirmToken() {
-            var _this99 = this;
+            var _this100 = this;
 
             if (!this.token) {
               this.errorToken = true;
@@ -16550,15 +16760,15 @@
             this.clientService.reactivateAccount().subscribe(function (data) {
               // console.log("Client token ", data);
               if (!data.success) {
-                _this99.errorMessageToken = data.message;
-                _this99.errorToken = true;
+                _this100.errorMessageToken = data.message;
+                _this100.errorToken = true;
               } else {
-                _this99.errorToken = false;
-                _this99.successMessageToken = data.message;
+                _this100.errorToken = false;
+                _this100.successMessageToken = data.message;
 
-                _this99.notificationService.infoMsg("Votre compte est réactivé");
+                _this100.notificationService.infoMsg("Votre compte est réactivé");
 
-                _this99.router.navigate(['/connexion']);
+                _this100.router.navigate(['/connexion']);
               }
             });
           }
@@ -16841,11 +17051,11 @@
         }, {
           key: "isRemember",
           value: function isRemember(user) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee61() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee64() {
               var pseudoCrypted, passCrypted;
-              return regeneratorRuntime.wrap(function _callee61$(_context61) {
+              return regeneratorRuntime.wrap(function _callee64$(_context64) {
                 while (1) {
-                  switch (_context61.prev = _context61.next) {
+                  switch (_context64.prev = _context64.next) {
                     case 0:
                       if (this.checked) {
                         pseudoCrypted = this.encryptionService.encryptUsingAES256(user.pseudo);
@@ -16859,10 +17069,10 @@
 
                     case 1:
                     case "end":
-                      return _context61.stop();
+                      return _context64.stop();
                   }
                 }
-              }, _callee61, this);
+              }, _callee64, this);
             }));
           }
         }, {
@@ -16887,58 +17097,58 @@
         }, {
           key: "login",
           value: function login(event) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee62() {
-              var _this100 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee65() {
+              var _this101 = this;
 
               var user;
-              return regeneratorRuntime.wrap(function _callee62$(_context62) {
+              return regeneratorRuntime.wrap(function _callee65$(_context65) {
                 while (1) {
-                  switch (_context62.prev = _context62.next) {
+                  switch (_context65.prev = _context65.next) {
                     case 0:
                       this.submitted = true;
                       event.preventDefault();
 
                       if (!this.loginForm.invalid) {
-                        _context62.next = 4;
+                        _context65.next = 4;
                         break;
                       }
 
-                      return _context62.abrupt("return", false);
+                      return _context65.abrupt("return", false);
 
                     case 4:
                       this.loading = true;
                       user = this.loginForm.value;
-                      _context62.next = 8;
+                      _context65.next = 8;
                       return this.authService.loginClient(user).subscribe(function (res) {
                         console.log(res);
 
                         if (res.error) {
-                          _this100.errorAuth = res.message;
-                          _this100.loading = false;
+                          _this101.errorAuth = res.message;
+                          _this101.loading = false;
                         } else {
-                          _this100.errorAuth = null;
-                          if (res.access_token) _this100.authService.saveToken(res.access_token, res.id).then(function () {
-                            _this100.isRemember(user).then(function () {
-                              _this100.loading = false;
+                          _this101.errorAuth = null;
+                          if (res.access_token) _this101.authService.saveToken(res.access_token, res.id).then(function () {
+                            _this101.isRemember(user).then(function () {
+                              _this101.loading = false;
 
-                              _this100.router.navigate(['/accueil/registered']);
+                              _this101.router.navigate(['/accueil/registered']);
                             });
                           });
                         }
                       }, function (err) {
-                        _this100.loading = false;
+                        _this101.loading = false;
                         console.log(err);
                       });
 
                     case 8:
-                      return _context62.abrupt("return", true);
+                      return _context65.abrupt("return", true);
 
                     case 9:
                     case "end":
-                      return _context62.stop();
+                      return _context65.stop();
                   }
                 }
-              }, _callee62, this);
+              }, _callee65, this);
             }));
           }
         }]);
@@ -17616,7 +17826,7 @@
         _createClass(AuthInterceptor, [{
           key: "intercept",
           value: function intercept(req, next) {
-            var _this101 = this;
+            var _this102 = this;
 
             var token = this.authService.getToken();
             var header = req.headers;
@@ -17632,11 +17842,10 @@
             return next.handle(req).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(function (error) {
               // let errorMessage = '';
               if (error.error.statusCode == 400) {
-                _this101.notificationService.errorMsg(error.error.message);
-              } else if (error.error.statusCode == 401) {
-                _this101.notificationService.errorMsg('Accès refusé');
+                _this102.notificationService.errorMsg(error.error.message);
+              } else if (error.error.statusCode == 401) {// this.notificationService.errorMsg('Accès refusé');
               } else {
-                _this101.notificationService.errorMsg("Erreur lors de la connexion au serveur");
+                _this102.notificationService.errorMsg("Erreur lors de la connexion au serveur");
               } //     if(error.status == 500){
               //         // this.router.navigateByUrl("connexion")
               //         // this.dialogService.erreur('500');
@@ -18214,6 +18423,12 @@
       var _components_client_reactivate_account_reactivate_account_component__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(
       /*! ./components/client/reactivate-account/reactivate-account.component */
       "XSM7");
+      /* harmony import */
+
+
+      var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(
+      /*! @angular/material/tooltip */
+      "Qu3c");
 
       var config = {
         // url: 'http://localhost:4000/',
@@ -18288,13 +18503,13 @@
         }, _services_popup_popup_service__WEBPACK_IMPORTED_MODULE_65__["PopupService"], _services_profil_profil_service__WEBPACK_IMPORTED_MODULE_67__["ProfilService"], _services_log_log_service__WEBPACK_IMPORTED_MODULE_68__["LogService"], _services_credit_credit_service__WEBPACK_IMPORTED_MODULE_69__["CreditService"], _services_room_room_service__WEBPACK_IMPORTED_MODULE_71__["RoomService"], _services_chat_chat_service__WEBPACK_IMPORTED_MODULE_72__["ChatService"], _services_client_client_service__WEBPACK_IMPORTED_MODULE_76__["ClientService"], _services_timer_timer_service__WEBPACK_IMPORTED_MODULE_78__["TimerService"]],
         imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_11__["BrowserAnimationsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"].withConfig({
           warnOnNgModelWithFormControl: "never"
-        }), _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_18__["MatSlideToggleModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_49__["MatTabsModule"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_63__["MatSnackBarModule"], ag_charts_angular__WEBPACK_IMPORTED_MODULE_26__["AgChartsAngularModule"], ngx_notification_msg__WEBPACK_IMPORTED_MODULE_31__["NgxNotificationMsgModule"], angular_notifier__WEBPACK_IMPORTED_MODULE_32__["NotifierModule"].withConfig(customNotifierOptions), _angular_common_http__WEBPACK_IMPORTED_MODULE_33__["HttpClientModule"], ng2_file_upload__WEBPACK_IMPORTED_MODULE_37__["FileUploadModule"], ngx_socket_io__WEBPACK_IMPORTED_MODULE_73__["SocketIoModule"].forRoot(config), ngx_localstorage__WEBPACK_IMPORTED_MODULE_56__["NgxLocalStorageModule"].forRoot(), ng_gallery__WEBPACK_IMPORTED_MODULE_83__["GalleryModule"], ng_gallery_lightbox__WEBPACK_IMPORTED_MODULE_84__["LightboxModule"], _ctrl_ngx_emoji_mart__WEBPACK_IMPORTED_MODULE_86__["PickerModule"]]]
+        }), _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_18__["MatSlideToggleModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_49__["MatTabsModule"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_63__["MatSnackBarModule"], ag_charts_angular__WEBPACK_IMPORTED_MODULE_26__["AgChartsAngularModule"], ngx_notification_msg__WEBPACK_IMPORTED_MODULE_31__["NgxNotificationMsgModule"], angular_notifier__WEBPACK_IMPORTED_MODULE_32__["NotifierModule"].withConfig(customNotifierOptions), _angular_common_http__WEBPACK_IMPORTED_MODULE_33__["HttpClientModule"], ng2_file_upload__WEBPACK_IMPORTED_MODULE_37__["FileUploadModule"], ngx_socket_io__WEBPACK_IMPORTED_MODULE_73__["SocketIoModule"].forRoot(config), ngx_localstorage__WEBPACK_IMPORTED_MODULE_56__["NgxLocalStorageModule"].forRoot(), ng_gallery__WEBPACK_IMPORTED_MODULE_83__["GalleryModule"], ng_gallery_lightbox__WEBPACK_IMPORTED_MODULE_84__["LightboxModule"], _ctrl_ngx_emoji_mart__WEBPACK_IMPORTED_MODULE_86__["PickerModule"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_88__["MatTooltipModule"]]]
       });
 
       (function () {
         (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsetNgModuleScope"](AppModule, {
           declarations: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"], _components_client_enter_enter_component__WEBPACK_IMPORTED_MODULE_12__["EnterComponent"], _layouts_header_header_component__WEBPACK_IMPORTED_MODULE_5__["HeaderComponent"], _layouts_header_connected_connected_component__WEBPACK_IMPORTED_MODULE_4__["ConnectedComponent"], _layouts_header_disconnected_disconnected_component__WEBPACK_IMPORTED_MODULE_3__["DisconnectedComponent"], _components_client_signup_signup_component__WEBPACK_IMPORTED_MODULE_13__["SignupComponent"], _components_client_signin_signin_component__WEBPACK_IMPORTED_MODULE_14__["SigninComponent"], _components_modele_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"], _components_client_profil_profil_component__WEBPACK_IMPORTED_MODULE_17__["ProfilComponent"], _components_client_profil_password_password_component__WEBPACK_IMPORTED_MODULE_20__["PasswordComponent"], _components_client_profil_delete_delete_component__WEBPACK_IMPORTED_MODULE_21__["DeleteComponent"], _components_modele_dashboard_gain_gain_component__WEBPACK_IMPORTED_MODULE_22__["GainComponent"], _components_modele_dashboard_information_information_component__WEBPACK_IMPORTED_MODULE_23__["InformationComponent"], _components_modele_dashboard_solde_solde_component__WEBPACK_IMPORTED_MODULE_24__["SoldeComponent"], _components_modele_inscription_model_inscription_model_component__WEBPACK_IMPORTED_MODULE_25__["InscriptionModelComponent"], _components_modele_dashboard_connexion_connexion_component__WEBPACK_IMPORTED_MODULE_27__["ConnexionComponent"], _components_modele_dashboard_setting_setting_component__WEBPACK_IMPORTED_MODULE_28__["SettingComponent"], _components_modele_dashboard_password_modele_password_modele_component__WEBPACK_IMPORTED_MODULE_29__["PasswordModeleComponent"], _modals_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_30__["ForgotPasswordComponent"], _components_modele_albums_albums_component__WEBPACK_IMPORTED_MODULE_34__["AlbumsComponent"], _components_modele_profil_model_profil_model_component__WEBPACK_IMPORTED_MODULE_35__["ProfilModelComponent"], _components_modele_dashboard_credit_credit_component__WEBPACK_IMPORTED_MODULE_38__["CreditComponent"], _components_modele_dashboard_credit_pack_argent_pack_argent_component__WEBPACK_IMPORTED_MODULE_39__["PackArgentComponent"], _components_modele_dashboard_credit_pack_bronze_pack_bronze_component__WEBPACK_IMPORTED_MODULE_40__["PackBronzeComponent"], _components_modele_dashboard_credit_pack_bienvenue_pack_bienvenue_component__WEBPACK_IMPORTED_MODULE_41__["PackBienvenueComponent"], _components_modele_dashboard_credit_pack_or_pack_or_component__WEBPACK_IMPORTED_MODULE_42__["PackOrComponent"], _components_home_home_connected_home_client_component__WEBPACK_IMPORTED_MODULE_43__["HomeClientComponent"], _components_home_home_disconnected_home_live_component__WEBPACK_IMPORTED_MODULE_45__["HomeLiveComponent"], _components_live_live_free_live_free_component__WEBPACK_IMPORTED_MODULE_46__["LiveFreeComponent"], _components_live_live_private_live_private_component__WEBPACK_IMPORTED_MODULE_47__["LivePrivateComponent"], _components_live_live_vip_live_vip_component__WEBPACK_IMPORTED_MODULE_48__["LiveVipComponent"], _components_live_live_private_live_private_cam_live_private_cam_component__WEBPACK_IMPORTED_MODULE_50__["LivePrivateCamComponent"], _components_live_topbar_topbar_component__WEBPACK_IMPORTED_MODULE_51__["TopbarComponent"], _components_live_live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_52__["LiveFreeChatComponent"], _components_live_live_vip_live_vip_stat_live_vip_stat_component__WEBPACK_IMPORTED_MODULE_53__["LiveVipStatComponent"], _components_client_out_out_component__WEBPACK_IMPORTED_MODULE_54__["OutComponent"], _components_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_55__["PageNotFoundComponent"], _layouts_scrolltop_scrolltop_component__WEBPACK_IMPORTED_MODULE_57__["ScrolltopComponent"], _components_client_buy_credit_buy_credit_component__WEBPACK_IMPORTED_MODULE_58__["BuyCreditComponent"], _layouts_header_connected_model_connected_model_component__WEBPACK_IMPORTED_MODULE_59__["ConnectedModelComponent"], _modals_confirm_logout_confirm_logout_confirm_logout_component__WEBPACK_IMPORTED_MODULE_60__["ConfirmLogoutComponent"], _components_modele_connexion_model_connexion_model_component__WEBPACK_IMPORTED_MODULE_61__["ConnexionModelComponent"], _modals_popup_info_popup_info_component__WEBPACK_IMPORTED_MODULE_64__["PopupInfoComponent"], _pipes_sanitize_sanitize_pipe__WEBPACK_IMPORTED_MODULE_66__["SanitizePipe"], _components_modele_live_chat_model_live_chat_model_component__WEBPACK_IMPORTED_MODULE_70__["LiveChatModelComponent"], _components_modele_live_private_model_live_private_model_component__WEBPACK_IMPORTED_MODULE_74__["LivePrivateModelComponent"], _components_modele_live_vip_model_live_vip_model_component__WEBPACK_IMPORTED_MODULE_75__["LiveVipModelComponent"], _modals_pack_modal_pack_modal_component__WEBPACK_IMPORTED_MODULE_77__["PackModalComponent"], _components_client_confirm_email_confirm_email_component__WEBPACK_IMPORTED_MODULE_79__["ConfirmEmailComponent"], _components_forgot_send_forgot_send_forgot_component__WEBPACK_IMPORTED_MODULE_80__["SendForgotComponent"], _components_forgot_new_password_new_password_component__WEBPACK_IMPORTED_MODULE_81__["NewPasswordComponent"], _components_forgot_send_forgot_model_send_forgot_model_component__WEBPACK_IMPORTED_MODULE_82__["SendForgotModelComponent"], _modals_popup_image_popup_image_component__WEBPACK_IMPORTED_MODULE_85__["PopupImageComponent"], _components_client_reactivate_account_reactivate_account_component__WEBPACK_IMPORTED_MODULE_87__["ReactivateAccountComponent"]],
-          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_11__["BrowserAnimationsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"], _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_18__["MatSlideToggleModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_49__["MatTabsModule"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_63__["MatSnackBarModule"], ag_charts_angular__WEBPACK_IMPORTED_MODULE_26__["AgChartsAngularModule"], ngx_notification_msg__WEBPACK_IMPORTED_MODULE_31__["NgxNotificationMsgModule"], angular_notifier__WEBPACK_IMPORTED_MODULE_32__["NotifierModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_33__["HttpClientModule"], ng2_file_upload__WEBPACK_IMPORTED_MODULE_37__["FileUploadModule"], ngx_socket_io__WEBPACK_IMPORTED_MODULE_73__["SocketIoModule"], ngx_localstorage__WEBPACK_IMPORTED_MODULE_56__["NgxLocalStorageModule"], ng_gallery__WEBPACK_IMPORTED_MODULE_83__["GalleryModule"], ng_gallery_lightbox__WEBPACK_IMPORTED_MODULE_84__["LightboxModule"], _ctrl_ngx_emoji_mart__WEBPACK_IMPORTED_MODULE_86__["PickerModule"]]
+          imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_11__["BrowserAnimationsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"], _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_18__["MatSlideToggleModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_49__["MatTabsModule"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_63__["MatSnackBarModule"], ag_charts_angular__WEBPACK_IMPORTED_MODULE_26__["AgChartsAngularModule"], ngx_notification_msg__WEBPACK_IMPORTED_MODULE_31__["NgxNotificationMsgModule"], angular_notifier__WEBPACK_IMPORTED_MODULE_32__["NotifierModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_33__["HttpClientModule"], ng2_file_upload__WEBPACK_IMPORTED_MODULE_37__["FileUploadModule"], ngx_socket_io__WEBPACK_IMPORTED_MODULE_73__["SocketIoModule"], ngx_localstorage__WEBPACK_IMPORTED_MODULE_56__["NgxLocalStorageModule"], ng_gallery__WEBPACK_IMPORTED_MODULE_83__["GalleryModule"], ng_gallery_lightbox__WEBPACK_IMPORTED_MODULE_84__["LightboxModule"], _ctrl_ngx_emoji_mart__WEBPACK_IMPORTED_MODULE_86__["PickerModule"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_88__["MatTooltipModule"]]
         });
       })();
       /***/
@@ -19163,14 +19378,14 @@
         }, {
           key: "getActif",
           value: function getActif(id) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee63() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee66() {
               var actif;
-              return regeneratorRuntime.wrap(function _callee63$(_context63) {
+              return regeneratorRuntime.wrap(function _callee66$(_context66) {
                 while (1) {
-                  switch (_context63.prev = _context63.next) {
+                  switch (_context66.prev = _context66.next) {
                     case 0:
                       actif = 0;
-                      _context63.next = 3;
+                      _context66.next = 3;
                       return this.http.get("".concat(this.endpoint, "/room/").concat(id), httpOptions).subscribe(function (data) {
                         if (data.actif) {
                           actif = data.actif;
@@ -19178,14 +19393,14 @@
                       });
 
                     case 3:
-                      return _context63.abrupt("return", actif);
+                      return _context66.abrupt("return", actif);
 
                     case 4:
                     case "end":
-                      return _context63.stop();
+                      return _context66.stop();
                   }
                 }
-              }, _callee63, this);
+              }, _callee66, this);
             }));
           }
         }, {
@@ -19609,13 +19824,13 @@
         }, {
           key: "register",
           value: function register(event) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee64() {
-              var _this102 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee67() {
+              var _this103 = this;
 
               var user;
-              return regeneratorRuntime.wrap(function _callee64$(_context64) {
+              return regeneratorRuntime.wrap(function _callee67$(_context67) {
                 while (1) {
-                  switch (_context64.prev = _context64.next) {
+                  switch (_context67.prev = _context67.next) {
                     case 0:
                       this.pseudoExist = false;
                       this.emailExist = false;
@@ -19624,48 +19839,48 @@
                       event.preventDefault();
 
                       if (!this.signForm.invalid) {
-                        _context64.next = 7;
+                        _context67.next = 7;
                         break;
                       }
 
-                      return _context64.abrupt("return", false);
+                      return _context67.abrupt("return", false);
 
                     case 7:
                       this.loading = true;
                       user = this.signForm.value;
-                      _context64.next = 11;
+                      _context67.next = 11;
                       return this.authService.registerClient(user).subscribe(function (res) {
                         // console.log(res);
                         if (res.error) {
-                          _this102.error = res.message;
-                          if (res.pseudo) _this102.pseudoExist = true;
-                          if (res.email) _this102.emailExist = true;
-                          _this102.loading = false;
+                          _this103.error = res.message;
+                          if (res.pseudo) _this103.pseudoExist = true;
+                          if (res.email) _this103.emailExist = true;
+                          _this103.loading = false;
                         } else {
-                          _this102.creditService.createCreditClient(res.id).subscribe(function (data) {
-                            _this102.submitted = false;
+                          _this103.creditService.createCreditClient(res.id).subscribe(function (data) {
+                            _this103.submitted = false;
 
-                            _this102.popupService.info('client', 'Félicitation', "Un email de confirmation est envoy\xE9 \xE0\n                <span style=\"font-style: italic; color: var(--pink)\">".concat(res.email, "</span>"));
+                            _this103.popupService.info('client', 'Félicitation', "Un email de confirmation est envoy\xE9 \xE0\n                <span style=\"font-style: italic; color: var(--pink)\">".concat(res.email, "</span>"));
 
-                            _this102.signForm.reset();
+                            _this103.signForm.reset();
 
-                            _this102.loading = false;
+                            _this103.loading = false;
                           });
                         }
                       }, function (err) {
-                        _this102.loading = false;
+                        _this103.loading = false;
                         console.log(err);
                       });
 
                     case 11:
-                      return _context64.abrupt("return", true);
+                      return _context67.abrupt("return", true);
 
                     case 12:
                     case "end":
-                      return _context64.stop();
+                      return _context67.stop();
                   }
                 }
-              }, _callee64, this);
+              }, _callee67, this);
             }));
           }
         }]);
@@ -20087,7 +20302,7 @@
         }, {
           key: "initSocket",
           value: function initSocket() {
-            var _this103 = this;
+            var _this104 = this;
 
             if (!this.roomService.joinedRoom()) {
               this.roomService.joinRoom();
@@ -20096,44 +20311,52 @@
 
             this.joinSub = this.socketService.listen("joined ".concat(this.info.idRoom)).subscribe(function (data) {
               console.log('joined ', data);
-              _this103.info.actif = data < 1 ? 0 : data - 1;
+              _this104.info.actif = data < 1 ? 0 : data - 1;
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.info.idRoom)).subscribe(function (data) {
               // console.log('leaved ', data);
-              _this103.info.actif = data < 1 ? 0 : data - 1;
+              _this104.info.actif = data < 1 ? 0 : data - 1;
             });
             this.messageSub = this.socketService.listen("message ".concat(this.info.idRoom)).subscribe(function (data) {
               // console.log('Message from client ', data);
-              _this103.getMessages();
+              _this104.getMessages();
             });
           }
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this104 = this;
+            var _this105 = this;
 
             this.modelService.getInfo().subscribe(function (data) {
               // console.log(data);
-              _this104.info.bg = data.path_soft;
-              _this104.info.modelId = data.id;
-              _this104.info.pseudo = data.pseudo;
+              if (data.profile.status === 'En vip') {
+                _this105.router.navigate(['/modele/live-vip']);
+              }
 
-              _this104.getInfoRoom();
+              if (data.profile.status === 'En live') {
+                _this105.router.navigate(['/modele/live-private']);
+              }
+
+              _this105.info.bg = data.path_soft;
+              _this105.info.modelId = data.id;
+              _this105.info.pseudo = data.pseudo;
+
+              _this105.getInfoRoom();
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this105 = this;
+            var _this106 = this;
 
             this.roomService.getRoomModel(this.info.modelId).subscribe(function (data) {
               console.log('Model room ', data);
-              _this105.info.idRoom = data.idRoom;
-              _this105.info.actif = data.actif < 1 ? 0 : data.actif - 1;
+              _this106.info.idRoom = data.idRoom;
+              _this106.info.actif = data.actif < 1 ? 0 : data.actif - 1;
 
-              _this105.getMessages();
+              _this106.getMessages();
 
-              _this105.initSocket();
+              _this106.initSocket();
             });
           }
         }, {
@@ -20144,7 +20367,7 @@
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this106 = this;
+            var _this107 = this;
 
             var data = {
               idRoom: this.info.idRoom,
@@ -20155,79 +20378,79 @@
             };
             this.info.message = null;
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this106.getMessages();
+              _this107.getMessages();
 
               var msg = {
-                room: _this106.info.idRoom + '',
+                room: _this107.info.idRoom + '',
                 role: 'model',
-                id: _this106.info.modelId,
-                message: _this106.info.message
+                id: _this107.info.modelId,
+                message: _this107.info.message
               };
 
-              _this106.socketService.sendMessage(msg);
+              _this107.socketService.sendMessage(msg);
             });
           }
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this107 = this;
+            var _this108 = this;
 
             this.chatService.getMessage(this.info.idRoom).subscribe(function (data) {
               // console.log(data);
-              _this107.messages = data;
+              _this108.messages = data;
             });
           }
         }, {
           key: "launchLive",
           value: function launchLive() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee66() {
-              var _this108 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee69() {
+              var _this109 = this;
 
-              return regeneratorRuntime.wrap(function _callee66$(_context66) {
+              return regeneratorRuntime.wrap(function _callee69$(_context69) {
                 while (1) {
-                  switch (_context66.prev = _context66.next) {
+                  switch (_context69.prev = _context69.next) {
                     case 0:
                       // console.log('launch')
                       this.roomPrivateService.createRoom().subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this108, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee65() {
-                          var _this109 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this109, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee68() {
+                          var _this110 = this;
 
-                          return regeneratorRuntime.wrap(function _callee65$(_context65) {
+                          return regeneratorRuntime.wrap(function _callee68$(_context68) {
                             while (1) {
-                              switch (_context65.prev = _context65.next) {
+                              switch (_context68.prev = _context68.next) {
                                 case 0:
-                                  _context65.next = 2;
+                                  _context68.next = 2;
                                   return this.askLeave().then(function (data) {
-                                    _this109.store.set("privateRoomId", data.room);
+                                    _this110.store.set("privateRoomId", data.room);
 
-                                    _this109.router.navigate(['/modele/live-private']);
+                                    _this110.router.navigate(['/modele/live-private']);
                                   });
 
                                 case 2:
                                 case "end":
-                                  return _context65.stop();
+                                  return _context68.stop();
                               }
                             }
-                          }, _callee65, this);
+                          }, _callee68, this);
                         }));
                       });
 
                     case 1:
                     case "end":
-                      return _context66.stop();
+                      return _context69.stop();
                   }
                 }
-              }, _callee66, this);
+              }, _callee69, this);
             }));
           }
         }, {
           key: "askLeave",
           value: function askLeave() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee67() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee70() {
               var data;
-              return regeneratorRuntime.wrap(function _callee67$(_context67) {
+              return regeneratorRuntime.wrap(function _callee70$(_context70) {
                 while (1) {
-                  switch (_context67.prev = _context67.next) {
+                  switch (_context70.prev = _context70.next) {
                     case 0:
                       data = {
                         room: this.info.idRoom + '',
@@ -20236,18 +20459,18 @@
                         pseudo: this.info.pseudo,
                         message: 'I pass to private live'
                       };
-                      _context67.next = 3;
+                      _context70.next = 3;
                       return this.socketService.emit('Pass to private', data);
 
                     case 3:
-                      return _context67.abrupt("return", _context67.sent);
+                      return _context70.abrupt("return", _context70.sent);
 
                     case 4:
                     case "end":
-                      return _context67.stop();
+                      return _context70.stop();
                   }
                 }
-              }, _callee67, this);
+              }, _callee70, this);
             }));
           }
         }]);
@@ -20585,19 +20808,19 @@
         }, {
           key: "addPhoto",
           value: function addPhoto(url, file, context) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee68() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee71() {
               var tmp, tab, index, _index2, _index3;
 
-              return regeneratorRuntime.wrap(function _callee68$(_context68) {
+              return regeneratorRuntime.wrap(function _callee71$(_context71) {
                 while (1) {
-                  switch (_context68.prev = _context68.next) {
+                  switch (_context71.prev = _context71.next) {
                     case 0:
                       console.log(url);
                       console.log(context);
                       tmp = [];
                       tmp.push(url);
-                      _context68.t0 = context;
-                      _context68.next = _context68.t0 === 'private' ? 7 : _context68.t0 === 'vip' ? 10 : _context68.t0 === 'free' ? 13 : 16;
+                      _context71.t0 = context;
+                      _context71.next = _context71.t0 === 'private' ? 7 : _context71.t0 === 'vip' ? 10 : _context71.t0 === 'free' ? 13 : 16;
                       break;
 
                     case 7:
@@ -20606,7 +20829,7 @@
                       }
 
                       this.albumPrivate = tmp;
-                      return _context68.abrupt("break", 17);
+                      return _context71.abrupt("break", 17);
 
                     case 10:
                       for (_index2 = 0; _index2 < this.albumVIP.length; _index2++) {
@@ -20614,7 +20837,7 @@
                       }
 
                       this.albumVIP = tmp;
-                      return _context68.abrupt("break", 17);
+                      return _context71.abrupt("break", 17);
 
                     case 13:
                       for (_index3 = 0; _index3 < this.albumFree.length; _index3++) {
@@ -20622,41 +20845,41 @@
                       }
 
                       this.albumFree = tmp;
-                      return _context68.abrupt("break", 17);
+                      return _context71.abrupt("break", 17);
 
                     case 16:
-                      return _context68.abrupt("break", 17);
+                      return _context71.abrupt("break", 17);
 
                     case 17:
                     case "end":
-                      return _context68.stop();
+                      return _context71.stop();
                   }
                 }
-              }, _callee68, this);
+              }, _callee71, this);
             }));
           }
         }, {
           key: "getAlbums",
           value: function getAlbums(context, debut, marge) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee69() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee72() {
               var album;
-              return regeneratorRuntime.wrap(function _callee69$(_context69) {
+              return regeneratorRuntime.wrap(function _callee72$(_context72) {
                 while (1) {
-                  switch (_context69.prev = _context69.next) {
+                  switch (_context72.prev = _context72.next) {
                     case 0:
                       album = {
                         type_album: context,
                         begin: debut,
                         end: debut + marge
                       };
-                      return _context69.abrupt("return", this.http.post("".concat(this.endpoint, "/album/specific"), album, httpOptions));
+                      return _context72.abrupt("return", this.http.post("".concat(this.endpoint, "/album/specific"), album, httpOptions));
 
                     case 2:
                     case "end":
-                      return _context69.stop();
+                      return _context72.stop();
                   }
                 }
-              }, _callee69, this);
+              }, _callee72, this);
             }));
           }
         }, {
@@ -21272,11 +21495,11 @@
         }, {
           key: "isRemember",
           value: function isRemember(user) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee70() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee73() {
               var pseudoCrypted, passCrypted;
-              return regeneratorRuntime.wrap(function _callee70$(_context70) {
+              return regeneratorRuntime.wrap(function _callee73$(_context73) {
                 while (1) {
-                  switch (_context70.prev = _context70.next) {
+                  switch (_context73.prev = _context73.next) {
                     case 0:
                       if (this.checked) {
                         pseudoCrypted = this.encryptionService.encryptUsingAES256(user.pseudo);
@@ -21290,10 +21513,10 @@
 
                     case 1:
                     case "end":
-                      return _context70.stop();
+                      return _context73.stop();
                   }
                 }
-              }, _callee70, this);
+              }, _callee73, this);
             }));
           }
         }, {
@@ -21318,66 +21541,66 @@
         }, {
           key: "login",
           value: function login(event) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee71() {
-              var _this110 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee74() {
+              var _this111 = this;
 
               var user;
-              return regeneratorRuntime.wrap(function _callee71$(_context71) {
+              return regeneratorRuntime.wrap(function _callee74$(_context74) {
                 while (1) {
-                  switch (_context71.prev = _context71.next) {
+                  switch (_context74.prev = _context74.next) {
                     case 0:
                       this.submitted = true;
                       event.preventDefault();
 
                       if (!this.loginForm.invalid) {
-                        _context71.next = 4;
+                        _context74.next = 4;
                         break;
                       }
 
-                      return _context71.abrupt("return", false);
+                      return _context74.abrupt("return", false);
 
                     case 4:
                       this.loading = true;
                       user = this.loginForm.value;
-                      _context71.next = 8;
+                      _context74.next = 8;
                       return this.authService.loginModel(user).subscribe(function (res) {
                         // console.log(res);
                         if (res.error) {
-                          _this110.errorAuth = res.message;
-                          _this110.loading = false;
+                          _this111.errorAuth = res.message;
+                          _this111.loading = false;
                         } else {
-                          _this110.errorAuth = null;
-                          if (res.access_token) _this110.authService.saveToken(res.access_token).then(function () {
-                            _this110.logService.createLog("connection").subscribe(function (data) {
-                              _this110.isRemember(user).then(function () {
-                                _this110.roomService.createRoom().subscribe(function (data) {
-                                  _this110.store.set("room", data.room);
+                          _this111.errorAuth = null;
+                          if (res.access_token) _this111.authService.saveToken(res.access_token).then(function () {
+                            _this111.logService.createLog("connection").subscribe(function (data) {
+                              _this111.isRemember(user).then(function () {
+                                _this111.roomService.createRoom().subscribe(function (data) {
+                                  _this111.store.set("room", data.room);
 
-                                  _this110.loading = false;
+                                  _this111.loading = false;
 
-                                  _this110.router.navigate(['/modele/profile']);
+                                  _this111.router.navigate(['/modele/profile']);
                                 });
                               });
                             }, function (error) {
-                              _this110.loading = false;
+                              _this111.loading = false;
                               console.log(error);
                             });
                           });
                         }
                       }, function (err) {
-                        _this110.loading = false;
+                        _this111.loading = false;
                         console.log(err);
                       });
 
                     case 8:
-                      return _context71.abrupt("return", true);
+                      return _context74.abrupt("return", true);
 
                     case 9:
                     case "end":
-                      return _context71.stop();
+                      return _context74.stop();
                   }
                 }
-              }, _callee71, this);
+              }, _callee74, this);
             }));
           }
         }, {
@@ -21662,12 +21885,12 @@
         }, {
           key: "delete",
           value: function _delete(id) {
-            var _this111 = this;
+            var _this112 = this;
 
             this.albumService.deleteAlbum(id).subscribe(function (data) {
-              _this111.notificationService.info("Suppression", "Photo Supprimée");
+              _this112.notificationService.info("Suppression", "Photo Supprimée");
 
-              _this111.dialogRef.close('success');
+              _this112.dialogRef.close('success');
             });
           }
         }]);
@@ -21850,7 +22073,7 @@
 
       var ConfirmEmailComponent = /*#__PURE__*/function () {
         function ConfirmEmailComponent(activatedRoute, http, store, router, notificationService) {
-          var _this112 = this;
+          var _this113 = this;
 
           _classCallCheck(this, ConfirmEmailComponent);
 
@@ -21865,7 +22088,7 @@
           this.errorMessageToken = null;
           this.successMessageToken = null;
           this.activatedRoute.queryParams.subscribe(function (params) {
-            _this112.token = params['token'];
+            _this113.token = params['token'];
           });
         }
 
@@ -21877,7 +22100,7 @@
         }, {
           key: "confirmToken",
           value: function confirmToken() {
-            var _this113 = this;
+            var _this114 = this;
 
             if (!this.token) {
               this.errorToken = true;
@@ -21890,15 +22113,15 @@
             this.http.post("".concat(this.endpoint, "/client/confirm"), {}, httpOptions).subscribe(function (data) {
               // console.log("Client token ", data);
               if (!data.success) {
-                _this113.errorMessageToken = data.message;
-                _this113.errorToken = true;
+                _this114.errorMessageToken = data.message;
+                _this114.errorToken = true;
               } else {
-                _this113.errorToken = false;
-                _this113.successMessageToken = data.message;
+                _this114.errorToken = false;
+                _this114.successMessageToken = data.message;
 
-                _this113.notificationService.infoMsg("Votre compte est confirmé");
+                _this114.notificationService.infoMsg("Votre compte est confirmé");
 
-                _this113.router.navigate(['/connexion']);
+                _this114.router.navigate(['/connexion']);
               }
             });
           }
@@ -22986,7 +23209,7 @@
 
       var LivePrivateComponent = /*#__PURE__*/function () {
         function LivePrivateComponent(_platform, router, route, modelService, roomPrivateService, store, chatService, socketService, popupService, profilService, dialog, timerService, clientService, notificationService, roomVipService) {
-          var _this114 = this;
+          var _this115 = this;
 
           _classCallCheck(this, LivePrivateComponent);
 
@@ -23038,6 +23261,7 @@
             second: null,
             type: null
           };
+          this.clientStream = [];
           this.actifSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
           this.joinSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
           this.leaveSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
@@ -23046,39 +23270,43 @@
           this.modelPassedVipSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
           this.invitationVipSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
           this.peerSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
+          this.newPeerSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
           this.peerList = [];
 
           this.getPeerId = function () {
-            _this114.peer.on('open', function (id) {
+            _this115.peer.on('open', function (id) {
               console.log("Peer Id ", id);
-              _this114.peerId = id; // Send peer client
+              _this115.peerId = id; // Send peer client
 
-              _this114.socketService.askModelPeerId({
-                peerId: _this114.peerId,
-                room: _this114.idRoom + 'P',
-                clientId: _this114.clientId
+              _this115.socketService.askModelPeerId({
+                peerId: _this115.peerId,
+                room: _this115.idRoom + 'P',
+                clientId: _this115.clientId
               });
             });
 
-            _this114.peer.on('call', function (call) {
-              _this114.onStop();
+            _this115.peer.on('call', function (call) {
+              _this115.onStop();
 
               navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
               }).then(function (stream) {
-                _this114.lazyStream = stream; // const _video = this.video.nativeElement;
+                _this115.lazyStream = stream;
+
+                _this115.clientStream.push(stream); // const _video = this.video.nativeElement;
                 // _video.srcObject = stream;
                 // _video.play();
 
+
                 call.answer(stream);
                 call.on('stream', function (remoteStream) {
-                  if (!_this114.peerList.includes(call.peer)) {
-                    _this114.streamRemoteVideo(remoteStream);
+                  if (!_this115.peerList.includes(call.peer)) {
+                    _this115.streamRemoteVideo(remoteStream);
 
-                    _this114.currentPeer = call.peerConnection;
+                    _this115.currentPeer = call.peerConnection;
 
-                    _this114.peerList.push(call.peer);
+                    _this115.peerList.push(call.peer);
                   }
                 });
               })["catch"](function (err) {
@@ -23103,16 +23331,17 @@
         }, {
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee72() {
-              return regeneratorRuntime.wrap(function _callee72$(_context72) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee75() {
+              return regeneratorRuntime.wrap(function _callee75$(_context75) {
                 while (1) {
-                  switch (_context72.prev = _context72.next) {
+                  switch (_context75.prev = _context75.next) {
                     case 0:
-                      _context72.next = 2;
+                      this.onStop();
+                      _context75.next = 3;
                       return this.creditTimer();
 
-                    case 2:
-                      _context72.sent.subscribe(function (data) {// console.log("Response credit timer ", data);
+                    case 3:
+                      _context75.sent.subscribe(function (data) {// console.log("Response credit timer ", data);
                       });
 
                       this.actifSub.unsubscribe();
@@ -23123,106 +23352,107 @@
                       this.modelPassedVipSub.unsubscribe();
                       this.invitationVipSub.unsubscribe();
                       this.peerSub.unsubscribe();
+                      this.newPeerSub.unsubscribe();
 
-                    case 11:
+                    case 13:
                     case "end":
-                      return _context72.stop();
+                      return _context75.stop();
                   }
                 }
-              }, _callee72, this);
+              }, _callee75, this);
             }));
           }
         }, {
           key: "getModel",
           value: function getModel() {
-            var _this115 = this;
+            var _this116 = this;
 
             this.modelService.getModel(this.modelId).subscribe(function (data) {
               // console.log("Le model ", data);
-              _this115.bg = data.path_soft;
-              _this115.modelPseudo = data.pseudo;
+              _this116.bg = data.path_soft;
+              _this116.modelPseudo = data.pseudo;
 
               if (data.profile.status === "En vip") {
-                _this115.passedVIP = true;
+                _this116.passedVIP = true;
 
-                _this115.clearTimer(); // return null;
+                _this116.clearTimer(); // return null;
 
               } else if (data.profile.status === "En ligne") {
-                _this115.obsolete();
+                _this116.obsolete();
 
-                _this115.clearTimer(); // return null;
+                _this116.clearTimer(); // return null;
 
               }
 
-              _this115.getInfo();
+              _this116.getInfo();
             });
           }
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this116 = this;
+            var _this117 = this;
 
             this.clientService.getMyInfos().subscribe( // My info
             function (data) {
               // console.log("My info ", data)
-              _this116.clientId = data.id;
-              _this116.clientPseudo = data.pseudo;
-              _this116.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
+              _this117.clientId = data.id;
+              _this117.clientPseudo = data.pseudo;
+              _this117.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
 
-              _this116.getInfoRoom();
+              _this117.getInfoRoom();
             });
           }
         }, {
           key: "getCredit",
           value: function getCredit() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee73() {
-              var _this117 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee76() {
+              var _this118 = this;
 
-              return regeneratorRuntime.wrap(function _callee73$(_context73) {
+              return regeneratorRuntime.wrap(function _callee76$(_context76) {
                 while (1) {
-                  switch (_context73.prev = _context73.next) {
+                  switch (_context76.prev = _context76.next) {
                     case 0:
-                      _context73.next = 2;
+                      _context76.next = 2;
                       return this.clientService.getCredit().subscribe(function (data) {
-                        _this117.clientCredit = data.credit; // console.log('Client credit ', this.clientCredit);
+                        _this118.clientCredit = data.credit; // console.log('Client credit ', this.clientCredit);
 
                         // console.log('Client credit ', this.clientCredit);
-                        if (_this117.show.credit < _this117.clientCredit) return null;
-                        _this117.timer.fail = true; // if Not leaved
+                        if (_this118.show.credit < _this118.clientCredit) return null;
+                        _this118.timer.fail = true; // if Not leaved
 
                         // if Not leaved
-                        if (!_this117.timer.reinit) {
-                          _this117.notificationService.failure("CREDIT INSUFFISANT", "Veuillez vous recharger.");
+                        if (!_this118.timer.reinit) {
+                          _this118.notificationService.failure("CREDIT INSUFFISANT", "Veuillez vous recharger.");
                         }
                       });
 
                     case 2:
-                      return _context73.abrupt("return", _context73.sent);
+                      return _context76.abrupt("return", _context76.sent);
 
                     case 3:
                     case "end":
-                      return _context73.stop();
+                      return _context76.stop();
                   }
                 }
-              }, _callee73, this);
+              }, _callee76, this);
             }));
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee75() {
-              var _this118 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee78() {
+              var _this119 = this;
 
-              return regeneratorRuntime.wrap(function _callee75$(_context75) {
+              return regeneratorRuntime.wrap(function _callee78$(_context78) {
                 while (1) {
-                  switch (_context75.prev = _context75.next) {
+                  switch (_context78.prev = _context78.next) {
                     case 0:
-                      _context75.next = 2;
+                      _context78.next = 2;
                       return this.roomPrivateService.getRoomModel(this.modelId).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this118, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee74() {
-                          return regeneratorRuntime.wrap(function _callee74$(_context74) {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this119, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee77() {
+                          return regeneratorRuntime.wrap(function _callee77$(_context77) {
                             while (1) {
-                              switch (_context74.prev = _context74.next) {
+                              switch (_context77.prev = _context77.next) {
                                 case 0:
                                   // console.log('Info room ', data);
                                   this.idRoom = data.idRoom;
@@ -23240,127 +23470,133 @@
 
                                 case 4:
                                 case "end":
-                                  return _context74.stop();
+                                  return _context77.stop();
                               }
                             }
-                          }, _callee74, this);
+                          }, _callee77, this);
                         }));
                       });
 
                     case 2:
                     case "end":
-                      return _context75.stop();
+                      return _context78.stop();
                   }
                 }
-              }, _callee75, this);
+              }, _callee78, this);
             }));
           }
         }, {
           key: "getActifs",
           value: function getActifs() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee76() {
-              var _this119 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee79() {
+              var _this120 = this;
 
-              return regeneratorRuntime.wrap(function _callee76$(_context76) {
+              return regeneratorRuntime.wrap(function _callee79$(_context79) {
                 while (1) {
-                  switch (_context76.prev = _context76.next) {
+                  switch (_context79.prev = _context79.next) {
                     case 0:
-                      _context76.next = 2;
+                      _context79.next = 2;
                       return this.roomPrivateService.getActif(this.idRoom).subscribe(function (data) {
                         // console.log("Get les actifs ", data);
-                        _this119.actif = data.clients.length + 1; // +1 for the model
+                        _this120.actif = data.clients.length + 1; // +1 for the model
 
                         // +1 for the model
-                        _this119.clients = data.clients;
+                        _this120.clients = data.clients;
                       });
 
                     case 2:
                     case "end":
-                      return _context76.stop();
+                      return _context79.stop();
                   }
                 }
-              }, _callee76, this);
+              }, _callee79, this);
             }));
           }
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this120 = this;
+            var _this121 = this;
 
             this.chatService.getMessage(this.idRoom, 'private').subscribe(function (data) {
-              _this120.messages = data;
+              _this121.messages = data;
             });
           }
         }, {
           key: "initSocket",
           value: function initSocket() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee77() {
-              var _this121 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee80() {
+              var _this122 = this;
 
-              return regeneratorRuntime.wrap(function _callee77$(_context77) {
+              return regeneratorRuntime.wrap(function _callee80$(_context80) {
                 while (1) {
-                  switch (_context77.prev = _context77.next) {
+                  switch (_context80.prev = _context80.next) {
                     case 0:
-                      _context77.next = 2;
+                      _context80.next = 2;
                       return this.socketService.joinPrivate(this.idRoom, this.modelId, this.clientId, this.clientPseudo);
 
                     case 2:
-                      _context77.next = 4;
+                      _context80.next = 4;
                       return this.roomPrivateService.updateActif(this.idRoom, true, 'private').subscribe(function (data) {
                         // console.log("Retour Update Actif in room Service ", data);
-                        _this121.getActifs();
+                        _this122.getActifs();
                       });
 
                     case 4:
-                      this.actifSub = _context77.sent;
+                      this.actifSub = _context80.sent;
                       this.joinSub = this.socketService.listen("joined ".concat(this.idRoom, "P")).subscribe(function (data) {
                         // console.log('Joined ', data);
-                        _this121.getActifs();
+                        _this122.getActifs();
                       });
                       this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom, "P")).subscribe(function (data) {
                         // console.log('leaved ', data);
-                        _this121.getActifs();
+                        _this122.getActifs();
                       });
                       this.messageSub = this.socketService.listen("message ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this121.getMessages();
+                        _this122.getMessages();
                       }); // Model leaved the room
 
                       this.modelLeaveSub = this.socketService.listen("model leaved ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this121.leaved = true;
-                        _this121.actif--;
+                        _this122.leaved = true;
+                        _this122.actif--;
 
-                        _this121.popupService.info('/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this121.modelPseudo, " a ferm\xE9 le live de ce room"));
+                        _this122.popupService.info('/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this122.modelPseudo, " a ferm\xE9 le live de ce room"));
                       }); // Model passed to VIP
 
                       this.modelPassedVipSub = this.socketService.listen("Pass to VIP ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this121.passedVIP = true;
+                        _this122.passedVIP = true;
                       }); // Invitation to pass in VIP
 
                       this.invitationVipSub = this.socketService.listen("pass VIP ".concat(this.clientId, " ").concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this121.invitedVIP = true;
+                        _this122.invitedVIP = true;
 
-                        _this121.invitationVIP();
+                        _this122.invitationVIP();
 
-                        _this121.roomVIP = data.roomVIP;
+                        _this122.roomVIP = data.roomVIP;
 
-                        _this121.store.set("roomVIP", _this121.roomVIP);
+                        _this122.store.set("roomVIP", _this122.roomVIP);
                       }); // Invitation to pass in VIP
 
                       this.peerSub = this.socketService.listen("ans peerId ".concat(this.clientId, " ").concat(this.idRoom, "P")).subscribe(function (data) {
                         console.log("ans peerId ", data);
-                        _this121.peerIdShare = data.peerId;
+                        _this122.peerIdShare = data.peerId;
 
-                        _this121.connectWithPeer();
+                        _this122.connectWithPeer();
+                      });
+                      this.newPeerSub = this.socketService.listen("new model peerId ".concat(this.idRoom, "P")).subscribe(function (data) {
+                        console.log("new model peerId");
+                        _this122.peerIdShare = data.peerId;
+
+                        _this122.connectWithPeer();
                       });
                       this.initTimer();
                       this.initLiveVideo();
 
-                    case 14:
+                    case 15:
                     case "end":
-                      return _context77.stop();
+                      return _context80.stop();
                   }
                 }
-              }, _callee77, this);
+              }, _callee80, this);
             }));
           }
         }, {
@@ -23372,7 +23608,7 @@
         }, {
           key: "initColor",
           value: function initColor() {
-            var _this122 = this;
+            var _this123 = this;
 
             if (this.store.get("ticket_chat")) {
               this.chatColor = this.store.get("ticket_chat");
@@ -23381,15 +23617,15 @@
 
             ;
             this.roomPrivateService.getColor().subscribe(function (data) {
-              _this122.chatColor = data.color;
+              _this123.chatColor = data.color;
 
-              _this122.store.set("ticket_chat", data.color);
+              _this123.store.set("ticket_chat", data.color);
             });
           }
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this123 = this;
+            var _this124 = this;
 
             if (!this.message) return;
             var data = {
@@ -23402,16 +23638,16 @@
             };
             this.message = null;
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this123.getMessages();
+              _this124.getMessages();
 
               var msg = {
-                room: _this123.idRoom + 'P',
+                room: _this124.idRoom + 'P',
                 role: 'client',
-                id: _this123.clientId,
-                message: _this123.message
+                id: _this124.clientId,
+                message: _this124.message
               };
 
-              _this123.socketService.sendMessage(msg);
+              _this124.socketService.sendMessage(msg);
             });
           }
         }, {
@@ -23422,48 +23658,48 @@
         }, {
           key: "liveVIP",
           value: function liveVIP() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee80() {
-              var _this124 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee83() {
+              var _this125 = this;
 
-              return regeneratorRuntime.wrap(function _callee80$(_context80) {
+              return regeneratorRuntime.wrap(function _callee83$(_context83) {
                 while (1) {
-                  switch (_context80.prev = _context80.next) {
+                  switch (_context83.prev = _context83.next) {
                     case 0:
-                      _context80.next = 2;
+                      _context83.next = 2;
                       return this.leaveTimer();
 
                     case 2:
-                      return _context80.abrupt("return", _context80.sent.subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this124, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee79() {
-                          var _this125 = this;
+                      return _context83.abrupt("return", _context83.sent.subscribe(function (data) {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this125, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee82() {
+                          var _this126 = this;
 
-                          return regeneratorRuntime.wrap(function _callee79$(_context79) {
+                          return regeneratorRuntime.wrap(function _callee82$(_context82) {
                             while (1) {
-                              switch (_context79.prev = _context79.next) {
+                              switch (_context82.prev = _context82.next) {
                                 case 0:
                                   this.timer.reinit = true;
-                                  _context79.next = 3;
+                                  _context82.next = 3;
                                   return this.creditTimer();
 
                                 case 3:
-                                  _context79.sent.subscribe(function (data) {
-                                    _this125.clientCredit = data.credit ? data.credit : 0;
+                                  _context82.sent.subscribe(function (data) {
+                                    _this126.clientCredit = data.credit ? data.credit : 0;
 
                                     if (data.credit <= 0) {
-                                      _this125.aucunCredit();
+                                      _this126.aucunCredit();
 
                                       return null;
-                                    } else if (data.credit <= _this125.show.credit * 2) {
-                                      _this125.creditInsuffisant();
+                                    } else if (data.credit <= _this126.show.credit * 2) {
+                                      _this126.creditInsuffisant();
 
                                       return null;
                                     }
 
-                                    _this125.profilService.getSpecificProfil(_this125.modelId).subscribe(function (data) {
-                                      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this125, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee78() {
-                                        return regeneratorRuntime.wrap(function _callee78$(_context78) {
+                                    _this126.profilService.getSpecificProfil(_this126.modelId).subscribe(function (data) {
+                                      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this126, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee81() {
+                                        return regeneratorRuntime.wrap(function _callee81$(_context81) {
                                           while (1) {
-                                            switch (_context78.prev = _context78.next) {
+                                            switch (_context81.prev = _context81.next) {
                                               case 0:
                                                 if (data.status === "En vip" && this.getInfoRoomVIP()) {
                                                   this.router.navigate(['/live/vip', {
@@ -23475,48 +23711,48 @@
 
                                               case 1:
                                               case "end":
-                                                return _context78.stop();
+                                                return _context81.stop();
                                             }
                                           }
-                                        }, _callee78, this);
+                                        }, _callee81, this);
                                       }));
                                     });
                                   });
 
                                 case 4:
                                 case "end":
-                                  return _context79.stop();
+                                  return _context82.stop();
                               }
                             }
-                          }, _callee79, this);
+                          }, _callee82, this);
                         }));
                       }));
 
                     case 3:
                     case "end":
-                      return _context80.stop();
+                      return _context83.stop();
                   }
                 }
-              }, _callee80, this);
+              }, _callee83, this);
             }));
           }
         }, {
           key: "getInfoRoomVIP",
           value: function getInfoRoomVIP() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee81() {
-              var _this126 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee84() {
+              var _this127 = this;
 
-              return regeneratorRuntime.wrap(function _callee81$(_context81) {
+              return regeneratorRuntime.wrap(function _callee84$(_context84) {
                 while (1) {
-                  switch (_context81.prev = _context81.next) {
+                  switch (_context84.prev = _context84.next) {
                     case 0:
-                      _context81.next = 2;
+                      _context84.next = 2;
                       return this.roomVipService.getRoomModel(this.modelId).subscribe(function (data) {
                         if (data.idRoom === null) {
                           return false;
                         }
 
-                        if (_this126.clientId !== data.clientId) {
+                        if (_this127.clientId !== data.clientId) {
                           return false;
                         }
 
@@ -23524,66 +23760,66 @@
                       });
 
                     case 2:
-                      return _context81.abrupt("return", _context81.sent);
+                      return _context84.abrupt("return", _context84.sent);
 
                     case 3:
                     case "end":
-                      return _context81.stop();
+                      return _context84.stop();
                   }
                 }
-              }, _callee81, this);
+              }, _callee84, this);
             }));
           }
         }, {
           key: "liveOut",
           value: function liveOut() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee83() {
-              var _this127 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee86() {
+              var _this128 = this;
 
-              return regeneratorRuntime.wrap(function _callee83$(_context83) {
+              return regeneratorRuntime.wrap(function _callee86$(_context86) {
                 while (1) {
-                  switch (_context83.prev = _context83.next) {
+                  switch (_context86.prev = _context86.next) {
                     case 0:
                       // this.creditTimer();
                       this.onStop();
-                      _context83.next = 3;
+                      _context86.next = 3;
                       return this.leaveTimer();
 
                     case 3:
-                      _context83.next = 5;
-                      return _context83.sent.subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this127, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee82() {
-                          var _this128 = this;
+                      _context86.next = 5;
+                      return _context86.sent.subscribe(function (data) {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this128, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee85() {
+                          var _this129 = this;
 
-                          return regeneratorRuntime.wrap(function _callee82$(_context82) {
+                          return regeneratorRuntime.wrap(function _callee85$(_context85) {
                             while (1) {
-                              switch (_context82.prev = _context82.next) {
+                              switch (_context85.prev = _context85.next) {
                                 case 0:
                                   this.timer.reinit = true;
-                                  _context82.next = 3;
+                                  _context85.next = 3;
                                   return this.roomPrivateService.updateActif(this.idRoom, false, 'private').subscribe(function (data) {
-                                    _this128.socketService.leavePrivate(_this128.idRoom, 'client').then(function (data) {
-                                      _this128.roomPrivateService.leaveRoom();
+                                    _this129.socketService.leavePrivate(_this129.idRoom, 'client').then(function (data) {
+                                      _this129.roomPrivateService.leaveRoom();
 
-                                      _this128.router.navigate(['/accueil/registered']);
+                                      _this129.router.navigate(['/accueil/registered']);
                                     });
                                   });
 
                                 case 3:
                                 case "end":
-                                  return _context82.stop();
+                                  return _context85.stop();
                               }
                             }
-                          }, _callee82, this);
+                          }, _callee85, this);
                         }));
                       });
 
                     case 5:
                     case "end":
-                      return _context83.stop();
+                      return _context86.stop();
                   }
                 }
-              }, _callee83, this);
+              }, _callee86, this);
             }));
           }
         }, {
@@ -23604,20 +23840,20 @@
         }, {
           key: "initTimer",
           value: function initTimer() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee85() {
-              var _this129 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee88() {
+              var _this130 = this;
 
-              return regeneratorRuntime.wrap(function _callee85$(_context85) {
+              return regeneratorRuntime.wrap(function _callee88$(_context88) {
                 while (1) {
-                  switch (_context85.prev = _context85.next) {
+                  switch (_context88.prev = _context88.next) {
                     case 0:
                       this.timerService.getTimer(this.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].PRIVATE).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this129, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee84() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this130, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee87() {
                           var created, updated, _this$timerService$co4, hour, minute, second;
 
-                          return regeneratorRuntime.wrap(function _callee84$(_context84) {
+                          return regeneratorRuntime.wrap(function _callee87$(_context87) {
                             while (1) {
-                              switch (_context84.prev = _context84.next) {
+                              switch (_context87.prev = _context87.next) {
                                 case 0:
                                   // console.log('Timer ', data);
                                   created = data.createdAt;
@@ -23629,76 +23865,76 @@
                                   this.timer.minute = minute;
                                   this.timer.second = second; // console.log(this.timer.hour, ':', this.timer.minute, ':', this.timer.second);
 
-                                  _context84.next = 9;
+                                  _context87.next = 9;
                                   return this.getCostShow();
 
                                 case 9:
                                 case "end":
-                                  return _context84.stop();
+                                  return _context87.stop();
                               }
                             }
-                          }, _callee84, this);
+                          }, _callee87, this);
                         }));
                       });
 
                     case 1:
                     case "end":
-                      return _context85.stop();
+                      return _context88.stop();
                   }
                 }
-              }, _callee85, this);
+              }, _callee88, this);
             }));
           }
         }, {
           key: "getCostShow",
           value: function getCostShow() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee86() {
-              var _this130 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee89() {
+              var _this131 = this;
 
-              return regeneratorRuntime.wrap(function _callee86$(_context86) {
+              return regeneratorRuntime.wrap(function _callee89$(_context89) {
                 while (1) {
-                  switch (_context86.prev = _context86.next) {
+                  switch (_context89.prev = _context89.next) {
                     case 0:
-                      _context86.next = 2;
+                      _context89.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].PRIVATE).subscribe(function (data) {
-                        _this130.show.id = data.id;
-                        _this130.show.credit = data.credit;
-                        _this130.show.second = data.second;
-                        _this130.show.type = data.type; // console.log('Show cost ' , this.show, " - credit - " , this.clientCredit);
+                        _this131.show.id = data.id;
+                        _this131.show.credit = data.credit;
+                        _this131.show.second = data.second;
+                        _this131.show.type = data.type; // console.log('Show cost ' , this.show, " - credit - " , this.clientCredit);
 
                         // console.log('Show cost ' , this.show, " - credit - " , this.clientCredit);
-                        if (_this130.clientCredit == 0) {
-                          _this130.aucunCredit();
+                        if (_this131.clientCredit == 0) {
+                          _this131.aucunCredit();
 
                           return null;
-                        } else if (_this130.clientCredit <= _this130.show.credit * 2) {
-                          _this130.creditInsuffisant();
+                        } else if (_this131.clientCredit <= _this131.show.credit * 2) {
+                          _this131.creditInsuffisant();
 
                           return null;
                         }
 
-                        _this130.beginTimer();
+                        _this131.beginTimer();
                       });
 
                     case 2:
-                      return _context86.abrupt("return", _context86.sent);
+                      return _context89.abrupt("return", _context89.sent);
 
                     case 3:
                     case "end":
-                      return _context86.stop();
+                      return _context89.stop();
                   }
                 }
-              }, _callee86, this);
+              }, _callee89, this);
             }));
           }
         }, {
           key: "creditInsuffisant",
           value: function creditInsuffisant() {
-            var _this131 = this;
+            var _this132 = this;
 
             this.popupService.info(null, 'CREDIT INSUFFISANT', "Vous n'avez presque plus de cr\xE9dit. Veuillez vous recharger.");
             setTimeout(function () {
-              _this131.getCredit();
+              _this132.getCredit();
             }, 20000);
           }
         }, {
@@ -23716,11 +23952,11 @@
         }, {
           key: "leaveTimer",
           value: function leaveTimer() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee87() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee90() {
               var data;
-              return regeneratorRuntime.wrap(function _callee87$(_context87) {
+              return regeneratorRuntime.wrap(function _callee90$(_context90) {
                 while (1) {
-                  switch (_context87.prev = _context87.next) {
+                  switch (_context90.prev = _context90.next) {
                     case 0:
                       data = {
                         id: this.timer.id,
@@ -23728,49 +23964,49 @@
                         leaved: true,
                         push: new Date().toString()
                       };
-                      _context87.next = 3;
+                      _context90.next = 3;
                       return this.timerService.updateTimer(data);
 
                     case 3:
-                      return _context87.abrupt("return", _context87.sent);
+                      return _context90.abrupt("return", _context90.sent);
 
                     case 4:
                     case "end":
-                      return _context87.stop();
+                      return _context90.stop();
                   }
                 }
-              }, _callee87, this);
+              }, _callee90, this);
             }));
           }
         }, {
           key: "beginTimer",
           value: function beginTimer() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee89() {
-              var _this132 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee92() {
+              var _this133 = this;
 
               var delay;
-              return regeneratorRuntime.wrap(function _callee89$(_context89) {
+              return regeneratorRuntime.wrap(function _callee92$(_context92) {
                 while (1) {
-                  switch (_context89.prev = _context89.next) {
+                  switch (_context92.prev = _context92.next) {
                     case 0:
                       delay = this.show.second * 1000; // console.log(delay, " ms ");
 
-                      _context89.next = 3;
+                      _context92.next = 3;
                       return this.creditTimer();
 
                     case 3:
-                      _context89.next = 5;
-                      return _context89.sent.subscribe( // launch main creditation
+                      _context92.next = 5;
+                      return _context92.sent.subscribe( // launch main creditation
                       function (data) {
                         // console.log("Response credit timer ", data);
-                        _this132.clientCredit = data.credit ? data.credit : 0;
+                        _this133.clientCredit = data.credit ? data.credit : 0;
 
                         if (data.credit <= 0) {
-                          _this132.aucunCredit();
+                          _this133.aucunCredit();
 
                           return null;
-                        } else if (data.credit <= _this132.show.credit * 2) {
-                          _this132.creditInsuffisant();
+                        } else if (data.credit <= _this133.show.credit * 2) {
+                          _this133.creditInsuffisant();
 
                           return null;
                         }
@@ -23778,33 +24014,33 @@
 
                     case 5:
                       setInterval(function () {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this132, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee88() {
-                          var _this133 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this133, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee91() {
+                          var _this134 = this;
 
-                          return regeneratorRuntime.wrap(function _callee88$(_context88) {
+                          return regeneratorRuntime.wrap(function _callee91$(_context91) {
                             while (1) {
-                              switch (_context88.prev = _context88.next) {
+                              switch (_context91.prev = _context91.next) {
                                 case 0:
                                   if (this.timer.reinit) {
-                                    _context88.next = 5;
+                                    _context91.next = 5;
                                     break;
                                   }
 
-                                  _context88.next = 3;
+                                  _context91.next = 3;
                                   return this.creditTimer();
 
                                 case 3:
-                                  _context88.next = 5;
-                                  return _context88.sent.subscribe(function (data) {
+                                  _context91.next = 5;
+                                  return _context91.sent.subscribe(function (data) {
                                     // console.log("Response credit timer ", data);
-                                    _this133.clientCredit = data.credit ? data.credit : 0;
+                                    _this134.clientCredit = data.credit ? data.credit : 0;
 
                                     if (data.credit <= 0) {
-                                      _this133.aucunCredit();
+                                      _this134.aucunCredit();
 
                                       return null;
-                                    } else if (data.credit <= _this133.show.credit * 2) {
-                                      _this133.creditInsuffisant();
+                                    } else if (data.credit <= _this134.show.credit * 2) {
+                                      _this134.creditInsuffisant();
 
                                       return null;
                                     }
@@ -23812,36 +24048,36 @@
 
                                 case 5:
                                 case "end":
-                                  return _context88.stop();
+                                  return _context91.stop();
                               }
                             }
-                          }, _callee88, this);
+                          }, _callee91, this);
                         }));
                       }, delay);
 
                     case 6:
                     case "end":
-                      return _context89.stop();
+                      return _context92.stop();
                   }
                 }
-              }, _callee89, this);
+              }, _callee92, this);
             }));
           }
         }, {
           key: "creditTimer",
           value: function creditTimer() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee90() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee93() {
               var data;
-              return regeneratorRuntime.wrap(function _callee90$(_context90) {
+              return regeneratorRuntime.wrap(function _callee93$(_context93) {
                 while (1) {
-                  switch (_context90.prev = _context90.next) {
+                  switch (_context93.prev = _context93.next) {
                     case 0:
                       if (!(this.clientId === undefined || this.show.credit == null)) {
-                        _context90.next = 2;
+                        _context93.next = 2;
                         break;
                       }
 
-                      return _context90.abrupt("return", null);
+                      return _context93.abrupt("return", null);
 
                     case 2:
                       data = {
@@ -23854,37 +24090,37 @@
                         roomId: this.idRoom
                       }; // console.log("credit timer post ", data);
 
-                      _context90.next = 5;
+                      _context93.next = 5;
                       return this.timerService.creditTimer(data);
 
                     case 5:
-                      return _context90.abrupt("return", _context90.sent);
+                      return _context93.abrupt("return", _context93.sent);
 
                     case 6:
                     case "end":
-                      return _context90.stop();
+                      return _context93.stop();
                   }
                 }
-              }, _callee90, this);
+              }, _callee93, this);
             }));
           } // WEB RTC - LIVE VIDEO
 
         }, {
           key: "initLiveVideo",
           value: function initLiveVideo() {
-            //this.onStart();
+            // this.onStart();
             this.getPeerId();
           }
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this134 = this;
+            var _this135 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true
               }).then(function (ms) {
-                var _video = _this134.video.nativeElement;
+                var _video = _this135.video.nativeElement;
                 _video.srcObject = ms;
 
                 _video.play();
@@ -23912,28 +24148,32 @@
         }, {
           key: "callPeer",
           value: function callPeer(id) {
-            var _this135 = this;
+            var _this136 = this;
 
             console.log("Client call model");
+            this.onStop();
             navigator.mediaDevices.getUserMedia({
               video: true,
               audio: true
             }).then(function (stream) {
-              _this135.lazyStream = stream;
+              _this136.lazyStream = stream;
+
+              _this136.clientStream.push(stream);
+
               console.log("Get client stream ", stream);
 
-              var call = _this135.peer.call(id, stream);
+              var call = _this136.peer.call(id, stream);
 
               console.log("After call model");
               call.on('stream', function (remoteStream) {
                 console.log("On stream in client");
 
-                if (!_this135.peerList.includes(call.peer)) {
-                  _this135.streamRemoteVideo(remoteStream);
+                if (!_this136.peerList.includes(call.peer)) {
+                  _this136.streamRemoteVideo(remoteStream);
 
-                  _this135.currentPeer = call.peerConnection;
+                  _this136.currentPeer = call.peerConnection;
 
-                  _this135.peerList.push(call.peer);
+                  _this136.peerList.push(call.peer);
                 }
               });
             })["catch"](function (err) {
@@ -23980,8 +24220,8 @@
           }
         },
         decls: 48,
-        vars: 28,
-        consts: [["connected", "true"], [1, "main_live", 3, "ngClass"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [1, "contain_left"], [3, "context", "actif", "hour", "minute", "second", "reinit", "leaved"], [1, "show_live_left", 3, "ngClass"], ["controls", "", "autoplay", "", "id", "video_live_model", 3, "poster"], ["video_live_model", ""], ["class", "come_on", 4, "ngIf"], [1, "contain_right"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Cam"], [3, "clients"], ["label", "Live Chat"], [3, "modelId", "messages", "pseudoModel", "leaved", "profil"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "show_vip", "btn_show"], [1, "btn", "btn_vip", "lighter", 3, "click"], [1, "buy_credit", "btn_show"], [1, "btn", "btn_buy", "lighter", 3, "click"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], [1, "contain_thrombone"], ["alt", "", 1, "thrombone", 3, "src"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "ngModelChange"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], [1, "come_on"], [1, "contain_action", "contain_action_mobile"]],
+        vars: 29,
+        consts: [["connected", "true"], [1, "main_live", 3, "ngClass"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [1, "contain_left"], [3, "context", "actif", "hour", "minute", "second", "reinit", "leaved"], [1, "show_live_left", 3, "ngClass"], ["controls", "", "autoplay", "", "id", "video_live_model", 3, "poster"], ["video_live_model", ""], ["class", "come_on", 4, "ngIf"], [1, "contain_right"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Cam"], [3, "clients", "streams"], ["label", "Live Chat"], [3, "modelId", "messages", "pseudoModel", "leaved", "profil"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "show_vip", "btn_show"], [1, "btn", "btn_vip", "lighter", 3, "click"], [1, "buy_credit", "btn_show"], [1, "btn", "btn_buy", "lighter", 3, "click"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], [1, "contain_thrombone"], ["alt", "", 1, "thrombone", 3, "src"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "ngModelChange"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], [1, "come_on"], [1, "contain_action", "contain_action_mobile"]],
         template: function LivePrivateComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-header", 0);
@@ -24166,7 +24406,7 @@
           if (rf & 2) {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](24, _c2, ctx.timer.fail));
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](25, _c2, ctx.timer.fail));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
@@ -24178,7 +24418,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](26, _c2, ctx.leaved));
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](27, _c2, ctx.leaved));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
@@ -24190,7 +24430,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("clients", ctx.clients);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("clients", ctx.clients)("streams", ctx.clientStream);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
@@ -24679,7 +24919,7 @@
         }, {
           key: "initSocket",
           value: function initSocket() {
-            var _this136 = this;
+            var _this137 = this;
 
             // if (!this.roomService.joinedRoom()) {
             //   this.roomService.joinRoom();
@@ -24688,86 +24928,86 @@
             this.socketService.join(this.idRoom, this.modelId);
             this.joinSub = this.socketService.listen("joined ".concat(this.idRoom)).subscribe(function (data) {
               console.log('Joined ', data);
-              _this136.actif = data < 0 ? 0 : data; // console.log('Actif ', this.actif);
+              _this137.actif = data < 0 ? 0 : data; // console.log('Actif ', this.actif);
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom)).subscribe(function (data) {
               // console.log('leaved ', data);
-              _this136.actif = data < 0 ? 0 : data; // console.log('Actif ', this.actif);
+              _this137.actif = data < 0 ? 0 : data; // console.log('Actif ', this.actif);
             });
             this.messageSub = this.socketService.listen("message ".concat(this.idRoom)).subscribe(function (data) {
               // console.log('Msg to client ', data);
-              _this136.getMessages();
+              _this137.getMessages();
             });
             this.modelPassedPrivateSub = this.socketService.listen("Pass to private ".concat(this.idRoom)).subscribe(function (data) {
               // console.log('Pass to private ', data);
-              _this136.passedToPrivate = true;
+              _this137.passedToPrivate = true;
             });
             this.modelLeavedSub = this.socketService.listen("model leaved ".concat(this.idRoom)).subscribe(function (data) {
-              _this136.leaved = true;
+              _this137.leaved = true;
             });
           }
         }, {
           key: "getModel",
           value: function getModel() {
-            var _this137 = this;
+            var _this138 = this;
 
             this.modelService.getModel(this.modelId).subscribe(function (data) {
               if (!data) {
-                _this137.invalideRoom();
+                _this138.invalideRoom();
 
-                _this137.clientService.lastRoom(null);
+                _this138.clientService.lastRoom(null);
 
                 setTimeout(function () {
-                  _this137.router.navigateByUrl('/accueil/registered');
+                  _this138.router.navigateByUrl('/accueil/registered');
                 }, 2000);
                 return null;
               } // console.log('Model ', data);
 
 
-              _this137.bg = data.path_soft;
-              _this137.modelPseudo = data.pseudo;
+              _this138.bg = data.path_soft;
+              _this138.modelPseudo = data.pseudo;
 
               if (data.profile.status === "En live") {
-                _this137.passedToPrivate = true;
+                _this138.passedToPrivate = true;
               } else if (data.profile.status === "En vip") {
-                _this137.popupService.info(null, 'CHAT INDISPONIBLE', "".concat(_this137.modelPseudo, " est en live VIP."));
+                _this138.popupService.info(null, 'CHAT INDISPONIBLE', "".concat(_this138.modelPseudo, " est en live VIP."));
               }
 
-              _this137.getInfo();
+              _this138.getInfo();
             });
           }
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this138 = this;
+            var _this139 = this;
 
             var id = parseInt(this.store.get("identification//"));
             this.roomService.getInfo(id).subscribe(function (data) {
-              _this138.id = data.id;
+              _this139.id = data.id;
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this139 = this;
+            var _this140 = this;
 
             this.roomService.getRoomModel(this.modelId).subscribe(function (data) {
               if (!data) return null;
               console.log('Model room ', data);
-              _this139.idRoom = data.idRoom;
-              _this139.actif = data.actif;
+              _this140.idRoom = data.idRoom;
+              _this140.actif = data.actif;
 
-              _this139.clientService.lastRoom(_this139.router.url);
+              _this140.clientService.lastRoom(_this140.router.url);
 
-              _this139.getMessages();
+              _this140.getMessages();
 
-              _this139.initSocket();
+              _this140.initSocket();
             });
           }
         }, {
           key: "initColor",
           value: function initColor() {
-            var _this140 = this;
+            var _this141 = this;
 
             if (this.store.get("ticket_chat")) {
               this.chatColor = this.store.get("ticket_chat");
@@ -24776,9 +25016,9 @@
 
             ;
             this.roomService.getColor().subscribe(function (data) {
-              _this140.chatColor = data.color;
+              _this141.chatColor = data.color;
 
-              _this140.store.set("ticket_chat", data.color);
+              _this141.store.set("ticket_chat", data.color);
             });
           }
         }, {
@@ -24789,7 +25029,7 @@
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this141 = this;
+            var _this142 = this;
 
             if (!this.message) return;
             var data = {
@@ -24801,56 +25041,56 @@
             };
             this.message = null;
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this141.getMessages();
+              _this142.getMessages();
 
               var msg = {
-                room: _this141.idRoom + '',
+                room: _this142.idRoom + '',
                 role: 'client',
-                id: _this141.id,
-                message: _this141.message
+                id: _this142.id,
+                message: _this142.message
               };
 
-              _this141.socketService.sendMessage(msg);
+              _this142.socketService.sendMessage(msg);
             });
           }
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this142 = this;
+            var _this143 = this;
 
             this.chatService.getMessage(this.idRoom).subscribe(function (data) {
-              _this142.messages = data; // console.log(this.messages);
+              _this143.messages = data; // console.log(this.messages);
             });
           }
         }, {
           key: "livePrivate",
           value: function livePrivate() {
-            var _this143 = this;
+            var _this144 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
               // console.log('To private ', data);
               if (data.status === "En live") {
-                _this143.router.navigate(['/live/private', {
-                  model: _this143.modelId
+                _this144.router.navigate(['/live/private', {
+                  model: _this144.modelId
                 }]);
               } else {
-                _this143.popupService.info(null, 'LIVE INDISPONIBLE', "".concat(_this143.modelPseudo, " n'a pas encore lanc\xE9 le live."));
+                _this144.popupService.info(null, 'LIVE INDISPONIBLE', "".concat(_this144.modelPseudo, " n'a pas encore lanc\xE9 le live."));
               }
             });
           }
         }, {
           key: "liveVIP",
           value: function liveVIP() {
-            var _this144 = this;
+            var _this145 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
               // console.log('To vip ', data);
               if (data.status === "En vip") {
-                _this144.router.navigate(['/live/vip', {
-                  model: _this144.modelId
+                _this145.router.navigate(['/live/vip', {
+                  model: _this145.modelId
                 }]);
               } else {
-                _this144.popupService.info(null, 'LIVE VIP INDISPONIBLE', "".concat(_this144.modelPseudo, " n'a pas encore lanc\xE9 le live en VIP."));
+                _this145.popupService.info(null, 'LIVE VIP INDISPONIBLE', "".concat(_this145.modelPseudo, " n'a pas encore lanc\xE9 le live en VIP."));
               }
             });
           }
@@ -25637,29 +25877,29 @@
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this145 = this;
+            var _this146 = this;
 
             this.clientService.getMyInfos().subscribe(function (data) {
               // console.log("My info ", data);
               if (!data) return null;
-              _this145.info.clientId = data.id;
-              _this145.info.clientPseudo = data.pseudo;
-              _this145.info.clientEmail = data.email;
-              _this145.info.clientCredit = data.credit.credit;
-              _this145.info.clientCreditId = data.credit.id;
+              _this146.info.clientId = data.id;
+              _this146.info.clientPseudo = data.pseudo;
+              _this146.info.clientEmail = data.email;
+              _this146.info.clientCredit = data.credit.credit;
+              _this146.info.clientCreditId = data.credit.id;
             });
           }
         }, {
           key: "recharge",
           value: function recharge() {
-            var _this146 = this;
+            var _this147 = this;
 
             var dialogRef = this.dialog.open(src_app_modals_pack_modal_pack_modal_component__WEBPACK_IMPORTED_MODULE_2__["PackModalComponent"], {
               width: '100vh',
               data: {}
             });
             dialogRef.afterClosed().subscribe(function (result) {
-              _this146.getInfo();
+              _this147.getInfo();
             });
           }
         }, {
@@ -25677,7 +25917,7 @@
         }, {
           key: "modifing",
           value: function modifing() {
-            var _this147 = this;
+            var _this148 = this;
 
             if (this.isModifing) {
               // console.log("New Pseudo ", this.info.clientPseudo);
@@ -25685,8 +25925,8 @@
               this.clientService.changePseudo(newPseudo).subscribe(function (data) {
                 // console.log(data);
                 if (data.access_token) {
-                  _this147.authService.saveToken(data.access_token, data.id).then(function () {
-                    _this147.notificationService.success("Pseudo modifié", "");
+                  _this148.authService.saveToken(data.access_token, data.id).then(function () {
+                    _this148.notificationService.success("Pseudo modifié", "");
                   });
                 }
               });
@@ -25697,12 +25937,12 @@
         }, {
           key: "tryChangeEmail",
           value: function tryChangeEmail() {
-            var _this148 = this;
+            var _this149 = this;
 
             if (this.isModifing) {
               this.showExclam = true;
               setTimeout(function () {
-                _this148.showExclam = false;
+                _this149.showExclam = false;
               }, 4000);
             }
           }
@@ -26159,59 +26399,59 @@
         }, {
           key: "validate",
           value: function validate() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee91() {
-              var _this149 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee94() {
+              var _this150 = this;
 
-              return regeneratorRuntime.wrap(function _callee91$(_context91) {
+              return regeneratorRuntime.wrap(function _callee94$(_context94) {
                 while (1) {
-                  switch (_context91.prev = _context91.next) {
+                  switch (_context94.prev = _context94.next) {
                     case 0:
                       this.empty = false;
                       this.error = false;
 
                       if (!(this.password == "")) {
-                        _context91.next = 5;
+                        _context94.next = 5;
                         break;
                       }
 
                       this.empty = true;
-                      return _context91.abrupt("return", null);
+                      return _context94.abrupt("return", null);
 
                     case 5:
                       if (this.action === 'suppression') {
                         this.clientService.deleteAccount(this.password).subscribe(function (data) {
                           // console.log(data);
                           if (data.error) {
-                            _this149.error = true;
+                            _this150.error = true;
                           } else {
-                            _this149.popupService.info('client', 'Suppression', "Un email de confirmation vous est envoy\xE9 pour motif :\n            <span style=\"font-style: italic; color: var(--pink)\">Suppression de compte</span>");
+                            _this150.popupService.info('client', 'Suppression', "Un email de confirmation vous est envoy\xE9 pour motif :\n            <span style=\"font-style: italic; color: var(--pink)\">Suppression de compte</span>");
 
-                            _this149.onNoClick();
+                            _this150.onNoClick();
 
-                            _this149.authService.logoutUser('client', '/accueil');
+                            _this150.authService.logoutUser('client', '/accueil');
                           }
                         });
                       } else if (this.action === 'désactivation') {
                         this.clientService.deactivateAccount(this.password).subscribe(function (data) {
                           // console.log(data);
                           if (data.error) {
-                            _this149.error = true;
+                            _this150.error = true;
                           } else {
-                            _this149.popupService.info('client', 'Désactivation', "Un email de confirmation vous est envoy\xE9 pour motif :\n            <span style=\"font-style: italic; color: var(--pink)\">D\xE9sactivation de compte</span>");
+                            _this150.popupService.info('client', 'Désactivation', "Un email de confirmation vous est envoy\xE9 pour motif :\n            <span style=\"font-style: italic; color: var(--pink)\">D\xE9sactivation de compte</span>");
 
-                            _this149.onNoClick();
+                            _this150.onNoClick();
 
-                            _this149.authService.logoutUser('client', '/accueil');
+                            _this150.authService.logoutUser('client', '/accueil');
                           }
                         });
                       }
 
                     case 6:
                     case "end":
-                      return _context91.stop();
+                      return _context94.stop();
                   }
                 }
-              }, _callee91, this);
+              }, _callee94, this);
             }));
           }
         }]);
@@ -26581,26 +26821,26 @@
         }, {
           key: "startMinuteur",
           value: function startMinuteur() {
-            var _this150 = this;
+            var _this151 = this;
 
             setInterval(function () {
-              if (!_this150.leaved) {
-                if (!_this150.reinit) {
-                  _this150.second++;
+              if (!_this151.leaved) {
+                if (!_this151.reinit) {
+                  _this151.second++;
 
-                  if (_this150.second > 59) {
-                    _this150.second = 0;
-                    _this150.minute++;
+                  if (_this151.second > 59) {
+                    _this151.second = 0;
+                    _this151.minute++;
 
-                    if (_this150.minute > 59) {
-                      _this150.minute = 0;
-                      _this150.hour++;
+                    if (_this151.minute > 59) {
+                      _this151.minute = 0;
+                      _this151.hour++;
                     }
                   }
                 } else {
-                  _this150.second = 0;
-                  _this150.minute = 0;
-                  _this150.hour = 0;
+                  _this151.second = 0;
+                  _this151.minute = 0;
+                  _this151.hour = 0;
                 }
               }
             }, 1000);
@@ -27148,36 +27388,36 @@
         }, {
           key: "init",
           value: function init() {
-            var _this151 = this;
+            var _this152 = this;
 
             this.getTotal().then(function (data) {
-              _this151.initPagination();
+              _this152.initPagination();
             });
           }
         }, {
           key: "getTotal",
           value: function getTotal() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee92() {
-              var _this152 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee95() {
+              var _this153 = this;
 
-              return regeneratorRuntime.wrap(function _callee92$(_context92) {
+              return regeneratorRuntime.wrap(function _callee95$(_context95) {
                 while (1) {
-                  switch (_context92.prev = _context92.next) {
+                  switch (_context95.prev = _context95.next) {
                     case 0:
-                      _context92.next = 2;
+                      _context95.next = 2;
                       return this.modelSrv.count().subscribe(function (data) {
                         // console.log(data);
-                        _this152.totalOffline = data.offline;
-                        _this152.totalInChat = data.chat;
-                        _this152.totalInLive = data.live;
+                        _this153.totalOffline = data.offline;
+                        _this153.totalInChat = data.chat;
+                        _this153.totalInLive = data.live;
                       });
 
                     case 2:
                     case "end":
-                      return _context92.stop();
+                      return _context95.stop();
                   }
                 }
-              }, _callee92, this);
+              }, _callee95, this);
             }));
           }
         }, {
@@ -27209,13 +27449,13 @@
         }, {
           key: "initPhoto",
           value: function initPhoto(contxt, indice) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee93() {
-              var _this153 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee96() {
+              var _this154 = this;
 
               var debut, model;
-              return regeneratorRuntime.wrap(function _callee93$(_context93) {
+              return regeneratorRuntime.wrap(function _callee96$(_context96) {
                 while (1) {
-                  switch (_context93.prev = _context93.next) {
+                  switch (_context96.prev = _context96.next) {
                     case 0:
                       debut = indice - 1;
                       debut = debut * this.section;
@@ -27224,81 +27464,81 @@
                         begin: debut,
                         end: debut + this.section
                       };
-                      _context93.t0 = contxt;
-                      _context93.next = _context93.t0 === src_app_interfaces_get_model_interface__WEBPACK_IMPORTED_MODULE_1__["context"].LIVE ? 6 : _context93.t0 === src_app_interfaces_get_model_interface__WEBPACK_IMPORTED_MODULE_1__["context"].INLINE ? 13 : _context93.t0 === src_app_interfaces_get_model_interface__WEBPACK_IMPORTED_MODULE_1__["context"].OFFLINE ? 20 : 27;
+                      _context96.t0 = contxt;
+                      _context96.next = _context96.t0 === src_app_interfaces_get_model_interface__WEBPACK_IMPORTED_MODULE_1__["context"].LIVE ? 6 : _context96.t0 === src_app_interfaces_get_model_interface__WEBPACK_IMPORTED_MODULE_1__["context"].INLINE ? 13 : _context96.t0 === src_app_interfaces_get_model_interface__WEBPACK_IMPORTED_MODULE_1__["context"].OFFLINE ? 20 : 27;
                       break;
 
                     case 6:
                       if (!(debut > this.totalInLive)) {
-                        _context93.next = 9;
+                        _context96.next = 9;
                         break;
                       }
 
                       this.indiceLive--;
-                      return _context93.abrupt("return", null);
+                      return _context96.abrupt("return", null);
 
                     case 9:
                       this.indiceLive = indice;
-                      _context93.next = 12;
+                      _context96.next = 12;
                       return this.modelSrv.getList(model).subscribe(function (data) {
                         // console.log(data);
-                        _this153.photoLive = data;
+                        _this154.photoLive = data;
                       });
 
                     case 12:
-                      return _context93.abrupt("break", 28);
+                      return _context96.abrupt("break", 28);
 
                     case 13:
                       if (!(debut > this.totalInChat)) {
-                        _context93.next = 16;
+                        _context96.next = 16;
                         break;
                       }
 
                       this.indiceChat--;
-                      return _context93.abrupt("return", null);
+                      return _context96.abrupt("return", null);
 
                     case 16:
                       this.indiceChat = indice;
-                      _context93.next = 19;
+                      _context96.next = 19;
                       return this.modelSrv.getList(model).subscribe(function (data) {
                         // console.log('In chat ', data);
-                        _this153.photoChat = data;
+                        _this154.photoChat = data;
                       }, function (error) {
                         console.log(error);
                       });
 
                     case 19:
-                      return _context93.abrupt("break", 28);
+                      return _context96.abrupt("break", 28);
 
                     case 20:
                       if (!(debut > this.totalOffline)) {
-                        _context93.next = 23;
+                        _context96.next = 23;
                         break;
                       }
 
                       this.indiceOffline--;
-                      return _context93.abrupt("return", null);
+                      return _context96.abrupt("return", null);
 
                     case 23:
                       this.indiceOffline = indice;
-                      _context93.next = 26;
+                      _context96.next = 26;
                       return this.modelSrv.getList(model).subscribe(function (data) {
                         // console.log(data);
-                        _this153.photoOffline = data;
+                        _this154.photoOffline = data;
                       });
 
                     case 26:
-                      return _context93.abrupt("break", 28);
+                      return _context96.abrupt("break", 28);
 
                     case 27:
-                      return _context93.abrupt("break", 28);
+                      return _context96.abrupt("break", 28);
 
                     case 28:
                     case "end":
-                      return _context93.stop();
+                      return _context96.stop();
                   }
                 }
-              }, _callee93, this);
+              }, _callee96, this);
             }));
           }
         }, {
