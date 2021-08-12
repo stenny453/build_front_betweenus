@@ -4945,13 +4945,13 @@ class LiveVipComponent {
         this.invitationVipSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
         this.peerSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
         this.newPeerSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
+        this.peerId = null;
         this.peerList = [];
         this.getPeerId = () => {
             console.log("Get Peer");
             this.peer.on('open', (id) => {
                 console.log("Peer Id ", id);
                 this.peerId = id;
-                this.socketService.sendClientPeerId({ peerId: this.peerId, room: this.idRoom + 'V' });
             });
             this.peer.on('call', (call) => {
                 this.onStop();
@@ -4987,6 +4987,7 @@ class LiveVipComponent {
         }
         this.getModel();
         this.initColor();
+        this.initLiveVideo();
         this.clientService.lastRoom(this.router.url);
     }
     ngOnDestroy() {
@@ -5098,7 +5099,14 @@ class LiveVipComponent {
                 this.connectWithPeer();
             });
             this.initTimer();
-            this.initLiveVideo();
+            if (this.peerId) {
+                this.socketService.sendClientPeerId({ peerId: this.peerId, room: this.idRoom + 'V' });
+            }
+            else {
+                while (!this.peerId) {
+                    this.socketService.sendClientPeerId({ peerId: this.peerId, room: this.idRoom + 'V' });
+                }
+            }
         });
     }
     obsolete() {
@@ -6260,7 +6268,7 @@ class BuyCreditComponent {
         this.store = store;
         this.creditService = creditService;
         this.notificationService = notificationService;
-        this.solde = 500;
+        this.solde = 0;
         this.coinImg = "assets/icons/coin-stack.svg";
         this.currentPack = 'bienvenue';
         this.info = {
@@ -11806,14 +11814,14 @@ class LivePrivateComponent {
         this.invitationVipSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
         this.peerSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
         this.newPeerSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
+        this.peerId = null;
         this.peerList = [];
         this.getPeerId = () => {
+            console.log('Get peer waiting...');
             this.peer.on('open', (id) => {
                 console.log("Peer Id ", id);
                 this.peerId = id;
                 // Send peer client
-                this.socketService.askModelPeerId({ peerId: this.peerId,
-                    room: this.idRoom + 'P', clientId: this.clientId });
             });
             this.peer.on('call', (call) => {
                 this.onStop();
@@ -11846,6 +11854,7 @@ class LivePrivateComponent {
     ngOnInit() {
         if (!this.modelId)
             return null;
+        this.initLiveVideo();
         this.getModel();
         this.initColor();
         this.clientService.lastRoom(this.router.url); // save last room for chat
@@ -11913,7 +11922,7 @@ class LivePrivateComponent {
     getInfoRoom() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             yield this.roomPrivateService.getRoomModel(this.modelId).subscribe((data) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-                // console.log('Info room ', data);
+                console.log('Info room ', data);
                 this.idRoom = data.idRoom;
                 if (data.idRoom === null) {
                     this.obsolete();
@@ -11987,7 +11996,16 @@ class LivePrivateComponent {
                 this.connectWithPeer();
             });
             this.initTimer();
-            this.initLiveVideo();
+            if (this.peerId) {
+                this.socketService.askModelPeerId({ peerId: this.peerId,
+                    room: this.idRoom + 'P', clientId: this.clientId });
+            }
+            else {
+                while (!this.peerId) {
+                    this.socketService.askModelPeerId({ peerId: this.peerId,
+                        room: this.idRoom + 'P', clientId: this.clientId });
+                }
+            }
         });
     }
     obsolete() {

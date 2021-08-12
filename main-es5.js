@@ -9876,6 +9876,7 @@
           this.invitationVipSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
           this.peerSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
           this.newPeerSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
+          this.peerId = null;
           this.peerList = [];
 
           this.getPeerId = function () {
@@ -9884,11 +9885,6 @@
             _this56.peer.on('open', function (id) {
               console.log("Peer Id ", id);
               _this56.peerId = id;
-
-              _this56.socketService.sendClientPeerId({
-                peerId: _this56.peerId,
-                room: _this56.idRoom + 'V'
-              });
             });
 
             _this56.peer.on('call', function (call) {
@@ -9935,6 +9931,7 @@
 
             this.getModel();
             this.initColor();
+            this.initLiveVideo();
             this.clientService.lastRoom(this.router.url);
           }
         }, {
@@ -10104,7 +10101,20 @@
                         _this61.connectWithPeer();
                       });
                       this.initTimer();
-                      this.initLiveVideo();
+
+                      if (this.peerId) {
+                        this.socketService.sendClientPeerId({
+                          peerId: this.peerId,
+                          room: this.idRoom + 'V'
+                        });
+                      } else {
+                        while (!this.peerId) {
+                          this.socketService.sendClientPeerId({
+                            peerId: this.peerId,
+                            room: this.idRoom + 'V'
+                          });
+                        }
+                      }
 
                     case 10:
                     case "end":
@@ -12479,7 +12489,7 @@
           this.store = store;
           this.creditService = creditService;
           this.notificationService = notificationService;
-          this.solde = 500;
+          this.solde = 0;
           this.coinImg = "assets/icons/coin-stack.svg";
           this.currentPack = 'bienvenue';
           this.info = {
@@ -23271,18 +23281,15 @@
           this.invitationVipSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
           this.peerSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
           this.newPeerSub = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"]();
+          this.peerId = null;
           this.peerList = [];
 
           this.getPeerId = function () {
+            console.log('Get peer waiting...');
+
             _this115.peer.on('open', function (id) {
               console.log("Peer Id ", id);
               _this115.peerId = id; // Send peer client
-
-              _this115.socketService.askModelPeerId({
-                peerId: _this115.peerId,
-                room: _this115.idRoom + 'P',
-                clientId: _this115.clientId
-              });
             });
 
             _this115.peer.on('call', function (call) {
@@ -23324,6 +23331,7 @@
           key: "ngOnInit",
           value: function ngOnInit() {
             if (!this.modelId) return null;
+            this.initLiveVideo();
             this.getModel();
             this.initColor();
             this.clientService.lastRoom(this.router.url); // save last room for chat
@@ -23454,7 +23462,7 @@
                             while (1) {
                               switch (_context77.prev = _context77.next) {
                                 case 0:
-                                  // console.log('Info room ', data);
+                                  console.log('Info room ', data);
                                   this.idRoom = data.idRoom;
 
                                   if (data.idRoom === null) {
@@ -23468,7 +23476,7 @@
                                   // console.log("Before initSocket");
                                   this.initSocket();
 
-                                case 4:
+                                case 5:
                                 case "end":
                                   return _context77.stop();
                               }
@@ -23589,7 +23597,22 @@
                         _this122.connectWithPeer();
                       });
                       this.initTimer();
-                      this.initLiveVideo();
+
+                      if (this.peerId) {
+                        this.socketService.askModelPeerId({
+                          peerId: this.peerId,
+                          room: this.idRoom + 'P',
+                          clientId: this.clientId
+                        });
+                      } else {
+                        while (!this.peerId) {
+                          this.socketService.askModelPeerId({
+                            peerId: this.peerId,
+                            room: this.idRoom + 'P',
+                            clientId: this.clientId
+                          });
+                        }
+                      }
 
                     case 15:
                     case "end":
