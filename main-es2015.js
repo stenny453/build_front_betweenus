@@ -3362,49 +3362,6 @@ const environment = {
 
 /***/ }),
 
-/***/ "BhFI":
-/*!*****************************************************!*\
-  !*** ./src/app/services/auth/auth-guard.service.ts ***!
-  \*****************************************************/
-/*! exports provided: AuthGuardService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuardService", function() { return AuthGuardService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var src_app_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/auth/auth.service */ "9ans");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
-
-
-
-class AuthGuardService {
-    constructor(authService, router) {
-        this.authService = authService;
-        this.router = router;
-    }
-    canActivate(route, state) {
-        if (!this.authService.getToken()) {
-            this.router.navigateByUrl("accueil");
-            return false;
-        }
-        const token = this.authService.getToken();
-        this.authService.verifyToken(token).subscribe((data) => {
-            // console.log(data)
-        }, (error) => {
-            console.log(error);
-            this.router.navigateByUrl("accueil");
-            return false;
-        });
-        return true;
-    }
-}
-AuthGuardService.ɵfac = function AuthGuardService_Factory(t) { return new (t || AuthGuardService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](src_app_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
-AuthGuardService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: AuthGuardService, factory: AuthGuardService.ɵfac, providedIn: 'root' });
-
-
-/***/ }),
-
 /***/ "Bjcf":
 /*!*********************************************************************************************!*\
   !*** ./src/app/components/live/live-private/live-private-cam/live-private-cam.component.ts ***!
@@ -13417,9 +13374,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_forgot_send_forgot_send_forgot_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/forgot/send-forgot/send-forgot.component */ "6lWQ");
 /* harmony import */ var _components_home_home_disconnected_home_live_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/home/home-disconnected/home-live.component */ "GMdN");
 /* harmony import */ var _components_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/page-not-found/page-not-found.component */ "JzmT");
-/* harmony import */ var _services_auth_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/auth/auth-guard.service */ "BhFI");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ "fXoL");
-
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ "fXoL");
 
 
 
@@ -13436,8 +13391,7 @@ const routes = [
     },
     {
         path: 'bye',
-        component: _components_client_out_out_component__WEBPACK_IMPORTED_MODULE_2__["OutComponent"],
-        canActivate: [_services_auth_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuardService"]]
+        component: _components_client_out_out_component__WEBPACK_IMPORTED_MODULE_2__["OutComponent"]
     },
     {
         path: 'motdepasseoublie',
@@ -13467,9 +13421,9 @@ const routes = [
 class AppRoutingModule {
 }
 AppRoutingModule.ɵfac = function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); };
-AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
-AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(routes, { scrollPositionRestoration: 'enabled', relativeLinkResolution: 'legacy' })], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] }); })();
+AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
+AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(routes, { scrollPositionRestoration: 'enabled', relativeLinkResolution: 'legacy' })], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] }); })();
 
 
 /***/ }),

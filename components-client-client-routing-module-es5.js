@@ -1,4 +1,8 @@
 (function () {
+  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["components-client-client-routing-module"], {
@@ -171,6 +175,90 @@
       })();
       /***/
 
+    },
+
+    /***/
+    "BhFI":
+    /*!*****************************************************!*\
+      !*** ./src/app/services/auth/auth-guard.service.ts ***!
+      \*****************************************************/
+
+    /*! exports provided: AuthGuardService */
+
+    /***/
+    function BhFI(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "AuthGuardService", function () {
+        return AuthGuardService;
+      });
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
+
+
+      var src_app_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! src/app/services/auth/auth.service */
+      "9ans");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "tyNb");
+
+      var AuthGuardService = /*#__PURE__*/function () {
+        function AuthGuardService(authService, router) {
+          _classCallCheck(this, AuthGuardService);
+
+          this.authService = authService;
+          this.router = router;
+        }
+
+        _createClass(AuthGuardService, [{
+          key: "canActivate",
+          value: function canActivate(route, state) {
+            var _this = this;
+
+            if (!this.authService.getToken()) {
+              this.router.navigateByUrl("accueil");
+              return false;
+            }
+
+            var token = this.authService.getToken();
+            this.authService.verifyToken(token).subscribe(function (data) {// console.log(data)
+            }, function (error) {
+              console.log(error);
+
+              _this.router.navigateByUrl("accueil");
+
+              return false;
+            });
+            return true;
+          }
+        }]);
+
+        return AuthGuardService;
+      }();
+
+      AuthGuardService.ɵfac = function AuthGuardService_Factory(t) {
+        return new (t || AuthGuardService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](src_app_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]));
+      };
+
+      AuthGuardService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
+        token: AuthGuardService,
+        factory: AuthGuardService.ɵfac,
+        providedIn: 'root'
+      });
+      /***/
     }
   }]);
 })();
