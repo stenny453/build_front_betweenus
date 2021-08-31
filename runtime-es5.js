@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"components-client-client-routing-module":"components-client-client-routing-module","components-modele-model-routing-module":"components-modele-model-routing-module"}[chunkId]||chunkId) +    "-es5.js"
+/******/ 		return __webpack_require__.p + "" + ({"components-admin-admin-routing-module":"components-admin-admin-routing-module","components-client-client-routing-module":"components-client-client-routing-module","components-modele-model-routing-module":"components-modele-model-routing-module"}[chunkId]||chunkId) +    "-es5.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
