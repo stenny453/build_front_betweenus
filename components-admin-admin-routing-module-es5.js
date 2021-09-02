@@ -1,7 +1,103 @@
 (function () {
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["components-admin-admin-routing-module"], {
+    /***/
+    "54Ov":
+    /*!***********************************************************!*\
+      !*** ./src/app/services/auth/auth-admin-guard.service.ts ***!
+      \***********************************************************/
+
+    /*! exports provided: AuthAdminGuardService */
+
+    /***/
+    function Ov(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "AuthAdminGuardService", function () {
+        return AuthAdminGuardService;
+      });
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
+
+
+      var src_app_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! src/app/services/auth/auth.service */
+      "9ans");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "tyNb");
+
+      var AuthAdminGuardService = /*#__PURE__*/function () {
+        function AuthAdminGuardService(authService, router) {
+          _classCallCheck(this, AuthAdminGuardService);
+
+          this.authService = authService;
+          this.router = router;
+        }
+
+        _createClass(AuthAdminGuardService, [{
+          key: "canActivate",
+          value: function canActivate(route, state) {
+            var _this = this;
+
+            if (!this.authService.getToken()) {
+              this.router.navigateByUrl('authentification-admin');
+              return false;
+            }
+
+            var token = this.authService.getToken();
+            this.authService.verifyAdminToken(token).subscribe(function (data) {
+              console.log(data);
+
+              if (data && data.role === 'admin') {
+                return true;
+              } else {
+                _this.router.navigateByUrl('authentification-admin');
+
+                return false;
+              }
+            }, function (error) {
+              console.log('Non autoriser'); // console.log(error)
+              // this.router.navigateByUrl('authentification-admin')
+
+              return false;
+            });
+            return true;
+          }
+        }]);
+
+        return AuthAdminGuardService;
+      }();
+
+      AuthAdminGuardService.ɵfac = function AuthAdminGuardService_Factory(t) {
+        return new (t || AuthAdminGuardService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](src_app_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]));
+      };
+
+      AuthAdminGuardService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
+        token: AuthAdminGuardService,
+        factory: AuthAdminGuardService.ɵfac,
+        providedIn: 'root'
+      });
+      /***/
+    },
+
     /***/
     "Zpkz":
     /*!**********************************************************!*\
@@ -108,26 +204,32 @@
       /* harmony import */
 
 
-      var _connected_dashboard_admin_administration_message_admin_message_admin_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _services_auth_auth_admin_guard_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! ../../services/auth/auth-admin-guard.service */
+      "54Ov");
+      /* harmony import */
+
+
+      var _connected_dashboard_admin_administration_message_admin_message_admin_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ./connected/dashboard-admin/administration/message-admin/message-admin.component */
       "Z8Rj");
       /* harmony import */
 
 
-      var _connected_dashboard_admin_administration_setting_admin_setting_admin_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var _connected_dashboard_admin_administration_setting_admin_setting_admin_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! ./connected/dashboard-admin/administration/setting-admin/setting-admin.component */
       "yZ7H");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
 
       var routes = [{
         path: '',
         component: _connected_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_1__["DashboardAdminComponent"],
-        // canActivate: [AuthAdminGuardService],
+        canActivate: [_services_auth_auth_admin_guard_service__WEBPACK_IMPORTED_MODULE_14__["AuthAdminGuardService"]],
         children: [{
           path: '',
           component: _connected_dashboard_admin_main_dashboard_admin_main_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_2__["MainDashboardAdminComponent"]
@@ -169,10 +271,10 @@
           component: _connected_dashboard_admin_administration_paiement_admin_paiement_admin_component__WEBPACK_IMPORTED_MODULE_12__["PaiementAdminComponent"]
         }, {
           path: 'message-admin',
-          component: _connected_dashboard_admin_administration_message_admin_message_admin_component__WEBPACK_IMPORTED_MODULE_14__["MessageAdminComponent"]
+          component: _connected_dashboard_admin_administration_message_admin_message_admin_component__WEBPACK_IMPORTED_MODULE_15__["MessageAdminComponent"]
         }, {
           path: 'setting-admin',
-          component: _connected_dashboard_admin_administration_setting_admin_setting_admin_component__WEBPACK_IMPORTED_MODULE_15__["SettingAdminComponent"]
+          component: _connected_dashboard_admin_administration_setting_admin_setting_admin_component__WEBPACK_IMPORTED_MODULE_16__["SettingAdminComponent"]
         }]
       }];
 
@@ -184,15 +286,15 @@
         return new (t || AdminRoutingModule)();
       };
 
-      AdminRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_16__["ɵɵdefineNgModule"]({
+      AdminRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_17__["ɵɵdefineNgModule"]({
         type: AdminRoutingModule
       });
-      AdminRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_16__["ɵɵdefineInjector"]({
+      AdminRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_17__["ɵɵdefineInjector"]({
         imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]]
       });
 
       (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_16__["ɵɵsetNgModuleScope"](AdminRoutingModule, {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_17__["ɵɵsetNgModuleScope"](AdminRoutingModule, {
           imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]],
           exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]]
         });
