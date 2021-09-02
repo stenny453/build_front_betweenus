@@ -4045,8 +4045,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    // endpoint: "http://localhost:3000",
-    endpoint: "https://143.198.109.141/api",
+    endpoint: "http://localhost:3000",
+    // endpoint: "https://143.198.109.141/api",
     CRYPT_PSEUDO: "storm/betweenus?...",
     CRYPT_PASS: "0@8between.us",
     CRYPT_PSEUDO_MODEL: "storm://betweenus?...",
@@ -13530,8 +13530,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const config = {
-    // url: 'http://localhost:4000/',
-    url: 'https://143.198.109.141',
+    url: 'http://localhost:4000/',
+    // url : 'https://143.198.109.141',
     options: {}
 };
 /**
