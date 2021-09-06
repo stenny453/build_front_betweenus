@@ -40,6 +40,8 @@ function initSettingVideoModel() {
 
    	// Set the video container's fullscreen state
   	var setFullscreenData = function(state) {
+      if (!state) document.getElementById('video_live_model').style.height = '70vh'
+      if (state) document.getElementById('video_live_model').style.height = '100vh'
   		videoContainer.setAttribute('data-fullscreen', !!state);
   	}
 
@@ -59,7 +61,7 @@ function initSettingVideoModel() {
     			else if (document.webkitCancelFullScreen) document.webkitCancelFullScreen();
     			else if (document.msExitFullscreen) document.msExitFullscreen();
     			setFullscreenData(false);
-    		}
+        }
     		else {
     		  // ...otherwise enter fullscreen mode
     			// (Note: can be called on document, but here the specific element is used as it will also ensure that the element's children, e.g. the custom controls, go fullscreen also)
