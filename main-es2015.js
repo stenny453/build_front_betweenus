@@ -4498,7 +4498,7 @@ const environment = {
     production: false,
     // endpoint: "http://localhost:3000",
     // endpoint: "https://143.198.109.141/api",
-    endpoint: "https://betweenus.it-space.ml/api",
+    endpoint: "https://betweenus-live.com/api/",
     CRYPT_PSEUDO: "storm/betweenus?...",
     CRYPT_PASS: "0@8between.us",
     CRYPT_PSEUDO_MODEL: "storm://betweenus?...",
@@ -14512,7 +14512,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const config = {
     // url: 'http://localhost:4000/',
-    url: 'https://betweenus.it-space.ml:4000/',
+    url: 'https://betweenus-live.com:4000/',
     // url : 'https://143.198.109.141',
     options: {}
 };
