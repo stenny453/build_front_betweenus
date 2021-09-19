@@ -7640,41 +7640,44 @@
             });
 
             _this39.peer.on('call', function (call) {
-              console.log('On Call');
-              call.answer(_this39.lazyStream);
-              console.log('Answer stream');
-              call.on('stream', function (remoteStream) {
-                console.log('Receive stream');
-
-                if (!_this39.peerList.includes(call.peer)) {
-                  _this39.streamRemoteVideo(remoteStream);
-
-                  _this39.currentPeer = call.peerConnection;
-
-                  _this39.peerList.push(call.peer);
-                }
-              }); // this.onStop();
-              // navigator.mediaDevices.getUserMedia({
-              //   video: true,
-              //   audio: true
-              // }).then((stream) => {
-              //   this.lazyStream = stream;
-              //   const _video = this.video.nativeElement;
-              //   _video.srcObject = stream;
-              //   _video.play();
-              //   call.answer(stream);
-              //   console.log('Answer stream');
-              //   call.on('stream', (remoteStream) => {
-              //     console.log('Receive stream');
-              //     if (!this.peerList.includes(call.peer)) {
-              //       this.streamRemoteVideo(remoteStream);
-              //       this.currentPeer = call.peerConnection;
-              //       this.peerList.push(call.peer);
-              //     }
-              //   });
-              // }).catch(err => {
-              //   console.log(err + 'Unable to get media');
+              console.log('On Call'); // call.answer(this.lazyStream);
+              // console.log('Answer stream');
+              // call.on('stream', (remoteStream) => {
+              //   console.log('Receive stream');
+              //   if (!this.peerList.includes(call.peer)) {
+              //     this.streamRemoteVideo(remoteStream);
+              //     this.currentPeer = call.peerConnection;
+              //     this.peerList.push(call.peer);
+              //   }
               // });
+
+              _this39.onStop();
+
+              navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: true
+              }).then(function (stream) {
+                _this39.lazyStream = stream;
+                var _video = _this39.video.nativeElement;
+                _video.srcObject = stream;
+
+                _video.play();
+
+                call.answer(stream); // console.log('Answer stream');
+
+                call.on('stream', function (remoteStream) {
+                  // console.log('Receive stream');
+                  if (!_this39.peerList.includes(call.peer)) {
+                    _this39.streamRemoteVideo(remoteStream);
+
+                    _this39.currentPeer = call.peerConnection;
+
+                    _this39.peerList.push(call.peer);
+                  }
+                });
+              })["catch"](function (err) {
+                console.log(err + 'Unable to get media');
+              });
             });
           };
 
@@ -7802,7 +7805,7 @@
               _this43.getMessages();
             });
             this.peerSub = this.socketService.listen("peerId ".concat(this.info.idRoom, "V")).subscribe(function (data) {
-              console.log('Peer Id received ', data);
+              console.log('Received Peer Id ', data);
               _this43.peerIdShare = data.peerId;
 
               _this43.connectWithPeer();
@@ -8132,9 +8135,9 @@
                 var _video = _this54.video.nativeElement;
                 _video.srcObject = ms;
 
-                _video.play();
+                _video.play(); // this.lazyStream = ms
 
-                _this54.lazyStream = ms;
+
                 jquery__WEBPACK_IMPORTED_MODULE_4__('#video_live_model').prop('volume', 0);
               });
             }
@@ -8162,40 +8165,43 @@
           value: function callPeer(id) {
             var _this55 = this;
 
-            console.log('Call peer');
-            var call = this.peer.call(id, this.lazyStream);
-            call.on('stream', function (remoteStream) {
-              console.log('Receive stream');
-
-              if (!_this55.peerList.includes(call.peer)) {
-                _this55.streamRemoteVideo(remoteStream);
-
-                _this55.currentPeer = call.peerConnection;
-
-                _this55.peerList.push(call.peer);
-              }
-            }); // this.onStop();
-            // navigator.mediaDevices.getUserMedia({
-            //   video: true,
-            //   audio: true
-            // }).then((stream) => {
-            //   this.lazyStream = stream;
-            //   const call = this.peer.call(id, stream);
-            //   call.on('stream', (remoteStream) => {
-            //     console.log('Receive stream');
-            //     if (!this.peerList.includes(call.peer)) {
-            //       this.streamRemoteVideo(remoteStream);
-            //       this.currentPeer = call.peerConnection;
-            //       this.peerList.push(call.peer);
-            //     }
-            //   });
-            // }).catch(err => {
-            //   console.log(err + 'Unable to connect');
+            console.log('Call peer'); // const call = this.peer.call(id, this.lazyStream);
+            // call.on('stream', (remoteStream) => {
+            //   console.log('Receive stream');
+            //   if (!this.peerList.includes(call.peer)) {
+            //     this.streamRemoteVideo(remoteStream);
+            //     this.currentPeer = call.peerConnection;
+            //     this.peerList.push(call.peer);
+            //   }
             // });
+
+            this.onStop();
+            navigator.mediaDevices.getUserMedia({
+              video: true,
+              audio: true
+            }).then(function (stream) {
+              _this55.lazyStream = stream;
+
+              var call = _this55.peer.call(id, stream);
+
+              call.on('stream', function (remoteStream) {
+                // console.log('Receive stream');
+                if (!_this55.peerList.includes(call.peer)) {
+                  _this55.streamRemoteVideo(remoteStream);
+
+                  _this55.currentPeer = call.peerConnection;
+
+                  _this55.peerList.push(call.peer);
+                }
+              });
+            })["catch"](function (err) {
+              console.log(err + 'Unable to connect');
+            });
           }
         }, {
           key: "streamRemoteVideo",
           value: function streamRemoteVideo(stream) {
+            console.log('Stream Remote video ', stream);
             var _video = this.remote_video.nativeElement;
             _video.srcObject = stream;
 
@@ -8314,7 +8320,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "div", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "figure", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "div", 7);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](8, "video", 8, 9);
 
@@ -13819,40 +13825,43 @@
             });
 
             _this78.peer.on('call', function (call) {
-              console.log('On call');
-              call.answer(_this78.lazyStream);
-              call.on('stream', function (remoteStream) {
-                console.log('Receive stream');
-
-                if (!_this78.peerList.includes(call.peer)) {
-                  _this78.streamRemoteVideo(remoteStream);
-
-                  _this78.currentPeer = call.peerConnection;
-
-                  _this78.peerList.push(call.peer);
-                }
-              }); // this.onStop();
-              // navigator.mediaDevices.getUserMedia({
-              //   video: true,
-              //   audio: true
-              // }).then((stream) => {
-              //   this.lazyStream = stream;
-              //   const _video = this.video.nativeElement;
-              //   _video.srcObject = stream;
-              //   _video.play();
-              //   console.log('Answer stream');
-              //   call.answer(stream);
-              //   call.on('stream', (remoteStream) => {
-              //     console.log('Receive stream');
-              //     if (!this.peerList.includes(call.peer)) {
-              //       this.streamRemoteVideo(remoteStream);
-              //       this.currentPeer = call.peerConnection;
-              //       this.peerList.push(call.peer);
-              //     }
-              //   });
-              // }).catch(err => {
-              //   console.log(err + 'Unable to get media');
+              console.log('On call'); // call.answer(this.lazyStream);
+              // call.on('stream', (remoteStream) => {
+              //   console.log('Receive stream');
+              //   if (!this.peerList.includes(call.peer)) {
+              //     this.streamRemoteVideo(remoteStream);
+              //     this.currentPeer = call.peerConnection;
+              //     this.peerList.push(call.peer);
+              //   }
               // });
+
+              _this78.onStop();
+
+              navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: true
+              }).then(function (stream) {
+                _this78.lazyStream = stream;
+                var _video = _this78.video.nativeElement;
+                _video.srcObject = stream;
+
+                _video.play(); // console.log('Answer stream');
+
+
+                call.answer(stream);
+                call.on('stream', function (remoteStream) {
+                  // console.log('Receive stream');
+                  if (!_this78.peerList.includes(call.peer)) {
+                    _this78.streamRemoteVideo(remoteStream);
+
+                    _this78.currentPeer = call.peerConnection;
+
+                    _this78.peerList.push(call.peer);
+                  }
+                });
+              })["catch"](function (err) {
+                console.log(err + 'Unable to get media');
+              });
             });
           };
 
@@ -14560,9 +14569,9 @@
                 var _video = _this96.video.nativeElement;
                 _video.srcObject = ms;
 
-                _video.play();
+                _video.play(); // this.lazyStream = ms
 
-                _this96.lazyStream = ms;
+
                 jquery__WEBPACK_IMPORTED_MODULE_5__('#video_live_client').prop('volume', 0);
               });
             }
@@ -14590,40 +14599,43 @@
           value: function callPeer(id) {
             var _this97 = this;
 
-            console.log('Call Peer');
-            var call = this.peer.call(id, this.lazyStream);
-            call.on('stream', function (remoteStream) {
-              console.log('Receive stream');
-
-              if (!_this97.peerList.includes(call.peer)) {
-                _this97.streamRemoteVideo(remoteStream);
-
-                _this97.currentPeer = call.peerConnection;
-
-                _this97.peerList.push(call.peer);
-              }
-            }); // this.onStop();
-            // navigator.mediaDevices.getUserMedia({
-            //   video: true,
-            //   audio: true
-            // }).then((stream) => {
-            //   this.lazyStream = stream;
-            //   const call = this.peer.call(id, stream);
-            //   call.on('stream', (remoteStream) => {
-            //     console.log('Receive stream');
-            //     if (!this.peerList.includes(call.peer)) {
-            //       this.streamRemoteVideo(remoteStream);
-            //       this.currentPeer = call.peerConnection;
-            //       this.peerList.push(call.peer);
-            //     }
-            //   });
-            // }).catch(err => {
-            //   console.log(err + 'Unable to connect');
+            console.log('Call Peer'); // const call = this.peer.call(id, this.lazyStream);
+            // call.on('stream', (remoteStream) => {
+            //   console.log('Receive stream');
+            //   if (!this.peerList.includes(call.peer)) {
+            //     this.streamRemoteVideo(remoteStream);
+            //     this.currentPeer = call.peerConnection;
+            //     this.peerList.push(call.peer);
+            //   }
             // });
+
+            this.onStop();
+            navigator.mediaDevices.getUserMedia({
+              video: true,
+              audio: true
+            }).then(function (stream) {
+              _this97.lazyStream = stream;
+
+              var call = _this97.peer.call(id, stream);
+
+              call.on('stream', function (remoteStream) {
+                // console.log('Receive stream');
+                if (!_this97.peerList.includes(call.peer)) {
+                  _this97.streamRemoteVideo(remoteStream);
+
+                  _this97.currentPeer = call.peerConnection;
+
+                  _this97.peerList.push(call.peer);
+                }
+              });
+            })["catch"](function (err) {
+              console.log(err + 'Unable to connect');
+            });
           }
         }, {
           key: "streamRemoteVideo",
           value: function streamRemoteVideo(stream) {
+            console.log('Stream Remote video ', stream);
             var _video = this.remote_video.nativeElement;
             _video.srcObject = stream;
 
@@ -14733,7 +14745,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "div", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "figure", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "div", 7);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](8, "video", 8, 9);
 
