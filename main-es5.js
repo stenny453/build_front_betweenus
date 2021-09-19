@@ -3158,7 +3158,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" \xA0\xA0\xA0 Pack ", item_r3, " ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" \xA0\xA0\xA0 Packs ", item_r3, " ");
         }
       }
 
@@ -3439,7 +3439,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "h2", 1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "Pack de cr\xE9dit");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "Packs de cr\xE9dit");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
@@ -3595,6 +3595,18 @@
         }
 
         _createClass(SocketService, [{
+          key: "soundIncome",
+          value: function soundIncome() {
+            var audio = new Audio("./../../../assets/sound/incoming.wav");
+            audio.play();
+          }
+        }, {
+          key: "soundOutcome",
+          value: function soundOutcome() {
+            var audio = new Audio("./../../../assets/sound/outcoming.mp3");
+            audio.play();
+          }
+        }, {
           key: "listen",
           value: function listen(eventName) {
             var _this19 = this;
@@ -7770,6 +7782,9 @@
               // this.info.actif = data < 1 ? 0 : data;
               // this.info.actif = data > 2 ? 2 : data;
               _this43.info.actif = 2;
+
+              _this43.socketService.soundIncome();
+
               _this43.leaved = false;
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.info.idRoom, "V")).subscribe(function (data) {
@@ -7777,6 +7792,9 @@
               // this.info.actif = data < 1 ? 0 : data;
               // this.info.actif = data > 2 ? 2 : data;
               _this43.info.actif = 1;
+
+              _this43.socketService.soundOutcome();
+
               _this43.leaved = true;
             });
             this.messageSub = this.socketService.listen("message ".concat(this.info.idRoom, "V")).subscribe(function (data) {
@@ -8676,9 +8694,8 @@
 
       var environment = {
         production: false,
-        // endpoint: "http://localhost:3000",
-        // endpoint: "https://143.198.109.141/api",
-        endpoint: "https://betweenus-live.com/api",
+        endpoint: "http://localhost:3000",
+        // endpoint: "https://betweenus-live.com/api",
         CRYPT_PSEUDO: "storm/betweenus?...",
         CRYPT_PASS: "0@8between.us",
         CRYPT_PSEUDO_MODEL: "storm://betweenus?...",
@@ -16968,13 +16985,15 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, " \xA0LIVE ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "app-connected-model", 7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "app-connected-model", 7);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -16984,7 +17003,7 @@
         if (rf & 2) {
           var ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("actif", ctx_r0.isActif);
         }
@@ -17006,13 +17025,15 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, " \xA0LIVE ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "app-disconnected", 7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "app-disconnected", 7);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -17022,7 +17043,7 @@
         if (rf & 2) {
           var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("actif", ctx_r1.isActif);
         }
@@ -17044,13 +17065,15 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, " \xA0LIVE ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "app-connected", 7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "app-connected", 7);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -17060,7 +17083,7 @@
         if (rf & 2) {
           var ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("actif", ctx_r2.isActif);
         }
@@ -17116,11 +17139,11 @@
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, HeaderComponent_div_1_Template, 8, 1, "div", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, HeaderComponent_div_1_Template, 9, 1, "div", 1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, HeaderComponent_div_2_Template, 8, 1, "div", 2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, HeaderComponent_div_2_Template, 9, 1, "div", 2);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, HeaderComponent_div_3_Template, 8, 1, "div", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, HeaderComponent_div_3_Template, 9, 1, "div", 1);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
           }
@@ -18287,25 +18310,25 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "option", 14);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](20, "PACK DE BIENVENUE");
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](20, "PACKS DE BIENVENUE");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](21, "option", 15);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](22, "PACK BRONZE");
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](22, "PACKS BRONZE");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](23, "option", 16);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](24, "PACK ARGENT");
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](24, "PACKS ARGENT");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](25, "option", 17);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](26, "PACK OR");
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](26, "PACKS OR");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -20614,7 +20637,7 @@
               call.answer(_this117.lazyStream);
               console.log("After answer stream");
               call.on('stream', function (remoteStream) {
-                console.log("On receive stream model");
+                console.log("On receive stream in model");
 
                 if (!_this117.peerList.includes(call.peer)) {
                   _this117.streamRemoteVideo(remoteStream, call.peer);
@@ -20773,10 +20796,14 @@
             this.getMessages();
             this.joinSub = this.socketService.listen("joined ".concat(this.info.idRoom, "P")).subscribe(function (data) {
               // console.log('joined ', data);
+              _this122.socketService.soundIncome();
+
               _this122.getActifs();
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.info.idRoom, "P")).subscribe(function (data) {
-              // console.log('leaved ', data);
+              _this122.socketService.soundOutcome(); // console.log('leaved ', data);
+
+
               _this122.getActifs();
             });
             this.messageSub = this.socketService.listen("message ".concat(this.info.idRoom, "P")).subscribe(function (data) {
@@ -28122,9 +28149,8 @@
       "K5H4");
 
       var config = {
-        // url: 'http://localhost:4000/',
-        url: 'https://betweenus-live.com',
-        // url : 'https://143.198.109.141',
+        url: 'http://localhost:4000/',
+        // url: 'https://betweenus-live.com',
         options: {}
       };
       /**
@@ -32889,6 +32915,10 @@
             });
             this.infos.push({
               label: src_app_interfaces_info_chat_interface__WEBPACK_IMPORTED_MODULE_4__["TypeInfoChat"].info,
+              message: '_   dans ce salon de discussion, votre caméra ne sera pas activé , '
+            });
+            this.infos.push({
+              label: src_app_interfaces_info_chat_interface__WEBPACK_IMPORTED_MODULE_4__["TypeInfoChat"].info,
               message: '_   discutez avec eux et incitez les à passer en live avec vous.'
             });
           }
@@ -33007,11 +33037,15 @@
               // console.log('joined ', data);
               _this169.info.actif = data.count < 1 ? 1 : data.count;
 
+              _this169.socketService.soundIncome();
+
               _this169.joinChat(data.clientPseudo);
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.info.idRoom)).subscribe(function (data) {
               // console.log('leaved ', data);
               _this169.info.actif = data.count < 1 ? 1 : data.count;
+
+              _this169.socketService.soundOutcome();
 
               _this169.leaveChat(data.clientPseudo);
             });
@@ -37176,8 +37210,11 @@
             });
 
             _this186.peer.on('call', function (call) {
+              console.log('answer call');
               call.answer(_this186.lazyStream);
               call.on('stream', function (remoteStream) {
+                console.log('On stream');
+
                 if (!_this186.peerList.includes(call.peer)) {
                   _this186.streamRemoteVideo(remoteStream);
 
@@ -38230,15 +38267,15 @@
           value: function callPeer(id) {
             var _this211 = this;
 
-            if (!id) return false; // console.log("Client call someone");
-
+            if (!id) return false;
+            console.log("Client call someone");
             var call = this.peer.call(id, this.lazyStream); // console.log('PeerId ', id)
             // console.log('Lazystream ', this.lazyStream)
             // console.log('response call', call)
 
             console.log("After call model");
             call.on('stream', function (remoteStream) {
-              console.log("On stream in client");
+              console.log("On stream after call in client");
 
               if (!_this211.peerList.includes(call.peer)) {
                 _this211.streamRemoteVideo(remoteStream);
@@ -38293,14 +38330,14 @@
           value: function callPeerClient(clientId, clientPeer) {
             var _this212 = this;
 
-            if (!clientPeer) return false; // console.log("Client call other client");
-
+            if (!clientPeer) return false;
+            console.log("Client call other client");
             var call = this.peer.call(clientPeer, this.lazyStream); // console.log('clientPeer ', clientPeer)
             // console.log('Lazystream ', this.lazyStream)
             // console.log('response call', call)
 
             call.on('stream', function (remoteStream) {
-              console.log("On stream in client");
+              console.log("On stream in call other client");
 
               if (!_this212.peerList.includes(call.peer)) {
                 _this212.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
@@ -44060,7 +44097,7 @@
       /*! @angular/common */
       "ofXK");
 
-      function ConnexionAdminComponent_div_19_small_1_Template(rf, ctx) {
+      function ConnexionAdminComponent_div_20_small_1_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "small", 19);
 
@@ -44070,7 +44107,7 @@
         }
       }
 
-      function ConnexionAdminComponent_div_19_small_2_Template(rf, ctx) {
+      function ConnexionAdminComponent_div_20_small_2_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "small", 19);
 
@@ -44080,13 +44117,13 @@
         }
       }
 
-      function ConnexionAdminComponent_div_19_Template(rf, ctx) {
+      function ConnexionAdminComponent_div_20_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](1, ConnexionAdminComponent_div_19_small_1_Template, 2, 0, "small", 18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](1, ConnexionAdminComponent_div_20_small_1_Template, 2, 0, "small", 18);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](2, ConnexionAdminComponent_div_19_small_2_Template, 2, 0, "small", 18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](2, ConnexionAdminComponent_div_20_small_2_Template, 2, 0, "small", 18);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         }
@@ -44104,7 +44141,7 @@
         }
       }
 
-      function ConnexionAdminComponent_div_24_small_1_Template(rf, ctx) {
+      function ConnexionAdminComponent_div_25_small_1_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "small", 19);
 
@@ -44114,11 +44151,11 @@
         }
       }
 
-      function ConnexionAdminComponent_div_24_Template(rf, ctx) {
+      function ConnexionAdminComponent_div_25_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](1, ConnexionAdminComponent_div_24_small_1_Template, 2, 0, "small", 14);
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](1, ConnexionAdminComponent_div_25_small_1_Template, 2, 0, "small", 14);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         }
@@ -44132,7 +44169,7 @@
         }
       }
 
-      function ConnexionAdminComponent_small_25_Template(rf, ctx) {
+      function ConnexionAdminComponent_small_26_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "small", 19);
 
@@ -44150,13 +44187,13 @@
         }
       }
 
-      function ConnexionAdminComponent_div_28_Template(rf, ctx) {
+      function ConnexionAdminComponent_div_29_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](0, "div", 20);
         }
       }
 
-      function ConnexionAdminComponent_span_29_Template(rf, ctx) {
+      function ConnexionAdminComponent_span_30_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "span");
 
@@ -44259,7 +44296,7 @@
       ConnexionAdminComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({
         type: ConnexionAdminComponent,
         selectors: [["app-connexion-admin"]],
-        decls: 33,
+        decls: 34,
         vars: 6,
         consts: [[1, "contain_signin_one"], [1, "inside_sign", "part_one"], [1, "word_one"], [1, "word_two"], [1, "contain_signin_two", "inside_sign"], [1, "title"], [1, "descr"], ["novalidate", "", "autocomplete", "off", 1, "form", 3, "formGroup"], [1, "form-group"], ["for", "email"], ["type", "text", "formControlName", "email", "name", "email", 1, "form-control", "input", "lighter"], [4, "ngIf"], ["for", "password"], ["type", "password", "formControlName", "password", "name", "password", "required", "", 1, "form-control", "input", "lighter"], ["class", "form-text error-text", 4, "ngIf"], [1, "action"], [1, "btn", "btn_signin", "lighter", 3, "click"], ["class", "loader", 4, "ngIf"], ["class", "form-text error-text ", 4, "ngIf"], [1, "form-text", "error-text"], [1, "loader"]],
         template: function ConnexionAdminComponent_Template(rf, ctx) {
@@ -44286,87 +44323,89 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](9, "LIVE");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](9, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](10, "h2", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](10, "div", 4);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](11, " Se connecter en tant qu' ADMIN ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](11, "h2", 5);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12, " Se connecter en tant qu' ADMIN ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](12, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](13, "div", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](13, " Veuillez quitter cette page si vous n'\xEAtes pas l'administrateur. ");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](14, "form", 7);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](15, "div", 8);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](16, "label", 9);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](17, "Email ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](14, " Veuillez quitter cette page si vous n'\xEAtes pas l'administrateur. ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](18, "input", 10);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](15, "form", 7);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](19, ConnexionAdminComponent_div_19_Template, 3, 2, "div", 11);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](16, "div", 8);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](17, "label", 9);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](20, "div", 8);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](21, "label", 12);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](22, "Mot de passe ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](18, "Email ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](23, "input", 13);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](19, "input", 10);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](24, ConnexionAdminComponent_div_24_Template, 2, 1, "div", 11);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](20, ConnexionAdminComponent_div_20_Template, 3, 2, "div", 11);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](25, ConnexionAdminComponent_small_25_Template, 2, 1, "small", 14);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](21, "div", 8);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](26, "div", 15);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](22, "label", 12);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](27, "button", 16);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](23, "Mot de passe ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function ConnexionAdminComponent_Template_button_click_27_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](24, "input", 13);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](25, ConnexionAdminComponent_div_25_Template, 2, 1, "div", 11);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](26, ConnexionAdminComponent_small_26_Template, 2, 1, "small", 14);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](27, "div", 15);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](28, "button", 16);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function ConnexionAdminComponent_Template_button_click_28_listener($event) {
               return ctx.login($event);
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](28, ConnexionAdminComponent_div_28_Template, 1, 0, "div", 17);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](29, ConnexionAdminComponent_div_29_Template, 1, 0, "div", 17);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](29, ConnexionAdminComponent_span_29_Template, 2, 0, "span", 11);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](30, ConnexionAdminComponent_span_30_Template, 2, 0, "span", 11);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](30, "br");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](31, "br");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](32, "br");
 
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](33, "br");
+
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
           }
 
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](14);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](15);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("formGroup", ctx.loginForm);
 
