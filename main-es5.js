@@ -7688,6 +7688,11 @@
             jquery__WEBPACK_IMPORTED_MODULE_4__(document).ready(function () {
               initSettingVideoModel();
             });
+            this.video.nativeElement.autoplay = true;
+            this.video.nativeElement.playsInline = true;
+            this.video.nativeElement.muted = true;
+            this.remote_video.nativeElement.autoplay = true;
+            this.remote_video.nativeElement.playsInline = true;
             this.getInfo();
             this.initLiveVideo();
           }
@@ -8129,9 +8134,9 @@
                 video: true,
                 audio: false
               }).then(function (ms) {
-                console.log(ms);
-                _this54.video.nativeElement.srcObject = ms; // this.remote_video.nativeElement.srcObject = ms;
-                // const _video = this.video.nativeElement;
+                console.log('My stream ', ms);
+                _this54.video.nativeElement.srcObject = ms;
+                _this54.remote_video.nativeElement.srcObject = ms; // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
                 // this.lazyStream = ms
@@ -8200,7 +8205,8 @@
           key: "streamRemoteVideo",
           value: function streamRemoteVideo(stream) {
             console.log('Stream Remote video ', stream);
-            this.remote_video.nativeElement.srcObject = stream; // const _video = this.remote_video.nativeElement;
+            this.remote_video.nativeElement.srcObject = stream;
+            this.remote_video.nativeElement.autoplay = true; // const _video = this.remote_video.nativeElement;
             // _video.srcObject = stream;
             // _video.play();
             // const video = document.createElement('video');
@@ -13877,6 +13883,11 @@
               return null;
             }
 
+            this.video.nativeElement.autoplay = true;
+            this.video.nativeElement.playsInline = true;
+            this.video.nativeElement.muted = true;
+            this.remote_video.nativeElement.autoplay = true;
+            this.remote_video.nativeElement.playsInline = true;
             this.getModel();
             this.initColor();
             this.initLiveVideo();
@@ -14561,8 +14572,9 @@
                 video: true,
                 audio: false
               }).then(function (ms) {
-                // console.log(ms)
-                _this96.video.nativeElement.srcObject = ms; // const _video = this.video.nativeElement;
+                console.log('My stream ', ms);
+                _this96.video.nativeElement.srcObject = ms;
+                _this96.remote_video.nativeElement.srcObject = ms; // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
                 // this.lazyStream = ms
@@ -14630,8 +14642,9 @@
         }, {
           key: "streamRemoteVideo",
           value: function streamRemoteVideo(stream) {
-            console.log('Stream Remote video ', stream); // this.remote_video.nativeElement.srcObject = stream;
-            // const _video = this.remote_video.nativeElement;
+            console.log('Stream Remote video ', stream);
+            this.remote_video.nativeElement.srcObject = stream;
+            this.remote_video.nativeElement.autoplay = true; // const _video = this.remote_video.nativeElement;
             // _video.srcObject = stream;
             // _video.play();
           }

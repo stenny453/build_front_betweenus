@@ -3938,7 +3938,14 @@ class LiveVipModelComponent {
         // this.client.id = parseInt(id);
     }
     ngOnInit() {
-        jquery__WEBPACK_IMPORTED_MODULE_4__(document).ready(function () { initSettingVideoModel(); });
+        jquery__WEBPACK_IMPORTED_MODULE_4__(document).ready(function () {
+            initSettingVideoModel();
+        });
+        this.video.nativeElement.autoplay = true;
+        this.video.nativeElement.playsInline = true;
+        this.video.nativeElement.muted = true;
+        this.remote_video.nativeElement.autoplay = true;
+        this.remote_video.nativeElement.playsInline = true;
         this.getInfo();
         this.initLiveVideo();
     }
@@ -4197,9 +4204,9 @@ class LiveVipModelComponent {
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
             navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then((ms) => {
-                console.log(ms);
+                console.log('My stream ', ms);
                 this.video.nativeElement.srcObject = ms;
-                // this.remote_video.nativeElement.srcObject = ms;
+                this.remote_video.nativeElement.srcObject = ms;
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
@@ -4253,6 +4260,7 @@ class LiveVipModelComponent {
     streamRemoteVideo(stream) {
         console.log('Stream Remote video ', stream);
         this.remote_video.nativeElement.srcObject = stream;
+        this.remote_video.nativeElement.autoplay = true;
         // const _video = this.remote_video.nativeElement;
         // _video.srcObject = stream;
         // _video.play();
@@ -7194,6 +7202,11 @@ class LiveVipComponent {
             this.errorRoom();
             return null;
         }
+        this.video.nativeElement.autoplay = true;
+        this.video.nativeElement.playsInline = true;
+        this.video.nativeElement.muted = true;
+        this.remote_video.nativeElement.autoplay = true;
+        this.remote_video.nativeElement.playsInline = true;
         this.getModel();
         this.initColor();
         this.initLiveVideo();
@@ -7584,8 +7597,9 @@ class LiveVipComponent {
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
             navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then((ms) => {
-                // console.log(ms)
+                console.log('My stream ', ms);
                 this.video.nativeElement.srcObject = ms;
+                this.remote_video.nativeElement.srcObject = ms;
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
@@ -7638,7 +7652,8 @@ class LiveVipComponent {
     }
     streamRemoteVideo(stream) {
         console.log('Stream Remote video ', stream);
-        // this.remote_video.nativeElement.srcObject = stream;
+        this.remote_video.nativeElement.srcObject = stream;
+        this.remote_video.nativeElement.autoplay = true;
         // const _video = this.remote_video.nativeElement;
         // _video.srcObject = stream;
         // _video.play();
