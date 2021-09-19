@@ -11031,7 +11031,7 @@ class LivePrivateModelComponent {
         // });
     }
     streamRemoteVideo(stream, peerId) {
-        console.log('Add remote stream');
+        console.log('Add remote stream client ', stream);
         // const video = document.createElement('video');
         // video.classList.add('video');
         // video.srcObject = stream;
@@ -19406,12 +19406,12 @@ class LivePrivateComponent {
                 // Send peer client
             });
             this.peer.on('call', (call) => {
-                console.log('answer call');
+                console.log('on call');
                 call.answer(this.lazyStream);
                 call.on('stream', (remoteStream) => {
-                    console.log('On stream');
+                    console.log('On stream from call');
                     if (!this.peerList.includes(call.peer)) {
-                        this.streamRemoteVideo(remoteStream);
+                        this.addOtherClientstreamRemoteVideo(this.clientStream.length, remoteStream, call.peer);
                         this.currentPeer = call.peerConnection;
                         this.peerList.push(call.peer);
                     }
@@ -19458,7 +19458,6 @@ class LivePrivateComponent {
     getCostVIPShow() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             return yield this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].VIP).subscribe((data) => {
-                // console.log("Show Cost ", data)
                 this.statVIP.tarif_show = data.credit ? data.credit : 0;
                 this.statVIP.time_show = data.second ? data.second : 0;
             });
@@ -19468,7 +19467,6 @@ class LivePrivateComponent {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.onStop();
             (yield this.creditTimer()).subscribe((data) => {
-                // console.log("Response credit timer ", data);
             });
             this.actifSub.unsubscribe();
             this.joinSub.unsubscribe();
@@ -19489,18 +19487,15 @@ class LivePrivateComponent {
     }
     getModel() {
         this.modelService.getModel(this.modelId).subscribe((data) => {
-            // console.log("Le model ", data);
             this.bg = data.path_soft;
             this.modelPseudo = data.pseudo;
             if (data.profile.status === "En vip") {
                 this.passedVIP = true;
                 this.clearTimer();
-                // return null;
             }
             else if (data.profile.status === "En ligne") {
                 this.obsolete();
                 this.clearTimer();
-                // return null;
             }
             this.getCostVIPShow();
             this.getInfo();
@@ -19509,7 +19504,6 @@ class LivePrivateComponent {
     getInfo() {
         this.clientService.getMyInfos().subscribe(// My info
         (data) => {
-            // console.log("My info ", data)
             this.clientId = data.id;
             this.clientPseudo = data.pseudo;
             this.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
@@ -19532,7 +19526,6 @@ class LivePrivateComponent {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             return yield this.clientService.getCredit().subscribe((data) => {
                 this.clientCredit = data.credit;
-                // console.log('Client credit ', this.clientCredit);
                 if (this.show.credit < this.clientCredit)
                     return null;
                 this.timer.fail = true;
@@ -19546,7 +19539,6 @@ class LivePrivateComponent {
     getInfoRoom() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             yield this.roomPrivateService.getRoomModel(this.modelId).subscribe((data) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-                // console.log('Info room ', data);
                 this.idRoom = data.idRoom;
                 if (data.idRoom === null) {
                     this.obsolete();
@@ -19561,7 +19553,6 @@ class LivePrivateComponent {
     getActifs() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             yield this.roomPrivateService.getActif(this.idRoom).subscribe((data) => {
-                // console.log("Get les actifs ", data);
                 this.actif = data.clients.length + 1; // +1 for the model
                 this.clients = data.clients;
             });
@@ -19576,19 +19567,16 @@ class LivePrivateComponent {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             // await this.roomPrivateService.updateActif(this.idRoom, true, 'private', this.peerId).subscribe(
             //   async (data) => {
-            //     // console.log("Retour Update Actif in room Service ", data);
             //     await this.socketService.joinPrivate(this.idRoom, this.modelId,
             //       this.clientId, this.clientPseudo, this.peerId);
             //     this.getActifs();
             //   }
             // );
             this.joinSub = this.socketService.listen(`joined ${this.idRoom}P`).subscribe((data) => {
-                console.log('Joined ', data);
                 this.callPeerClient(data.id, data.peerId);
                 this.getActifs();
             });
             this.leaveSub = this.socketService.listen(`leaved ${this.idRoom}P`).subscribe((data) => {
-                // console.log('leaved ', data);
                 this.removeStream(data.clientId);
                 this.getActifs();
             });
@@ -19663,7 +19651,6 @@ class LivePrivateComponent {
                 this.socketService.askModelPeerId({ peerId: this.peerId,
                     room: this.idRoom + 'P', clientId: this.clientId });
                 yield this.roomPrivateService.updateActif(this.idRoom, true, 'private', this.peerId).subscribe((data) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-                    // console.log("Retour Update Actif in room Service ", data);
                     yield this.socketService.joinPrivate(this.idRoom, this.modelId, this.clientId, this.clientPseudo, this.peerId);
                     this.getActifs();
                 }));
@@ -19793,16 +19780,13 @@ class LivePrivateComponent {
     initTimer() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.timerService.getTimer(this.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].PRIVATE).subscribe((data) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-                // console.log('Timer ', data);
                 const created = data.createdAt;
                 const updated = data.updatedAt;
                 this.timer.id = data.id;
-                // console.log(created.toString(), " to ", updated.toString());
                 const { hour, minute, second } = this.timerService.convertTime(created.toString(), updated.toString());
                 this.timer.hour = hour;
                 this.timer.minute = minute;
                 this.timer.second = second;
-                // console.log(this.timer.hour, ':', this.timer.minute, ':', this.timer.second);
                 yield this.getCostShow();
             }));
         });
@@ -19814,7 +19798,6 @@ class LivePrivateComponent {
                 this.show.credit = data.credit;
                 this.show.second = data.second;
                 this.show.type = data.type;
-                // console.log('Show cost ' , this.show, " - credit - " , this.clientCredit);
                 if (this.clientCredit == 0) {
                     this.aucunCredit();
                     return null;
@@ -19855,10 +19838,8 @@ class LivePrivateComponent {
     beginTimer() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const delay = this.show.second * 1000;
-            // console.log(delay, " ms ");
             yield (yield this.creditTimer()).subscribe(// launch main creditation
             (data) => {
-                // console.log("Response credit timer ", data);
                 this.clientCredit = data.credit ? data.credit : 0;
                 if (data.credit <= 0) {
                     this.aucunCredit();
@@ -19872,7 +19853,6 @@ class LivePrivateComponent {
             setInterval(() => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
                 if (!this.timer.reinit) {
                     yield (yield this.creditTimer()).subscribe((data) => {
-                        // console.log("Response credit timer ", data);
                         this.clientCredit = data.credit ? data.credit : 0;
                         if (data.credit <= 0) {
                             this.aucunCredit();
@@ -19900,7 +19880,6 @@ class LivePrivateComponent {
                 showType: this.show.type,
                 roomId: this.idRoom
             };
-            // console.log("credit timer post ", data);
             return yield this.timerService.creditTimer(data);
         });
     }
@@ -19908,8 +19887,6 @@ class LivePrivateComponent {
     askModelStream() {
         this.socketService.askModelPeerId({ peerId: this.peerId,
             room: this.idRoom + 'P', clientId: this.clientId });
-        // const room = this.idRoom+'P'
-        // this.socketService.askModelStream(room, this.clientId, this.modelId)
     }
     initLiveVideo() {
         this.onStart();
@@ -19960,25 +19937,24 @@ class LivePrivateComponent {
         this.callPeer(this.peerIdShare);
     }
     callPeer(id) {
-        console.log('CallPeer line 835 id : ', id);
+        console.log('CallPeer  id : ', id);
         if (!id)
             return null;
         if (id === undefined)
             return null;
         console.log("Client call someone");
         const call = this.peer.call(id, this.lazyStream);
-        // console.log('PeerId ', id)
-        // console.log('Lazystream ', this.lazyStream)
-        // console.log('response call', call)
         console.log("After call model");
-        call.on('stream', (remoteStream) => {
-            console.log("On stream after call in client");
-            if (!this.peerList.includes(call.peer)) {
-                this.streamRemoteVideo(remoteStream);
-                this.currentPeer = call.peerConnection;
-                this.peerList.push(call.peer);
-            }
-        });
+        if (call) {
+            call.on('stream', (remoteStream) => {
+                console.log("On stream after call in client");
+                if (!this.peerList.includes(call.peer)) {
+                    this.streamRemoteVideo(remoteStream);
+                    this.currentPeer = call.peerConnection;
+                    this.peerList.push(call.peer);
+                }
+            });
+        }
         // this.onStop();
         // navigator.mediaDevices.getUserMedia({
         //   video: true,
@@ -20008,6 +19984,7 @@ class LivePrivateComponent {
         // });
     }
     streamRemoteVideo(stream) {
+        console.log('Add stream model ', stream);
         const _video = this.remote_video.nativeElement;
         _video.srcObject = stream;
         _video.play();
@@ -20018,24 +19995,22 @@ class LivePrivateComponent {
         // document.getElementById('remote-video').append(video);
     }
     callPeerClient(clientId, clientPeer) {
-        console.log('CallPeer line 835 clientPeer : ', clientPeer);
+        console.log('CallPeerClient clientPeer : ', clientPeer);
         if (!clientPeer)
             return null;
         if (clientPeer === undefined)
             return null;
-        console.log("Client call other client");
         const call = this.peer.call(clientPeer, this.lazyStream);
-        // console.log('clientPeer ', clientPeer)
-        // console.log('Lazystream ', this.lazyStream)
-        // console.log('response call', call)
-        call.on('stream', (remoteStream) => {
-            console.log("On stream in call other client");
-            if (!this.peerList.includes(call.peer)) {
-                this.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
-                this.currentPeer = call.peerConnection;
-                this.peerList.push(call.peer);
-            }
-        });
+        if (call) {
+            call.on('stream', (remoteStream) => {
+                console.log("On stream in call other client");
+                if (!this.peerList.includes(call.peer)) {
+                    this.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
+                    this.currentPeer = call.peerConnection;
+                    this.peerList.push(call.peer);
+                }
+            });
+        }
         // this.onStop();
         // navigator.mediaDevices.getUserMedia({
         //   video: true,
@@ -20058,6 +20033,7 @@ class LivePrivateComponent {
         // });
     }
     addOtherClientstreamRemoteVideo(clientId, stream, peerId) {
+        console.log('add other stream ', stream);
         this.clientStream.push({
             clientId,
             stream: stream,
@@ -20130,12 +20106,8 @@ class LivePrivateComponent {
     }
     addEmoji(event) {
         const { message } = this;
-        console.log(this.message);
-        console.log(`${event.emoji.native}`);
         const text = `${message}${event.emoji.native}`;
         this.message = text;
-        console.log(this.message);
-        // this.showEmojiPicker = false;
     }
     focus() {
         this.showEmojiPicker = false;

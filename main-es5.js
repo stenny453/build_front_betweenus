@@ -21331,7 +21331,7 @@
         }, {
           key: "streamRemoteVideo",
           value: function streamRemoteVideo(stream, peerId) {
-            console.log('Add remote stream'); // const video = document.createElement('video');
+            console.log('Add remote stream client ', stream); // const video = document.createElement('video');
             // video.classList.add('video');
             // video.srcObject = stream;
             // video.play();
@@ -37213,13 +37213,13 @@
             });
 
             _this186.peer.on('call', function (call) {
-              console.log('answer call');
+              console.log('on call');
               call.answer(_this186.lazyStream);
               call.on('stream', function (remoteStream) {
-                console.log('On stream');
+                console.log('On stream from call');
 
                 if (!_this186.peerList.includes(call.peer)) {
-                  _this186.streamRemoteVideo(remoteStream);
+                  _this186.addOtherClientstreamRemoteVideo(_this186.clientStream.length, remoteStream, call.peer);
 
                   _this186.currentPeer = call.peerConnection;
 
@@ -37282,7 +37282,6 @@
                     case 0:
                       _context91.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].VIP).subscribe(function (data) {
-                        // console.log("Show Cost ", data)
                         _this187.statVIP.tarif_show = data.credit ? data.credit : 0;
                         _this187.statVIP.time_show = data.second ? data.second : 0;
                       });
@@ -37311,8 +37310,7 @@
                       return this.creditTimer();
 
                     case 3:
-                      _context92.sent.subscribe(function (data) {// console.log("Response credit timer ", data);
-                      });
+                      _context92.sent.subscribe(function (data) {});
 
                       this.actifSub.unsubscribe();
                       this.joinSub.unsubscribe();
@@ -37344,20 +37342,17 @@
             var _this188 = this;
 
             this.modelService.getModel(this.modelId).subscribe(function (data) {
-              // console.log("Le model ", data);
               _this188.bg = data.path_soft;
               _this188.modelPseudo = data.pseudo;
 
               if (data.profile.status === "En vip") {
                 _this188.passedVIP = true;
 
-                _this188.clearTimer(); // return null;
-
+                _this188.clearTimer();
               } else if (data.profile.status === "En ligne") {
                 _this188.obsolete();
 
-                _this188.clearTimer(); // return null;
-
+                _this188.clearTimer();
               }
 
               _this188.getCostVIPShow();
@@ -37372,7 +37367,6 @@
 
             this.clientService.getMyInfos().subscribe( // My info
             function (data) {
-              // console.log("My info ", data)
               _this189.clientId = data.id;
               _this189.clientPseudo = data.pseudo;
               _this189.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
@@ -37409,9 +37403,7 @@
                     case 0:
                       _context93.next = 2;
                       return this.clientService.getCredit().subscribe(function (data) {
-                        _this191.clientCredit = data.credit; // console.log('Client credit ', this.clientCredit);
-
-                        // console.log('Client credit ', this.clientCredit);
+                        _this191.clientCredit = data.credit;
                         if (_this191.show.credit < _this191.clientCredit) return null;
                         _this191.timer.fail = true; // if Not leaved
 
@@ -37449,7 +37441,6 @@
                             while (1) {
                               switch (_context94.prev = _context94.next) {
                                 case 0:
-                                  // console.log('Info room ', data);
                                   this.idRoom = data.idRoom;
 
                                   if (data.idRoom === null) {
@@ -37490,7 +37481,6 @@
                     case 0:
                       _context96.next = 2;
                       return this.roomPrivateService.getActif(this.idRoom).subscribe(function (data) {
-                        // console.log("Get les actifs ", data);
                         _this193.actif = data.clients.length + 1; // +1 for the model
 
                         // +1 for the model
@@ -37526,21 +37516,17 @@
                     case 0:
                       // await this.roomPrivateService.updateActif(this.idRoom, true, 'private', this.peerId).subscribe(
                       //   async (data) => {
-                      //     // console.log("Retour Update Actif in room Service ", data);
                       //     await this.socketService.joinPrivate(this.idRoom, this.modelId,
                       //       this.clientId, this.clientPseudo, this.peerId);
                       //     this.getActifs();
                       //   }
                       // );
                       this.joinSub = this.socketService.listen("joined ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        console.log('Joined ', data);
-
                         _this195.callPeerClient(data.id, data.peerId);
 
                         _this195.getActifs();
                       });
                       this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        // console.log('leaved ', data);
                         _this195.removeStream(data.clientId);
 
                         _this195.getActifs();
@@ -37938,16 +37924,13 @@
                             while (1) {
                               switch (_context105.prev = _context105.next) {
                                 case 0:
-                                  // console.log('Timer ', data);
                                   created = data.createdAt;
                                   updated = data.updatedAt;
-                                  this.timer.id = data.id; // console.log(created.toString(), " to ", updated.toString());
-
+                                  this.timer.id = data.id;
                                   _this$timerService$co4 = this.timerService.convertTime(created.toString(), updated.toString()), hour = _this$timerService$co4.hour, minute = _this$timerService$co4.minute, second = _this$timerService$co4.second;
                                   this.timer.hour = hour;
                                   this.timer.minute = minute;
-                                  this.timer.second = second; // console.log(this.timer.hour, ':', this.timer.minute, ':', this.timer.second);
-
+                                  this.timer.second = second;
                                   _context105.next = 9;
                                   return this.getCostShow();
 
@@ -37983,9 +37966,8 @@
                         _this205.show.id = data.id;
                         _this205.show.credit = data.credit;
                         _this205.show.second = data.second;
-                        _this205.show.type = data.type; // console.log('Show cost ' , this.show, " - credit - " , this.clientCredit);
+                        _this205.show.type = data.type;
 
-                        // console.log('Show cost ' , this.show, " - credit - " , this.clientCredit);
                         if (_this205.clientCredit == 0) {
                           _this205.aucunCredit();
 
@@ -38072,8 +38054,7 @@
                 while (1) {
                   switch (_context110.prev = _context110.next) {
                     case 0:
-                      delay = this.show.second * 1000; // console.log(delay, " ms ");
-
+                      delay = this.show.second * 1000;
                       _context110.next = 3;
                       return this.creditTimer();
 
@@ -38081,7 +38062,6 @@
                       _context110.next = 5;
                       return _context110.sent.subscribe( // launch main creditation
                       function (data) {
-                        // console.log("Response credit timer ", data);
                         _this207.clientCredit = data.credit ? data.credit : 0;
 
                         if (data.credit <= 0) {
@@ -38115,7 +38095,6 @@
                                 case 3:
                                   _context109.next = 5;
                                   return _context109.sent.subscribe(function (data) {
-                                    // console.log("Response credit timer ", data);
                                     _this208.clientCredit = data.credit ? data.credit : 0;
 
                                     if (data.credit <= 0) {
@@ -38171,8 +38150,7 @@
                         showSecond: this.show.second,
                         showType: this.show.type,
                         roomId: this.idRoom
-                      }; // console.log("credit timer post ", data);
-
+                      };
                       _context111.next = 5;
                       return this.timerService.creditTimer(data);
 
@@ -38195,8 +38173,7 @@
               peerId: this.peerId,
               room: this.idRoom + 'P',
               clientId: this.clientId
-            }); // const room = this.idRoom+'P'
-            // this.socketService.askModelStream(room, this.clientId, this.modelId)
+            });
           }
         }, {
           key: "initLiveVideo",
@@ -38273,26 +38250,26 @@
           value: function callPeer(id) {
             var _this211 = this;
 
-            console.log('CallPeer line 835 id : ', id);
+            console.log('CallPeer  id : ', id);
             if (!id) return null;
             if (id === undefined) return null;
             console.log("Client call someone");
-            var call = this.peer.call(id, this.lazyStream); // console.log('PeerId ', id)
-            // console.log('Lazystream ', this.lazyStream)
-            // console.log('response call', call)
-
+            var call = this.peer.call(id, this.lazyStream);
             console.log("After call model");
-            call.on('stream', function (remoteStream) {
-              console.log("On stream after call in client");
 
-              if (!_this211.peerList.includes(call.peer)) {
-                _this211.streamRemoteVideo(remoteStream);
+            if (call) {
+              call.on('stream', function (remoteStream) {
+                console.log("On stream after call in client");
 
-                _this211.currentPeer = call.peerConnection;
+                if (!_this211.peerList.includes(call.peer)) {
+                  _this211.streamRemoteVideo(remoteStream);
 
-                _this211.peerList.push(call.peer);
-              }
-            }); // this.onStop();
+                  _this211.currentPeer = call.peerConnection;
+
+                  _this211.peerList.push(call.peer);
+                }
+              });
+            } // this.onStop();
             // navigator.mediaDevices.getUserMedia({
             //   video: true,
             //   audio: true
@@ -38319,10 +38296,12 @@
             // }).catch(err => {
             //   console.log(err + 'Unable to connect');
             // });
+
           }
         }, {
           key: "streamRemoteVideo",
           value: function streamRemoteVideo(stream) {
+            console.log('Add stream model ', stream);
             var _video = this.remote_video.nativeElement;
             _video.srcObject = stream;
 
@@ -38338,25 +38317,24 @@
           value: function callPeerClient(clientId, clientPeer) {
             var _this212 = this;
 
-            console.log('CallPeer line 835 clientPeer : ', clientPeer);
+            console.log('CallPeerClient clientPeer : ', clientPeer);
             if (!clientPeer) return null;
             if (clientPeer === undefined) return null;
-            console.log("Client call other client");
-            var call = this.peer.call(clientPeer, this.lazyStream); // console.log('clientPeer ', clientPeer)
-            // console.log('Lazystream ', this.lazyStream)
-            // console.log('response call', call)
+            var call = this.peer.call(clientPeer, this.lazyStream);
 
-            call.on('stream', function (remoteStream) {
-              console.log("On stream in call other client");
+            if (call) {
+              call.on('stream', function (remoteStream) {
+                console.log("On stream in call other client");
 
-              if (!_this212.peerList.includes(call.peer)) {
-                _this212.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
+                if (!_this212.peerList.includes(call.peer)) {
+                  _this212.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
 
-                _this212.currentPeer = call.peerConnection;
+                  _this212.currentPeer = call.peerConnection;
 
-                _this212.peerList.push(call.peer);
-              }
-            }); // this.onStop();
+                  _this212.peerList.push(call.peer);
+                }
+              });
+            } // this.onStop();
             // navigator.mediaDevices.getUserMedia({
             //   video: true,
             //   audio: true
@@ -38376,10 +38354,12 @@
             // }).catch(err => {
             //   console.log(err + 'Unable to connect');
             // });
+
           }
         }, {
           key: "addOtherClientstreamRemoteVideo",
           value: function addOtherClientstreamRemoteVideo(clientId, stream, peerId) {
+            console.log('add other stream ', stream);
             this.clientStream.push({
               clientId: clientId,
               stream: stream,
@@ -38476,11 +38456,8 @@
           key: "addEmoji",
           value: function addEmoji(event) {
             var message = this.message;
-            console.log(this.message);
-            console.log("".concat(event.emoji["native"]));
             var text = "".concat(message).concat(event.emoji["native"]);
             this.message = text;
-            console.log(this.message); // this.showEmojiPicker = false;
           }
         }, {
           key: "focus",
