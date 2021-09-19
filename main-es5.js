@@ -8694,8 +8694,8 @@
 
       var environment = {
         production: false,
-        endpoint: "http://localhost:3000",
-        // endpoint: "https://betweenus-live.com/api",
+        // endpoint: "http://localhost:3000",
+        endpoint: "https://betweenus-live.com/api",
         CRYPT_PSEUDO: "storm/betweenus?...",
         CRYPT_PASS: "0@8between.us",
         CRYPT_PSEUDO_MODEL: "storm://betweenus?...",
@@ -20807,6 +20807,8 @@
               _this122.getActifs();
             });
             this.messageSub = this.socketService.listen("message ".concat(this.info.idRoom, "P")).subscribe(function (data) {
+              _this122.socketService.soundOutcome();
+
               _this122.getMessages();
             });
             this.peerSub = this.socketService.listen("ask peerId ".concat(this.info.idRoom, "P")).subscribe(function (data) {
@@ -22985,6 +22987,7 @@
             var changes = this.iterableDiffer.diff(this.messages);
 
             if (changes) {
+              // this.socketService.soundOutcome()
               jquery__WEBPACK_IMPORTED_MODULE_0__("#main_chat").animate({
                 scrollTop: jquery__WEBPACK_IMPORTED_MODULE_0__('#main_chat').prop("scrollHeight")
               }, 10);
@@ -28149,8 +28152,8 @@
       "K5H4");
 
       var config = {
-        url: 'http://localhost:4000/',
-        // url: 'https://betweenus-live.com',
+        // url: 'http://localhost:4000/',
+        url: 'https://betweenus-live.com',
         options: {}
       };
       /**
@@ -37543,6 +37546,8 @@
                         _this195.getActifs();
                       });
                       this.messageSub = this.socketService.listen("message ".concat(this.idRoom, "P")).subscribe(function (data) {
+                        _this195.socketService.soundOutcome();
+
                         _this195.getMessages();
                       });
                       this.banishSub = this.socketService.listen("Banish client ".concat(this.idRoom, "P ").concat(this.clientId)).subscribe(function (data) {
@@ -38242,6 +38247,7 @@
             var _this210 = this;
 
             this.peer.on('open', function (id) {
+              console.log('Relaunch peer id ', id);
               _this210.peerId = id; // Send peer client
 
               _this210.socketService.askModelPeerId({
@@ -38267,7 +38273,9 @@
           value: function callPeer(id) {
             var _this211 = this;
 
-            if (!id) return false;
+            console.log('CallPeer line 835 id : ', id);
+            if (!id) return null;
+            if (id === undefined) return null;
             console.log("Client call someone");
             var call = this.peer.call(id, this.lazyStream); // console.log('PeerId ', id)
             // console.log('Lazystream ', this.lazyStream)
@@ -38330,7 +38338,9 @@
           value: function callPeerClient(clientId, clientPeer) {
             var _this212 = this;
 
-            if (!clientPeer) return false;
+            console.log('CallPeer line 835 clientPeer : ', clientPeer);
+            if (!clientPeer) return null;
+            if (clientPeer === undefined) return null;
             console.log("Client call other client");
             var call = this.peer.call(clientPeer, this.lazyStream); // console.log('clientPeer ', clientPeer)
             // console.log('Lazystream ', this.lazyStream)

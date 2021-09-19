@@ -4506,8 +4506,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    endpoint: "http://localhost:3000",
-    // endpoint: "https://betweenus-live.com/api",
+    // endpoint: "http://localhost:3000",
+    endpoint: "https://betweenus-live.com/api",
     CRYPT_PSEUDO: "storm/betweenus?...",
     CRYPT_PASS: "0@8between.us",
     CRYPT_PSEUDO_MODEL: "storm://betweenus?...",
@@ -10747,6 +10747,7 @@ class LivePrivateModelComponent {
             this.getActifs();
         });
         this.messageSub = this.socketService.listen(`message ${this.info.idRoom}P`).subscribe((data) => {
+            this.socketService.soundOutcome();
             this.getMessages();
         });
         this.peerSub = this.socketService.listen(`ask peerId ${this.info.idRoom}P`).subscribe((data) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -11880,6 +11881,7 @@ class LiveFreeChatComponent {
     ngDoCheck() {
         let changes = this.iterableDiffer.diff(this.messages);
         if (changes) {
+            // this.socketService.soundOutcome()
             jquery__WEBPACK_IMPORTED_MODULE_0__("#main_chat").animate({ scrollTop: jquery__WEBPACK_IMPORTED_MODULE_0__('#main_chat').prop("scrollHeight") }, 10);
         }
     }
@@ -14525,8 +14527,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const config = {
-    url: 'http://localhost:4000/',
-    // url: 'https://betweenus-live.com',
+    // url: 'http://localhost:4000/',
+    url: 'https://betweenus-live.com',
     options: {}
 };
 /**
@@ -19591,6 +19593,7 @@ class LivePrivateComponent {
                 this.getActifs();
             });
             this.messageSub = this.socketService.listen(`message ${this.idRoom}P`).subscribe((data) => {
+                this.socketService.soundOutcome();
                 this.getMessages();
             });
             this.banishSub = this.socketService.listen(`Banish client ${this.idRoom}P ${this.clientId}`).subscribe((data) => {
@@ -19942,6 +19945,7 @@ class LivePrivateComponent {
     }
     relaunchPeerId() {
         this.peer.on('open', (id) => {
+            console.log('Relaunch peer id ', id);
             this.peerId = id;
             // Send peer client
             this.socketService.askModelPeerId({ peerId: this.peerId,
@@ -19956,8 +19960,11 @@ class LivePrivateComponent {
         this.callPeer(this.peerIdShare);
     }
     callPeer(id) {
+        console.log('CallPeer line 835 id : ', id);
         if (!id)
-            return false;
+            return null;
+        if (id === undefined)
+            return null;
         console.log("Client call someone");
         const call = this.peer.call(id, this.lazyStream);
         // console.log('PeerId ', id)
@@ -20011,8 +20018,11 @@ class LivePrivateComponent {
         // document.getElementById('remote-video').append(video);
     }
     callPeerClient(clientId, clientPeer) {
+        console.log('CallPeer line 835 clientPeer : ', clientPeer);
         if (!clientPeer)
-            return false;
+            return null;
+        if (clientPeer === undefined)
+            return null;
         console.log("Client call other client");
         const call = this.peer.call(clientPeer, this.lazyStream);
         // console.log('clientPeer ', clientPeer)
