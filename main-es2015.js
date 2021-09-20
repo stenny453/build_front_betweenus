@@ -4622,8 +4622,7 @@ class LivePrivateCamComponent {
     }
     playStreams() {
         this.streams.forEach(stream => {
-            const id = '#' + stream.clientId;
-            jquery__WEBPACK_IMPORTED_MODULE_1__(id).get(0).play();
+            jquery__WEBPACK_IMPORTED_MODULE_1__(`#${stream.clientId}`).get(0).play();
         });
     }
     selectClient(id) {
@@ -4633,8 +4632,7 @@ class LivePrivateCamComponent {
         }
     }
     ngDoCheck() {
-        console.log('private cam list');
-        console.log(this.streams);
+        this.playStreams();
         let changes = this.iterableDiffer.diff(this.streams);
         if (changes) {
             const theId = '#' + this.myId;
@@ -10764,7 +10762,7 @@ class LivePrivateModelComponent {
     initSocket() {
         this.getMessages();
         this.joinSub = this.socketService.listen(`joined ${this.info.idRoom}P`).subscribe((data) => {
-            // console.log('joined ', data);
+            console.log('joined ', data);
             this.socketService.soundIncome();
             this.getActifs();
         });
@@ -19471,13 +19469,13 @@ class LivePrivateComponent {
                     // _video.srcObject = stream;
                     // _video.play();
                     call.answer(stream);
-                    call.on('stream', (remoteStream) => {
-                        if (!this.peerList.includes(call.peer)) {
-                            this.addOtherClientstreamRemoteVideo(this.clientStream.length, remoteStream, call.peer);
-                            this.currentPeer = call.peerConnection;
-                            this.peerList.push(call.peer);
-                        }
-                    });
+                    // call.on('stream', (remoteStream) => {
+                    //   if (!this.peerList.includes(call.peer)) {
+                    //     this.addOtherClientstreamRemoteVideo(this.clientStream.length,remoteStream, call.peer);
+                    //     this.currentPeer = call.peerConnection;
+                    //     this.peerList.push(call.peer);
+                    //   }
+                    // });
                 }).catch(err => {
                     console.log(err + ' - Unable to get media');
                 });
@@ -19953,7 +19951,15 @@ class LivePrivateComponent {
         }
     }
     onStop() {
-        this.removeStream(this.clientId);
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then(mediaStream => {
+            const stream = mediaStream;
+            const tracks = stream.getTracks();
+            let index = 0;
+            tracks.forEach(track => {
+                tracks[index].stop;
+                index++;
+            });
+        });
         // if (this.video && this.video.nativeElement.srcObject) {
         //   this.video.nativeElement.pause();
         //   if ((this.video.nativeElement.srcObject as MediaStream).getVideoTracks()[0]) {

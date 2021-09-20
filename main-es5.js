@@ -8915,8 +8915,7 @@
           key: "playStreams",
           value: function playStreams() {
             this.streams.forEach(function (stream) {
-              var id = '#' + stream.clientId;
-              jquery__WEBPACK_IMPORTED_MODULE_1__(id).get(0).play();
+              jquery__WEBPACK_IMPORTED_MODULE_1__("#".concat(stream.clientId)).get(0).play();
             });
           }
         }, {
@@ -8930,8 +8929,7 @@
         }, {
           key: "ngDoCheck",
           value: function ngDoCheck() {
-            console.log('private cam list');
-            console.log(this.streams);
+            this.playStreams();
             var changes = this.iterableDiffer.diff(this.streams);
 
             if (changes) {
@@ -20775,7 +20773,8 @@
 
             this.getMessages();
             this.joinSub = this.socketService.listen("joined ".concat(this.info.idRoom, "P")).subscribe(function (data) {
-              // console.log('joined ', data);
+              console.log('joined ', data);
+
               _this122.socketService.soundIncome();
 
               _this122.getActifs();
@@ -37233,16 +37232,13 @@
                 // _video.srcObject = stream;
                 // _video.play();
 
-                call.answer(stream);
-                call.on('stream', function (remoteStream) {
-                  if (!_this186.peerList.includes(call.peer)) {
-                    _this186.addOtherClientstreamRemoteVideo(_this186.clientStream.length, remoteStream, call.peer);
-
-                    _this186.currentPeer = call.peerConnection;
-
-                    _this186.peerList.push(call.peer);
-                  }
-                });
+                call.answer(stream); // call.on('stream', (remoteStream) => {
+                //   if (!this.peerList.includes(call.peer)) {
+                //     this.addOtherClientstreamRemoteVideo(this.clientStream.length,remoteStream, call.peer);
+                //     this.currentPeer = call.peerConnection;
+                //     this.peerList.push(call.peer);
+                //   }
+                // });
               })["catch"](function (err) {
                 console.log(err + ' - Unable to get media');
               });
@@ -38206,7 +38202,18 @@
         }, {
           key: "onStop",
           value: function onStop() {
-            this.removeStream(this.clientId); // if (this.video && this.video.nativeElement.srcObject) {
+            navigator.mediaDevices.getUserMedia({
+              video: true,
+              audio: false
+            }).then(function (mediaStream) {
+              var stream = mediaStream;
+              var tracks = stream.getTracks();
+              var index = 0;
+              tracks.forEach(function (track) {
+                tracks[index].stop;
+                index++;
+              });
+            }); // if (this.video && this.video.nativeElement.srcObject) {
             //   this.video.nativeElement.pause();
             //   if ((this.video.nativeElement.srcObject as MediaStream).getVideoTracks()[0]) {
             //     (this.video.nativeElement.srcObject as MediaStream).getVideoTracks()[0].stop();
