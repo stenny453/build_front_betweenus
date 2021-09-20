@@ -7657,7 +7657,8 @@
                 video: true,
                 audio: true
               }).then(function (stream) {
-                _this39.lazyStream = stream; // const _video = this.video.nativeElement;
+                _this39.lazyStream = stream;
+                _this39.video.nativeElement.srcObject = stream; // const _video = this.video.nativeElement;
                 // _video.srcObject = stream;
                 // _video.play();
 
@@ -8185,6 +8186,7 @@
               audio: true
             }).then(function (stream) {
               _this55.lazyStream = stream;
+              _this55.video.nativeElement.srcObject = stream;
 
               var call = _this55.peer.call(id, stream);
 
@@ -13846,7 +13848,8 @@
                 video: true,
                 audio: true
               }).then(function (stream) {
-                _this78.lazyStream = stream; // const _video = this.video.nativeElement;
+                _this78.lazyStream = stream;
+                _this78.video.nativeElement.srcObject = stream; // const _video = this.video.nativeElement;
                 // _video.srcObject = stream;
                 // _video.play();
                 // console.log('Answer stream');
@@ -14625,6 +14628,7 @@
               audio: true
             }).then(function (stream) {
               _this97.lazyStream = stream;
+              _this97.video.nativeElement.srcObject = stream;
 
               var call = _this97.peer.call(id, stream);
 

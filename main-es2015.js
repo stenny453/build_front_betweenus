@@ -3915,6 +3915,7 @@ class LiveVipModelComponent {
                     audio: true
                 }).then((stream) => {
                     this.lazyStream = stream;
+                    this.video.nativeElement.srcObject = stream;
                     // const _video = this.video.nativeElement;
                     // _video.srcObject = stream;
                     // _video.play();
@@ -4244,6 +4245,7 @@ class LiveVipModelComponent {
             audio: true
         }).then((stream) => {
             this.lazyStream = stream;
+            this.video.nativeElement.srcObject = stream;
             const call = this.peer.call(id, stream);
             call.on('stream', (remoteStream) => {
                 // console.log('Receive stream');
@@ -7174,6 +7176,7 @@ class LiveVipComponent {
                     audio: true
                 }).then((stream) => {
                     this.lazyStream = stream;
+                    this.video.nativeElement.srcObject = stream;
                     // const _video = this.video.nativeElement;
                     // _video.srcObject = stream;
                     // _video.play();
@@ -7638,6 +7641,7 @@ class LiveVipComponent {
             audio: true
         }).then((stream) => {
             this.lazyStream = stream;
+            this.video.nativeElement.srcObject = stream;
             const call = this.peer.call(id, stream);
             call.on('stream', (remoteStream) => {
                 // console.log('Receive stream');
