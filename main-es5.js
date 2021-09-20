@@ -7591,7 +7591,8 @@
             minute: 0,
             second: 0,
             fail: false,
-            reinit: false
+            reinit: false,
+            timer: null
           };
           this.stat = {
             id_show: 0,
@@ -7702,6 +7703,7 @@
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
             this.onStop();
+            clearInterval(this.timer.timer);
             this.joinSub.unsubscribe();
             this.leaveSub.unsubscribe();
             this.messageSub.unsubscribe();
@@ -8067,7 +8069,7 @@
             // console.log("timer second ", this.show.second);
             var delay = this.stat.time_show * 1000; // console.log(delay, " ms ");
 
-            setInterval(function () {
+            this.timer.timer = setInterval(function () {
               if (_this52.info.actif > 1) _this52.getGain();
             }, delay);
           }
@@ -8141,8 +8143,8 @@
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
-                // this.lazyStream = ms
 
+                _this54.lazyStream = ms;
                 jquery__WEBPACK_IMPORTED_MODULE_4__('#video_live_model').prop('volume', 0);
               });
             }
@@ -8150,6 +8152,8 @@
         }, {
           key: "onStop",
           value: function onStop() {
+            this.lazyStream = null;
+
             if (this.video && this.video.nativeElement.srcObject) {
               this.video.nativeElement.pause();
 
@@ -8267,7 +8271,14 @@
             var info = this.info;
             console.log(this.info.message);
             console.log("".concat(event.emoji["native"]));
-            var text = "".concat(info.message).concat(event.emoji["native"]);
+            var text = '';
+
+            if (this.info.message) {
+              text = "".concat(info.message).concat(event.emoji["native"]);
+            } else {
+              text = "".concat(event.emoji["native"]);
+            }
+
             this.info.message = text;
             console.log(this.info.message); // this.showEmojiPicker = false;
           }
@@ -9087,7 +9098,7 @@
         },
         decls: 8,
         vars: 7,
-        consts: [[1, "main_live_cam"], ["class", "camera_item", 4, "ngFor", "ngForOf"], ["class", "list_user", 4, "ngIf"], [2, "visibility", "hidden", "position", "fixed", 3, "matMenuTriggerFor"], ["contextMenu", "matMenu", "contextMenu2", "matMenu"], ["matMenuContent", ""], [1, "camera_item"], ["autoplay", "", 1, "live_cam", 3, "id", "poster", "srcObject", "muted", "ngClass", "mouseover", "contextmenu"], [1, "list_user"], [1, "pClient"], [4, "ngIf"], ["class", "pseudo_user", 3, "ngClass", "click", 4, "ngFor", "ngForOf"], [1, "pseudo_user", 3, "ngClass", "click"], [1, "btn_pseudo"], ["mat-menu-item", "", 1, "btn_banish", 3, "click"]],
+        consts: [[1, "main_live_cam"], ["class", "camera_item", 4, "ngFor", "ngForOf"], ["class", "list_user", 4, "ngIf"], [2, "visibility", "hidden", "position", "fixed", 3, "matMenuTriggerFor"], ["contextMenu", "matMenu", "contextMenu2", "matMenu"], ["matMenuContent", ""], [1, "camera_item"], ["autoplay", "", "controls", "", 1, "live_cam", 3, "id", "poster", "srcObject", "muted", "ngClass", "mouseover", "contextmenu"], [1, "list_user"], [1, "pClient"], [4, "ngIf"], ["class", "pseudo_user", 3, "ngClass", "click", 4, "ngFor", "ngForOf"], [1, "pseudo_user", 3, "ngClass", "click"], [1, "btn_pseudo"], ["mat-menu-item", "", 1, "btn_banish", 3, "click"]],
         template: function LivePrivateCamComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -13795,7 +13806,8 @@
             minute: 0,
             second: 0,
             fail: false,
-            reinit: false
+            reinit: false,
+            timer: null
           };
           this.show = {
             id: 0,
@@ -13908,10 +13920,11 @@
                   switch (_context47.prev = _context47.next) {
                     case 0:
                       this.onStop();
-                      _context47.next = 3;
+                      clearInterval(this.timer.timer);
+                      _context47.next = 4;
                       return this.creditTimer();
 
-                    case 3:
+                    case 4:
                       _context47.sent.subscribe(function (data) {// console.log("Response credit timer ", data);
                       });
 
@@ -13927,7 +13940,7 @@
                       this.toggleVideoSub.unsubscribe();
                       this.banishSub.unsubscribe();
 
-                    case 15:
+                    case 16:
                     case "end":
                       return _context47.stop();
                   }
@@ -14089,13 +14102,17 @@
                         _this84.connectWithPeer();
                       });
                       this.toggleAudioSub = this.socketService.listen("Toggle audio ".concat(this.idRoom, "V")).subscribe(function (data) {
-                        if (data.clientId) {
-                          _this84.toggleAudioClientStream(data.peerId, data.isAudio);
+                        if (data.clientId === _this84.clientId) return false;
+
+                        if (data.modelId) {
+                          _this84.toggleAudioModelStream(data.peerId, data.isAudio);
                         }
                       });
                       this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.idRoom, "V")).subscribe(function (data) {
-                        if (data.clientId) {
-                          _this84.toggleVideoClientStream(data.peerId, data.isVideo);
+                        if (data.clientId === _this84.clientId) return false;
+
+                        if (data.modelId) {
+                          _this84.toggleVideoModelStream(data.peerId, data.isVideo);
                         }
                       });
                       this.initTimer();
@@ -14120,8 +14137,8 @@
             }));
           }
         }, {
-          key: "toggleAudioClientStream",
-          value: function toggleAudioClientStream(peerId, isAudio) {
+          key: "toggleAudioModelStream",
+          value: function toggleAudioModelStream(peerId, isAudio) {
             if (isAudio) {
               jquery__WEBPACK_IMPORTED_MODULE_5__('#video_live_model').prop('volume', 1);
             } else {
@@ -14129,8 +14146,8 @@
             }
           }
         }, {
-          key: "toggleVideoClientStream",
-          value: function toggleVideoClientStream(peerId, isVideo) {
+          key: "toggleVideoModelStream",
+          value: function toggleVideoModelStream(peerId, isVideo) {
             var filterVal = 'blur(0px)';
             var filterFull = 'blur(200px)';
 
@@ -14470,7 +14487,7 @@
                       });
 
                     case 5:
-                      setInterval(function () {
+                      this.timer.timer = setInterval(function () {
                         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this94, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee55() {
                           var _this95 = this;
 
@@ -14677,8 +14694,15 @@
         }, {
           key: "toggleVideo",
           value: function toggleVideo() {
-            this.showVideo = !this.showVideo; // this.onStop();
+            this.showVideo = !this.showVideo;
+
+            if (this.showVideo) {
+              jquery__WEBPACK_IMPORTED_MODULE_5__("#video_live_client").removeClass("hideStream").addClass("showStream");
+            } else {
+              jquery__WEBPACK_IMPORTED_MODULE_5__("#video_live_client").removeClass("showStream").addClass("hideStream");
+            } // this.onStop();
             // this.onStart();
+
 
             var room = this.idRoom + 'V';
             this.socketService.toggleVideo(room, this.clientId, this.peerId, null, this.showVideo);
@@ -14702,7 +14726,14 @@
           key: "addEmoji",
           value: function addEmoji(event) {
             var message = this.message;
-            var text = "".concat(message).concat(event.emoji["native"]);
+            var text = '';
+
+            if (message) {
+              text = "".concat(message).concat(event.emoji["native"]);
+            } else {
+              text = "".concat(event.emoji["native"]);
+            }
+
             this.message = text;
           }
         }, {
@@ -14738,7 +14769,7 @@
         },
         decls: 60,
         vars: 32,
-        consts: [["connected", "true"], [1, "main_live", 3, "ngClass"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [3, "context", "actif", "hour", "minute", "second", "reinit", "leaved"], [1, "contain_left"], [1, "show_live_left", 3, "ngClass"], ["id", "videoContainer", "data-fullscreen", "false", 1, "videoContainer", 2, "margin", "0px"], ["controls", "", "id", "video_live_model", "muted", "true", 1, "model_flow"], ["video_live_model", ""], ["id", "video-controls", 1, "controls"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/no-video.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/volume.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/mute.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../assets/icons/full-size.svg", "alt", ""], [3, "albums"], [1, "client_live"], ["controls", "", "autoplay", "", "id", "video_live_client", "muted", "muted", 1, "client_flow", 3, "poster"], ["video_live_client", ""], [1, "contain_right"], [1, "show_live_right"], [1, "header_chat"], ["showMenu", "false", 3, "modelId", "messages", "pseudoModel", "leaved", "profil"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "buy_credit", "btn_show"], [1, "btn", "btn_buy", "lighter", 3, "click"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], ["class", "emoji-mart", "searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 3, "set", "emojiSelect", 4, "ngIf"], [1, "contain_thrombone"], ["alt", "", 1, "thrombone", 3, "src"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "focus", "ngModelChange"], ["type", "button", 3, "click"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", ""], ["src", "./../../../../assets/icons/no-video.svg", "alt", ""], ["src", "./../../../../assets/icons/volume.svg", "alt", ""], ["src", "./../../../../assets/icons/mute.svg", "alt", ""], [1, "contain_action", "contain_action_mobile"], ["searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 1, "emoji-mart", 3, "set", "emojiSelect"]],
+        consts: [["connected", "true"], [1, "main_live", 3, "ngClass"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [3, "context", "actif", "hour", "minute", "second", "reinit", "leaved"], [1, "contain_left"], [1, "show_live_left", 3, "ngClass"], ["id", "videoContainer", "data-fullscreen", "false", 1, "videoContainer", 2, "margin", "0px"], ["controls", "", "id", "video_live_model", 1, "model_flow"], ["video_live_model", ""], ["id", "video-controls", 1, "controls"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/no-video.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/volume.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/mute.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../assets/icons/full-size.svg", "alt", ""], [3, "albums"], [1, "client_live"], ["controls", "", "autoplay", "", "id", "video_live_client", "muted", "muted", 1, "client_flow", 3, "poster"], ["video_live_client", ""], [1, "contain_right"], [1, "show_live_right"], [1, "header_chat"], ["showMenu", "false", 3, "modelId", "messages", "pseudoModel", "leaved", "profil"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "buy_credit", "btn_show"], [1, "btn", "btn_buy", "lighter", 3, "click"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], ["class", "emoji-mart", "searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 3, "set", "emojiSelect", 4, "ngIf"], [1, "contain_thrombone"], ["alt", "", 1, "thrombone", 3, "src"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "focus", "ngModelChange"], ["type", "button", 3, "click"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", ""], ["src", "./../../../../assets/icons/no-video.svg", "alt", ""], ["src", "./../../../../assets/icons/volume.svg", "alt", ""], ["src", "./../../../../assets/icons/mute.svg", "alt", ""], [1, "contain_action", "contain_action_mobile"], ["searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 1, "emoji-mart", 3, "set", "emojiSelect"]],
         template: function LiveVipComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-header", 0);
@@ -20676,10 +20707,9 @@
                 audio: _this117.showAudio
               }).then(function (stream) {
                 _this117.lazyStream = stream;
-                var _video = _this117.video.nativeElement;
-                _video.srcObject = stream;
-
-                _video.play();
+                _this117.video.nativeElement.srcObject = stream; // const _video = this.video.nativeElement;
+                // _video.srcObject = stream;
+                // _video.play();
 
                 call.answer(stream);
                 console.log("After answer stream");
@@ -21342,6 +21372,7 @@
               audio: this.showAudio
             }).then(function (stream) {
               _this132.lazyStream = stream;
+              _this132.video.nativeElement.srcObject = stream;
 
               var call = _this132.peer.call(id, stream);
 
@@ -21428,12 +21459,13 @@
         }, {
           key: "addEmoji",
           value: function addEmoji(event) {
-            var info = this.info; // console.log(this.info.message)
-            // console.log(`${event.emoji.native}`)
-
+            var info = this.info;
+            console.log(this.info.message);
+            console.log("".concat(event.emoji["native"]));
             var text = "".concat(info.message).concat(event.emoji["native"]);
-            this.info.message = text; // console.log(this.info.message)
-            // this.showEmojiPicker = false;
+            this.info.message = text;
+            console.log(this.info.message);
+            this.showEmojiPicker = false;
           }
         }, {
           key: "focus",
@@ -21465,7 +21497,7 @@
         },
         decls: 80,
         vars: 34,
-        consts: [["connected", "true", "model", "true"], [1, "main_live"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [1, "contain_left", "contain_left_model"], [3, "context", "actif", "hour", "minute", "second", "reinit", "leaved"], [1, "show_live_left", "show_live_left_model"], ["id", "videoContainer", "data-fullscreen", "false", 2, "margin", "0px"], ["autoplay", "", "id", "video_live_model", "muted", "muted"], ["video_live_model", ""], [1, "contain_info_room"], [1, "contain_welcome"], [1, "contain_detail"], [1, "label_room"], [1, "contain_gain"], ["id", "video-controls", 1, "controls"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/no-video.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/volume.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/mute.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../assets/icons/full-size.svg", "alt", ""], [1, "contain_right", "contain_right_model"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Cam"], ["canSelect", "true", "showListUser", "true", 3, "clients", "streams", "myId", "roomId", "modelId", "clientSelected"], ["label", "Live Chat"], ["showMenu", "true", 3, "modelId", "messages", "profil", "roomId"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], [1, "show_vip", "btn_show"], [1, "btn", "btn_vip", "lighter"], [4, "ngIf"], [1, "btn_credit"], [1, "btn", "lighter"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], ["class", "emoji-mart", "searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 3, "set", "emojiSelect", 4, "ngIf"], [1, "contain_thrombone"], ["alt", "", 1, "thrombone", 3, "src"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "focus", "ngModelChange"], ["type", "button", 3, "click"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], ["class", "lds-spinner", 4, "ngIf"], [1, "contain_invitation"], [1, "list_invitation"], ["class", "invitation", 4, "ngFor", "ngForOf"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", ""], ["src", "./../../../../assets/icons/no-video.svg", "alt", ""], ["src", "./../../../../assets/icons/volume.svg", "alt", ""], ["src", "./../../../../assets/icons/mute.svg", "alt", ""], [1, "contain_action", "contain_action_mobile"], ["searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 1, "emoji-mart", 3, "set", "emojiSelect"], [1, "lds-spinner"], [1, "invitation"], [1, "close_invitation", 3, "click"], [1, "message_invitation"], [1, "pseudo_invitation"], [1, "action_invitation"], [1, "btn_invitation", "btn_accept", "lighter", 3, "click"], [1, "btn_invitation", "btn_deny", "lighter", 3, "click"]],
+        consts: [["connected", "true", "model", "true"], [1, "main_live"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [1, "contain_left", "contain_left_model"], [3, "context", "actif", "hour", "minute", "second", "reinit", "leaved"], [1, "show_live_left", "show_live_left_model"], ["id", "videoContainer", "data-fullscreen", "false", 2, "margin", "0px"], ["controls", "", "autoplay", "", "id", "video_live_model", "muted", "muted"], ["video_live_model", ""], [1, "contain_info_room"], [1, "contain_welcome"], [1, "contain_detail"], [1, "label_room"], [1, "contain_gain"], ["id", "video-controls", 1, "controls"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/no-video.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/volume.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/mute.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../assets/icons/full-size.svg", "alt", ""], [1, "contain_right", "contain_right_model"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Cam"], ["canSelect", "true", "showListUser", "true", 3, "clients", "streams", "myId", "roomId", "modelId", "clientSelected"], ["label", "Live Chat"], ["showMenu", "true", 3, "modelId", "messages", "profil", "roomId"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], [1, "show_vip", "btn_show"], [1, "btn", "btn_vip", "lighter"], [4, "ngIf"], [1, "btn_credit"], [1, "btn", "lighter"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], ["class", "emoji-mart", "searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 3, "set", "emojiSelect", 4, "ngIf"], [1, "contain_thrombone"], ["alt", "", 1, "thrombone", 3, "src"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "focus", "ngModelChange"], ["type", "button", 3, "click"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], ["class", "lds-spinner", 4, "ngIf"], [1, "contain_invitation"], [1, "list_invitation"], ["class", "invitation", 4, "ngFor", "ngForOf"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", ""], ["src", "./../../../../assets/icons/no-video.svg", "alt", ""], ["src", "./../../../../assets/icons/volume.svg", "alt", ""], ["src", "./../../../../assets/icons/mute.svg", "alt", ""], [1, "contain_action", "contain_action_mobile"], ["searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 1, "emoji-mart", 3, "set", "emojiSelect"], [1, "lds-spinner"], [1, "invitation"], [1, "close_invitation", 3, "click"], [1, "message_invitation"], [1, "pseudo_invitation"], [1, "action_invitation"], [1, "btn_invitation", "btn_accept", "lighter", 3, "click"], [1, "btn_invitation", "btn_deny", "lighter", 3, "click"]],
         template: function LivePrivateModelComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-header", 0);
@@ -37553,9 +37585,11 @@
                       //   }
                       // );
                       this.joinSub = this.socketService.listen("joined ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this195.callPeerClient(data.id, data.peerId);
-
                         _this195.getActifs();
+
+                        if (data.id === _this195.modelId) return false;
+
+                        _this195.callPeerClient(data.id, data.peerId);
                       });
                       this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom, "P")).subscribe(function (data) {
                         _this195.removeStream(data.clientId);
@@ -37616,10 +37650,8 @@
                       });
                       this.answerModelStreamSub = this.socketService.listen("Answer current model stream ".concat(this.idRoom, "P ").concat(this.clientId)).subscribe(function (data) {
                         console.log('Answer for stream ', data);
-                        var _video = _this195.remote_video.nativeElement;
-                        _video.srcObject = data.stream;
 
-                        _video.play();
+                        _this195.streamRemoteVideo(data.stream);
                       });
                       this.toggleAudioSub = this.socketService.listen("Toggle audio ".concat(this.idRoom, "P")).subscribe(function (data) {
                         if (data.clientId) {
@@ -38332,11 +38364,13 @@
         }, {
           key: "streamRemoteVideo",
           value: function streamRemoteVideo(stream) {
-            console.log('Add stream model ', stream);
-            this.remote_video.nativeElement.srcObject = stream; // const _video = this.remote_video.nativeElement;
-            // _video.srcObject = stream;
-            // _video.play();
-            // const video = document.createElement('video');
+            console.log('Add stream model ', stream); // this.remote_video.nativeElement.srcObject = stream;
+
+            var _video = this.remote_video.nativeElement;
+            _video.srcObject = stream;
+            setTimeout(function () {
+              _video.play();
+            }, 3000); // const video = document.createElement('video');
             // video.classList.add('video');
             // video.srcObject = stream;
             // video.play();
@@ -38367,12 +38401,11 @@
               video: this.showVideo,
               audio: this.showAudio
             }).then(function (stream) {
-              _this212.lazyStream = stream;
-              console.log("Get client stream ", stream);
+              _this212.lazyStream = stream; // console.log("Get client stream ", stream);
 
-              var call = _this212.peer.call(clientPeer, stream);
+              var call = _this212.peer.call(clientPeer, stream); // console.log("After call model");
 
-              console.log("After call model");
+
               call.on('stream', function (remoteStream) {
                 console.log("On stream in client");
 
@@ -38521,7 +38554,7 @@
         },
         decls: 66,
         vars: 38,
-        consts: [["connected", "true"], [1, "main_live", 3, "ngClass"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [1, "contain_left"], [3, "context", "actif", "hour", "minute", "second", "reinit", "leaved"], ["id", "show_live_left", 1, "show_live_left", 3, "ngClass"], ["id", "videoContainer", "data-fullscreen", "false", 2, "margin", "0px"], ["autoplay", "", "id", "video_live_model", 3, "muted"], ["video_live_model", ""], ["id", "video-controls", 1, "controls"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/no-video.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/volume.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/mute.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../assets/icons/full-size.svg", "alt", ""], ["class", "come_on", 4, "ngIf"], [3, "albums"], [1, "contain_right"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Cam"], [3, "clients", "streams", "myId"], ["label", "Live Chat"], ["showMenu", "false", 3, "modelId", "messages", "pseudoModel", "leaved", "profil"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "show_vip", "btn_show"], [1, "btn", "btn_vip", "lighter", 3, "click"], [4, "ngIf"], [1, "buy_credit", "btn_show"], [1, "btn", "btn_buy", "lighter", 3, "click"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], ["class", "emoji-mart", "searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 3, "set", "emojiSelect", 4, "ngIf"], [1, "contain_thrombone"], ["alt", "", 1, "thrombone", 3, "src"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "focus", "ngModelChange"], ["type", "button", 3, "click"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], ["class", "lds-spinner", 4, "ngIf"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", ""], ["src", "./../../../../assets/icons/no-video.svg", "alt", ""], ["src", "./../../../../assets/icons/volume.svg", "alt", ""], ["src", "./../../../../assets/icons/mute.svg", "alt", ""], [1, "come_on"], [1, "contain_action", "contain_action_mobile"], ["searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 1, "emoji-mart", 3, "set", "emojiSelect"], [1, "lds-spinner"]],
+        consts: [["connected", "true"], [1, "main_live", 3, "ngClass"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [1, "contain_left"], [3, "context", "actif", "hour", "minute", "second", "reinit", "leaved"], ["id", "show_live_left", 1, "show_live_left", 3, "ngClass"], ["id", "videoContainer", "data-fullscreen", "false", 2, "margin", "0px"], ["controls", "", "id", "video_live_model", 3, "muted"], ["video_live_model", ""], ["id", "video-controls", 1, "controls"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/no-video.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/volume.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/mute.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../assets/icons/full-size.svg", "alt", ""], ["class", "come_on", 4, "ngIf"], [3, "albums"], [1, "contain_right"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Cam"], [3, "clients", "streams", "myId"], ["label", "Live Chat"], ["showMenu", "false", 3, "modelId", "messages", "pseudoModel", "leaved", "profil"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "show_vip", "btn_show"], [1, "btn", "btn_vip", "lighter", 3, "click"], [4, "ngIf"], [1, "buy_credit", "btn_show"], [1, "btn", "btn_buy", "lighter", 3, "click"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], ["class", "emoji-mart", "searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 3, "set", "emojiSelect", 4, "ngIf"], [1, "contain_thrombone"], ["alt", "", 1, "thrombone", 3, "src"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "focus", "ngModelChange"], ["type", "button", 3, "click"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], ["class", "lds-spinner", 4, "ngIf"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", ""], ["src", "./../../../../assets/icons/no-video.svg", "alt", ""], ["src", "./../../../../assets/icons/volume.svg", "alt", ""], ["src", "./../../../../assets/icons/mute.svg", "alt", ""], [1, "come_on"], [1, "contain_action", "contain_action_mobile"], ["searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 1, "emoji-mart", 3, "set", "emojiSelect"], [1, "lds-spinner"]],
         template: function LivePrivateComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-header", 0);
