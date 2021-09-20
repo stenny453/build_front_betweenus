@@ -8929,7 +8929,7 @@
         }, {
           key: "ngDoCheck",
           value: function ngDoCheck() {
-            this.playStreams();
+            // this.playStreams()
             var changes = this.iterableDiffer.diff(this.streams);
 
             if (changes) {
@@ -9024,7 +9024,7 @@
         },
         decls: 7,
         vars: 6,
-        consts: [[1, "main_live_cam"], ["class", "camera_item", 4, "ngFor", "ngForOf"], [2, "visibility", "hidden", "position", "fixed", 3, "matMenuTriggerFor"], ["contextMenu", "matMenu", "contextMenu2", "matMenu"], ["matMenuContent", ""], [1, "camera_item"], ["autoplay", "", "controls", "", 1, "live_cam", 3, "id", "poster", "srcObject", "muted", "ngClass", "mouseover", "contextmenu"], [1, "btn_pseudo"], ["mat-menu-item", "", 1, "btn_banish", 3, "click"]],
+        consts: [[1, "main_live_cam"], ["class", "camera_item", 4, "ngFor", "ngForOf"], [2, "visibility", "hidden", "position", "fixed", 3, "matMenuTriggerFor"], ["contextMenu", "matMenu", "contextMenu2", "matMenu"], ["matMenuContent", ""], [1, "camera_item"], ["autoplay", "", "controls", "", "oncanplay", "this.play()", "onloadedmetadata", "this.muted = true", 1, "live_cam", 3, "id", "poster", "srcObject", "muted", "ngClass", "mouseover", "contextmenu"], [1, "btn_pseudo"], ["mat-menu-item", "", 1, "btn_banish", 3, "click"]],
         template: function LivePrivateCamComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -20780,8 +20780,9 @@
               _this122.getActifs();
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.info.idRoom, "P")).subscribe(function (data) {
-              _this122.socketService.soundOutcome(); // console.log('leaved ', data);
+              _this122.socketService.soundOutcome();
 
+              console.log('leaved ', data);
 
               _this122.getActifs();
             });
@@ -21309,6 +21310,17 @@
             })["catch"](function (err) {
               console.log(err + 'Unable to connect');
             });
+          }
+        }, {
+          key: "removeStream",
+          value: function removeStream(clientId) {
+            // console.log('Remove stream ', clientId)
+            var index = this.clientStream.findIndex(function (element) {
+              return element.clientId === clientId;
+            }); // console.log(index)
+            // console.log(this.clientStream)
+
+            this.clientStream.splice(index, 1);
           }
         }, {
           key: "streamRemoteVideo",
@@ -38360,13 +38372,14 @@
         }, {
           key: "addOtherClientstreamRemoteVideo",
           value: function addOtherClientstreamRemoteVideo(clientId, stream, peerId) {
-            console.log('add other stream ', stream); // this.clientStream.push({
-            //   clientId,
-            //   stream: stream,
-            //   peerId,
-            //   isAudio: true,
-            //   isVideo: true
-            // });
+            console.log('add other stream ', stream);
+            this.clientStream.push({
+              clientId: clientId,
+              stream: stream,
+              peerId: peerId,
+              isAudio: true,
+              isVideo: true
+            });
           }
         }, {
           key: "getAlbums",

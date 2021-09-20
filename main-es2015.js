@@ -4632,7 +4632,7 @@ class LivePrivateCamComponent {
         }
     }
     ngDoCheck() {
-        this.playStreams();
+        // this.playStreams()
         let changes = this.iterableDiffer.diff(this.streams);
         if (changes) {
             const theId = '#' + this.myId;
@@ -4681,7 +4681,7 @@ LivePrivateCamComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
     } if (rf & 2) {
         let _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.contextMenu = _t.first);
-    } }, inputs: { streams: "streams", myId: "myId", clients: "clients", canSelect: "canSelect", showListUser: "showListUser", roomId: "roomId", modelId: "modelId" }, outputs: { clientSelected: "clientSelected" }, decls: 7, vars: 6, consts: [[1, "main_live_cam"], ["class", "camera_item", 4, "ngFor", "ngForOf"], [2, "visibility", "hidden", "position", "fixed", 3, "matMenuTriggerFor"], ["contextMenu", "matMenu", "contextMenu2", "matMenu"], ["matMenuContent", ""], [1, "camera_item"], ["autoplay", "", "controls", "", 1, "live_cam", 3, "id", "poster", "srcObject", "muted", "ngClass", "mouseover", "contextmenu"], [1, "btn_pseudo"], ["mat-menu-item", "", 1, "btn_banish", 3, "click"]], template: function LivePrivateCamComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { streams: "streams", myId: "myId", clients: "clients", canSelect: "canSelect", showListUser: "showListUser", roomId: "roomId", modelId: "modelId" }, outputs: { clientSelected: "clientSelected" }, decls: 7, vars: 6, consts: [[1, "main_live_cam"], ["class", "camera_item", 4, "ngFor", "ngForOf"], [2, "visibility", "hidden", "position", "fixed", 3, "matMenuTriggerFor"], ["contextMenu", "matMenu", "contextMenu2", "matMenu"], ["matMenuContent", ""], [1, "camera_item"], ["autoplay", "", "controls", "", "oncanplay", "this.play()", "onloadedmetadata", "this.muted = true", 1, "live_cam", 3, "id", "poster", "srcObject", "muted", "ngClass", "mouseover", "contextmenu"], [1, "btn_pseudo"], ["mat-menu-item", "", 1, "btn_banish", 3, "click"]], template: function LivePrivateCamComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, LivePrivateCamComponent_div_1_Template, 2, 8, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -10768,7 +10768,7 @@ class LivePrivateModelComponent {
         });
         this.leaveSub = this.socketService.listen(`leaved ${this.info.idRoom}P`).subscribe((data) => {
             this.socketService.soundOutcome();
-            // console.log('leaved ', data);
+            console.log('leaved ', data);
             this.getActifs();
         });
         this.messageSub = this.socketService.listen(`message ${this.info.idRoom}P`).subscribe((data) => {
@@ -11056,6 +11056,13 @@ class LivePrivateModelComponent {
         }).catch(err => {
             console.log(err + 'Unable to connect');
         });
+    }
+    removeStream(clientId) {
+        // console.log('Remove stream ', clientId)
+        const index = this.clientStream.findIndex(element => element.clientId === clientId);
+        // console.log(index)
+        // console.log(this.clientStream)
+        this.clientStream.splice(index, 1);
     }
     streamRemoteVideo(stream, peerId) {
         console.log('Add remote stream client ', stream);
@@ -20082,13 +20089,13 @@ class LivePrivateComponent {
     }
     addOtherClientstreamRemoteVideo(clientId, stream, peerId) {
         console.log('add other stream ', stream);
-        // this.clientStream.push({
-        //   clientId,
-        //   stream: stream,
-        //   peerId,
-        //   isAudio: true,
-        //   isVideo: true
-        // });
+        this.clientStream.push({
+            clientId,
+            stream: stream,
+            peerId,
+            isAudio: true,
+            isVideo: true
+        });
     }
     getAlbums() {
         const data = {
