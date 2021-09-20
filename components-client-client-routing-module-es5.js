@@ -234,7 +234,8 @@
             }
 
             var token = this.authService.getToken();
-            this.authService.verifyToken(token).subscribe(function (data) {// console.log(data)
+            this.authService.verifyToken(token).subscribe(function (data) {//console.log(data)
+              // this.router.navigateByUrl("client/accueil/registered");
             }, function (error) {
               console.log(error);
 

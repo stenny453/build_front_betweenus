@@ -37219,8 +37219,7 @@
               //     this.peerList.push(call.peer);
               //   }
               // });
-
-              _this186.onStop();
+              // this.onStop();
 
               navigator.mediaDevices.getUserMedia({
                 video: _this186.showVideo,
@@ -37523,6 +37522,7 @@
                         _this195.getActifs();
 
                         if (data.id === _this195.modelId) return false;
+                        if (data.id === _this195.clientId) return false;
 
                         _this195.callPeerClient(data.id, data.peerId);
                       });
@@ -38184,8 +38184,8 @@
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
-                video: this.showVideo,
-                audio: this.showAudio
+                video: true,
+                audio: false
               }).then(function (ms) {
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
@@ -38197,7 +38197,7 @@
                   clientId: _this209.clientId,
                   stream: ms,
                   peerId: _this209.peerId,
-                  isAudio: true,
+                  isAudio: false,
                   isVideo: true
                 });
               });
@@ -38261,8 +38261,8 @@
             //     }
             //   });
             // }
+            // this.onStop();
 
-            this.onStop();
             navigator.mediaDevices.getUserMedia({
               video: this.showAudio,
               audio: this.showVideo
@@ -38324,8 +38324,8 @@
             //     }
             //   });
             // }
+            // this.onStop();
 
-            this.onStop();
             navigator.mediaDevices.getUserMedia({
               video: this.showVideo,
               audio: this.showAudio

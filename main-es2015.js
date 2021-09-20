@@ -19457,7 +19457,7 @@ class LivePrivateComponent {
                 //     this.peerList.push(call.peer);
                 //   }
                 // });
-                this.onStop();
+                // this.onStop();
                 navigator.mediaDevices.getUserMedia({
                     video: this.showVideo,
                     audio: this.showAudio
@@ -19616,6 +19616,8 @@ class LivePrivateComponent {
             this.joinSub = this.socketService.listen(`joined ${this.idRoom}P`).subscribe((data) => {
                 this.getActifs();
                 if (data.id === this.modelId)
+                    return false;
+                if (data.id === this.clientId)
                     return false;
                 this.callPeerClient(data.id, data.peerId);
             });
@@ -19934,7 +19936,7 @@ class LivePrivateComponent {
     }
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: this.showVideo, audio: this.showAudio }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then((ms) => {
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
@@ -19944,7 +19946,7 @@ class LivePrivateComponent {
                     clientId: this.clientId,
                     stream: ms,
                     peerId: this.peerId,
-                    isAudio: true,
+                    isAudio: false,
                     isVideo: true
                 });
             });
@@ -19995,7 +19997,7 @@ class LivePrivateComponent {
         //     }
         //   });
         // }
-        this.onStop();
+        // this.onStop();
         navigator.mediaDevices.getUserMedia({
             video: this.showAudio,
             audio: this.showVideo
@@ -20051,7 +20053,7 @@ class LivePrivateComponent {
         //     }
         //   });
         // }
-        this.onStop();
+        // this.onStop();
         navigator.mediaDevices.getUserMedia({
             video: this.showVideo,
             audio: this.showAudio

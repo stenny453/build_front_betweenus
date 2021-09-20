@@ -118,6 +118,7 @@ class AuthModelGuardService {
         const token = this.authService.getToken();
         this.authService.verifyToken(token).subscribe((data) => {
             if (data && data.role === 'model') {
+                // this.router.navigateByUrl("modele/albums");
                 return true;
             }
             else {

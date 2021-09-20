@@ -130,7 +130,8 @@ class AuthGuardService {
         }
         const token = this.authService.getToken();
         this.authService.verifyToken(token).subscribe((data) => {
-            // console.log(data)
+            //console.log(data)
+            // this.router.navigateByUrl("client/accueil/registered");
         }, (error) => {
             console.log(error);
             this.router.navigateByUrl("accueil");
