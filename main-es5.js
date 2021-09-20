@@ -8811,28 +8811,28 @@
 
       function LivePrivateCamComponent_div_1_Template(rf, ctx) {
         if (rf & 1) {
-          var _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+          var _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 5);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "video", 7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "video", 6);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("mouseover", function LivePrivateCamComponent_div_1_Template_video_mouseover_1_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6);
 
-            var stream_r5 = ctx.$implicit;
+            var stream_r4 = ctx.$implicit;
 
-            var ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+            var ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-            return ctx_r6.getPseudo(stream_r5.clientId);
+            return ctx_r5.getPseudo(stream_r4.clientId);
           })("contextmenu", function LivePrivateCamComponent_div_1_Template_video_contextmenu_1_listener($event) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6);
 
-            var stream_r5 = ctx.$implicit;
+            var stream_r4 = ctx.$implicit;
 
-            var ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+            var ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-            return ctx_r8.onContextMenu($event, stream_r5.clientId);
+            return ctx_r7.onContextMenu($event, stream_r4.clientId);
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -8841,120 +8841,36 @@
         }
 
         if (rf & 2) {
-          var stream_r5 = ctx.$implicit;
+          var stream_r4 = ctx.$implicit;
 
           var ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", stream_r5.clientId)("poster", ctx_r0.img, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"])("srcObject", stream_r5.stream)("muted", stream_r5.clientId === ctx_r0.myId || !stream_r5.isAudio)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](5, _c0, !stream_r5.isVideo, stream_r5.isVideo));
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", stream_r4.clientId)("poster", ctx_r0.img, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"])("srcObject", stream_r4.stream)("muted", stream_r4.clientId === ctx_r0.myId || !stream_r4.isAudio)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](5, _c0, !stream_r4.isVideo, stream_r4.isVideo));
         }
       }
 
-      function LivePrivateCamComponent_div_2_span_3_Template(rf, ctx) {
+      function LivePrivateCamComponent_ng_template_6_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span");
+          var _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "s");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        }
-      }
-
-      var _c1 = function _c1(a0) {
-        return {
-          "selected": a0
-        };
-      };
-
-      function LivePrivateCamComponent_div_2_div_4_Template(rf, ctx) {
-        if (rf & 1) {
-          var _r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 12);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LivePrivateCamComponent_div_2_div_4_Template_div_click_0_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r13);
-
-            var item_r11 = ctx.$implicit;
-
-            var ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-
-            return ctx_r12.selectClient(item_r11.client.id);
-          });
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        }
-
-        if (rf & 2) {
-          var item_r11 = ctx.$implicit;
-
-          var ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](2, _c1, ctx_r10.idSelected === item_r11.client.id));
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", item_r11.client.pseudo, " ");
-        }
-      }
-
-      function LivePrivateCamComponent_div_2_Template(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 8);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "p", 9);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, LivePrivateCamComponent_div_2_span_3_Template, 2, 0, "span", 10);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, LivePrivateCamComponent_div_2_div_4_Template, 2, 4, "div", 11);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        }
-
-        if (rf & 2) {
-          var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r1.clients.length, " Client ");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.clients.length > 1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r1.clients);
-        }
-      }
-
-      function LivePrivateCamComponent_ng_template_7_Template(rf, ctx) {
-        if (rf & 1) {
-          var _r16 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 13);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 7);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "button", 14);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "button", 8);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LivePrivateCamComponent_ng_template_7_Template_button_click_2_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LivePrivateCamComponent_ng_template_6_Template_button_click_2_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r10);
 
-            var item_r14 = ctx.item;
+            var item_r8 = ctx.item;
 
-            var ctx_r15 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+            var ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-            return ctx_r15.banishClient(item_r14);
+            return ctx_r9.banishClient(item_r8);
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, " Bannir ");
@@ -8963,11 +8879,11 @@
         }
 
         if (rf & 2) {
-          var ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r4.currentPseudo, " ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r3.currentPseudo, " ");
         }
       }
 
@@ -8992,7 +8908,17 @@
 
         _createClass(LivePrivateCamComponent, [{
           key: "ngOnInit",
-          value: function ngOnInit() {}
+          value: function ngOnInit() {
+            this.playStreams();
+          }
+        }, {
+          key: "playStreams",
+          value: function playStreams() {
+            this.streams.forEach(function (stream) {
+              var id = '#' + stream.clientId;
+              jquery__WEBPACK_IMPORTED_MODULE_1__(id).get(0).play();
+            });
+          }
         }, {
           key: "selectClient",
           value: function selectClient(id) {
@@ -9004,6 +8930,8 @@
         }, {
           key: "ngDoCheck",
           value: function ngDoCheck() {
+            console.log('private cam list');
+            console.log(this.streams);
             var changes = this.iterableDiffer.diff(this.streams);
 
             if (changes) {
@@ -9096,30 +9024,28 @@
         outputs: {
           clientSelected: "clientSelected"
         },
-        decls: 8,
-        vars: 7,
-        consts: [[1, "main_live_cam"], ["class", "camera_item", 4, "ngFor", "ngForOf"], ["class", "list_user", 4, "ngIf"], [2, "visibility", "hidden", "position", "fixed", 3, "matMenuTriggerFor"], ["contextMenu", "matMenu", "contextMenu2", "matMenu"], ["matMenuContent", ""], [1, "camera_item"], ["autoplay", "", "controls", "", 1, "live_cam", 3, "id", "poster", "srcObject", "muted", "ngClass", "mouseover", "contextmenu"], [1, "list_user"], [1, "pClient"], [4, "ngIf"], ["class", "pseudo_user", 3, "ngClass", "click", 4, "ngFor", "ngForOf"], [1, "pseudo_user", 3, "ngClass", "click"], [1, "btn_pseudo"], ["mat-menu-item", "", 1, "btn_banish", 3, "click"]],
+        decls: 7,
+        vars: 6,
+        consts: [[1, "main_live_cam"], ["class", "camera_item", 4, "ngFor", "ngForOf"], [2, "visibility", "hidden", "position", "fixed", 3, "matMenuTriggerFor"], ["contextMenu", "matMenu", "contextMenu2", "matMenu"], ["matMenuContent", ""], [1, "camera_item"], ["autoplay", "", "controls", "", 1, "live_cam", 3, "id", "poster", "srcObject", "muted", "ngClass", "mouseover", "contextmenu"], [1, "btn_pseudo"], ["mat-menu-item", "", 1, "btn_banish", 3, "click"]],
         template: function LivePrivateCamComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, LivePrivateCamComponent_div_1_Template, 2, 8, "div", 1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, LivePrivateCamComponent_div_2_Template, 5, 3, "div", 2);
-
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "div", 3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "div", 2);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "mat-menu", null, 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "mat-menu", null, 3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](7, LivePrivateCamComponent_ng_template_7_Template, 4, 1, "ng-template", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, LivePrivateCamComponent_ng_template_6_Template, 4, 1, "ng-template", 4);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
           }
 
           if (rf & 2) {
-            var _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](5);
+            var _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](4);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
@@ -9127,16 +9053,12 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showListUser && ctx.clients.length > 0);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("left", ctx.contextMenuPosition.x)("top", ctx.contextMenuPosition.y);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matMenuTriggerFor", _r2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matMenuTriggerFor", _r1);
           }
         },
-        directives: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenuTrigger"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenu"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenuContent"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgClass"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenuItem"]],
+        directives: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenuTrigger"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenu"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenuContent"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgClass"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenuItem"]],
         styles: [".main_live_cam[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  margin-left: 10px;\n  margin-right: 10px;\n  padding-top: 20px;\n  overflow-y: auto;\n  height: 64vh;\n}\n\n.camera_item[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  margin-bottom: 15px;\n  position: relative;\n}\n\nvideo.live_cam[_ngcontent-%COMP%] {\n  width: 60%;\n}\n\n.Pseudo[_ngcontent-%COMP%] {\n  background: var(--blue1);\n  padding: 4px;\n  position: absolute;\n  right: 40px;\n  border-radius: 5px;\n  bottom: 5px;\n  cursor: pointer;\n  top: 0px;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n}\n\n.selected[_ngcontent-%COMP%] {\n  background: var(--black) !important;\n}\n\n.list_user[_ngcontent-%COMP%] {\n  position: absolute;\n  right: 0px;\n  z-index: 200;\n  line-height: 30px;\n  max-height: 60vh;\n  overflow-y: auto;\n}\n\n.pseudo_user[_ngcontent-%COMP%] {\n  color: var(--pink);\n  border: 1px solid #ffffff17;\n  width: 100px;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.3s;\n  background: #00000047;\n  padding-left: 5px;\n}\n\n.pseudo_user[_ngcontent-%COMP%]:hover {\n  background-color: rgba(255, 255, 255, 0.13);\n}\n\n.pClient[_ngcontent-%COMP%] {\n  text-align: center;\n  font-weight: normal;\n  color: var(--pink);\n  margin-bottom: 0px;\n  width: 100px;\n}\n\n.hideStream[_ngcontent-%COMP%] {\n  filter: blur(200px);\n}\n\n.showStream[_ngcontent-%COMP%] {\n  filter: none;\n}\n\n.btn_pseudo[_ngcontent-%COMP%] {\n  border: none;\n  background: transparent;\n  width: 100%;\n  text-align: center;\n  font-weight: normal;\n  font-size: 15px;\n  color: var(--pink);\n}\n\n.btn_banish[_ngcontent-%COMP%] {\n  color: white !important;\n  background: var(--blue1) !important;\n  font-size: 15px !important;\n  text-align: center !important;\n  font-weight: 500 !important;\n  height: 40px !important;\n  transition: all 0.2s;\n}\n\n.btn_banish[_ngcontent-%COMP%]:hover {\n  background-color: red !important;\n}\n\n@media screen and (max-width: 700px) {\n  .main_live_cam[_ngcontent-%COMP%] {\n    height: 32vh;\n    display: flex;\n    flex-wrap: wrap !important;\n  }\n\n  .camera_item[_ngcontent-%COMP%] {\n    flex: 1 1 150px;\n  }\n\n  video.live_cam[_ngcontent-%COMP%] {\n    width: 150px;\n    height: 150px;\n  }\n\n  .Pseudo[_ngcontent-%COMP%] {\n    bottom: -10px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXGxpdmUtcHJpdmF0ZS1jYW0uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtBQUNGOztBQUNBO0VBQWMsYUFBQTtFQUFlLHVCQUFBO0VBQXdCLG1CQUFBO0VBQW9CLGtCQUFBO0FBTXpFOztBQUpBO0VBQ0UsVUFBQTtBQU9GOztBQUpBO0VBQ0Usd0JBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsZUFBQTtFQUNBLFFBQUE7RUFDQSwwQkFBQTtFQUFBLHVCQUFBO0VBQUEsa0JBQUE7RUFDQSwyQkFBQTtFQUFBLHdCQUFBO0VBQUEsbUJBQUE7QUFPRjs7QUFKQTtFQUNFLG1DQUFBO0FBT0Y7O0FBSkE7RUFDRSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxZQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0FBT0Y7O0FBSkE7RUFDRSxrQkFBQTtFQUNBLDJCQUFBO0VBQ0EsWUFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtFQUNBLG9CQUFBO0VBQ0EscUJBQUE7RUFDQSxpQkFBQTtBQU9GOztBQUpBO0VBQ0UsMkNBQUE7QUFPRjs7QUFKQTtFQUNFLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtBQU9GOztBQUpBO0VBQ0UsbUJBQUE7QUFPRjs7QUFKQTtFQUNFLFlBQUE7QUFPRjs7QUFKQTtFQUNFLFlBQUE7RUFDQSx1QkFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0FBT0Y7O0FBSkE7RUFDRSx1QkFBQTtFQUNBLG1DQUFBO0VBQ0EsMEJBQUE7RUFDQSw2QkFBQTtFQUNBLDJCQUFBO0VBQ0EsdUJBQUE7RUFDQSxvQkFBQTtBQU9GOztBQUpBO0VBQ0UsZ0NBQUE7QUFPRjs7QUFKQTtFQUNFO0lBQ0UsWUFBQTtJQUNBLGFBQUE7SUFDQSwwQkFBQTtFQU9GOztFQUxBO0lBQWMsZUFBQTtFQVNkOztFQVBBO0lBQ0UsWUFBQTtJQUNBLGFBQUE7RUFVRjs7RUFQQTtJQUNFLGFBQUE7RUFVRjtBQUNGIiwiZmlsZSI6ImxpdmUtcHJpdmF0ZS1jYW0uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbl9saXZlX2NhbSB7XHJcbiAgbWFyZ2luLXRvcDogMTBweDtcclxuICBtYXJnaW4tbGVmdDogMTBweDtcclxuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XHJcbiAgcGFkZGluZy10b3A6IDIwcHg7XHJcbiAgb3ZlcmZsb3cteTogYXV0bztcclxuICBoZWlnaHQ6IDY0dmg7XHJcbn1cclxuLmNhbWVyYV9pdGVtIHtkaXNwbGF5OiBmbGV4OyBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjttYXJnaW4tYm90dG9tOiAxNXB4O3Bvc2l0aW9uOiByZWxhdGl2ZTt9XHJcblxyXG52aWRlby5saXZlX2NhbSB7XHJcbiAgd2lkdGg6IDYwJTtcclxufVxyXG5cclxuLlBzZXVkbyB7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tYmx1ZTEpO1xyXG4gIHBhZGRpbmc6IDRweDtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgcmlnaHQ6IDQwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gIGJvdHRvbTogNXB4O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICB0b3A6IDBweDtcclxuICB3aWR0aDogZml0LWNvbnRlbnQ7XHJcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcclxufVxyXG5cclxuLnNlbGVjdGVkIHtcclxuICBiYWNrZ3JvdW5kOiB2YXIoLS1ibGFjaykgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmxpc3RfdXNlciB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHJpZ2h0OiAwcHg7XHJcbiAgei1pbmRleDogMjAwO1xyXG4gIGxpbmUtaGVpZ2h0OiAzMHB4O1xyXG4gIG1heC1oZWlnaHQ6IDYwdmg7XHJcbiAgb3ZlcmZsb3cteTogYXV0bztcclxufVxyXG5cclxuLnBzZXVkb191c2VyIHtcclxuICBjb2xvcjogdmFyKC0tcGluayk7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2ZmZmZmZjE3O1xyXG4gIHdpZHRoOiAxMDBweDtcclxuICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICB0cmFuc2l0aW9uOiBhbGwgMC4zcztcclxuICBiYWNrZ3JvdW5kOiAjMDAwMDAwNDc7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbn1cclxuXHJcbi5wc2V1ZG9fdXNlcjpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEzKTtcclxufVxyXG5cclxuLnBDbGllbnQge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBmb250LXdlaWdodDogbm9ybWFsO1xyXG4gIGNvbG9yOiB2YXIoLS1waW5rKTtcclxuICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbiAgd2lkdGg6IDEwMHB4O1xyXG59XHJcblxyXG4uaGlkZVN0cmVhbSB7XHJcbiAgZmlsdGVyOiBibHVyKDIwMHB4KTtcclxufVxyXG5cclxuLnNob3dTdHJlYW0ge1xyXG4gIGZpbHRlcjogbm9uZTtcclxufVxyXG5cclxuLmJ0bl9wc2V1ZG8ge1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICB3aWR0aDogMTAwJTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbiAgY29sb3I6IHZhcigtLXBpbmspO1xyXG59XHJcblxyXG4uYnRuX2JhbmlzaCB7XHJcbiAgY29sb3I6IHdoaXRlICFpbXBvcnRhbnQ7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tYmx1ZTEpICFpbXBvcnRhbnQ7XHJcbiAgZm9udC1zaXplOiAxNXB4ICFpbXBvcnRhbnQ7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyICFpbXBvcnRhbnQ7XHJcbiAgZm9udC13ZWlnaHQ6IDUwMCAhaW1wb3J0YW50O1xyXG4gIGhlaWdodDogNDBweCAhaW1wb3J0YW50O1xyXG4gIHRyYW5zaXRpb246IGFsbCAwLjJzO1xyXG59XHJcblxyXG4uYnRuX2JhbmlzaDpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmVkICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDcwMHB4KSB7XHJcbiAgLm1haW5fbGl2ZV9jYW0ge1xyXG4gICAgaGVpZ2h0OiAzMnZoO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtd3JhcDogd3JhcCAhaW1wb3J0YW50O1xyXG4gIH1cclxuICAuY2FtZXJhX2l0ZW0ge2ZsZXg6IDEgMSAxNTBweDt9XHJcblxyXG4gIHZpZGVvLmxpdmVfY2FtIHtcclxuICAgIHdpZHRoOiAxNTBweDtcclxuICAgIGhlaWdodDogMTUwcHg7XHJcbiAgfVxyXG5cclxuICAuUHNldWRvIHtcclxuICAgIGJvdHRvbTogLTEwcHg7XHJcbiAgfVxyXG59XHJcbiJdfQ== */"]
       });
       /***/
@@ -37668,14 +37590,14 @@
                         if (data.clientId) {
                           _this195.toggleAudioClientStream(data.peerId, data.isAudio);
                         } else if (data.modelId) {
-                          _this195.isAudioModel = data.isAudio;
+                          _this195.toggleAudioModelStream(data.isAudio);
                         }
                       });
                       this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.idRoom, "P")).subscribe(function (data) {
                         if (data.clientId) {
                           _this195.toggleVideoClientStream(data.peerId, data.isVideo);
                         } else if (data.modelId) {
-                          _this195.isVideoModel = data.isVideo;
+                          _this195.toggleVideoModelStream(data.isVideo);
                         }
                       });
                       this.initTimer();
@@ -38484,6 +38406,27 @@
                 stream.isVideo = isVideo;
               }
             });
+          }
+        }, {
+          key: "toggleAudioModelStream",
+          value: function toggleAudioModelStream(isAudio) {
+            if (isAudio) {
+              jquery__WEBPACK_IMPORTED_MODULE_8__('#video_live_model').prop('volume', 1);
+            } else {
+              jquery__WEBPACK_IMPORTED_MODULE_8__('#video_live_model').prop('volume', 0);
+            }
+          }
+        }, {
+          key: "toggleVideoModelStream",
+          value: function toggleVideoModelStream(isVideo) {
+            var filterVal = 'blur(0px)';
+            var filterFull = 'blur(200px)';
+
+            if (isVideo) {
+              jquery__WEBPACK_IMPORTED_MODULE_8__('#video_live_model').css('filter', filterVal).css('webkitFilter', filterVal).css('mozFilter', filterVal).css('oFilter', filterVal).css('msFilter', filterVal);
+            } else {
+              jquery__WEBPACK_IMPORTED_MODULE_8__('#video_live_model').css('filter', filterFull).css('webkitFilter', filterFull).css('mozFilter', filterFull).css('oFilter', filterFull).css('msFilter', filterFull);
+            }
           }
         }, {
           key: "toggleVideo",
