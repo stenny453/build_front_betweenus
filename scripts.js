@@ -40,7 +40,7 @@ function initSettingVideoModel() {
 
    	// Set the video container's fullscreen state
   	var setFullscreenData = function(state) {
-      if (!state) document.getElementById('video_live_model').style.height = '50vh'
+      if (!state) document.getElementById('video_live_model').style.height = '80vh'
       if (state) document.getElementById('video_live_model').style.height = '100vh'
   		videoContainer.setAttribute('data-fullscreen', !!state);
   	}
