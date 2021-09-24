@@ -15719,15 +15719,15 @@
 
       function ConnectedModelComponent_div_23_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 12);
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 13);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 13);
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 14);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, " Bannir ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "div", 14);
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "div", 15);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](4, " Faites un \"Click droit\" sur le client ");
 
@@ -15833,12 +15833,18 @@
         },
         decls: 24,
         vars: 24,
-        consts: [[1, "bars"], ["alt", "", 1, "icon", 3, "src"], ["alt", "", "routerLink", "/modele/dashboard", 1, "icon", 3, "src", "ngClass"], [1, "fa", "fa-bars", 3, "click"], [1, "contain_connected"], ["routerLink", "/modele/profile", 1, "list", "one", 3, "ngClass"], ["routerLink", "/modele/albums", 1, "list", "two", 3, "ngClass"], ["routerLink", "/modele/dashboard", "matTooltip", "Param\xE8tres", "matTooltipClass", "tooltip_class", 1, "list", "four", 3, "ngClass"], ["matTooltip", "Live r\xE9cent", "matTooltipClass", "tooltip_class", 1, "list", "three", 3, "ngClass", "click"], [1, "list", "five", 3, "ngClass", "click"], [1, "list", "six", 3, "mouseover", "mouseout"], ["class", "contain_help", 4, "ngIf"], [1, "contain_help"], [1, "title_help"], [1, "detail_help"]],
+        consts: [[1, "bars"], ["alt", "", 1, "icon", 3, "src", "click"], ["alt", "", "routerLink", "/modele/dashboard", 1, "icon", 3, "src", "ngClass"], [1, "fa", "fa-bars", 3, "click"], [1, "contain_connected"], ["routerLink", "/modele/profile", 1, "list", "one", 3, "ngClass"], ["routerLink", "/modele/albums", 1, "list", "two", 3, "ngClass"], ["routerLink", "/modele/dashboard", "matTooltip", "Param\xE8tres", "matTooltipClass", "tooltip_class", 1, "list", "four", 3, "ngClass"], ["alt", "", 1, "icon", 3, "src"], ["matTooltip", "Live r\xE9cent", "matTooltipClass", "tooltip_class", 1, "list", "three", 3, "ngClass", "click"], [1, "list", "five", 3, "ngClass", "click"], [1, "list", "six", 3, "mouseover", "mouseout"], ["class", "contain_help", 4, "ngIf"], [1, "contain_help"], [1, "title_help"], [1, "detail_help"]],
         template: function ConnectedModelComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](1, "img", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "img", 1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function ConnectedModelComponent_Template_img_click_1_listener() {
+              return ctx.goToChat();
+            });
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](2, "img", 2);
 
@@ -15872,25 +15878,25 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](11, "div", 7);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](12, "img", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](12, "img", 8);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](13, "span");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](14, "div", 8);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](14, "div", 9);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function ConnectedModelComponent_Template_div_click_14_listener() {
               return ctx.goToChat();
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](15, "img", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](15, "img", 8);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](16, "span");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](17, "div", 9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](17, "div", 10);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function ConnectedModelComponent_Template_div_click_17_listener() {
               return ctx.logout();
@@ -15902,7 +15908,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](20, "div", 10);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](20, "div", 11);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("mouseover", function ConnectedModelComponent_Template_div_mouseover_20_listener() {
               return ctx.hoverHelp();
@@ -15918,7 +15924,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](23, ConnectedModelComponent_div_23_Template, 5, 0, "div", 11);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](23, ConnectedModelComponent_div_23_Template, 5, 0, "div", 12);
           }
 
           if (rf & 2) {
@@ -29985,16 +29991,22 @@
         },
         decls: 20,
         vars: 20,
-        consts: [[1, "bars"], ["alt", "", 1, "icon", 3, "src"], [1, "fa", "fa-bars", 3, "click"], [1, "contain_connected"], ["routerLink", "/client/accueil/registered", 1, "list", "one", 3, "ngClass"], ["routerLink", "/client/achat_de_credit", 1, "list", "two", 3, "ngClass"], ["matTooltip", "Chat r\xE9cent", "matTooltipClass", "tooltip_class", 1, "list", "three", 3, "ngClass", "click"], ["routerLink", "/client/profile", "matTooltip", "Param\xE8tres", "matTooltipClass", "tooltip_class", 1, "list", "four", 3, "ngClass"], [1, "list", "five", 3, "ngClass", "click"]],
+        consts: [[1, "bars"], ["alt", "", 1, "icon", 3, "src", "click"], ["alt", "", "routerLink", "/client/profile", 1, "icon", 3, "src"], [1, "fa", "fa-bars", 3, "click"], [1, "contain_connected"], ["routerLink", "/client/accueil/registered", 1, "list", "one", 3, "ngClass"], ["routerLink", "/client/achat_de_credit", 1, "list", "two", 3, "ngClass"], ["matTooltip", "Chat r\xE9cent", "matTooltipClass", "tooltip_class", 1, "list", "three", 3, "ngClass", "click"], ["alt", "", 1, "icon", 3, "src"], ["routerLink", "/client/profile", "matTooltip", "Param\xE8tres", "matTooltipClass", "tooltip_class", 1, "list", "four", 3, "ngClass"], [1, "list", "five", 3, "ngClass", "click"]],
         template: function ConnectedComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](1, "img", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "img", 1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](2, "img", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function ConnectedComponent_Template_img_click_1_listener() {
+              return ctx.lastChat();
+            });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "i", 2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](2, "img", 2);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "i", 3);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function ConnectedComponent_Template_i_click_3_listener() {
               return ctx.toggleShowDiv("contain_connected");
@@ -30004,9 +30016,9 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "div", 3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "div", 4);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](5, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](5, "div", 5);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](6, " Tous les mod\xE8les ");
 
@@ -30014,7 +30026,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](8, "div", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](8, "div", 6);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](9, " Acheter des cr\xE9dits ");
 
@@ -30022,27 +30034,27 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](11, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](11, "div", 7);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function ConnectedComponent_Template_div_click_11_listener() {
               return ctx.lastChat();
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](12, "img", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](12, "img", 8);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](13, "span");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](14, "div", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](14, "div", 9);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](15, "img", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](15, "img", 8);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](16, "span");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](17, "div", 8);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](17, "div", 10);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function ConnectedComponent_Template_div_click_17_listener() {
               return ctx.logout();
