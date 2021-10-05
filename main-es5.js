@@ -22336,9 +22336,11 @@
               this.lazyStream.getAudioTracks().forEach(function (track) {
                 track.stop();
               });
+            } else {
+              this.onStop();
+              this.onStart();
             }
 
-            ;
             var room = this.info.idRoom + 'P';
             this.socketService.toggleAudio(room, null, this.peerId, this.info.modelId, this.showAudio);
           } // -------- EMOJI -----------------

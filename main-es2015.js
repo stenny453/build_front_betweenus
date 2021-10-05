@@ -11683,7 +11683,10 @@ class LivePrivateModelComponent {
                 track.stop();
             });
         }
-        ;
+        else {
+            this.onStop();
+            this.onStart();
+        }
         const room = this.info.idRoom + 'P';
         this.socketService.toggleAudio(room, null, this.peerId, this.info.modelId, this.showAudio);
     }
