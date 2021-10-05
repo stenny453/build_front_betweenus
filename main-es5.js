@@ -9066,8 +9066,19 @@
         }, {
           key: "toggleAudio",
           value: function toggleAudio() {
-            this.showAudio = !this.showAudio; // this.onStop();
+            this.showAudio = !this.showAudio;
+
+            if (!this.showAudio) {
+              this.lazyStream.getAudioTracks().forEach(function (track) {
+                track.enabled = false;
+              });
+            } else {
+              this.lazyStream.getAudioTracks().forEach(function (track) {
+                track.enabled = true;
+              });
+            } // this.onStop();
             // this.onStart();
+
 
             var room = this.info.idRoom + 'V';
             this.socketService.toggleAudio(room, null, this.peerId, this.info.modelId, this.showAudio);
@@ -15488,8 +15499,19 @@
         }, {
           key: "toggleAudio",
           value: function toggleAudio() {
-            this.showAudio = !this.showAudio; // this.onStop();
+            this.showAudio = !this.showAudio;
+
+            if (!this.showAudio) {
+              this.lazyStream.getAudioTracks().forEach(function (track) {
+                track.enabled = false;
+              });
+            } else {
+              this.lazyStream.getAudioTracks().forEach(function (track) {
+                track.enabled = true;
+              });
+            } // this.onStop();
             // this.onStart();
+
 
             var room = this.idRoom + 'V';
             this.socketService.toggleAudio(room, this.clientId, this.peerId, null, this.showAudio);
@@ -38268,39 +38290,42 @@
             });
 
             _this193.peer.on('call', function (call) {
-              console.log('on call'); // call.answer(this.lazyStream);
-              // call.on('stream', (remoteStream) => {
-              //   console.log('On stream from call')
-              //   if (!this.peerList.includes(call.peer)) {
-              //     this.addOtherClientstreamRemoteVideo(this.clientStream.length,remoteStream, call.peer);
-              //     this.currentPeer = call.peerConnection;
-              //     this.peerList.push(call.peer);
-              //   }
+              console.log('on call');
+              call.answer(_this193.lazyStream);
+              call.on('stream', function (remoteStream) {
+                console.log('On stream from call');
+
+                if (!_this193.peerList.includes(call.peer)) {
+                  _this193.addOtherClientstreamRemoteVideo(_this193.clientStream.length, remoteStream, call.peer);
+
+                  _this193.currentPeer = call.peerConnection;
+
+                  _this193.peerList.push(call.peer);
+                }
+              }); // this.onStop();
+              // navigator.mediaDevices.getUserMedia({
+              //   video: this.showVideo,
+              //   audio: this.showAudio
+              // }).then((stream) => {
+              //   this.lazyStream = stream;
+              //   // this.clientStream.push({
+              //   //   clientId: this.clientStream.length,
+              //   //   stream: stream
+              //   // });
+              //   // const _video = this.video.nativeElement;
+              //   // _video.srcObject = stream;
+              //   // _video.play();
+              //   call.answer(stream);
+              //   // call.on('stream', (remoteStream) => {
+              //   //   if (!this.peerList.includes(call.peer)) {
+              //   //     this.addOtherClientstreamRemoteVideo(this.clientStream.length,remoteStream, call.peer);
+              //   //     this.currentPeer = call.peerConnection;
+              //   //     this.peerList.push(call.peer);
+              //   //   }
+              //   // });
+              // }).catch(err => {
+              //   console.log(err + ' - Unable to get media');
               // });
-              // this.onStop();
-
-              navigator.mediaDevices.getUserMedia({
-                video: _this193.showVideo,
-                audio: _this193.showAudio
-              }).then(function (stream) {
-                _this193.lazyStream = stream; // this.clientStream.push({
-                //   clientId: this.clientStream.length,
-                //   stream: stream
-                // });
-                // const _video = this.video.nativeElement;
-                // _video.srcObject = stream;
-                // _video.play();
-
-                call.answer(stream); // call.on('stream', (remoteStream) => {
-                //   if (!this.peerList.includes(call.peer)) {
-                //     this.addOtherClientstreamRemoteVideo(this.clientStream.length,remoteStream, call.peer);
-                //     this.currentPeer = call.peerConnection;
-                //     this.peerList.push(call.peer);
-                //   }
-                // });
-              })["catch"](function (err) {
-                console.log(err + ' - Unable to get media');
-              });
             });
           };
 
@@ -39349,39 +39374,14 @@
 
             console.log('CallPeer  id : ', id);
             if (!id) return null;
-            if (id === undefined) return null; // console.log("Client call someone");
-            // const call = this.peer.call(id, this.lazyStream);
-            // console.log("After call model");
-            // if (call) {
-            //   call.on('stream', (remoteStream) => {
-            //     console.log("On stream after call in client");
-            //     if (!this.peerList.includes(call.peer)) {
-            //       this.streamRemoteVideo(remoteStream);
-            //       this.currentPeer = call.peerConnection;
-            //       this.peerList.push(call.peer);
-            //     }
-            //   });
-            // }
-            // this.onStop();
+            if (id === undefined) return null;
+            console.log("Client call someone");
+            var call = this.peer.call(id, this.lazyStream);
+            console.log("After call model");
 
-            navigator.mediaDevices.getUserMedia({
-              video: this.showAudio,
-              audio: this.showVideo
-            }).then(function (stream) {
-              _this218.lazyStream = stream; // this.clientStream.push({
-              //   clientId: this.clientStream.length,
-              //   stream: stream,
-              //   isAudio: true,
-              //   isVideo: true,
-              //   peerId: this.peerId
-              // });
-              // console.log("Get client stream ", stream);
-
-              var call = _this218.peer.call(id, stream);
-
-              console.log("After call model");
+            if (call) {
               call.on('stream', function (remoteStream) {
-                console.log("On receive stream from model");
+                console.log("On stream after call in client");
 
                 if (!_this218.peerList.includes(call.peer)) {
                   _this218.streamRemoteVideo(remoteStream);
@@ -39391,9 +39391,34 @@
                   _this218.peerList.push(call.peer);
                 }
               });
-            })["catch"](function (err) {
-              console.log(err + 'Unable to connect');
-            });
+            } // // this.onStop();
+            // navigator.mediaDevices.getUserMedia({
+            //   video: this.showAudio,
+            //   audio: this.showVideo
+            // }).then((stream) => {
+            //   this.lazyStream = stream;
+            //   // this.clientStream.push({
+            //   //   clientId: this.clientStream.length,
+            //   //   stream: stream,
+            //   //   isAudio: true,
+            //   //   isVideo: true,
+            //   //   peerId: this.peerId
+            //   // });
+            //   // console.log("Get client stream ", stream);
+            //   const call = this.peer.call(id, stream);
+            //   console.log("After call model");
+            //   call.on('stream', (remoteStream) => {
+            //     console.log("On receive stream from model");
+            //     if (!this.peerList.includes(call.peer)) {
+            //       this.streamRemoteVideo(remoteStream);
+            //       this.currentPeer = call.peerConnection;
+            //       this.peerList.push(call.peer);
+            //     }
+            //   });
+            // }).catch(err => {
+            //   console.log(err + 'Unable to connect');
+            // });
+
           }
         }, {
           key: "streamRemoteVideo",
@@ -39414,30 +39439,12 @@
             console.log('CallPeerClient id ', clientId, 'My ID ', this.clientId, ' Peer ', clientPeer);
             if (!clientPeer) return null;
             if (clientPeer === undefined) return null;
-            if (clientPeer === this.peerIdShare) return null; // const call = this.peer.call(clientPeer, this.lazyStream);
-            // if (call) {
-            //   call.on('stream', (remoteStream) => {
-            //     console.log("On stream in call other client");
-            //     if (!this.peerList.includes(call.peer)) {
-            //       this.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
-            //       this.currentPeer = call.peerConnection;
-            //       this.peerList.push(call.peer);
-            //     }
-            //   });
-            // }
-            // this.onStop();
+            if (clientPeer === this.peerIdShare) return null;
+            var call = this.peer.call(clientPeer, this.lazyStream);
 
-            navigator.mediaDevices.getUserMedia({
-              video: this.showVideo,
-              audio: this.showAudio
-            }).then(function (stream) {
-              _this219.lazyStream = stream; // console.log("Get client stream ", stream);
-
-              var call = _this219.peer.call(clientPeer, stream); // console.log("After call model");
-
-
+            if (call) {
               call.on('stream', function (remoteStream) {
-                console.log("On received stream other client");
+                console.log("On stream in call other client");
 
                 if (!_this219.peerList.includes(call.peer)) {
                   _this219.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
@@ -39447,9 +39454,27 @@
                   _this219.peerList.push(call.peer);
                 }
               });
-            })["catch"](function (err) {
-              console.log(err + 'Unable to connect');
-            });
+            } // this.onStop();
+            // navigator.mediaDevices.getUserMedia({
+            //   video: this.showVideo,
+            //   audio: this.showAudio
+            // }).then((stream) => {
+            //   this.lazyStream = stream;
+            //   // console.log("Get client stream ", stream);
+            //   const call = this.peer.call(clientPeer, stream);
+            //   // console.log("After call model");
+            //   call.on('stream', (remoteStream) => {
+            //     console.log("On received stream other client");
+            //     if (!this.peerList.includes(call.peer)) {
+            //       this.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
+            //       this.currentPeer = call.peerConnection;
+            //       this.peerList.push(call.peer);
+            //     }
+            //   });
+            // }).catch(err => {
+            //   console.log(err + 'Unable to connect');
+            // });
+
           }
         }, {
           key: "addOtherClientstreamRemoteVideo",
@@ -39569,6 +39594,17 @@
             var _this223 = this;
 
             this.showAudio = !this.showAudio;
+
+            if (!this.showAudio) {
+              this.lazyStream.getAudioTracks().forEach(function (track) {
+                track.enabled = false;
+              });
+            } else {
+              this.lazyStream.getAudioTracks().forEach(function (track) {
+                track.enabled = true;
+              });
+            }
+
             this.clientStream.forEach(function (stream) {
               if (stream.clientId === _this223.clientId) {
                 stream.isAudio = _this223.showAudio;
