@@ -22338,6 +22338,7 @@
               });
             }
 
+            ;
             var room = this.info.idRoom + 'P';
             this.socketService.toggleAudio(room, null, this.peerId, this.info.modelId, this.showAudio);
           } // -------- EMOJI -----------------
@@ -38657,6 +38658,8 @@
                         console.log('Answer for stream ', data);
                       });
                       this.toggleAudioSub = this.socketService.listen("Toggle audio ".concat(this.idRoom, "P")).subscribe(function (data) {
+                        console.log('Toggle audio ', data);
+
                         if (data.clientId) {
                           console.log('Toggle audio client ', data.clientId);
 

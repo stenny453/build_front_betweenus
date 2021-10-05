@@ -11683,6 +11683,7 @@ class LivePrivateModelComponent {
                 track.stop();
             });
         }
+        ;
         const room = this.info.idRoom + 'P';
         this.socketService.toggleAudio(room, null, this.peerId, this.info.modelId, this.showAudio);
     }
@@ -20320,6 +20321,7 @@ class LivePrivateComponent {
                 console.log('Answer for stream ', data);
             });
             this.toggleAudioSub = this.socketService.listen(`Toggle audio ${this.idRoom}P`).subscribe((data) => {
+                console.log('Toggle audio ', data);
                 if (data.clientId) {
                     console.log('Toggle audio client ', data.clientId);
                     this.toggleAudioClientStream(data.peerId, data.isAudio);
