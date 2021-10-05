@@ -4656,7 +4656,7 @@ class LiveVipModelComponent {
     }
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((ms) => {
                 this.lazyStream = ms;
                 console.log('My stream ', ms);
                 this.video.nativeElement.srcObject = this.lazyStream;
@@ -5022,26 +5022,42 @@ __webpack_require__.r(__webpack_exports__);
 
 const _c0 = ["map"];
 const _c1 = function (a0, a1) { return { "hideStream": a0, "showStream": a1 }; };
-function LivePrivateCamComponent_div_2_Template(rf, ctx) { if (rf & 1) {
-    const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "video", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("mouseover", function LivePrivateCamComponent_div_2_Template_video_mouseover_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7); const stream_r5 = ctx.$implicit; const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r6.getPseudo(stream_r5.clientId); })("contextmenu", function LivePrivateCamComponent_div_2_Template_video_contextmenu_1_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7); const stream_r5 = ctx.$implicit; const ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r8.onContextMenu($event, stream_r5.clientId); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+function LivePrivateCamComponent_div_2_video_1_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "video", 9);
+} if (rf & 2) {
+    const stream_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", stream_r5.clientId)("poster", ctx_r6.img, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"])("srcObject", stream_r5.stream)("muted", stream_r5.clientId === ctx_r6.myId || !stream_r5.isAudio)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](5, _c1, !stream_r5.isVideo, stream_r5.isVideo));
+} }
+function LivePrivateCamComponent_div_2_video_2_Template(rf, ctx) { if (rf & 1) {
+    const _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "video", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("mouseover", function LivePrivateCamComponent_div_2_video_2_Template_video_mouseover_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r11); const stream_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit; const ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r9.getPseudo(stream_r5.clientId); })("contextmenu", function LivePrivateCamComponent_div_2_video_2_Template_video_contextmenu_0_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r11); const stream_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit; const ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r12.onContextMenu($event, stream_r5.clientId); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const stream_r5 = ctx.$implicit;
+    const stream_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", stream_r5.clientId)("poster", ctx_r7.img, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"])("srcObject", stream_r5.stream)("muted", stream_r5.clientId === ctx_r7.myId || !stream_r5.isAudio)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](5, _c1, !stream_r5.isVideo, stream_r5.isVideo));
+} }
+function LivePrivateCamComponent_div_2_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, LivePrivateCamComponent_div_2_video_1_Template, 1, 8, "video", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, LivePrivateCamComponent_div_2_video_2_Template, 1, 8, "video", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", stream_r5.clientId)("poster", ctx_r1.img, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"])("srcObject", stream_r5.stream)("muted", stream_r5.clientId === ctx_r1.myId || !stream_r5.isAudio)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](5, _c1, !stream_r5.isVideo, stream_r5.isVideo));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.canSelect !== true);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.canSelect === true);
 } }
 function LivePrivateCamComponent_ng_template_7_Template(rf, ctx) { if (rf & 1) {
-    const _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 8);
+    const _r17 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 11);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "button", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LivePrivateCamComponent_ng_template_7_Template_button_click_2_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r11); const item_r9 = ctx.item; const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r10.banishClient(item_r9); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "button", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function LivePrivateCamComponent_ng_template_7_Template_button_click_2_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r17); const item_r15 = ctx.item; const ctx_r16 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r16.banishClient(item_r15); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, " Bannir ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -5105,6 +5121,8 @@ class LivePrivateCamComponent {
         });
     }
     getPseudo(clientId) {
+        if (!clientId)
+            return null;
         this.clientService.getClient(clientId).subscribe((data) => {
             if (data && data.pseudo) {
                 this.currentPseudo = data.pseudo;
@@ -5153,9 +5171,9 @@ LivePrivateCamComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
         let _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.contextMenu = _t.first);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.map = _t.first);
-    } }, inputs: { streams: "streams", myId: "myId", clients: "clients", canSelect: "canSelect", showListUser: "showListUser", roomId: "roomId", modelId: "modelId" }, outputs: { clientSelected: "clientSelected" }, decls: 8, vars: 6, consts: [[1, "main_live_cam"], ["map", ""], ["class", "camera_item", 4, "ngFor", "ngForOf"], [2, "visibility", "hidden", "position", "fixed", 3, "matMenuTriggerFor"], ["contextMenu", "matMenu", "contextMenu2", "matMenu"], ["matMenuContent", ""], [1, "camera_item"], ["autoplay", "", "controls", "", "oncanplay", "this.play()", "onloadedmetadata", "this.muted = true", 1, "live_cam", 3, "id", "poster", "srcObject", "muted", "ngClass", "mouseover", "contextmenu"], [1, "btn_pseudo"], ["mat-menu-item", "", 1, "btn_banish", 3, "click"]], template: function LivePrivateCamComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { streams: "streams", myId: "myId", clients: "clients", canSelect: "canSelect", showListUser: "showListUser", roomId: "roomId", modelId: "modelId" }, outputs: { clientSelected: "clientSelected" }, decls: 8, vars: 6, consts: [[1, "main_live_cam"], ["map", ""], ["class", "camera_item", 4, "ngFor", "ngForOf"], [2, "visibility", "hidden", "position", "fixed", 3, "matMenuTriggerFor"], ["contextMenu", "matMenu", "contextMenu2", "matMenu"], ["matMenuContent", ""], [1, "camera_item"], ["autoplay", "", "controls", "", "oncanplay", "this.play()", "onloadedmetadata", "this.muted = true", "class", "live_cam", 3, "id", "poster", "srcObject", "muted", "ngClass", 4, "ngIf"], ["autoplay", "", "controls", "", "oncanplay", "this.play()", "onloadedmetadata", "this.muted = true", "class", "live_cam", 3, "id", "poster", "srcObject", "muted", "ngClass", "mouseover", "contextmenu", 4, "ngIf"], ["autoplay", "", "controls", "", "oncanplay", "this.play()", "onloadedmetadata", "this.muted = true", 1, "live_cam", 3, "id", "poster", "srcObject", "muted", "ngClass"], ["autoplay", "", "controls", "", "oncanplay", "this.play()", "onloadedmetadata", "this.muted = true", 1, "live_cam", 3, "id", "poster", "srcObject", "muted", "ngClass", "mouseover", "contextmenu"], [1, "btn_pseudo"], ["mat-menu-item", "", 1, "btn_banish", 3, "click"]], template: function LivePrivateCamComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0, 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, LivePrivateCamComponent_div_2_Template, 2, 8, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, LivePrivateCamComponent_div_2_Template, 3, 2, "div", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "div", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "mat-menu", null, 4);
@@ -5168,7 +5186,7 @@ LivePrivateCamComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("left", ctx.contextMenuPosition.x)("top", ctx.contextMenuPosition.y);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matMenuTriggerFor", _r2);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenuTrigger"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenu"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenuContent"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgClass"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenuItem"]], styles: [".main_live_cam[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  margin-left: 10px;\n  margin-right: 10px;\n  padding-top: 20px;\n  overflow-y: auto;\n  height: 64vh;\n}\n\n.camera_item[_ngcontent-%COMP%] {\n  flex: 1 1 150px;\n}\n\nvideo.live_cam[_ngcontent-%COMP%] {\n  width: 150px;\n}\n\n.Pseudo[_ngcontent-%COMP%] {\n  background: var(--blue1);\n  padding: 4px;\n  position: absolute;\n  right: 40px;\n  border-radius: 5px;\n  bottom: 5px;\n  cursor: pointer;\n  top: 0px;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n}\n\n.selected[_ngcontent-%COMP%] {\n  background: var(--black) !important;\n}\n\n.list_user[_ngcontent-%COMP%] {\n  position: absolute;\n  right: 0px;\n  z-index: 200;\n  line-height: 30px;\n  max-height: 60vh;\n  overflow-y: auto;\n}\n\n.pseudo_user[_ngcontent-%COMP%] {\n  color: var(--pink);\n  border: 1px solid #ffffff17;\n  width: 100px;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.3s;\n  background: #00000047;\n  padding-left: 5px;\n}\n\n.pseudo_user[_ngcontent-%COMP%]:hover {\n  background-color: rgba(255, 255, 255, 0.13);\n}\n\n.pClient[_ngcontent-%COMP%] {\n  text-align: center;\n  font-weight: normal;\n  color: var(--pink);\n  margin-bottom: 0px;\n  width: 100px;\n}\n\n.hideStream[_ngcontent-%COMP%] {\n  filter: blur(200px);\n}\n\n.showStream[_ngcontent-%COMP%] {\n  filter: none;\n}\n\n.btn_pseudo[_ngcontent-%COMP%] {\n  border: none;\n  background: transparent;\n  width: 100%;\n  text-align: center;\n  font-weight: normal;\n  font-size: 15px;\n  color: var(--pink);\n}\n\n.btn_banish[_ngcontent-%COMP%] {\n  color: white !important;\n  background: var(--blue1) !important;\n  font-size: 15px !important;\n  text-align: center !important;\n  font-weight: 500 !important;\n  height: 40px !important;\n  transition: all 0.2s;\n}\n\n.btn_banish[_ngcontent-%COMP%]:hover {\n  background-color: red !important;\n}\n\n@media screen and (max-width: 700px) {\n  .main_live_cam[_ngcontent-%COMP%] {\n    height: 32vh;\n    display: flex;\n    flex-wrap: wrap !important;\n  }\n\n  .camera_item[_ngcontent-%COMP%] {\n    flex: 1 1 150px;\n  }\n\n  video.live_cam[_ngcontent-%COMP%] {\n    width: 150px;\n    height: 150px;\n  }\n\n  .Pseudo[_ngcontent-%COMP%] {\n    bottom: -10px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXGxpdmUtcHJpdmF0ZS1jYW0uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtBQUNGOztBQUNBO0VBQ0UsZUFBQTtBQUVGOztBQUtBO0VBQ0UsWUFBQTtBQUZGOztBQUtBO0VBQ0Usd0JBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsZUFBQTtFQUNBLFFBQUE7RUFDQSwwQkFBQTtFQUFBLHVCQUFBO0VBQUEsa0JBQUE7RUFDQSwyQkFBQTtFQUFBLHdCQUFBO0VBQUEsbUJBQUE7QUFGRjs7QUFLQTtFQUNFLG1DQUFBO0FBRkY7O0FBS0E7RUFDRSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxZQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0FBRkY7O0FBS0E7RUFDRSxrQkFBQTtFQUNBLDJCQUFBO0VBQ0EsWUFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtFQUNBLG9CQUFBO0VBQ0EscUJBQUE7RUFDQSxpQkFBQTtBQUZGOztBQUtBO0VBQ0UsMkNBQUE7QUFGRjs7QUFLQTtFQUNFLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtBQUZGOztBQUtBO0VBQ0UsbUJBQUE7QUFGRjs7QUFLQTtFQUNFLFlBQUE7QUFGRjs7QUFLQTtFQUNFLFlBQUE7RUFDQSx1QkFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0FBRkY7O0FBS0E7RUFDRSx1QkFBQTtFQUNBLG1DQUFBO0VBQ0EsMEJBQUE7RUFDQSw2QkFBQTtFQUNBLDJCQUFBO0VBQ0EsdUJBQUE7RUFDQSxvQkFBQTtBQUZGOztBQUtBO0VBQ0UsZ0NBQUE7QUFGRjs7QUFLQTtFQUNFO0lBQ0UsWUFBQTtJQUNBLGFBQUE7SUFDQSwwQkFBQTtFQUZGOztFQUlBO0lBQWMsZUFBQTtFQUFkOztFQUVBO0lBQ0UsWUFBQTtJQUNBLGFBQUE7RUFDRjs7RUFFQTtJQUNFLGFBQUE7RUFDRjtBQUNGIiwiZmlsZSI6ImxpdmUtcHJpdmF0ZS1jYW0uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbl9saXZlX2NhbSB7XHJcbiAgbWFyZ2luLXRvcDogMTBweDtcclxuICBtYXJnaW4tbGVmdDogMTBweDtcclxuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XHJcbiAgcGFkZGluZy10b3A6IDIwcHg7XHJcbiAgb3ZlcmZsb3cteTogYXV0bztcclxuICBoZWlnaHQ6IDY0dmg7XHJcbn1cclxuLmNhbWVyYV9pdGVtIHtcclxuICBmbGV4OiAxIDEgMTUwcHg7XHJcbiAgLy8gZGlzcGxheTogZmxleDtcclxuICAvLyBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAvLyBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG4gIC8vIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG5cclxudmlkZW8ubGl2ZV9jYW0ge1xyXG4gIHdpZHRoOiAxNTBweDtcclxufVxyXG5cclxuLlBzZXVkbyB7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tYmx1ZTEpO1xyXG4gIHBhZGRpbmc6IDRweDtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgcmlnaHQ6IDQwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gIGJvdHRvbTogNXB4O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICB0b3A6IDBweDtcclxuICB3aWR0aDogZml0LWNvbnRlbnQ7XHJcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcclxufVxyXG5cclxuLnNlbGVjdGVkIHtcclxuICBiYWNrZ3JvdW5kOiB2YXIoLS1ibGFjaykgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmxpc3RfdXNlciB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHJpZ2h0OiAwcHg7XHJcbiAgei1pbmRleDogMjAwO1xyXG4gIGxpbmUtaGVpZ2h0OiAzMHB4O1xyXG4gIG1heC1oZWlnaHQ6IDYwdmg7XHJcbiAgb3ZlcmZsb3cteTogYXV0bztcclxufVxyXG5cclxuLnBzZXVkb191c2VyIHtcclxuICBjb2xvcjogdmFyKC0tcGluayk7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2ZmZmZmZjE3O1xyXG4gIHdpZHRoOiAxMDBweDtcclxuICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICB0cmFuc2l0aW9uOiBhbGwgMC4zcztcclxuICBiYWNrZ3JvdW5kOiAjMDAwMDAwNDc7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbn1cclxuXHJcbi5wc2V1ZG9fdXNlcjpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEzKTtcclxufVxyXG5cclxuLnBDbGllbnQge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBmb250LXdlaWdodDogbm9ybWFsO1xyXG4gIGNvbG9yOiB2YXIoLS1waW5rKTtcclxuICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbiAgd2lkdGg6IDEwMHB4O1xyXG59XHJcblxyXG4uaGlkZVN0cmVhbSB7XHJcbiAgZmlsdGVyOiBibHVyKDIwMHB4KTtcclxufVxyXG5cclxuLnNob3dTdHJlYW0ge1xyXG4gIGZpbHRlcjogbm9uZTtcclxufVxyXG5cclxuLmJ0bl9wc2V1ZG8ge1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICB3aWR0aDogMTAwJTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbiAgY29sb3I6IHZhcigtLXBpbmspO1xyXG59XHJcblxyXG4uYnRuX2JhbmlzaCB7XHJcbiAgY29sb3I6IHdoaXRlICFpbXBvcnRhbnQ7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tYmx1ZTEpICFpbXBvcnRhbnQ7XHJcbiAgZm9udC1zaXplOiAxNXB4ICFpbXBvcnRhbnQ7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyICFpbXBvcnRhbnQ7XHJcbiAgZm9udC13ZWlnaHQ6IDUwMCAhaW1wb3J0YW50O1xyXG4gIGhlaWdodDogNDBweCAhaW1wb3J0YW50O1xyXG4gIHRyYW5zaXRpb246IGFsbCAwLjJzO1xyXG59XHJcblxyXG4uYnRuX2JhbmlzaDpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmVkICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDcwMHB4KSB7XHJcbiAgLm1haW5fbGl2ZV9jYW0ge1xyXG4gICAgaGVpZ2h0OiAzMnZoO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtd3JhcDogd3JhcCAhaW1wb3J0YW50O1xyXG4gIH1cclxuICAuY2FtZXJhX2l0ZW0ge2ZsZXg6IDEgMSAxNTBweDt9XHJcblxyXG4gIHZpZGVvLmxpdmVfY2FtIHtcclxuICAgIHdpZHRoOiAxNTBweDtcclxuICAgIGhlaWdodDogMTUwcHg7XHJcbiAgfVxyXG5cclxuICAuUHNldWRvIHtcclxuICAgIGJvdHRvbTogLTEwcHg7XHJcbiAgfVxyXG59XHJcbiJdfQ== */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenuTrigger"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenu"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenuContent"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgClass"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_2__["MatMenuItem"]], styles: [".main_live_cam[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  margin-left: 10px;\n  margin-right: 10px;\n  padding-top: 20px;\n  overflow-y: auto;\n  height: 64vh;\n}\n\n.camera_item[_ngcontent-%COMP%] {\n  flex: 1 1 150px;\n}\n\nvideo.live_cam[_ngcontent-%COMP%] {\n  width: 150px;\n}\n\n.Pseudo[_ngcontent-%COMP%] {\n  background: var(--blue1);\n  padding: 4px;\n  position: absolute;\n  right: 40px;\n  border-radius: 5px;\n  bottom: 5px;\n  cursor: pointer;\n  top: 0px;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n}\n\n.selected[_ngcontent-%COMP%] {\n  background: var(--black) !important;\n}\n\n.list_user[_ngcontent-%COMP%] {\n  position: absolute;\n  right: 0px;\n  z-index: 200;\n  line-height: 30px;\n  max-height: 60vh;\n  overflow-y: auto;\n}\n\n.pseudo_user[_ngcontent-%COMP%] {\n  color: var(--pink);\n  border: 1px solid #ffffff17;\n  width: 100px;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.3s;\n  background: #00000047;\n  padding-left: 5px;\n}\n\n.pseudo_user[_ngcontent-%COMP%]:hover {\n  background-color: rgba(255, 255, 255, 0.13);\n}\n\n.pClient[_ngcontent-%COMP%] {\n  text-align: center;\n  font-weight: normal;\n  color: var(--pink);\n  margin-bottom: 0px;\n  width: 100px;\n}\n\n.hideStream[_ngcontent-%COMP%] {\n  filter: blur(200px);\n}\n\n.showStream[_ngcontent-%COMP%] {\n  filter: none;\n}\n\n.btn_pseudo[_ngcontent-%COMP%] {\n  border: none;\n  background: transparent;\n  width: 100%;\n  text-align: center;\n  font-weight: normal;\n  font-size: 15px;\n  color: var(--pink);\n}\n\n.btn_banish[_ngcontent-%COMP%] {\n  color: white !important;\n  background: var(--blue1) !important;\n  font-size: 15px !important;\n  text-align: center !important;\n  font-weight: 500 !important;\n  height: 40px !important;\n  transition: all 0.2s;\n}\n\n.btn_banish[_ngcontent-%COMP%]:hover {\n  background-color: red !important;\n}\n\n@media screen and (max-width: 700px) {\n  .main_live_cam[_ngcontent-%COMP%] {\n    height: 32vh;\n    display: flex;\n    flex-wrap: wrap !important;\n  }\n\n  .camera_item[_ngcontent-%COMP%] {\n    flex: 1 1 150px;\n  }\n\n  video.live_cam[_ngcontent-%COMP%] {\n    width: 150px;\n    height: 150px;\n  }\n\n  .Pseudo[_ngcontent-%COMP%] {\n    bottom: -10px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXGxpdmUtcHJpdmF0ZS1jYW0uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtBQUNGOztBQUNBO0VBQ0UsZUFBQTtBQUVGOztBQUtBO0VBQ0UsWUFBQTtBQUZGOztBQUtBO0VBQ0Usd0JBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsZUFBQTtFQUNBLFFBQUE7RUFDQSwwQkFBQTtFQUFBLHVCQUFBO0VBQUEsa0JBQUE7RUFDQSwyQkFBQTtFQUFBLHdCQUFBO0VBQUEsbUJBQUE7QUFGRjs7QUFLQTtFQUNFLG1DQUFBO0FBRkY7O0FBS0E7RUFDRSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxZQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0FBRkY7O0FBS0E7RUFDRSxrQkFBQTtFQUNBLDJCQUFBO0VBQ0EsWUFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtFQUNBLG9CQUFBO0VBQ0EscUJBQUE7RUFDQSxpQkFBQTtBQUZGOztBQUtBO0VBQ0UsMkNBQUE7QUFGRjs7QUFLQTtFQUNFLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtBQUZGOztBQUtBO0VBQ0UsbUJBQUE7QUFGRjs7QUFLQTtFQUNFLFlBQUE7QUFGRjs7QUFLQTtFQUNFLFlBQUE7RUFDQSx1QkFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0FBRkY7O0FBS0E7RUFDRSx1QkFBQTtFQUNBLG1DQUFBO0VBQ0EsMEJBQUE7RUFDQSw2QkFBQTtFQUNBLDJCQUFBO0VBQ0EsdUJBQUE7RUFDQSxvQkFBQTtBQUZGOztBQUtBO0VBQ0UsZ0NBQUE7QUFGRjs7QUFLQTtFQUNFO0lBQ0UsWUFBQTtJQUNBLGFBQUE7SUFDQSwwQkFBQTtFQUZGOztFQUlBO0lBQWMsZUFBQTtFQUFkOztFQUVBO0lBQ0UsWUFBQTtJQUNBLGFBQUE7RUFDRjs7RUFFQTtJQUNFLGFBQUE7RUFDRjtBQUNGIiwiZmlsZSI6ImxpdmUtcHJpdmF0ZS1jYW0uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbl9saXZlX2NhbSB7XHJcbiAgbWFyZ2luLXRvcDogMTBweDtcclxuICBtYXJnaW4tbGVmdDogMTBweDtcclxuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XHJcbiAgcGFkZGluZy10b3A6IDIwcHg7XHJcbiAgb3ZlcmZsb3cteTogYXV0bztcclxuICBoZWlnaHQ6IDY0dmg7XHJcbn1cclxuLmNhbWVyYV9pdGVtIHtcclxuICBmbGV4OiAxIDEgMTUwcHg7XHJcbiAgLy8gZGlzcGxheTogZmxleDtcclxuICAvLyBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAvLyBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG4gIC8vIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG5cclxudmlkZW8ubGl2ZV9jYW0ge1xyXG4gIHdpZHRoOiAxNTBweDtcclxufVxyXG5cclxuLlBzZXVkbyB7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tYmx1ZTEpO1xyXG4gIHBhZGRpbmc6IDRweDtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgcmlnaHQ6IDQwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gIGJvdHRvbTogNXB4O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICB0b3A6IDBweDtcclxuICB3aWR0aDogZml0LWNvbnRlbnQ7XHJcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcclxufVxyXG5cclxuLnNlbGVjdGVkIHtcclxuICBiYWNrZ3JvdW5kOiB2YXIoLS1ibGFjaykgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmxpc3RfdXNlciB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHJpZ2h0OiAwcHg7XHJcbiAgei1pbmRleDogMjAwO1xyXG4gIGxpbmUtaGVpZ2h0OiAzMHB4O1xyXG4gIG1heC1oZWlnaHQ6IDYwdmg7XHJcbiAgb3ZlcmZsb3cteTogYXV0bztcclxufVxyXG5cclxuLnBzZXVkb191c2VyIHtcclxuICBjb2xvcjogdmFyKC0tcGluayk7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2ZmZmZmZjE3O1xyXG4gIHdpZHRoOiAxMDBweDtcclxuICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICB0cmFuc2l0aW9uOiBhbGwgMC4zcztcclxuICBiYWNrZ3JvdW5kOiAjMDAwMDAwNDc7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbn1cclxuXHJcbi5wc2V1ZG9fdXNlcjpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEzKTtcclxufVxyXG5cclxuLnBDbGllbnQge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBmb250LXdlaWdodDogbm9ybWFsO1xyXG4gIGNvbG9yOiB2YXIoLS1waW5rKTtcclxuICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbiAgd2lkdGg6IDEwMHB4O1xyXG59XHJcblxyXG4uaGlkZVN0cmVhbSB7XHJcbiAgZmlsdGVyOiBibHVyKDIwMHB4KTtcclxufVxyXG5cclxuLnNob3dTdHJlYW0ge1xyXG4gIGZpbHRlcjogbm9uZTtcclxufVxyXG5cclxuLmJ0bl9wc2V1ZG8ge1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICB3aWR0aDogMTAwJTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbiAgY29sb3I6IHZhcigtLXBpbmspO1xyXG59XHJcblxyXG4uYnRuX2JhbmlzaCB7XHJcbiAgY29sb3I6IHdoaXRlICFpbXBvcnRhbnQ7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tYmx1ZTEpICFpbXBvcnRhbnQ7XHJcbiAgZm9udC1zaXplOiAxNXB4ICFpbXBvcnRhbnQ7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyICFpbXBvcnRhbnQ7XHJcbiAgZm9udC13ZWlnaHQ6IDUwMCAhaW1wb3J0YW50O1xyXG4gIGhlaWdodDogNDBweCAhaW1wb3J0YW50O1xyXG4gIHRyYW5zaXRpb246IGFsbCAwLjJzO1xyXG59XHJcblxyXG4uYnRuX2JhbmlzaDpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmVkICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDcwMHB4KSB7XHJcbiAgLm1haW5fbGl2ZV9jYW0ge1xyXG4gICAgaGVpZ2h0OiAzMnZoO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtd3JhcDogd3JhcCAhaW1wb3J0YW50O1xyXG4gIH1cclxuICAuY2FtZXJhX2l0ZW0ge2ZsZXg6IDEgMSAxNTBweDt9XHJcblxyXG4gIHZpZGVvLmxpdmVfY2FtIHtcclxuICAgIHdpZHRoOiAxNTBweDtcclxuICAgIGhlaWdodDogMTUwcHg7XHJcbiAgfVxyXG5cclxuICAuUHNldWRvIHtcclxuICAgIGJvdHRvbTogLTEwcHg7XHJcbiAgfVxyXG59XHJcbiJdfQ== */"] });
 
 
 /***/ }),
@@ -8043,7 +8061,7 @@ class LiveVipComponent {
     }
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((ms) => {
                 this.lazyStream = ms;
                 console.log('My stream ', ms);
                 this.video.nativeElement.srcObject = this.lazyStream;
@@ -8101,7 +8119,7 @@ class LiveVipComponent {
     }
     streamRemoteVideo(stream) {
         console.log('Stream Remote video ', stream);
-        // this.remote_video.nativeElement.srcObject = stream;
+        //this.remote_video.nativeElement.srcObject = stream;
         const _video = this.remote_video.nativeElement;
         _video.srcObject = stream;
         setTimeout(() => {
@@ -11153,41 +11171,41 @@ class LivePrivateModelComponent {
             });
             this.peer.on('call', (call) => {
                 console.log("Someone call model");
-                // call.answer(this.lazyStream);
-                // console.log("After answer stream");
-                // call.on('stream', (remoteStream) => {
-                //   console.log("On receive stream in model");
-                //   if (!this.peerList.includes(call.peer)) {
-                //     this.streamRemoteVideo(remoteStream, call.peer);
-                //     this.currentPeer = call.peerConnection;
-                //     this.peerList.push(call.peer);
-                //   }
-                //   console.log("Peer list ", this.peerList);
-                // });
-                this.onStop();
-                navigator.mediaDevices.getUserMedia({
-                    video: this.showVideo,
-                    audio: this.showAudio
-                }).then((stream) => {
-                    this.lazyStream = stream;
-                    this.video.nativeElement.srcObject = stream;
-                    // const _video = this.video.nativeElement;
-                    // _video.srcObject = stream;
-                    // _video.play();
-                    call.answer(stream);
-                    // console.log("After answer stream");
-                    // call.on('stream', (remoteStream) => {
-                    //   console.log("On receive stream model");
-                    //   if (!this.peerList.includes(call.peer)) {
-                    //     this.streamRemoteVideo(remoteStream, call.peer);
-                    //     this.currentPeer = call.peerConnection;
-                    //     this.peerList.push(call.peer);
-                    //   }
-                    //   console.log("Peer list ", this.peerList);
-                    // });
-                }).catch(err => {
-                    console.log(err + ' - Unable to get media');
+                call.answer(this.lazyStream);
+                console.log("After answer stream");
+                call.on('stream', (remoteStream) => {
+                    console.log("On receive stream in model");
+                    if (!this.peerList.includes(call.peer)) {
+                        this.streamRemoteVideo(remoteStream, call.peer);
+                        this.currentPeer = call.peerConnection;
+                        this.peerList.push(call.peer);
+                    }
+                    console.log("Peer list ", this.peerList);
                 });
+                // this.onStop();
+                // navigator.mediaDevices.getUserMedia({
+                //   video: this.showVideo,
+                //   audio: this.showAudio
+                // }).then((stream) => {
+                //   this.lazyStream = stream;
+                //   this.video.nativeElement.srcObject = stream;
+                //   // const _video = this.video.nativeElement;
+                //   // _video.srcObject = stream;
+                //   // _video.play();
+                //   call.answer(stream);
+                //   // console.log("After answer stream");
+                //   // call.on('stream', (remoteStream) => {
+                //   //   console.log("On receive stream model");
+                //   //   if (!this.peerList.includes(call.peer)) {
+                //   //     this.streamRemoteVideo(remoteStream, call.peer);
+                //   //     this.currentPeer = call.peerConnection;
+                //   //     this.peerList.push(call.peer);
+                //   //   }
+                //   //   console.log("Peer list ", this.peerList);
+                //   // });
+                // }).catch(err => {
+                //   console.log(err + ' - Unable to get media');
+                // });
             });
         };
         this.peer = new peerjs__WEBPACK_IMPORTED_MODULE_6___default.a();
@@ -11305,6 +11323,7 @@ class LivePrivateModelComponent {
         });
         this.toggleAudioSub = this.socketService.listen(`Toggle audio ${this.info.idRoom}P`).subscribe((data) => {
             if (data.clientId) {
+                console.log('Toggle audio from ', data.clientId);
                 this.toggleAudioClientStream(data.peerId, data.isAudio);
             }
         });
@@ -11519,17 +11538,18 @@ class LivePrivateModelComponent {
     }
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: this.showVideo, audio: this.showAudio }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((ms) => {
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
-                // this.lazyStream = ms;
-                this.video.nativeElement.srcObject = ms;
+                this.lazyStream = ms;
+                this.video.nativeElement.srcObject = this.lazyStream;
                 jquery__WEBPACK_IMPORTED_MODULE_4__('#video_live_model').prop('volume', 0);
             });
         }
     }
     onStop() {
+        this.lazyStream = null;
         if (this.video && this.video.nativeElement.srcObject) {
             this.video.nativeElement.pause();
             if (this.video.nativeElement.srcObject.getVideoTracks()[0]) {
@@ -11542,52 +11562,60 @@ class LivePrivateModelComponent {
         this.callPeer(this.peerIdShare);
     }
     callPeer(id) {
-        // const call = this.peer.call(id, this.lazyStream);
-        // call.on('stream', (remoteStream) => {
-        //   if (!this.peerList.includes(call.peer)) {
-        //     this.streamRemoteVideo(remoteStream, call.peer);
-        //     this.currentPeer = call.peerConnection;
-        //     this.peerList.push(call.peer);
-        //   }
-        // });
-        this.onStop();
-        navigator.mediaDevices.getUserMedia({
-            video: this.showVideo,
-            audio: this.showAudio
-        }).then((stream) => {
-            this.lazyStream = stream;
-            this.video.nativeElement.srcObject = stream;
-            const call = this.peer.call(id, stream);
-            call.on('stream', (remoteStream) => {
-                if (!this.peerList.includes(call.peer)) {
-                    this.streamRemoteVideo(remoteStream, call.peer);
-                    this.currentPeer = call.peerConnection;
-                    this.peerList.push(call.peer);
-                }
-            });
-        }).catch(err => {
-            console.log(err + 'Unable to connect');
+        const call = this.peer.call(id, this.lazyStream);
+        call.on('stream', (remoteStream) => {
+            if (!this.peerList.includes(call.peer)) {
+                this.streamRemoteVideo(remoteStream, call.peer);
+                this.currentPeer = call.peerConnection;
+                this.peerList.push(call.peer);
+            }
         });
+        // this.onStop();
+        // navigator.mediaDevices.getUserMedia({
+        //   video: this.showVideo,
+        //   audio: this.showAudio
+        // }).then((stream) => {
+        //   this.lazyStream = stream;
+        //   this.video.nativeElement.srcObject = stream;
+        //   const call = this.peer.call(id, stream);
+        //   call.on('stream', (remoteStream) => {
+        //     if (!this.peerList.includes(call.peer)) {
+        //       this.streamRemoteVideo(remoteStream, call.peer);
+        //       this.currentPeer = call.peerConnection;
+        //       this.peerList.push(call.peer);
+        //     }
+        //   });
+        // }).catch(err => {
+        //   console.log(err + 'Unable to connect');
+        // });
     }
     callClient(clientId, peerId) {
-        this.onStop();
-        navigator.mediaDevices.getUserMedia({
-            video: this.showVideo,
-            audio: this.showAudio
-        }).then((stream) => {
-            this.lazyStream = stream;
-            this.video.nativeElement.srcObject = stream;
-            const call = this.peer.call(peerId, stream);
-            call.on('stream', (remoteStream) => {
-                if (!this.peerList.includes(call.peer)) {
-                    this.streamRemoteVideo(remoteStream, call.peer, clientId);
-                    this.currentPeer = call.peerConnection;
-                    this.peerList.push(call.peer);
-                }
-            });
-        }).catch(err => {
-            console.log(err + 'Unable to connect');
+        const call = this.peer.call(peerId, this.lazyStream);
+        call.on('stream', (remoteStream) => {
+            if (!this.peerList.includes(call.peer)) {
+                this.streamRemoteVideo(remoteStream, call.peer, clientId);
+                this.currentPeer = call.peerConnection;
+                this.peerList.push(call.peer);
+            }
         });
+        // this.onStop();
+        // navigator.mediaDevices.getUserMedia({
+        //   video: this.showVideo,
+        //   audio: this.showAudio
+        // }).then((stream) => {
+        //   this.lazyStream = stream;
+        //   this.video.nativeElement.srcObject = stream;
+        //   const call = this.peer.call(peerId, stream);
+        //   call.on('stream', (remoteStream) => {
+        //     if (!this.peerList.includes(call.peer)) {
+        //       this.streamRemoteVideo(remoteStream, call.peer, clientId);
+        //       this.currentPeer = call.peerConnection;
+        //       this.peerList.push(call.peer);
+        //     }
+        //   });
+        // }).catch(err => {
+        //   console.log(err + 'Unable to connect');
+        // });
     }
     removeStream(clientId) {
         // console.log('Remove stream ', clientId)
@@ -11650,6 +11678,11 @@ class LivePrivateModelComponent {
         this.showAudio = !this.showAudio;
         // this.onStop();
         // this.onStart();
+        if (!this.showAudio) {
+            this.lazyStream.getAudioTracks().forEach((track) => {
+                track.stop();
+            });
+        }
         const room = this.info.idRoom + 'P';
         this.socketService.toggleAudio(room, null, this.peerId, this.info.modelId, this.showAudio);
     }
@@ -14725,7 +14758,8 @@ class AuthInterceptor {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])((error) => {
             // let errorMessage = '';
             if (error.error.statusCode == 400) {
-                this.notificationService.errorMsg(error.error.message);
+                // this.notificationService.errorMsg(error.error.message);
+                console.log(error.error.message);
             }
             else if (error.error.statusCode == 401) {
                 // this.notificationService.errorMsg('Accès refusé');
@@ -20287,9 +20321,11 @@ class LivePrivateComponent {
             });
             this.toggleAudioSub = this.socketService.listen(`Toggle audio ${this.idRoom}P`).subscribe((data) => {
                 if (data.clientId) {
+                    console.log('Toggle audio client ', data.clientId);
                     this.toggleAudioClientStream(data.peerId, data.isAudio);
                 }
                 else if (data.modelId) {
+                    console.log('Toggle audio model');
                     this.toggleAudioModelStream(data.isAudio);
                 }
             });
