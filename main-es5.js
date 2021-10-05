@@ -22334,11 +22334,24 @@
 
             if (!this.showAudio) {
               this.lazyStream.getAudioTracks().forEach(function (track) {
-                track.stop();
+                track.enabled = false;
               });
             } else {
-              this.onStop();
-              this.onStart();
+              this.lazyStream.getAudioTracks().forEach(function (track) {
+                track.enabled = true;
+              }); // this.onStop();
+              // this.onStart();
+              // const data = {
+              //   role: 'model',
+              //   modelId: this.info.modelId,
+              //   room : this.info.idRoom+'P',
+              //   peerId: this.peerId
+              // }
+              // setTimeout(
+              //   () => {
+              //     this.socketService.newPeerIdModel(data);
+              //   }, 2000
+              // )
             }
 
             var room = this.info.idRoom + 'P';

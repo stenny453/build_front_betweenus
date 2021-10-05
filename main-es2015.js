@@ -11680,12 +11680,26 @@ class LivePrivateModelComponent {
         // this.onStart();
         if (!this.showAudio) {
             this.lazyStream.getAudioTracks().forEach((track) => {
-                track.stop();
+                track.enabled = false;
             });
         }
         else {
-            this.onStop();
-            this.onStart();
+            this.lazyStream.getAudioTracks().forEach((track) => {
+                track.enabled = true;
+            });
+            // this.onStop();
+            // this.onStart();
+            // const data = {
+            //   role: 'model',
+            //   modelId: this.info.modelId,
+            //   room : this.info.idRoom+'P',
+            //   peerId: this.peerId
+            // }
+            // setTimeout(
+            //   () => {
+            //     this.socketService.newPeerIdModel(data);
+            //   }, 2000
+            // )
         }
         const room = this.info.idRoom + 'P';
         this.socketService.toggleAudio(room, null, this.peerId, this.info.modelId, this.showAudio);
