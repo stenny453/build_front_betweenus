@@ -94,7 +94,13 @@
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _live_tips_model_live_tips_model_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! ./live-tips-model/live-tips-model.component */
+      "Duco");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
 
@@ -131,6 +137,10 @@
         path: 'live-vip',
         component: _live_vip_model_live_vip_model_component__WEBPACK_IMPORTED_MODULE_9__["LiveVipModelComponent"],
         canActivate: [src_app_services_auth_auth_model_guard_service__WEBPACK_IMPORTED_MODULE_1__["AuthModelGuardService"]]
+      }, {
+        path: 'live-tips',
+        component: _live_tips_model_live_tips_model_component__WEBPACK_IMPORTED_MODULE_11__["LiveTipsModelComponent"],
+        canActivate: [src_app_services_auth_auth_model_guard_service__WEBPACK_IMPORTED_MODULE_1__["AuthModelGuardService"]]
       }];
 
       var ModelRoutingModule = function ModelRoutingModule() {
@@ -141,15 +151,15 @@
         return new (t || ModelRoutingModule)();
       };
 
-      ModelRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdefineNgModule"]({
+      ModelRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineNgModule"]({
         type: ModelRoutingModule
       });
-      ModelRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdefineInjector"]({
+      ModelRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineInjector"]({
         imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]]
       });
 
       (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵsetNgModuleScope"](ModelRoutingModule, {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵsetNgModuleScope"](ModelRoutingModule, {
           imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]],
           exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]]
         });

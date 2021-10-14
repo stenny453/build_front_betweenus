@@ -28,7 +28,7 @@ class AuthAdminGuardService {
         }
         const token = this.authService.getToken();
         this.authService.verifyAdminToken(token).subscribe((data) => {
-            console.log(data);
+            // console.log(data)
             if (data && data.role === 'admin') {
                 return true;
             }
@@ -37,7 +37,7 @@ class AuthAdminGuardService {
                 return false;
             }
         }, (error) => {
-            console.log('Non autoriser');
+            // console.log('Non autoriser')
             // console.log(error)
             // this.router.navigateByUrl('authentification-admin')
             return false;
@@ -78,7 +78,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_auth_auth_admin_guard_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../services/auth/auth-admin-guard.service */ "54Ov");
 /* harmony import */ var _connected_dashboard_admin_administration_message_admin_message_admin_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./connected/dashboard-admin/administration/message-admin/message-admin.component */ "Z8Rj");
 /* harmony import */ var _connected_dashboard_admin_administration_setting_admin_setting_admin_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./connected/dashboard-admin/administration/setting-admin/setting-admin.component */ "yZ7H");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _connected_dashboard_admin_model_suivi_models_admin_suivi_models_admin_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./connected/dashboard-admin/model/suivi-models-admin/suivi-models-admin.component */ "c9Sc");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
 
 
 
@@ -141,6 +143,10 @@ const routes = [
                 component: _connected_dashboard_admin_model_ask_models_admin_ask_models_admin_component__WEBPACK_IMPORTED_MODULE_9__["AskModelsAdminComponent"]
             },
             {
+                path: 'suivi-modeles',
+                component: _connected_dashboard_admin_model_suivi_models_admin_suivi_models_admin_component__WEBPACK_IMPORTED_MODULE_17__["SuiviModelsAdminComponent"]
+            },
+            {
                 path: 'modeles-statistiques',
                 component: _connected_dashboard_admin_model_statistique_models_admin_statistique_models_admin_component__WEBPACK_IMPORTED_MODULE_10__["StatistiqueModelsAdminComponent"]
             },
@@ -170,9 +176,9 @@ const routes = [
 class AdminRoutingModule {
 }
 AdminRoutingModule.ɵfac = function AdminRoutingModule_Factory(t) { return new (t || AdminRoutingModule)(); };
-AdminRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_17__["ɵɵdefineNgModule"]({ type: AdminRoutingModule });
-AdminRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_17__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_17__["ɵɵsetNgModuleScope"](AdminRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] }); })();
+AdminRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_18__["ɵɵdefineNgModule"]({ type: AdminRoutingModule });
+AdminRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_18__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_18__["ɵɵsetNgModuleScope"](AdminRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] }); })();
 
 
 /***/ })

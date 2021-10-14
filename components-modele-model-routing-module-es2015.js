@@ -21,7 +21,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _live_private_model_live_private_model_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./live-private-model/live-private-model.component */ "Sp0i");
 /* harmony import */ var _live_vip_model_live_vip_model_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./live-vip-model/live-vip-model.component */ "AtE+");
 /* harmony import */ var _profil_model_profil_model_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./profil-model/profil-model.component */ "E00H");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _live_tips_model_live_tips_model_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./live-tips-model/live-tips-model.component */ "Duco");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
 
 
 
@@ -77,14 +79,19 @@ const routes = [
         path: 'live-vip',
         component: _live_vip_model_live_vip_model_component__WEBPACK_IMPORTED_MODULE_9__["LiveVipModelComponent"],
         canActivate: [src_app_services_auth_auth_model_guard_service__WEBPACK_IMPORTED_MODULE_1__["AuthModelGuardService"]]
+    },
+    {
+        path: 'live-tips',
+        component: _live_tips_model_live_tips_model_component__WEBPACK_IMPORTED_MODULE_11__["LiveTipsModelComponent"],
+        canActivate: [src_app_services_auth_auth_model_guard_service__WEBPACK_IMPORTED_MODULE_1__["AuthModelGuardService"]]
     }
 ];
 class ModelRoutingModule {
 }
 ModelRoutingModule.ɵfac = function ModelRoutingModule_Factory(t) { return new (t || ModelRoutingModule)(); };
-ModelRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdefineNgModule"]({ type: ModelRoutingModule });
-ModelRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵsetNgModuleScope"](ModelRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] }); })();
+ModelRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineNgModule"]({ type: ModelRoutingModule });
+ModelRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵsetNgModuleScope"](ModelRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] }); })();
 
 
 /***/ }),
