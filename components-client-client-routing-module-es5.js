@@ -112,7 +112,13 @@
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _live_live_free_saloon_live_free_saloon_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! ../live/live-free-saloon/live-free-saloon.component */
+      "CIt8");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
 
@@ -155,6 +161,10 @@
         component: _live_live_tips_live_tips_component__WEBPACK_IMPORTED_MODULE_0__["LiveTipsComponent"],
         canActivate: [src_app_services_auth_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]]
       }, {
+        path: 'live/choice-us',
+        component: _live_live_free_saloon_live_free_saloon_component__WEBPACK_IMPORTED_MODULE_14__["LiveFreeSaloonComponent"],
+        canActivate: [src_app_services_auth_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]]
+      }, {
         path: 'register/confirm',
         component: _confirm_email_confirm_email_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmEmailComponent"]
       }, {
@@ -170,15 +180,15 @@
         return new (t || ClientRoutingModule)();
       };
 
-      ClientRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdefineNgModule"]({
+      ClientRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_15__["ɵɵdefineNgModule"]({
         type: ClientRoutingModule
       });
-      ClientRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdefineInjector"]({
+      ClientRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_15__["ɵɵdefineInjector"]({
         imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
       });
 
       (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵsetNgModuleScope"](ClientRoutingModule, {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_15__["ɵɵsetNgModuleScope"](ClientRoutingModule, {
           imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
           exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
         });
