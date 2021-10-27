@@ -5280,9 +5280,7 @@ const environment = {
     CRYPT_PSEUDO: "storm/betweenus?...",
     CRYPT_PASS: "0@8between.us",
     CRYPT_PSEUDO_MODEL: "storm://betweenus?...",
-    CRYPT_PASS_MODEL: "@0@8çççbetween.us",
-    TWILIO_ACCOUNT_SID: "ACb0808b37ae3773c0f11ddc7d92c52788",
-    TWILIO_AUTH_TOKEN: "0665f9a99f2fb1dc3850c86ee980a028"
+    CRYPT_PASS_MODEL: "@0@8çççbetween.us"
 };
 /*
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
