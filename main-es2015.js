@@ -5280,7 +5280,9 @@ const environment = {
     CRYPT_PSEUDO: "storm/betweenus?...",
     CRYPT_PASS: "0@8between.us",
     CRYPT_PSEUDO_MODEL: "storm://betweenus?...",
-    CRYPT_PASS_MODEL: "@0@8çççbetween.us"
+    CRYPT_PASS_MODEL: "@0@8çççbetween.us",
+    TWILIO_ACCOUNT_SID: "ACb0808b37ae3773c0f11ddc7d92c52788",
+    TWILIO_AUTH_TOKEN: "0665f9a99f2fb1dc3850c86ee980a028"
 };
 /*
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
@@ -9074,7 +9076,7 @@ LiveTipsModelComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵd
     } if (rf & 2) {
         let _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.video = _t.first);
-    } }, decls: 65, vars: 44, consts: [["connected", "true", "model", "true"], [1, "main_live"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [3, "context", "actif", "hour", "minute", "second", "reinit"], [3, "tips", "miniPalier", "bronzePalier", "argentPalier", "orPalier"], [1, "contain_left", "contain_left_model"], [1, "show_live_left", "show_live_left_model"], ["id", "videoContainer", "data-fullscreen", "false", 1, "videoContainer", 2, "margin", "0px"], ["controls", "", "autoplay", "", "id", "video_live_model", "muted", "muted", 1, "model_flow"], ["video_live_model", ""], ["id", "video-controls", 1, "controls"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/no-video.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/volume.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/mute.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../assets/icons/full-size.svg", "alt", ""], [1, "contain_right", "contain_right_model"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Chat"], ["showMenu", "true", "isModel", "true", "live", "tips", 3, "modelId", "messages", "profil", "clientId", "pseudoModel"], ["label", "Statistiques"], ["type_show", "live tips", "tarif_show", "0", "liveTips", "1", 3, "time_show", "client", "time_passed", "hour_passed", "minute_passed", "second_passed", "actualCredit", "winCredit", "totalCredit", "roomId", "miniPalier", "bronzePalier", "argentPalier", "orPalier", "filled"], ["class", "leave", 4, "ngIf"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], [1, "btn_credit"], [1, "btn", "lighter"], [1, "contain_gain"], [1, "btn", "btn_banish", "lighter", 3, "click"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], ["class", "emoji-mart", "searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 3, "set", "emojiSelect", 4, "ngIf"], [1, "contain_thrombone"], [1, "txt_live_chat"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "focus", "ngModelChange"], ["type", "button", 3, "click"], ["src", "./../../../../assets/icons/in-love.png", 1, "img_emoji"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], ["class", "lds-spinner", 4, "ngIf"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", ""], ["src", "./../../../../assets/icons/no-video.svg", "alt", ""], ["src", "./../../../../assets/icons/volume.svg", "alt", ""], ["src", "./../../../../assets/icons/mute.svg", "alt", ""], [1, "leave"], [1, "contain_action", "contain_action_mobile"], ["searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 1, "emoji-mart", 3, "set", "emojiSelect"], [1, "lds-spinner"]], template: function LiveTipsModelComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 65, vars: 44, consts: [["connected", "true", "model", "true"], [1, "main_live"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [3, "context", "actif", "hour", "minute", "second", "reinit"], [3, "tips", "miniPalier", "bronzePalier", "argentPalier", "orPalier"], [1, "contain_left", "contain_left_model"], [1, "show_live_left", "show_live_left_model"], ["id", "videoContainer", "data-fullscreen", "false", 1, "videoContainer", 2, "margin", "0px"], ["controls", "", "autoplay", "", "id", "video_live_model", "muted", "muted", 1, "model_flow"], ["video_live_model", ""], ["id", "video-controls", 1, "controls"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/no-video.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/volume.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/mute.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../assets/icons/full-size.svg", "alt", ""], [1, "contain_right", "contain_right_model"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Chat"], ["showMenu", "true", "isModel", "true", "live", "tips", 3, "modelId", "messages", "profil", "clientId", "pseudoModel"], ["label", "Param\u00E8tre live"], ["type_show", "live tips", "tarif_show", "0", "liveTips", "1", 3, "time_show", "client", "time_passed", "hour_passed", "minute_passed", "second_passed", "actualCredit", "winCredit", "totalCredit", "roomId", "miniPalier", "bronzePalier", "argentPalier", "orPalier", "filled"], ["class", "leave", 4, "ngIf"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], [1, "btn_credit"], [1, "btn", "lighter"], [1, "contain_gain"], [1, "btn", "btn_banish", "lighter", 3, "click"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], ["class", "emoji-mart", "searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 3, "set", "emojiSelect", 4, "ngIf"], [1, "contain_thrombone"], [1, "txt_live_chat"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "focus", "ngModelChange"], ["type", "button", 3, "click"], ["src", "./../../../../assets/icons/in-love.png", 1, "img_emoji"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], ["class", "lds-spinner", 4, "ngIf"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", ""], ["src", "./../../../../assets/icons/no-video.svg", "alt", ""], ["src", "./../../../../assets/icons/volume.svg", "alt", ""], ["src", "./../../../../assets/icons/mute.svg", "alt", ""], [1, "leave"], [1, "contain_action", "contain_action_mobile"], ["searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 1, "emoji-mart", 3, "set", "emojiSelect"], [1, "lds-spinner"]], template: function LiveTipsModelComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-header", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "img", 2);
@@ -16102,7 +16104,7 @@ function LiveFreeChatComponent_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](9, "br");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](10, " Param\u00E8trer votre palier de tips ");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](11, "br");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12, " dans la statistique du live. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12, " dans la param\u00E8tre du live. ");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -16125,7 +16127,7 @@ function LiveFreeChatComponent_div_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](9, "br");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](10, " Choisissez le type de show et votre tarif");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](11, "br");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12, " dans la statistique du live. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12, " dans le param\u00E8tre du live. ");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 } if (rf & 2) {
@@ -21262,7 +21264,7 @@ LiveFreeSaloonModelComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__[
         let _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.video = _t.first);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.remote_video = _t.first);
-    } }, decls: 78, vars: 44, consts: [["connected", "true", "model", "true"], [1, "main_live"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [3, "context", "actif", "hour", "minute", "second", "reinit"], [1, "contain_left", "contain_left_model"], [1, "show_live_left", "show_live_left_model"], ["id", "videoContainer", "data-fullscreen", "false", 1, "videoContainer", 2, "margin", "0px"], ["controls", "", "autoplay", "", "id", "video_live_model", "muted", "muted", 1, "model_flow"], ["video_live_model", ""], [1, "contain_info_room"], [1, "contain_welcome"], [1, "contain_detail"], [1, "label_room"], [1, "contain_gain"], ["id", "video-controls", 1, "controls"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/no-video.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/volume.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/mute.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../assets/icons/full-size.svg", "alt", ""], [1, "client_live", 3, "ngClass"], ["controls", "", "muted", "true", "id", "video_live_client", 1, "client_flow", 3, "poster"], ["video_live_client", ""], [1, "contain_right", "contain_right_model"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Chat"], ["showMenu", "true", "isModel", "true", "live", "free", 3, "modelId", "messages", "profil", "clientId", "pseudoModel"], ["label", "Statistiques"], ["type_show", "live choice us", "liveFree", "1", 3, "tarif_show", "time_show", "client", "time_passed", "hour_passed", "minute_passed", "second_passed", "actualCredit", "roomId", "winCredit", "totalCredit", "filledChoiceUs", "tarif", "title", "description"], ["class", "leave", 4, "ngIf"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], [1, "btn_credit"], [1, "btn", "lighter"], [1, "btn", "btn_banish", "lighter", 3, "click"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], ["class", "emoji-mart", "searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 3, "set", "emojiSelect", 4, "ngIf"], [1, "contain_thrombone"], [1, "txt_live_chat"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "focus", "ngModelChange"], ["type", "button", 3, "click"], ["src", "./../../../../assets/icons/in-love.png", 1, "img_emoji"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], ["class", "lds-spinner", 4, "ngIf"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", ""], ["src", "./../../../../assets/icons/no-video.svg", "alt", ""], ["src", "./../../../../assets/icons/volume.svg", "alt", ""], ["src", "./../../../../assets/icons/mute.svg", "alt", ""], [1, "leave"], [1, "contain_action", "contain_action_mobile"], ["searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 1, "emoji-mart", 3, "set", "emojiSelect"], [1, "lds-spinner"]], template: function LiveFreeSaloonModelComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 78, vars: 44, consts: [["connected", "true", "model", "true"], [1, "main_live"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [3, "context", "actif", "hour", "minute", "second", "reinit"], [1, "contain_left", "contain_left_model"], [1, "show_live_left", "show_live_left_model"], ["id", "videoContainer", "data-fullscreen", "false", 1, "videoContainer", 2, "margin", "0px"], ["controls", "", "autoplay", "", "id", "video_live_model", "muted", "muted", 1, "model_flow"], ["video_live_model", ""], [1, "contain_info_room"], [1, "contain_welcome"], [1, "contain_detail"], [1, "label_room"], [1, "contain_gain"], ["id", "video-controls", 1, "controls"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/no-video.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/volume.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/mute.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../assets/icons/full-size.svg", "alt", ""], [1, "client_live", 3, "ngClass"], ["controls", "", "muted", "true", "id", "video_live_client", 1, "client_flow", 3, "poster"], ["video_live_client", ""], [1, "contain_right", "contain_right_model"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Chat"], ["showMenu", "true", "isModel", "true", "live", "free", 3, "modelId", "messages", "profil", "clientId", "pseudoModel"], ["label", "Param\u00E8tre live"], ["type_show", "live choice us", "liveFree", "1", 3, "tarif_show", "time_show", "client", "time_passed", "hour_passed", "minute_passed", "second_passed", "actualCredit", "roomId", "winCredit", "totalCredit", "filledChoiceUs", "tarif", "title", "description"], ["class", "leave", 4, "ngIf"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], [1, "btn_credit"], [1, "btn", "lighter"], [1, "btn", "btn_banish", "lighter", 3, "click"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], ["class", "emoji-mart", "searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 3, "set", "emojiSelect", 4, "ngIf"], [1, "contain_thrombone"], [1, "txt_live_chat"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "focus", "ngModelChange"], ["type", "button", 3, "click"], ["src", "./../../../../assets/icons/in-love.png", 1, "img_emoji"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], ["class", "lds-spinner", 4, "ngIf"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", ""], ["src", "./../../../../assets/icons/no-video.svg", "alt", ""], ["src", "./../../../../assets/icons/volume.svg", "alt", ""], ["src", "./../../../../assets/icons/mute.svg", "alt", ""], [1, "leave"], [1, "contain_action", "contain_action_mobile"], ["searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 1, "emoji-mart", 3, "set", "emojiSelect"], [1, "lds-spinner"]], template: function LiveFreeSaloonModelComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-header", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "img", 2);
@@ -25269,7 +25271,7 @@ class LivePrivateComponent {
             });
             this.peer.on('call', (call) => {
                 console.log('on call');
-                // call.answer(this.lazyStream);
+                call.answer(this.lazyStream);
                 // call.on('stream', (remoteStream) => {
                 //   console.log('On stream from call')
                 //   if (!this.peerList.includes(call.peer)) {
@@ -25279,29 +25281,29 @@ class LivePrivateComponent {
                 //   }
                 // });
                 // this.onStop();
-                navigator.mediaDevices.getUserMedia({
-                    video: this.showVideo,
-                    audio: this.showAudio
-                }).then((stream) => {
-                    this.lazyStream = stream;
-                    // this.clientStream.push({
-                    //   clientId: this.clientStream.length,
-                    //   stream: stream
-                    // });
-                    // const _video = this.video.nativeElement;
-                    // _video.srcObject = stream;
-                    // _video.play();
-                    call.answer(stream);
-                    // call.on('stream', (remoteStream) => {
-                    //   if (!this.peerList.includes(call.peer)) {
-                    //     this.addOtherClientstreamRemoteVideo(this.clientStream.length,remoteStream, call.peer);
-                    //     this.currentPeer = call.peerConnection;
-                    //     this.peerList.push(call.peer);
-                    //   }
-                    // });
-                }).catch(err => {
-                    console.log(err + ' - Unable to get media');
-                });
+                // navigator.mediaDevices.getUserMedia({
+                //   video: this.showVideo,
+                //   audio: this.showAudio
+                // }).then((stream) => {
+                //   this.lazyStream = stream;
+                //   // this.clientStream.push({
+                //   //   clientId: this.clientStream.length,
+                //   //   stream: stream
+                //   // });
+                //   // const _video = this.video.nativeElement;
+                //   // _video.srcObject = stream;
+                //   // _video.play();
+                //   call.answer(stream);
+                //   // call.on('stream', (remoteStream) => {
+                //   //   if (!this.peerList.includes(call.peer)) {
+                //   //     this.addOtherClientstreamRemoteVideo(this.clientStream.length,remoteStream, call.peer);
+                //   //     this.currentPeer = call.peerConnection;
+                //   //     this.peerList.push(call.peer);
+                //   //   }
+                //   // });
+                // }).catch(err => {
+                //   console.log(err + ' - Unable to get media');
+                // });
             });
         };
         this.peer = new peerjs__WEBPACK_IMPORTED_MODULE_6___default.a();
@@ -25329,6 +25331,8 @@ class LivePrivateComponent {
     ngOnDestroy() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.onStop();
+            this.socketService.leavePrivate(this.idRoom, 'client', this.clientId);
+            this.roomPrivateService.updateActif(this.idRoom, false, 'private');
             (yield this.creditTimer()).subscribe((data) => { });
             clearInterval(this.timer.timer);
             this.actifSub.unsubscribe();
@@ -25861,7 +25865,7 @@ class LivePrivateComponent {
                 this.lazyStream = ms;
                 this.clientStream.push({
                     clientId: this.clientId,
-                    stream: ms,
+                    stream: this.lazyStream,
                     peerId: this.peerId,
                     isAudio: false,
                     isVideo: true
@@ -25879,7 +25883,7 @@ class LivePrivateComponent {
         //   index++;
         // })
         // })
-        // console.log('leave');
+        console.log('leave');
         this.lazyStream.getTracks().forEach((track) => {
             track.stop();
         });
@@ -25908,45 +25912,45 @@ class LivePrivateComponent {
         if (id === undefined)
             return null;
         // console.log("Client call someone");
-        // const call = this.peer.call(id, this.lazyStream);
-        // console.log("After call model");
-        // if (call) {
-        //   call.on('stream', (remoteStream) => {
-        //     console.log("On stream after call in client");
-        //     if (!this.peerList.includes(call.peer)) {
-        //       this.streamRemoteVideo(remoteStream);
-        //       this.currentPeer = call.peerConnection;
-        //       this.peerList.push(call.peer);
-        //     }
-        //   });
-        // }
-        // this.onStop();
-        navigator.mediaDevices.getUserMedia({
-            video: this.showAudio,
-            audio: this.showVideo
-        }).then((stream) => {
-            this.lazyStream = stream;
-            // this.clientStream.push({
-            //   clientId: this.clientStream.length,
-            //   stream: stream,
-            //   isAudio: true,
-            //   isVideo: true,
-            //   peerId: this.peerId
-            // });
-            // console.log("Get client stream ", stream);
-            const call = this.peer.call(id, stream);
-            console.log("After call model");
+        const call = this.peer.call(id, this.lazyStream);
+        console.log("After call model");
+        if (call) {
             call.on('stream', (remoteStream) => {
-                console.log("On receive stream from model");
+                console.log("On stream after call in client");
                 if (!this.peerList.includes(call.peer)) {
                     this.streamRemoteVideo(remoteStream);
                     this.currentPeer = call.peerConnection;
                     this.peerList.push(call.peer);
                 }
             });
-        }).catch(err => {
-            console.log(err + 'Unable to connect');
-        });
+        }
+        // this.onStop();
+        // navigator.mediaDevices.getUserMedia({
+        //   video: this.showAudio,
+        //   audio: this.showVideo
+        // }).then((stream) => {
+        //   this.lazyStream = stream;
+        //   // this.clientStream.push({
+        //   //   clientId: this.clientStream.length,
+        //   //   stream: stream,
+        //   //   isAudio: true,
+        //   //   isVideo: true,
+        //   //   peerId: this.peerId
+        //   // });
+        //   // console.log("Get client stream ", stream);
+        //   const call = this.peer.call(id, stream);
+        //   console.log("After call model");
+        //   call.on('stream', (remoteStream) => {
+        //     console.log("On receive stream from model");
+        //     if (!this.peerList.includes(call.peer)) {
+        //       this.streamRemoteVideo(remoteStream);
+        //       this.currentPeer = call.peerConnection;
+        //       this.peerList.push(call.peer);
+        //     }
+        //   });
+        // }).catch(err => {
+        //   console.log(err + 'Unable to connect');
+        // });
     }
     streamRemoteVideo(stream) {
         console.log('Stream Remote video ', stream);
@@ -25965,37 +25969,37 @@ class LivePrivateComponent {
             return null;
         if (clientPeer === this.peerIdShare)
             return null;
-        // const call = this.peer.call(clientPeer, this.lazyStream);
-        // if (call) {
-        //   call.on('stream', (remoteStream) => {
-        //     console.log("On stream in call other client");
-        //     if (!this.peerList.includes(call.peer)) {
-        //       this.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
-        //       this.currentPeer = call.peerConnection;
-        //       this.peerList.push(call.peer);
-        //     }
-        //   });
-        // }
-        // this.onStop();
-        navigator.mediaDevices.getUserMedia({
-            video: this.showVideo,
-            audio: this.showAudio
-        }).then((stream) => {
-            this.lazyStream = stream;
-            // console.log("Get client stream ", stream);
-            const call = this.peer.call(clientPeer, stream);
-            // console.log("After call model");
+        const call = this.peer.call(clientPeer, this.lazyStream);
+        if (call) {
             call.on('stream', (remoteStream) => {
-                console.log("On received stream other client");
+                console.log("On stream in call other client");
                 if (!this.peerList.includes(call.peer)) {
                     this.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
                     this.currentPeer = call.peerConnection;
                     this.peerList.push(call.peer);
                 }
             });
-        }).catch(err => {
-            console.log(err + 'Unable to connect');
-        });
+        }
+        // this.onStop();
+        // navigator.mediaDevices.getUserMedia({
+        //   video: this.showVideo,
+        //   audio: this.showAudio
+        // }).then((stream) => {
+        //   this.lazyStream = stream;
+        //   // console.log("Get client stream ", stream);
+        //   const call = this.peer.call(clientPeer, stream);
+        //   // console.log("After call model");
+        //   call.on('stream', (remoteStream) => {
+        //     console.log("On received stream other client");
+        //     if (!this.peerList.includes(call.peer)) {
+        //       this.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
+        //       this.currentPeer = call.peerConnection;
+        //       this.peerList.push(call.peer);
+        //     }
+        //   });
+        // }).catch(err => {
+        //   console.log(err + 'Unable to connect');
+        // });
     }
     addOtherClientstreamRemoteVideo(clientId, stream, peerId) {
         // console.log('add other stream ', stream)

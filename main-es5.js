@@ -10163,7 +10163,9 @@
         CRYPT_PSEUDO: "storm/betweenus?...",
         CRYPT_PASS: "0@8between.us",
         CRYPT_PSEUDO_MODEL: "storm://betweenus?...",
-        CRYPT_PASS_MODEL: "@0@8çççbetween.us"
+        CRYPT_PASS_MODEL: "@0@8çççbetween.us",
+        TWILIO_ACCOUNT_SID: "ACb0808b37ae3773c0f11ddc7d92c52788",
+        TWILIO_AUTH_TOKEN: "0665f9a99f2fb1dc3850c86ee980a028"
       };
       /*
        * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
@@ -16740,7 +16742,7 @@
         },
         decls: 65,
         vars: 44,
-        consts: [["connected", "true", "model", "true"], [1, "main_live"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [3, "context", "actif", "hour", "minute", "second", "reinit"], [3, "tips", "miniPalier", "bronzePalier", "argentPalier", "orPalier"], [1, "contain_left", "contain_left_model"], [1, "show_live_left", "show_live_left_model"], ["id", "videoContainer", "data-fullscreen", "false", 1, "videoContainer", 2, "margin", "0px"], ["controls", "", "autoplay", "", "id", "video_live_model", "muted", "muted", 1, "model_flow"], ["video_live_model", ""], ["id", "video-controls", 1, "controls"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/no-video.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/volume.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/mute.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../assets/icons/full-size.svg", "alt", ""], [1, "contain_right", "contain_right_model"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Chat"], ["showMenu", "true", "isModel", "true", "live", "tips", 3, "modelId", "messages", "profil", "clientId", "pseudoModel"], ["label", "Statistiques"], ["type_show", "live tips", "tarif_show", "0", "liveTips", "1", 3, "time_show", "client", "time_passed", "hour_passed", "minute_passed", "second_passed", "actualCredit", "winCredit", "totalCredit", "roomId", "miniPalier", "bronzePalier", "argentPalier", "orPalier", "filled"], ["class", "leave", 4, "ngIf"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], [1, "btn_credit"], [1, "btn", "lighter"], [1, "contain_gain"], [1, "btn", "btn_banish", "lighter", 3, "click"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], ["class", "emoji-mart", "searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 3, "set", "emojiSelect", 4, "ngIf"], [1, "contain_thrombone"], [1, "txt_live_chat"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "focus", "ngModelChange"], ["type", "button", 3, "click"], ["src", "./../../../../assets/icons/in-love.png", 1, "img_emoji"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], ["class", "lds-spinner", 4, "ngIf"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", ""], ["src", "./../../../../assets/icons/no-video.svg", "alt", ""], ["src", "./../../../../assets/icons/volume.svg", "alt", ""], ["src", "./../../../../assets/icons/mute.svg", "alt", ""], [1, "leave"], [1, "contain_action", "contain_action_mobile"], ["searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 1, "emoji-mart", 3, "set", "emojiSelect"], [1, "lds-spinner"]],
+        consts: [["connected", "true", "model", "true"], [1, "main_live"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [3, "context", "actif", "hour", "minute", "second", "reinit"], [3, "tips", "miniPalier", "bronzePalier", "argentPalier", "orPalier"], [1, "contain_left", "contain_left_model"], [1, "show_live_left", "show_live_left_model"], ["id", "videoContainer", "data-fullscreen", "false", 1, "videoContainer", 2, "margin", "0px"], ["controls", "", "autoplay", "", "id", "video_live_model", "muted", "muted", 1, "model_flow"], ["video_live_model", ""], ["id", "video-controls", 1, "controls"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/no-video.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/volume.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/mute.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../assets/icons/full-size.svg", "alt", ""], [1, "contain_right", "contain_right_model"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Chat"], ["showMenu", "true", "isModel", "true", "live", "tips", 3, "modelId", "messages", "profil", "clientId", "pseudoModel"], ["label", "Param\xE8tre live"], ["type_show", "live tips", "tarif_show", "0", "liveTips", "1", 3, "time_show", "client", "time_passed", "hour_passed", "minute_passed", "second_passed", "actualCredit", "winCredit", "totalCredit", "roomId", "miniPalier", "bronzePalier", "argentPalier", "orPalier", "filled"], ["class", "leave", 4, "ngIf"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], [1, "btn_credit"], [1, "btn", "lighter"], [1, "contain_gain"], [1, "btn", "btn_banish", "lighter", 3, "click"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], ["class", "emoji-mart", "searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 3, "set", "emojiSelect", 4, "ngIf"], [1, "contain_thrombone"], [1, "txt_live_chat"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "focus", "ngModelChange"], ["type", "button", 3, "click"], ["src", "./../../../../assets/icons/in-love.png", 1, "img_emoji"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], ["class", "lds-spinner", 4, "ngIf"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", ""], ["src", "./../../../../assets/icons/no-video.svg", "alt", ""], ["src", "./../../../../assets/icons/volume.svg", "alt", ""], ["src", "./../../../../assets/icons/mute.svg", "alt", ""], [1, "leave"], [1, "contain_action", "contain_action_mobile"], ["searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 1, "emoji-mart", 3, "set", "emojiSelect"], [1, "lds-spinner"]],
         template: function LiveTipsModelComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-header", 0);
@@ -30365,7 +30367,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](11, "br");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12, " dans la statistique du live. ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12, " dans la param\xE8tre du live. ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
@@ -30411,7 +30413,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](11, "br");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12, " dans la statistique du live. ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12, " dans le param\xE8tre du live. ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
@@ -39930,7 +39932,7 @@
         },
         decls: 78,
         vars: 44,
-        consts: [["connected", "true", "model", "true"], [1, "main_live"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [3, "context", "actif", "hour", "minute", "second", "reinit"], [1, "contain_left", "contain_left_model"], [1, "show_live_left", "show_live_left_model"], ["id", "videoContainer", "data-fullscreen", "false", 1, "videoContainer", 2, "margin", "0px"], ["controls", "", "autoplay", "", "id", "video_live_model", "muted", "muted", 1, "model_flow"], ["video_live_model", ""], [1, "contain_info_room"], [1, "contain_welcome"], [1, "contain_detail"], [1, "label_room"], [1, "contain_gain"], ["id", "video-controls", 1, "controls"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/no-video.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/volume.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/mute.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../assets/icons/full-size.svg", "alt", ""], [1, "client_live", 3, "ngClass"], ["controls", "", "muted", "true", "id", "video_live_client", 1, "client_flow", 3, "poster"], ["video_live_client", ""], [1, "contain_right", "contain_right_model"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Chat"], ["showMenu", "true", "isModel", "true", "live", "free", 3, "modelId", "messages", "profil", "clientId", "pseudoModel"], ["label", "Statistiques"], ["type_show", "live choice us", "liveFree", "1", 3, "tarif_show", "time_show", "client", "time_passed", "hour_passed", "minute_passed", "second_passed", "actualCredit", "roomId", "winCredit", "totalCredit", "filledChoiceUs", "tarif", "title", "description"], ["class", "leave", 4, "ngIf"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], [1, "btn_credit"], [1, "btn", "lighter"], [1, "btn", "btn_banish", "lighter", 3, "click"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], ["class", "emoji-mart", "searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 3, "set", "emojiSelect", 4, "ngIf"], [1, "contain_thrombone"], [1, "txt_live_chat"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "focus", "ngModelChange"], ["type", "button", 3, "click"], ["src", "./../../../../assets/icons/in-love.png", 1, "img_emoji"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], ["class", "lds-spinner", 4, "ngIf"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", ""], ["src", "./../../../../assets/icons/no-video.svg", "alt", ""], ["src", "./../../../../assets/icons/volume.svg", "alt", ""], ["src", "./../../../../assets/icons/mute.svg", "alt", ""], [1, "leave"], [1, "contain_action", "contain_action_mobile"], ["searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 1, "emoji-mart", 3, "set", "emojiSelect"], [1, "lds-spinner"]],
+        consts: [["connected", "true", "model", "true"], [1, "main_live"], ["alt", "", "id", "dots", 3, "src", "click"], [1, "contain_top"], [3, "context", "actif", "hour", "minute", "second", "reinit"], [1, "contain_left", "contain_left_model"], [1, "show_live_left", "show_live_left_model"], ["id", "videoContainer", "data-fullscreen", "false", 1, "videoContainer", 2, "margin", "0px"], ["controls", "", "autoplay", "", "id", "video_live_model", "muted", "muted", 1, "model_flow"], ["video_live_model", ""], [1, "contain_info_room"], [1, "contain_welcome"], [1, "contain_detail"], [1, "label_room"], [1, "contain_gain"], ["id", "video-controls", 1, "controls"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/no-video.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../assets/icons/volume.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../assets/icons/mute.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../assets/icons/full-size.svg", "alt", ""], [1, "client_live", 3, "ngClass"], ["controls", "", "muted", "true", "id", "video_live_client", 1, "client_flow", 3, "poster"], ["video_live_client", ""], [1, "contain_right", "contain_right_model"], [1, "show_live_right"], ["mat-align-tabs", "center"], ["label", "Live Chat"], ["showMenu", "true", "isModel", "true", "live", "free", 3, "modelId", "messages", "profil", "clientId", "pseudoModel"], ["label", "Param\xE8tre live"], ["type_show", "live choice us", "liveFree", "1", 3, "tarif_show", "time_show", "client", "time_passed", "hour_passed", "minute_passed", "second_passed", "actualCredit", "roomId", "winCredit", "totalCredit", "filledChoiceUs", "tarif", "title", "description"], ["class", "leave", 4, "ngIf"], [1, "contain_bottom"], [1, "contain_action", "contain_action_desktop"], [1, "out_show", "btn_show"], [1, "btn", "btn_out_show", "lighter", 3, "click"], [1, "btn_credit"], [1, "btn", "lighter"], [1, "btn", "btn_banish", "lighter", 3, "click"], ["class", "contain_action contain_action_mobile", 4, "ngIf"], [1, "contain_message"], ["class", "emoji-mart", "searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 3, "set", "emojiSelect", 4, "ngIf"], [1, "contain_thrombone"], [1, "txt_live_chat"], [3, "ngSubmit"], [1, "input_text"], ["type", "text", "name", "message", "autocomplete", "off", "placeholder", "Entrer votre message ici ...", 3, "ngModel", "focus", "ngModelChange"], ["type", "button", 3, "click"], ["src", "./../../../../assets/icons/in-love.png", 1, "img_emoji"], ["type", "submit"], [1, "p"], ["alt", "", 3, "src"], ["class", "lds-spinner", 4, "ngIf"], ["src", "./../../../../assets/icons/video-camera.svg", "alt", ""], ["src", "./../../../../assets/icons/no-video.svg", "alt", ""], ["src", "./../../../../assets/icons/volume.svg", "alt", ""], ["src", "./../../../../assets/icons/mute.svg", "alt", ""], [1, "leave"], [1, "contain_action", "contain_action_mobile"], ["searchIcons", "./../../../../assets/icons/admin-icons/search.png", "title", "", 1, "emoji-mart", 3, "set", "emojiSelect"], [1, "lds-spinner"]],
         template: function LiveFreeSaloonModelComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-header", 0);
@@ -47534,8 +47536,8 @@
             });
 
             _this283.peer.on('call', function (call) {
-              console.log('on call'); // call.answer(this.lazyStream);
-              // call.on('stream', (remoteStream) => {
+              console.log('on call');
+              call.answer(_this283.lazyStream); // call.on('stream', (remoteStream) => {
               //   console.log('On stream from call')
               //   if (!this.peerList.includes(call.peer)) {
               //     this.addOtherClientstreamRemoteVideo(this.clientStream.length,remoteStream, call.peer);
@@ -47544,29 +47546,29 @@
               //   }
               // });
               // this.onStop();
-
-              navigator.mediaDevices.getUserMedia({
-                video: _this283.showVideo,
-                audio: _this283.showAudio
-              }).then(function (stream) {
-                _this283.lazyStream = stream; // this.clientStream.push({
-                //   clientId: this.clientStream.length,
-                //   stream: stream
-                // });
-                // const _video = this.video.nativeElement;
-                // _video.srcObject = stream;
-                // _video.play();
-
-                call.answer(stream); // call.on('stream', (remoteStream) => {
-                //   if (!this.peerList.includes(call.peer)) {
-                //     this.addOtherClientstreamRemoteVideo(this.clientStream.length,remoteStream, call.peer);
-                //     this.currentPeer = call.peerConnection;
-                //     this.peerList.push(call.peer);
-                //   }
-                // });
-              })["catch"](function (err) {
-                console.log(err + ' - Unable to get media');
-              });
+              // navigator.mediaDevices.getUserMedia({
+              //   video: this.showVideo,
+              //   audio: this.showAudio
+              // }).then((stream) => {
+              //   this.lazyStream = stream;
+              //   // this.clientStream.push({
+              //   //   clientId: this.clientStream.length,
+              //   //   stream: stream
+              //   // });
+              //   // const _video = this.video.nativeElement;
+              //   // _video.srcObject = stream;
+              //   // _video.play();
+              //   call.answer(stream);
+              //   // call.on('stream', (remoteStream) => {
+              //   //   if (!this.peerList.includes(call.peer)) {
+              //   //     this.addOtherClientstreamRemoteVideo(this.clientStream.length,remoteStream, call.peer);
+              //   //     this.currentPeer = call.peerConnection;
+              //   //     this.peerList.push(call.peer);
+              //   //   }
+              //   // });
+              // }).catch(err => {
+              //   console.log(err + ' - Unable to get media');
+              // });
             });
           };
 
@@ -47625,10 +47627,12 @@
                   switch (_context131.prev = _context131.next) {
                     case 0:
                       this.onStop();
-                      _context131.next = 3;
+                      this.socketService.leavePrivate(this.idRoom, 'client', this.clientId);
+                      this.roomPrivateService.updateActif(this.idRoom, false, 'private');
+                      _context131.next = 5;
                       return this.creditTimer();
 
-                    case 3:
+                    case 5:
                       _context131.sent.subscribe(function (data) {});
 
                       clearInterval(this.timer.timer);
@@ -47648,7 +47652,7 @@
                       this.toggleVideoSub.unsubscribe();
                       this.banishSub.unsubscribe();
 
-                    case 20:
+                    case 22:
                     case "end":
                       return _context131.stop();
                   }
@@ -48647,7 +48651,7 @@
 
                 _this308.clientStream.push({
                   clientId: _this308.clientId,
-                  stream: ms,
+                  stream: _this308.lazyStream,
                   peerId: _this308.peerId,
                   isAudio: false,
                   isVideo: true
@@ -48667,7 +48671,7 @@
             //   index++;
             // })
             // })
-            // console.log('leave');
+            console.log('leave');
             this.lazyStream.getTracks().forEach(function (track) {
               track.stop();
             }); // this.lazyStream = null;
@@ -48707,38 +48711,13 @@
             console.log('CallPeer  id : ', id);
             if (!id) return null;
             if (id === undefined) return null; // console.log("Client call someone");
-            // const call = this.peer.call(id, this.lazyStream);
-            // console.log("After call model");
-            // if (call) {
-            //   call.on('stream', (remoteStream) => {
-            //     console.log("On stream after call in client");
-            //     if (!this.peerList.includes(call.peer)) {
-            //       this.streamRemoteVideo(remoteStream);
-            //       this.currentPeer = call.peerConnection;
-            //       this.peerList.push(call.peer);
-            //     }
-            //   });
-            // }
-            // this.onStop();
 
-            navigator.mediaDevices.getUserMedia({
-              video: this.showAudio,
-              audio: this.showVideo
-            }).then(function (stream) {
-              _this310.lazyStream = stream; // this.clientStream.push({
-              //   clientId: this.clientStream.length,
-              //   stream: stream,
-              //   isAudio: true,
-              //   isVideo: true,
-              //   peerId: this.peerId
-              // });
-              // console.log("Get client stream ", stream);
+            var call = this.peer.call(id, this.lazyStream);
+            console.log("After call model");
 
-              var call = _this310.peer.call(id, stream);
-
-              console.log("After call model");
+            if (call) {
               call.on('stream', function (remoteStream) {
-                console.log("On receive stream from model");
+                console.log("On stream after call in client");
 
                 if (!_this310.peerList.includes(call.peer)) {
                   _this310.streamRemoteVideo(remoteStream);
@@ -48748,9 +48727,34 @@
                   _this310.peerList.push(call.peer);
                 }
               });
-            })["catch"](function (err) {
-              console.log(err + 'Unable to connect');
-            });
+            } // this.onStop();
+            // navigator.mediaDevices.getUserMedia({
+            //   video: this.showAudio,
+            //   audio: this.showVideo
+            // }).then((stream) => {
+            //   this.lazyStream = stream;
+            //   // this.clientStream.push({
+            //   //   clientId: this.clientStream.length,
+            //   //   stream: stream,
+            //   //   isAudio: true,
+            //   //   isVideo: true,
+            //   //   peerId: this.peerId
+            //   // });
+            //   // console.log("Get client stream ", stream);
+            //   const call = this.peer.call(id, stream);
+            //   console.log("After call model");
+            //   call.on('stream', (remoteStream) => {
+            //     console.log("On receive stream from model");
+            //     if (!this.peerList.includes(call.peer)) {
+            //       this.streamRemoteVideo(remoteStream);
+            //       this.currentPeer = call.peerConnection;
+            //       this.peerList.push(call.peer);
+            //     }
+            //   });
+            // }).catch(err => {
+            //   console.log(err + 'Unable to connect');
+            // });
+
           }
         }, {
           key: "streamRemoteVideo",
@@ -48771,30 +48775,12 @@
             console.log('CallPeerClient id ', clientId, 'My ID ', this.clientId, ' Peer ', clientPeer);
             if (!clientPeer) return null;
             if (clientPeer === undefined) return null;
-            if (clientPeer === this.peerIdShare) return null; // const call = this.peer.call(clientPeer, this.lazyStream);
-            // if (call) {
-            //   call.on('stream', (remoteStream) => {
-            //     console.log("On stream in call other client");
-            //     if (!this.peerList.includes(call.peer)) {
-            //       this.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
-            //       this.currentPeer = call.peerConnection;
-            //       this.peerList.push(call.peer);
-            //     }
-            //   });
-            // }
-            // this.onStop();
+            if (clientPeer === this.peerIdShare) return null;
+            var call = this.peer.call(clientPeer, this.lazyStream);
 
-            navigator.mediaDevices.getUserMedia({
-              video: this.showVideo,
-              audio: this.showAudio
-            }).then(function (stream) {
-              _this311.lazyStream = stream; // console.log("Get client stream ", stream);
-
-              var call = _this311.peer.call(clientPeer, stream); // console.log("After call model");
-
-
+            if (call) {
               call.on('stream', function (remoteStream) {
-                console.log("On received stream other client");
+                console.log("On stream in call other client");
 
                 if (!_this311.peerList.includes(call.peer)) {
                   _this311.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
@@ -48804,9 +48790,27 @@
                   _this311.peerList.push(call.peer);
                 }
               });
-            })["catch"](function (err) {
-              console.log(err + 'Unable to connect');
-            });
+            } // this.onStop();
+            // navigator.mediaDevices.getUserMedia({
+            //   video: this.showVideo,
+            //   audio: this.showAudio
+            // }).then((stream) => {
+            //   this.lazyStream = stream;
+            //   // console.log("Get client stream ", stream);
+            //   const call = this.peer.call(clientPeer, stream);
+            //   // console.log("After call model");
+            //   call.on('stream', (remoteStream) => {
+            //     console.log("On received stream other client");
+            //     if (!this.peerList.includes(call.peer)) {
+            //       this.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
+            //       this.currentPeer = call.peerConnection;
+            //       this.peerList.push(call.peer);
+            //     }
+            //   });
+            // }).catch(err => {
+            //   console.log(err + 'Unable to connect');
+            // });
+
           }
         }, {
           key: "addOtherClientstreamRemoteVideo",
