@@ -21,7 +21,7 @@ function initSettingVideoModel() {
   	videoContainer = document.getElementById('videoContainer');
    	video = document.getElementById('video_live_model');
    	videoControls = document.getElementById('video-controls');
-
+    testCam = document.getElementById('test-cam');
    	// Hide the default controls
    	video.controls = false;
 
@@ -40,7 +40,8 @@ function initSettingVideoModel() {
 
    	// Set the video container's fullscreen state
   	var setFullscreenData = function(state) {
-      if (!state) document.getElementById('video_live_model').style.height = '80vh'
+      if (!state && testCam) document.getElementById('video_live_model').style.height = 'auto'
+      if (!state && !testCam) document.getElementById('video_live_model').style.height = '80vh'
       if (state) document.getElementById('video_live_model').style.height = '100vh'
   		videoContainer.setAttribute('data-fullscreen', !!state);
   	}
