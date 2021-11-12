@@ -6215,8 +6215,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    endpoint: "http://localhost:3000",
-    // endpoint: "https://betweenus-live.com/api",
+    // endpoint: "http://localhost:3000",
+    endpoint: "https://betweenus-live.com/api",
     CRYPT_PSEUDO: "storm/betweenus?...",
     CRYPT_PASS: "0@8between.us",
     CRYPT_PSEUDO_MODEL: "storm://betweenus?...",
@@ -21219,8 +21219,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const config = {
-    url: 'http://localhost:4000/',
-    // url: 'https://betweenus-live.com',
+    // url: 'http://localhost:4000/',
+    url: 'https://betweenus-live.com',
     options: {}
 };
 /**
@@ -32401,6 +32401,9 @@ const authorization = 'Basic MWMxYjI4ZjItYTg0Yi00YjMwOlZKZXpOWFY5V3ojQQ==';
 const httpOptionsCentralPay = {
     headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
         'Authorization': 'Basic 1c1b28f2-a84b-4b30:VJezNXV9Wz#A'
     })
 };

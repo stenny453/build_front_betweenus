@@ -12070,8 +12070,8 @@
 
       var environment = {
         production: false,
-        endpoint: "http://localhost:3000",
-        // endpoint: "https://betweenus-live.com/api",
+        // endpoint: "http://localhost:3000",
+        endpoint: "https://betweenus-live.com/api",
         CRYPT_PSEUDO: "storm/betweenus?...",
         CRYPT_PASS: "0@8between.us",
         CRYPT_PSEUDO_MODEL: "storm://betweenus?...",
@@ -40182,8 +40182,8 @@
       "iS+B");
 
       var config = {
-        url: 'http://localhost:4000/',
-        // url: 'https://betweenus-live.com',
+        // url: 'http://localhost:4000/',
+        url: 'https://betweenus-live.com',
         options: {}
       };
       /**
@@ -60767,6 +60767,9 @@
       var httpOptionsCentralPay = {
         headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': 'Content-Type',
+          'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
           'Authorization': 'Basic 1c1b28f2-a84b-4b30:VJezNXV9Wz#A'
         })
       }; // const user = "1c1b28f2-a84b-4b30";
