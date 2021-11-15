@@ -32767,6 +32767,13 @@ class PaiementService {
         this.endpoint = src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].endpoint;
     }
     payPack() {
+        // this.http.get('/api/image').subscribe(
+        //   (data) => {
+        //     console.log(data);
+        //   }, (error) => {
+        //     console.log('errorrr ', error);
+        //   }
+        // )
         this.authService.paying = true;
         const data = {
             'paymentMethod[]': "TRANSACTION",
@@ -32774,7 +32781,7 @@ class PaiementService {
             'totalAmount': 2000,
             'breakdown[]': '{"email":mathias.johansen.v2test@outlook.fr}'
         };
-        this.http.post(`${this.urlCentralPay}`, data, httpOptionsCentralPay).subscribe((data) => {
+        this.http.post('/api/', data, httpOptionsCentralPay).subscribe((data) => {
             console.log(data);
             this.authService.paying = false;
         }, (error) => {

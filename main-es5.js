@@ -61464,6 +61464,13 @@
           value: function payPack() {
             var _this406 = this;
 
+            // this.http.get('/api/image').subscribe(
+            //   (data) => {
+            //     console.log(data);
+            //   }, (error) => {
+            //     console.log('errorrr ', error);
+            //   }
+            // )
             this.authService.paying = true;
             var data = {
               'paymentMethod[]': "TRANSACTION",
@@ -61471,7 +61478,7 @@
               'totalAmount': 2000,
               'breakdown[]': '{"email":mathias.johansen.v2test@outlook.fr}'
             };
-            this.http.post("".concat(this.urlCentralPay), data, httpOptionsCentralPay).subscribe(function (data) {
+            this.http.post('/api/', data, httpOptionsCentralPay).subscribe(function (data) {
               console.log(data);
               _this406.authService.paying = false;
             }, function (error) {
