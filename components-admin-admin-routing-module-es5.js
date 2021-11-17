@@ -73,9 +73,10 @@
                 return false;
               }
             }, function (error) {
-              // console.log('Non autoriser')
-              // console.log(error)
+              // console.log('Non autoriser ', error.error.statusCode);
+              var errorCode = error.error.statusCode === 401 ? _this.router.navigateByUrl('authentification-admin') : false; // console.log(error)
               // this.router.navigateByUrl('authentification-admin')
+
               return false;
             });
             return true;

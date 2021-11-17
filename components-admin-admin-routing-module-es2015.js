@@ -37,7 +37,8 @@ class AuthAdminGuardService {
                 return false;
             }
         }, (error) => {
-            // console.log('Non autoriser')
+            // console.log('Non autoriser ', error.error.statusCode);
+            const errorCode = error.error.statusCode === 401 ? this.router.navigateByUrl('authentification-admin') : false;
             // console.log(error)
             // this.router.navigateByUrl('authentification-admin')
             return false;
