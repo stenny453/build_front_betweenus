@@ -5840,11 +5840,7 @@ class LiveVipModelComponent {
     }
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: true, audio: {
-                    echoCancellation: true,
-                    noiseSuppression: true,
-                    autoGainControl: false
-                } }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((ms) => {
                 this.lazyStream = ms;
                 // console.log('My stream ', ms);
                 this.video.nativeElement.srcObject = this.lazyStream;
@@ -8454,11 +8450,7 @@ class LiveFreeSaloonComponent {
     }
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: true, audio: {
-                    echoCancellation: true,
-                    noiseSuppression: true,
-                    autoGainControl: false
-                } }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((ms) => {
                 this.lazyStream = ms;
                 console.log('My stream ', ms);
                 this.video.nativeElement.srcObject = this.lazyStream;
@@ -17252,11 +17244,7 @@ class LivePrivateModelComponent {
     }
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: true, audio: {
-                    echoCancellation: true,
-                    noiseSuppression: true,
-                    autoGainControl: false
-                } }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((ms) => {
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
@@ -20564,11 +20552,7 @@ class LiveTipsClientsModelComponent {
     }
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: true, audio: {
-                    echoCancellation: true,
-                    noiseSuppression: true,
-                    autoGainControl: false
-                } }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((ms) => {
                 this.lazyStream = ms;
                 this.video.nativeElement.srcObject = this.lazyStream;
                 jquery__WEBPACK_IMPORTED_MODULE_4__('#video_live_model').prop('volume', 0);
@@ -24945,11 +24929,7 @@ class LiveFreeSaloonModelComponent {
     }
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: true, audio: {
-                    echoCancellation: true,
-                    noiseSuppression: true,
-                    autoGainControl: false
-                } }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((ms) => {
                 this.lazyStream = ms;
                 console.log('My stream ', ms);
                 this.video.nativeElement.srcObject = this.lazyStream;
@@ -27034,11 +27014,7 @@ class LiveChatModelComponent {
     }
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: true, audio: {
-                    echoCancellation: true,
-                    noiseSuppression: true,
-                    autoGainControl: false
-                } }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((ms) => {
                 const _video = this.video.nativeElement;
                 _video.srcObject = ms;
                 _video.play();

@@ -11323,11 +11323,7 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: {
-                  echoCancellation: true,
-                  noiseSuppression: true,
-                  autoGainControl: false
-                }
+                audio: true
               }).then(function (ms) {
                 _this64.lazyStream = ms; // console.log('My stream ', ms);
 
@@ -15992,11 +15988,7 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: {
-                  echoCancellation: true,
-                  noiseSuppression: true,
-                  autoGainControl: false
-                }
+                audio: true
               }).then(function (ms) {
                 _this116.lazyStream = ms;
                 console.log('My stream ', ms);
@@ -32520,11 +32512,7 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: {
-                  echoCancellation: true,
-                  noiseSuppression: true,
-                  autoGainControl: false
-                }
+                audio: true
               }).then(function (ms) {
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
@@ -38609,11 +38597,7 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: {
-                  echoCancellation: true,
-                  noiseSuppression: true,
-                  autoGainControl: false
-                }
+                audio: true
               }).then(function (ms) {
                 _this255.lazyStream = ms;
                 _this255.video.nativeElement.srcObject = _this255.lazyStream;
@@ -46870,11 +46854,7 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: {
-                  echoCancellation: true,
-                  noiseSuppression: true,
-                  autoGainControl: false
-                }
+                audio: true
               }).then(function (ms) {
                 _this288.lazyStream = ms;
                 console.log('My stream ', ms);
@@ -50715,11 +50695,7 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: {
-                  echoCancellation: true,
-                  noiseSuppression: true,
-                  autoGainControl: false
-                }
+                audio: true
               }).then(function (ms) {
                 var _video = _this310.video.nativeElement;
                 _video.srcObject = ms;
