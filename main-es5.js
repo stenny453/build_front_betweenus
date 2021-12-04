@@ -11323,7 +11323,11 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: true
+                audio: {
+                  echoCancellation: true,
+                  noiseSuppression: true,
+                  autoGainControl: false
+                }
               }).then(function (ms) {
                 _this64.lazyStream = ms; // console.log('My stream ', ms);
 
@@ -15988,7 +15992,11 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: true
+                audio: {
+                  echoCancellation: true,
+                  noiseSuppression: true,
+                  autoGainControl: false
+                }
               }).then(function (ms) {
                 _this116.lazyStream = ms;
                 console.log('My stream ', ms);
@@ -18374,7 +18382,11 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: true
+                audio: {
+                  echoCancellation: true,
+                  noiseSuppression: true,
+                  autoGainControl: false
+                }
               }).then(function (ms) {
                 _this142.lazyStream = ms; // console.log('My stream ', ms);
 
@@ -27369,7 +27381,8 @@
         _createClass(TryWebcamComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            jquery__WEBPACK_IMPORTED_MODULE_2__("#video_live_model").autoplay = true;
+            jquery__WEBPACK_IMPORTED_MODULE_2__("#video_live_model").autoplay = true; // let client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
+            // client.init('7ccc3498185144be9e844555f6da1a85');
           }
         }, {
           key: "ngOnDestroy",
@@ -27386,7 +27399,10 @@
                 _this194.onStart();
 
                 _this194.isVisible = true;
-                initSettingVideoModel();
+                initSettingVideoModel(); // var localStream = AgoraRTC.createStream({ audio: true, video: true })
+                // localStream.init();
+                // localStream.play(elementID);
+
                 jquery__WEBPACK_IMPORTED_MODULE_2__('.video_live_model').trigger('play');
               } else if (_this194.isVisible == true && _this194.map.nativeElement.offsetParent == null) {
                 _this194.onStop();
@@ -27405,7 +27421,11 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_0__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: true
+                audio: {
+                  echoCancellation: true,
+                  noiseSuppression: true,
+                  autoGainControl: false
+                }
               }).then(function (ms) {
                 _this195.lazyStream = ms;
                 _this195.video.nativeElement.srcObject = _this195.lazyStream;
@@ -27491,7 +27511,7 @@
         },
         decls: 18,
         vars: 5,
-        consts: [[1, "contain_webcam"], ["id", "video-controls", 1, "controls"], ["id", "test-cam"], [1, "list_choice"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../../assets/icons/video-camera-white.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../../assets/icons/no-video-white.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../../assets/icons/volume-white.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../../assets/icons/mute-white.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../../assets/icons/full-size-white.svg", "alt", ""], [1, "contain_cam"], ["map", ""], ["class", "loader", 4, "ngIf"], ["id", "videoContainer", "data-fullscreen", "false", 2, "margin", "0px"], ["autoplay", "", "id", "video_live_model"], ["video_live_model", ""], ["src", "./../../../../../assets/icons/video-camera-white.svg", "alt", ""], ["src", "./../../../../../assets/icons/no-video-white.svg", "alt", ""], ["src", "./../../../../../assets/icons/volume-white.svg", "alt", ""], ["src", "./../../../../../assets/icons/mute-white.svg", "alt", ""], [1, "loader"]],
+        consts: [[1, "contain_webcam"], ["id", "video-controls", 1, "controls"], ["id", "test-cam"], [1, "list_choice"], ["id", "screen", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../../assets/icons/video-camera-white.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../../assets/icons/no-video-white.svg", "alt", "", 4, "ngIf"], ["id", "sound", "type", "button", 1, "btn_control", 3, "click"], ["src", "./../../../../../assets/icons/volume-white.svg", "alt", "", 4, "ngIf"], ["src", "./../../../../../assets/icons/mute-white.svg", "alt", "", 4, "ngIf"], ["id", "fs", "type", "button", 1, "btn_control"], ["src", "./../../../../../assets/icons/full-size-white.svg", "alt", ""], [1, "contain_cam"], ["map", ""], ["class", "loader", 4, "ngIf"], ["id", "videoContainer", "data-fullscreen", "false", 2, "margin", "0px"], ["controls", "", "muted", "muted", "autoplay", "", "id", "video_live_model"], ["video_live_model", ""], ["src", "./../../../../../assets/icons/video-camera-white.svg", "alt", ""], ["src", "./../../../../../assets/icons/no-video-white.svg", "alt", ""], ["src", "./../../../../../assets/icons/volume-white.svg", "alt", ""], ["src", "./../../../../../assets/icons/mute-white.svg", "alt", ""], [1, "loader"]],
         template: function TryWebcamComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
@@ -32500,7 +32520,11 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: true
+                audio: {
+                  echoCancellation: true,
+                  noiseSuppression: true,
+                  autoGainControl: false
+                }
               }).then(function (ms) {
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
@@ -38585,7 +38609,11 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: true
+                audio: {
+                  echoCancellation: true,
+                  noiseSuppression: true,
+                  autoGainControl: false
+                }
               }).then(function (ms) {
                 _this255.lazyStream = ms;
                 _this255.video.nativeElement.srcObject = _this255.lazyStream;
@@ -46842,7 +46870,11 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: true
+                audio: {
+                  echoCancellation: true,
+                  noiseSuppression: true,
+                  autoGainControl: false
+                }
               }).then(function (ms) {
                 _this288.lazyStream = ms;
                 console.log('My stream ', ms);
@@ -50683,7 +50715,11 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: true
+                audio: {
+                  echoCancellation: true,
+                  noiseSuppression: true,
+                  autoGainControl: false
+                }
               }).then(function (ms) {
                 var _video = _this310.video.nativeElement;
                 _video.srcObject = ms;
