@@ -7342,7 +7342,7 @@ class LiveTipsComponent {
     }
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: false, audio: false }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: false, audio: true }).then((ms) => {
                 this.lazyStream = ms;
                 console.log('My stream ', ms);
                 // this.video.nativeElement.srcObject = this.lazyStream;
@@ -9878,11 +9878,7 @@ class LiveTipsModelComponent {
     }
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: true, audio: {
-                    echoCancellation: true,
-                    noiseSuppression: true,
-                    autoGainControl: false
-                } }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((ms) => {
                 this.lazyStream = ms;
                 // console.log('My stream ', ms);
                 this.video.nativeElement.srcObject = this.lazyStream;
@@ -28117,7 +28113,7 @@ class LiveTipsClientsComponent {
     }
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((ms) => {
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
