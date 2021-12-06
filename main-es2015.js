@@ -14601,7 +14601,7 @@ class TryWebcamComponent {
     }
     ngOnInit() {
         jquery__WEBPACK_IMPORTED_MODULE_2__("#video_live_model").autoplay = true;
-        // let client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
+        // const client = AgoraRTC.createClient({ codec: 'h264', mode: 'rtc' });
         // client.init('7ccc3498185144be9e844555f6da1a85');
     }
     ngOnDestroy() {
@@ -14627,11 +14627,7 @@ class TryWebcamComponent {
     onStart() {
         this.loading = true;
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_0__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: true, audio: {
-                    echoCancellation: true,
-                    noiseSuppression: true,
-                    autoGainControl: false
-                } }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then((ms) => {
                 this.lazyStream = ms;
                 this.video.nativeElement.srcObject = this.lazyStream;
                 this.loading = false;
