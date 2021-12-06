@@ -5358,7 +5358,7 @@ function LiveVipModelComponent_div_40_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" Votre client ", ctx_r12.client.pseudo, " a quitt\u00E9 le room VIP. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" Le client : ", ctx_r12.client.pseudo, " a quitt\u00E9 le room VIP. ");
 } }
 function LiveVipModelComponent_div_56_Template(rf, ctx) { if (rf & 1) {
     const _r17 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
@@ -9360,7 +9360,7 @@ function LiveTipsModelComponent_div_30_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" Votre client ", ctx_r5.client.pseudo, " a quitt\u00E9 le room. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" Le client : ", ctx_r5.client.pseudo, " a quitt\u00E9 le room. ");
 } }
 function LiveTipsModelComponent_div_48_Template(rf, ctx) { if (rf & 1) {
     const _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
@@ -20490,9 +20490,11 @@ class LiveTipsClientsModelComponent {
                     this.loading = false;
                     window.location.href = '/modele/chat';
                     // this.router.navigate(['/modele/chat']);
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 200);
+                    // setTimeout(
+                    //   () => {
+                    //     window.location.reload();
+                    //   }, 200
+                    // );
                 });
             }, (error) => {
                 this.loading = false;
@@ -24424,7 +24426,7 @@ function LiveFreeSaloonModelComponent_div_40_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" Votre client ", ctx_r12.client.pseudo, " a quitt\u00E9 le room. ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" Le client : ", ctx_r12.client.pseudo, " a quitt\u00E9 le room. ");
 } }
 function LiveFreeSaloonModelComponent_div_56_Template(rf, ctx) { if (rf & 1) {
     const _r17 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
@@ -31482,7 +31484,7 @@ class LivePrivateComponent {
     }
     onStart() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then((ms) => {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((ms) => {
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();

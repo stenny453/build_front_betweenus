@@ -10572,7 +10572,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" Votre client ", ctx_r12.client.pseudo, " a quitt\xE9 le room VIP. ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" Le client : ", ctx_r12.client.pseudo, " a quitt\xE9 le room VIP. ");
         }
       }
 
@@ -17586,7 +17586,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" Votre client ", ctx_r5.client.pseudo, " a quitt\xE9 le room. ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" Le client : ", ctx_r5.client.pseudo, " a quitt\xE9 le room. ");
         }
       }
 
@@ -38465,11 +38465,11 @@
                         _this252.profilService.updateStatus(_this252.info.modelId, 'En ligne').subscribe(function (data) {
                           _this252.loading = false;
                           window.location.href = '/modele/chat'; // this.router.navigate(['/modele/chat']);
-
-                          // this.router.navigate(['/modele/chat']);
-                          setTimeout(function () {
-                            window.location.reload();
-                          }, 200);
+                          // setTimeout(
+                          //   () => {
+                          //     window.location.reload();
+                          //   }, 200
+                          // );
                         });
                       }, function (error) {
                         _this252.loading = false;
@@ -46083,7 +46083,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" Votre client ", ctx_r12.client.pseudo, " a quitt\xE9 le room. ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" Le client : ", ctx_r12.client.pseudo, " a quitt\xE9 le room. ");
         }
       }
 
@@ -58968,7 +58968,7 @@
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: false
+                audio: true
               }).then(function (ms) {
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
