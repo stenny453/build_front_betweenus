@@ -10402,49 +10402,43 @@
       /* harmony import */
 
 
-      var _services_notification_notification_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
-      /*! ../../../services/notification/notification.service */
-      "nak+");
-      /* harmony import */
-
-
-      var _layouts_header_header_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+      var _layouts_header_header_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
       /*! ../../../layouts/header/header.component */
       "OPNc");
       /* harmony import */
 
 
-      var _live_topbar_model_topbar_model_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+      var _live_topbar_model_topbar_model_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
       /*! ../../live/topbar-model/topbar-model.component */
       "7eag");
       /* harmony import */
 
 
-      var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+      var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
       /*! @angular/material/tabs */
       "wZkO");
       /* harmony import */
 
 
-      var _live_live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
+      var _live_live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
       /*! ../../live/live-free/live-free-chat/live-free-chat.component */
       "UAgE");
       /* harmony import */
 
 
-      var _live_live_vip_live_vip_stat_live_vip_stat_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
+      var _live_live_vip_live_vip_stat_live_vip_stat_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
       /*! ../../live/live-vip/live-vip-stat/live-vip-stat.component */
       "FA6P");
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
       /*! @angular/forms */
       "3Pt+");
       /* harmony import */
 
 
-      var _ctrl_ngx_emoji_mart__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
+      var _ctrl_ngx_emoji_mart__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
       /*! @ctrl/ngx-emoji-mart */
       "KN7V"); // Peer
 
@@ -10715,7 +10709,7 @@
       };
 
       var LiveVipModelComponent = /*#__PURE__*/function () {
-        function LiveVipModelComponent(_platform, router, store, modelService, route, chatService, roomVipService, socketService, profilService, timerService, creditService, banishService, profileService, notificationService) {
+        function LiveVipModelComponent(_platform, router, store, modelService, route, chatService, roomVipService, socketService, profilService, timerService, creditService, banishService, profileService) {
           var _this48 = this;
 
           _classCallCheck(this, LiveVipModelComponent);
@@ -10733,7 +10727,6 @@
           this.creditService = creditService;
           this.banishService = banishService;
           this.profileService = profileService;
-          this.notificationService = notificationService;
           this.context = "LIVE VIP";
           this.imgPoster = "assets/images/image.png";
           this.thrombone = "assets/icons/paper-clip.svg";
@@ -11403,18 +11396,13 @@
         }, {
           key: "streamRemoteVideo",
           value: function streamRemoteVideo(stream) {
-            var _this66 = this;
-
             console.log('Stream Remote video ', stream); // this.remote_video.nativeElement.srcObject = stream;
 
             var _video = this.remote_video.nativeElement;
             _video.srcObject = stream;
             setTimeout(function () {
               _video.play();
-            }, 3000);
-            stream.getVideoTracks()[0].addEventListener('ended', function () {
-              _this66.notificationService.errorMsg('Votre client a perdu la connexion');
-            }); // const video = document.createElement('video');
+            }, 3000); // const video = document.createElement('video');
             // video.classList.add('video');
             // video.srcObject = stream;
             // video.play();
@@ -11426,10 +11414,19 @@
             this.showVideo = !this.showVideo;
 
             if (this.showVideo) {
-              jquery__WEBPACK_IMPORTED_MODULE_4__("#video_live_model").removeClass("hideStream").addClass("showStream");
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = true;
+              });
             } else {
-              jquery__WEBPACK_IMPORTED_MODULE_4__("#video_live_model").removeClass("showStream").addClass("hideStream");
-            } // this.onStop();
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = false;
+              });
+            } // if (this.showVideo) {
+            //   $("#video_live_model").removeClass( "hideStream" ).addClass("showStream");
+            // } else {
+            //   $("#video_live_model").removeClass("showStream").addClass("hideStream");
+            // }
+            // this.onStop();
             // this.onStart();
 
 
@@ -11459,11 +11456,11 @@
         }, {
           key: "banish",
           value: function banish() {
-            var _this67 = this;
+            var _this66 = this;
 
             if (this.client.id === 0 || !this.client.id || !this.roomId) return null;
             this.banishService.banishClient(this.info.modelId, this.client.id).subscribe(function (data) {
-              _this67.socketService.banishClient(_this67.roomId, _this67.client.id); // console.log(data)
+              _this66.socketService.banishClient(_this66.roomId, _this66.client.id); // console.log(data)
 
             });
           } // -------- EMOJI -----------------
@@ -11501,7 +11498,7 @@
       }();
 
       LiveVipModelComponent.ɵfac = function LiveVipModelComponent_Factory(t) {
-        return new (t || LiveVipModelComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ngx_localstorage__WEBPACK_IMPORTED_MODULE_9__["LocalStorageService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_model_model_service__WEBPACK_IMPORTED_MODULE_10__["ModelService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_11__["ChatService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_roomVip_room_vip_service__WEBPACK_IMPORTED_MODULE_12__["RoomVipService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_socket_socket_service__WEBPACK_IMPORTED_MODULE_13__["SocketService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_profil_profil_service__WEBPACK_IMPORTED_MODULE_14__["ProfilService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_timer_timer_service__WEBPACK_IMPORTED_MODULE_15__["TimerService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_credit_credit_service__WEBPACK_IMPORTED_MODULE_16__["CreditService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_banish_banish_service__WEBPACK_IMPORTED_MODULE_17__["BanishService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_profil_profil_service__WEBPACK_IMPORTED_MODULE_14__["ProfilService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_notification_notification_service__WEBPACK_IMPORTED_MODULE_18__["NotificationService"]));
+        return new (t || LiveVipModelComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ngx_localstorage__WEBPACK_IMPORTED_MODULE_9__["LocalStorageService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_model_model_service__WEBPACK_IMPORTED_MODULE_10__["ModelService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_11__["ChatService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_roomVip_room_vip_service__WEBPACK_IMPORTED_MODULE_12__["RoomVipService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_socket_socket_service__WEBPACK_IMPORTED_MODULE_13__["SocketService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_profil_profil_service__WEBPACK_IMPORTED_MODULE_14__["ProfilService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_timer_timer_service__WEBPACK_IMPORTED_MODULE_15__["TimerService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_credit_credit_service__WEBPACK_IMPORTED_MODULE_16__["CreditService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_banish_banish_service__WEBPACK_IMPORTED_MODULE_17__["BanishService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_profil_profil_service__WEBPACK_IMPORTED_MODULE_14__["ProfilService"]));
       };
 
       LiveVipModelComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
@@ -11881,7 +11878,7 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.loading);
           }
         },
-        directives: [_layouts_header_header_component__WEBPACK_IMPORTED_MODULE_19__["HeaderComponent"], _live_topbar_model_topbar_model_component__WEBPACK_IMPORTED_MODULE_20__["TopbarModelComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgClass"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_21__["MatTabGroup"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_21__["MatTab"], _live_live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_22__["LiveFreeChatComponent"], _live_live_vip_live_vip_stat_live_vip_stat_component__WEBPACK_IMPORTED_MODULE_23__["LiveVipStatComponent"], _angular_forms__WEBPACK_IMPORTED_MODULE_24__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_24__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_24__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_24__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_24__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_24__["NgModel"], _ctrl_ngx_emoji_mart__WEBPACK_IMPORTED_MODULE_25__["PickerComponent"]],
+        directives: [_layouts_header_header_component__WEBPACK_IMPORTED_MODULE_18__["HeaderComponent"], _live_topbar_model_topbar_model_component__WEBPACK_IMPORTED_MODULE_19__["TopbarModelComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgClass"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_20__["MatTabGroup"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_20__["MatTab"], _live_live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_21__["LiveFreeChatComponent"], _live_live_vip_live_vip_stat_live_vip_stat_component__WEBPACK_IMPORTED_MODULE_22__["LiveVipStatComponent"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["NgModel"], _ctrl_ngx_emoji_mart__WEBPACK_IMPORTED_MODULE_24__["PickerComponent"]],
         styles: [".btn.btn_vip[_ngcontent-%COMP%] {\n  background-color: var(--gold);\n}\n\n.btn.btn_buy[_ngcontent-%COMP%] {\n  background-color: transparent;\n  border-color: rgba(255, 255, 255, 0.541) !important;\n}\n\n.btn.btn_out_show[_ngcontent-%COMP%] {\n  background-color: red;\n}\n\n.show_vip[_ngcontent-%COMP%] {\n  text-align: center;\n}\n\n.buy_credit[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], .out_show[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  visibility: hidden;\n}\n\n.contain_left[_ngcontent-%COMP%] {\n  position: relative;\n}\n\n.client_live[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: -6px;\n  right: 0px;\n  padding: 0 !important;\n  text-align: right;\n}\n\n.client_flow[_ngcontent-%COMP%] {\n  width: 150px;\n  height: auto;\n}\n\n.btn[_ngcontent-%COMP%] {\n  height: 50px !important;\n  border-radius: 3px !important;\n  font-size: 17px !important;\n}\n\n.btn_credit[_ngcontent-%COMP%] {\n  background: var(--blue2);\n  border-radius: 3px;\n  height: 50px;\n  padding-left: 10px;\n  padding-right: 10px;\n  text-align: center;\n}\n\nbutton.btn.btn_banish.lighter[_ngcontent-%COMP%] {\n  background: var(--blue2);\n  transition: all 0.3s;\n}\n\nbutton.btn.btn_banish.lighter[_ngcontent-%COMP%]:hover {\n  background: red;\n}\n\n@media screen and (max-width: 700px) {\n  .show_live_left[_ngcontent-%COMP%] {\n    height: 40vh !important;\n  }\n\n  .show_live_right[_ngcontent-%COMP%] {\n    height: 52vh !important;\n    position: fixed;\n    margin-top: 6vh !important;\n  }\n\n  .client_live[_ngcontent-%COMP%] {\n    position: absolute;\n    bottom: -70px;\n    right: 0px;\n    padding: 0 !important;\n    text-align: right;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcbGl2ZS12aXAtbW9kZWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBYyw2QkFBQTtBQUVkOztBQURBO0VBQWMsNkJBQUE7RUFBK0IsbURBQUE7QUFNN0M7O0FBTEE7RUFBbUIscUJBQUE7QUFTbkI7O0FBUEE7RUFBVyxrQkFBQTtBQVdYOztBQVZBO0VBQTRCLGtCQUFBO0FBYzVCOztBQVpBO0VBQWUsa0JBQUE7QUFnQmY7O0FBZEE7RUFDRSxrQkFBQTtFQUNBLFlBQUE7RUFDQSxVQUFBO0VBQ0EscUJBQUE7RUFDQSxpQkFBQTtBQWlCRjs7QUFkQTtFQUNFLFlBQUE7RUFDQSxZQUFBO0FBaUJGOztBQWRBO0VBQ0UsdUJBQUE7RUFDQSw2QkFBQTtFQUNBLDBCQUFBO0FBaUJGOztBQWRBO0VBQ0Usd0JBQUE7RUFDQSxrQkFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7QUFpQkY7O0FBZEE7RUFDRSx3QkFBQTtFQUNBLG9CQUFBO0FBaUJGOztBQWRBO0VBQ0UsZUFBQTtBQWlCRjs7QUFkQTtFQUNFO0lBQWlCLHVCQUFBO0VBa0JqQjs7RUFqQkE7SUFDRSx1QkFBQTtJQUNBLGVBQUE7SUFDQSwwQkFBQTtFQW9CRjs7RUFsQkE7SUFDRSxrQkFBQTtJQUNBLGFBQUE7SUFDQSxVQUFBO0lBQ0EscUJBQUE7SUFDQSxpQkFBQTtFQXFCRjtBQUNGIiwiZmlsZSI6ImxpdmUtdmlwLW1vZGVsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJ0bi5idG5fdmlwIHtiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1nb2xkKTt9XHJcbi5idG4uYnRuX2J1eSB7YmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7IGJvcmRlci1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjU0MSkgIWltcG9ydGFudDt9XHJcbi5idG4uYnRuX291dF9zaG93IHtiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7fVxyXG5cclxuLnNob3dfdmlwIHt0ZXh0LWFsaWduOiBjZW50ZXI7fVxyXG4uYnV5X2NyZWRpdCBwLCAub3V0X3Nob3cgcCB7dmlzaWJpbGl0eTogaGlkZGVuO31cclxuXHJcbi5jb250YWluX2xlZnQge3Bvc2l0aW9uOiByZWxhdGl2ZTt9XHJcblxyXG4uY2xpZW50X2xpdmUge1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBib3R0b206IC02cHg7XHJcbiAgcmlnaHQ6IDBweDtcclxuICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XHJcbiAgdGV4dC1hbGlnbjogcmlnaHQ7XHJcbn1cclxuXHJcbi5jbGllbnRfZmxvdyB7XHJcbiAgd2lkdGg6IDE1MHB4O1xyXG4gIGhlaWdodDogYXV0bztcclxufVxyXG5cclxuLmJ0biB7XHJcbiAgaGVpZ2h0OiA1MHB4ICFpbXBvcnRhbnQ7XHJcbiAgYm9yZGVyLXJhZGl1czogM3B4ICFpbXBvcnRhbnQ7XHJcbiAgZm9udC1zaXplOiAxN3B4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5idG5fY3JlZGl0IHtcclxuICBiYWNrZ3JvdW5kOiB2YXIoLS1ibHVlMik7XHJcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xyXG4gIGhlaWdodDogNTBweDtcclxuICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgcGFkZGluZy1yaWdodDogMTBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbmJ1dHRvbi5idG4uYnRuX2JhbmlzaC5saWdodGVyIHtcclxuICBiYWNrZ3JvdW5kOiB2YXIoLS1ibHVlMik7XHJcbiAgdHJhbnNpdGlvbjogYWxsIDAuM3M7XHJcbn1cclxuXHJcbmJ1dHRvbi5idG4uYnRuX2JhbmlzaC5saWdodGVyOmhvdmVyIHtcclxuICBiYWNrZ3JvdW5kOiByZWQ7XHJcbn1cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDcwMHB4KSB7XHJcbiAgLnNob3dfbGl2ZV9sZWZ0IHtoZWlnaHQ6IDQwdmggIWltcG9ydGFudDt9XHJcbiAgLnNob3dfbGl2ZV9yaWdodCB7XHJcbiAgICBoZWlnaHQ6IDUydmggIWltcG9ydGFudDtcclxuICAgIHBvc2l0aW9uOiBmaXhlZDtcclxuICAgIG1hcmdpbi10b3A6IDZ2aCAhaW1wb3J0YW50O1xyXG4gIH1cclxuICAuY2xpZW50X2xpdmUge1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgYm90dG9tOiAtNzBweDtcclxuICAgIHJpZ2h0OiAwcHg7XHJcbiAgICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XHJcbiAgICB0ZXh0LWFsaWduOiByaWdodDtcclxuICAgIC8vIGRpc3BsYXk6IG5vbmUgIWltcG9ydGFudDtcclxuICB9XHJcbn1cclxuIl19 */", ".txt_live_chat[_ngcontent-%COMP%] {\n  margin: 0;\n  padding: 0;\n  font-style: italic;\n  color: grey;\n  font-size: 16px;\n}\n\n#video-controls[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 10px;\n  right: 5px;\n  display: flex !important;\n  flex-direction: row;\n  z-index: 100;\n}\n\n@media screen and (max-width: 750px) {\n  #video-controls[_ngcontent-%COMP%] {\n    position: absolute;\n    top: 50px;\n    right: 0px;\n    display: flex !important;\n    flex-direction: column;\n    z-index: 100;\n    line-height: 50px;\n  }\n}\n\n.btn_control[_ngcontent-%COMP%] {\n  width: 30px;\n  background: transparent;\n  border: none;\n  height: 30px;\n  margin-right: 25px;\n}\n\n.btn_control[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 30px;\n}\n\nvideo#video_live_model[_ngcontent-%COMP%] {\n  position: absolute;\n  width: 100%;\n  height: 80vh;\n}\n\n#dots[_ngcontent-%COMP%] {\n  display: none;\n  height: 45px;\n  position: fixed;\n  right: 10px;\n  z-index: 200;\n  top: 45vh;\n  cursor: pointer;\n}\n\n#close[_ngcontent-%COMP%] {\n  height: 20px;\n  cursor: pointer;\n  z-index: 200;\n}\n\n.contain_close[_ngcontent-%COMP%] {\n  display: none;\n  position: absolute;\n  left: 10px;\n  margin-top: -20px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  background: black;\n  border-radius: 20px;\n}\n\n.main_live[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  background-color: var(--blue3);\n  height: calc(100vh - 70px);\n}\n\n.contain_top[_ngcontent-%COMP%], .contain_bottom[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-around;\n}\n\n.contain_top[_ngcontent-%COMP%] {\n  height: 100%;\n}\n\n.contain_bottom[_ngcontent-%COMP%] {\n  height: 20vh;\n  margin-top: auto;\n}\n\n.contain_left[_ngcontent-%COMP%] {\n  width: 65%;\n  flex-direction: column;\n  display: flex;\n}\n\n.show_live_left[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  background: var(--black);\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  position: relative;\n}\n\n.contain_right[_ngcontent-%COMP%] {\n  width: 35%;\n  flex-direction: column;\n  display: flex;\n}\n\n.show_live_right[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  background-color: var(--blue3);\n}\n\n.contain_action[_ngcontent-%COMP%] {\n  display: flex;\n  padding-left: 15px;\n  padding-right: 15px;\n  justify-content: space-around;\n  width: 100%;\n  background-color: var(--blue3);\n  margin-top: auto;\n  height: 15vh;\n  align-items: center;\n}\n\n.btn[_ngcontent-%COMP%] {\n  font-size: 14px;\n  height: 50px;\n  padding: 10px;\n  color: white;\n  border-radius: 3px;\n  z-index: 900 !important;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n}\n\n.btn_show[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  text-align: center;\n  font-size: 13px;\n}\n\n.contain_right[_ngcontent-%COMP%] {\n  padding: 0;\n}\n\n.live_right[_ngcontent-%COMP%] {\n  padding: 0;\n  margin-left: -10px;\n}\n\n.btn_show[_ngcontent-%COMP%] {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  padding-top: 20px;\n}\n\n.contain_message[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  padding-left: 15px;\n  padding-right: 15px;\n  background-color: var(--blue2);\n  margin-top: auto;\n  height: 16vh;\n  justify-content: center;\n}\n\n.contain_thrombone[_ngcontent-%COMP%] {\n  display: flex;\n}\n\n.thrombone[_ngcontent-%COMP%] {\n  width: 22px;\n  margin-right: 10px;\n}\n\n.input_text[_ngcontent-%COMP%] {\n  display: flex;\n  margin-top: 5px;\n  align-items: center;\n}\n\n.input_text[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  background: transparent;\n  border: none;\n  padding: 0px;\n  margin: 0px;\n}\n\n.input_text[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  padding: 8px;\n  padding-left: 0px !important;\n  background-color: transparent;\n  color: white;\n  border-top: none;\n  border-left: none;\n  border-right: none;\n  border-bottom: 1px solid white;\n  width: 95%;\n  height: 35px;\n}\n\n.input_text[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus {\n  outline: none !important;\n}\n\n.input_text[_ngcontent-%COMP%]   .p[_ngcontent-%COMP%] {\n  display: flex;\n  opacity: 0.8;\n  margin-left: 15px;\n  height: 100%;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  user-select: none;\n  align-items: center;\n  padding-top: 0px;\n}\n\n.input_text[_ngcontent-%COMP%]   .p[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: 20px;\n}\n\n.bg_left[_ngcontent-%COMP%] {\n  height: 100%;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: contain;\n}\n\n.pass_private[_ngcontent-%COMP%] {\n  filter: blur(3px);\n  -webkit-filter: blur(3px);\n  z-index: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\napp-topbar[_ngcontent-%COMP%], app-topbar-model[_ngcontent-%COMP%] {\n  z-index: 5;\n}\n\n.come_on[_ngcontent-%COMP%] {\n  filter: blur(0px) !important;\n  color: var(--pink);\n  border: 1px solid transparent;\n  padding: 20px;\n  box-shadow: 0px 0px 15px white;\n  border-radius: 7px;\n  background: #ffffff40;\n  font-weight: 600;\n  font-size: 16px;\n  text-align: center;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 2;\n}\n\n.leave[_ngcontent-%COMP%] {\n  text-align: center;\n  opacity: 1;\n  font-size: 15px;\n  color: var(--pink);\n}\n\n.contain_action_mobile[_ngcontent-%COMP%] {\n  display: none;\n}\n\n.dry_up[_ngcontent-%COMP%] {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  filter: blur(5px);\n  pointer-events: none;\n}\n\n.hideStream[_ngcontent-%COMP%] {\n  filter: blur(200px);\n}\n\n.showStream[_ngcontent-%COMP%] {\n  filter: none;\n}\n\n@media screen and (max-width: 760px) {\n  .btn_show[_ngcontent-%COMP%]   *[_ngcontent-%COMP%] {\n    font-size: 12px;\n  }\n\n  .btn_credit[_ngcontent-%COMP%]   .btn[_ngcontent-%COMP%] {\n    font-size: 12px;\n  }\n}\n\n@media screen and (max-width: 700px) {\n  .contain_action_desktop[_ngcontent-%COMP%] {\n    display: none !important;\n  }\n\n  .contain_action_mobile[_ngcontent-%COMP%] {\n    display: block !important;\n  }\n\n  #dots[_ngcontent-%COMP%], .contain_close[_ngcontent-%COMP%] {\n    display: block;\n  }\n\n  .main_live[_ngcontent-%COMP%] {\n    min-height: 100vh;\n  }\n\n  .contain_top[_ngcontent-%COMP%] {\n    height: 40vh;\n  }\n\n  .contain_top[_ngcontent-%COMP%], .contain_bottom[_ngcontent-%COMP%] {\n    flex-direction: column !important;\n  }\n\n  .show_live_left[_ngcontent-%COMP%] {\n    height: 30vh;\n    position: fixed;\n    top: 70px;\n  }\n\n  .show_live_right[_ngcontent-%COMP%] {\n    height: 45vh;\n    position: fixed;\n    margin-top: 0vh;\n  }\n\n  .contain_right[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n\n  .contain_left[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n\n  .contain_action[_ngcontent-%COMP%] {\n    position: fixed;\n    top: 19vh;\n    background-color: transparent !important;\n    height: 10vh !important;\n    transition: all 0.4s;\n  }\n\n  .btn[_ngcontent-%COMP%] {\n    height: auto !important;\n  }\n\n  .contain_message[_ngcontent-%COMP%] {\n    position: fixed;\n    height: 15vh;\n    justify-content: center;\n    width: 100%;\n    bottom: 0px;\n  }\n\n  video#video_live_model[_ngcontent-%COMP%] {\n    width: 100%;\n    height: 40vh !important;\n  }\n\n  select#salon_libre[_ngcontent-%COMP%] {\n    width: 100% !important;\n    text-align: center;\n  }\n}\n\n.contain_left.contain_left_model[_ngcontent-%COMP%] {\n  width: 55% !important;\n}\n\n.contain_right.contain_right_model[_ngcontent-%COMP%] {\n  width: 45% !important;\n}\n\n.contain_list_info[_ngcontent-%COMP%] {\n  padding-top: 10px;\n  margin-top: 50px;\n  background: #00000047;\n  opacity: 0.95;\n  height: calc(100% - 100px);\n  line-height: 22px;\n  padding-left: 7px;\n  text-align: justify;\n  font-size: 14px;\n  overflow-x: auto;\n  overflow-y: auto;\n}\n\n.contain_list_info[_ngcontent-%COMP%]::-webkit-scrollbar {\n  width: 0px !important;\n  background-color: transparent;\n  color: transparent;\n}\n\n.info_chat[_ngcontent-%COMP%] {\n  color: white;\n  font-weight: 500;\n}\n\n.join_chat[_ngcontent-%COMP%] {\n  color: var(--pink);\n  font-weight: 500;\n}\n\n.leave_chat[_ngcontent-%COMP%] {\n  color: red;\n  font-weight: 500;\n}\n\n.contain_info_room[_ngcontent-%COMP%] {\n  opacity: 0.9;\n  display: flex;\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n  max-height: 20vh;\n  overflow: auto;\n  margin-top: 10px;\n  left: 10px;\n  bottom: 20px;\n}\n\n.contain_detail[_ngcontent-%COMP%] {\n  font-style: italic;\n  font-size: 12px;\n  opacity: 0.8;\n  line-height: 23px;\n}\n\n.contain_gain[_ngcontent-%COMP%] {\n  background: var(--blue2);\n  padding: 5px;\n  border-radius: 3px;\n  padding-left: 15px;\n  padding-right: 15px;\n  height: 50px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.label_room[_ngcontent-%COMP%] {\n  color: var(--pink);\n}\n\nselect#salon_libre[_ngcontent-%COMP%] {\n  border: transparent;\n  padding: 20px;\n  color: white;\n  border-radius: 3px;\n  font-size: 16px;\n  width: 150px;\n  text-align: center;\n  background: var(--pink);\n}\n\nselect#salon_libre[_ngcontent-%COMP%]   option[_ngcontent-%COMP%] {\n  text-align: left !important;\n}\n\n.live_none_salon[_ngcontent-%COMP%] {\n  background: rgba(0, 0, 0, 0.37);\n  font-weight: normal;\n}\n\n.live_tips_salon[_ngcontent-%COMP%] {\n  background: var(--gold);\n  font-weight: normal;\n}\n\n.live_free_salon[_ngcontent-%COMP%] {\n  background: var(--purple);\n  font-weight: normal;\n}\n\nimg.img_emoji[_ngcontent-%COMP%] {\n  width: 20px;\n  margin-left: 5px;\n}\n\nimg.img_gift[_ngcontent-%COMP%] {\n  width: 25px;\n  margin-right: 15px;\n  cursor: pointer;\n}\n\n.contain_welcome[_ngcontent-%COMP%] {\n  cursor: pointer;\n}\n\n.contain_welcome[_ngcontent-%COMP%]   i.fa[_ngcontent-%COMP%] {\n  font-size: 12px;\n  position: relative;\n  right: 0px;\n  bottom: 1px;\n}\n\n.contain_welcome[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  padding-left: 5px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxsaXZlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBT0E7RUFDRSxTQUFBO0VBQ0EsVUFBQTtFQUNBLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLGVBQUE7QUFORjs7QUFTQTtFQUNFLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLFVBQUE7RUFDQSx3QkFBQTtFQUNBLG1CQUFBO0VBQ0EsWUFBQTtBQU5GOztBQVNBO0VBQ0U7SUFDRSxrQkFBQTtJQUNBLFNBQUE7SUFDQSxVQUFBO0lBQ0Esd0JBQUE7SUFDQSxzQkFBQTtJQUNBLFlBQUE7SUFDQSxpQkFBQTtFQU5GO0FBQ0Y7O0FBU0E7RUFDRSxXQUFBO0VBQ0EsdUJBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0FBUEY7O0FBVUE7RUFDRSxXQUFBO0VBQ0EsWUFBQTtBQVBGOztBQVdBO0VBQ0Usa0JBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQVJGOztBQVdBO0VBQ0UsYUFBQTtFQUNBLFlBQUE7RUFDQSxlQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxTQUFBO0VBQ0EsZUFBQTtBQVJGOztBQVdBO0VBQ0UsWUFBQTtFQUNBLGVBQUE7RUFDQSxZQUFBO0FBUkY7O0FBVUE7RUFDRSxhQUFBO0VBQ0Esa0JBQUE7RUFDQSxVQUFBO0VBQ0EsaUJBQUE7RUFDQSx5QkFBQTtLQUFBLHNCQUFBO1VBQUEsaUJBQUE7RUFDQSxpQkFBQTtFQUNBLG1CQUFBO0FBUEY7O0FBVUE7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxXQUFBO0VBQ0EsOEJBQUE7RUFDQSwwQkFBQTtBQVBGOztBQVVBO0VBQ0UsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsV0FBQTtFQUNBLDZCQUFBO0FBUEY7O0FBVUE7RUFBYyxZQUFBO0FBTmQ7O0FBUUE7RUFDRSxZQUFBO0VBQ0EsZ0JBQUE7QUFMRjs7QUFRQTtFQUNFLFVBQUE7RUFFQSxzQkFBQTtFQUNBLGFBQUE7QUFORjs7QUFTQTtFQUNFLFdBQUE7RUFDQSxZQUFBO0VBQ0Esd0JBQUE7RUFDQSx3QkFBQTtFQUNBLDRCQUFBO0VBQ0EsMkJBQUE7RUFDQSxrQkFBQTtBQU5GOztBQVNBO0VBQ0UsVUFBQTtFQUVBLHNCQUFBO0VBQ0EsYUFBQTtBQVBGOztBQVVBO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFDQSw4QkFBQTtBQVBGOztBQVVBO0VBQ0UsYUFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSw2QkFBQTtFQUNBLFdBQUE7RUFDQSw4QkFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0FBUEY7O0FBVUE7RUFDRSxlQUFBO0VBQ0EsWUFBQTtFQUNBLGFBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSx1QkFBQTtFQUNBLGFBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7QUFQRjs7QUFVQTtFQUFhLGdCQUFBO0VBQWtCLGtCQUFBO0VBQW9CLGVBQUE7QUFKbkQ7O0FBTUE7RUFBZ0IsVUFBQTtBQUZoQjs7QUFHQTtFQUFhLFVBQUE7RUFBVyxrQkFBQTtBQUV4Qjs7QUFBQTtFQUNFLFlBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSx1QkFBQTtFQUNBLGlCQUFBO0FBR0Y7O0FBQ0E7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsOEJBQUE7RUFDQSxnQkFBQTtFQUNBLFlBQUE7RUFDQSx1QkFBQTtBQUVGOztBQUVBO0VBQW9CLGFBQUE7QUFFcEI7O0FBREE7RUFDRSxXQUFBO0VBQ0Esa0JBQUE7QUFJRjs7QUFEQTtFQUNFLGFBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7QUFJRjs7QUFEQTtFQUNFLHVCQUFBO0VBQ0EsWUFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0FBSUY7O0FBREE7RUFDRSxZQUFBO0VBQ0EsNEJBQUE7RUFDQSw2QkFBQTtFQUNBLFlBQUE7RUFDQSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSw4QkFBQTtFQUNBLFVBQUE7RUFDQSxZQUFBO0FBSUY7O0FBREE7RUFDRSx3QkFBQTtBQUlGOztBQURBO0VBQ0UsYUFBQTtFQUNBLFlBQUE7RUFDQSxpQkFBQTtFQUNBLFlBQUE7RUFDQSx5QkFBQTtFQUNBLHNCQUFBO0VBQ0EsaUJBQUE7RUFDQSxtQkFBQTtFQUNBLGdCQUFBO0FBSUY7O0FBSEU7RUFDRSxXQUFBO0FBS0o7O0FBREE7RUFDRSxZQUFBO0VBQ0EsMkJBQUE7RUFDQSw0QkFBQTtFQUNBLHdCQUFBO0FBSUY7O0FBREE7RUFDRSxpQkFBQTtFQUNBLHlCQUFBO0VBQ0EsVUFBQTtFQUNBLGFBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0FBSUY7O0FBREE7RUFDRSxVQUFBO0FBSUY7O0FBREE7RUFDRSw0QkFBQTtFQUNBLGtCQUFBO0VBQ0EsNkJBQUE7RUFDQSxhQUFBO0VBQ0EsOEJBQUE7RUFDQSxrQkFBQTtFQUNBLHFCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBQ0EsZ0NBQUE7RUFDQSxVQUFBO0FBSUY7O0FBREE7RUFDRSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7QUFJRjs7QUFEQTtFQUF3QixhQUFBO0FBS3hCOztBQUZBO0VBQ0UseUJBQUE7S0FBQSxzQkFBQTtVQUFBLGlCQUFBO0VBQ0EsaUJBQUE7RUFDQSxvQkFBQTtBQUtGOztBQUZBO0VBQ0UsbUJBQUE7QUFLRjs7QUFGQTtFQUNFLFlBQUE7QUFLRjs7QUFGQTtFQUNFO0lBQWEsZUFBQTtFQU1iOztFQUxBO0lBQWtCLGVBQUE7RUFTbEI7QUFDRjs7QUFOQTtFQUNFO0lBQXlCLHdCQUFBO0VBU3pCOztFQVJBO0lBQXdCLHlCQUFBO0VBWXhCOztFQVhBO0lBQXVCLGNBQUE7RUFldkI7O0VBZEE7SUFBWSxpQkFBQTtFQWtCWjs7RUFqQkE7SUFBYyxZQUFBO0VBcUJkOztFQXBCQTtJQUErQixpQ0FBQTtFQXdCL0I7O0VBdkJBO0lBQWlCLFlBQUE7SUFBYyxlQUFBO0lBQWlCLFNBQUE7RUE2QmhEOztFQTVCQTtJQUNFLFlBQUE7SUFDQSxlQUFBO0lBQ0EsZUFBQTtFQStCRjs7RUE3QkE7SUFBZ0IsV0FBQTtFQWlDaEI7O0VBaENBO0lBQWUsV0FBQTtFQW9DZjs7RUFuQ0E7SUFDRSxlQUFBO0lBQ0EsU0FBQTtJQUNBLHdDQUFBO0lBQ0EsdUJBQUE7SUFDQSxvQkFBQTtFQXNDRjs7RUFwQ0E7SUFDRSx1QkFBQTtFQXVDRjs7RUFyQ0E7SUFDRSxlQUFBO0lBQ0EsWUFBQTtJQUNBLHVCQUFBO0lBQ0EsV0FBQTtJQUNBLFdBQUE7RUF3Q0Y7O0VBckNBO0lBQ0UsV0FBQTtJQUNBLHVCQUFBO0VBd0NGOztFQXJDQTtJQUNFLHNCQUFBO0lBQ0Esa0JBQUE7RUF3Q0Y7QUFDRjs7QUFuQ0E7RUFDRSxxQkFBQTtBQXFDRjs7QUFsQ0E7RUFDRSxxQkFBQTtBQXFDRjs7QUFsQ0E7RUFDRSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUFDQSxhQUFBO0VBQ0EsMEJBQUE7RUFDQSxpQkFBQTtFQUNBLGlCQUFBO0VBQ0EsbUJBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxnQkFBQTtBQXFDRjs7QUFsQ0E7RUFDRSxxQkFBQTtFQUNBLDZCQUFBO0VBQ0Esa0JBQUE7QUFxQ0Y7O0FBakNBO0VBQ0UsWUFBQTtFQUNBLGdCQUFBO0FBb0NGOztBQWpDQTtFQUNFLGtCQUFBO0VBQ0EsZ0JBQUE7QUFvQ0Y7O0FBakNBO0VBQ0UsVUFBQTtFQUNBLGdCQUFBO0FBb0NGOztBQWpDQTtFQUNFLFlBQUE7RUFDQSxhQUFBO0VBQ0Esa0JBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtFQUNBLGNBQUE7RUFDQSxnQkFBQTtFQUNBLFVBQUE7RUFDQSxZQUFBO0FBb0NGOztBQWpDQTtFQUNFLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLFlBQUE7RUFDQSxpQkFBQTtBQW9DRjs7QUFqQ0E7RUFDRSx3QkFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtFQUNBLHVCQUFBO0VBQ0EsbUJBQUE7QUFvQ0Y7O0FBakNBO0VBQ0Usa0JBQUE7QUFvQ0Y7O0FBaENBO0VBQ0UsbUJBQUE7RUFDQSxhQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLHVCQUFBO0FBbUNGOztBQWhDQTtFQUNFLDJCQUFBO0FBbUNGOztBQWhDQTtFQUNFLCtCQUFBO0VBQ0EsbUJBQUE7QUFtQ0Y7O0FBaENBO0VBQ0UsdUJBQUE7RUFDQSxtQkFBQTtBQW1DRjs7QUFoQ0E7RUFDRSx5QkFBQTtFQUNBLG1CQUFBO0FBbUNGOztBQTlCQTtFQUNFLFdBQUE7RUFDQSxnQkFBQTtBQWlDRjs7QUE5QkE7RUFDRSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0FBaUNGOztBQTdCQTtFQUNFLGVBQUE7QUFnQ0Y7O0FBOUJFO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLFdBQUE7QUFnQ0Y7O0FBN0JFO0VBQ0UsaUJBQUE7QUErQkoiLCJmaWxlIjoibGl2ZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gLmNvbC1jb250YWluZXIge1xyXG4vLyAgIGRpc3BsYXk6IHRhYmxlO1xyXG4vLyAgIHdpZHRoOiAxMDAlO1xyXG4vLyB9XHJcbi8vIC5jb2wge1xyXG4vLyAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XHJcbi8vIH1cclxuLnR4dF9saXZlX2NoYXQge1xyXG4gIG1hcmdpbjogMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGZvbnQtc3R5bGU6IGl0YWxpYztcclxuICBjb2xvcjogZ3JleTtcclxuICBmb250LXNpemU6IDE2cHg7XHJcbn1cclxuXHJcbiN2aWRlby1jb250cm9scyB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHRvcDogMTBweDtcclxuICByaWdodDogNXB4O1xyXG4gIGRpc3BsYXk6IGZsZXggIWltcG9ydGFudDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIHotaW5kZXg6IDEwMDtcclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzUwcHgpe1xyXG4gICN2aWRlby1jb250cm9scyB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDUwcHg7XHJcbiAgICByaWdodDogMHB4O1xyXG4gICAgZGlzcGxheTogZmxleCAhaW1wb3J0YW50O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIHotaW5kZXg6IDEwMDtcclxuICAgIGxpbmUtaGVpZ2h0OiA1MHB4O1xyXG4gIH1cclxufVxyXG5cclxuLmJ0bl9jb250cm9sIHtcclxuICB3aWR0aDogMzBweDtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgaGVpZ2h0OiAzMHB4O1xyXG4gIG1hcmdpbi1yaWdodDogMjVweDtcclxufVxyXG5cclxuLmJ0bl9jb250cm9sIGltZyB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAzMHB4O1xyXG59XHJcblxyXG5cclxudmlkZW8jdmlkZW9fbGl2ZV9tb2RlbCB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogODB2aDsgLy8gNzB2aFxyXG59XHJcblxyXG4jZG90cyB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICBoZWlnaHQ6IDQ1cHg7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHJpZ2h0OiAxMHB4O1xyXG4gIHotaW5kZXg6IDIwMDtcclxuICB0b3A6IDQ1dmg7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4jY2xvc2Uge1xyXG4gIGhlaWdodDogMjBweDtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgei1pbmRleDogMjAwO1xyXG59XHJcbi5jb250YWluX2Nsb3NlIHtcclxuICBkaXNwbGF5OiBub25lO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBsZWZ0OiAxMHB4O1xyXG4gIG1hcmdpbi10b3A6IC0yMHB4O1xyXG4gIHVzZXItc2VsZWN0OiBub25lO1xyXG4gIGJhY2tncm91bmQ6IGJsYWNrO1xyXG4gIGJvcmRlci1yYWRpdXM6IDIwcHg7XHJcbn1cclxuXHJcbi5tYWluX2xpdmUge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICB3aWR0aDogMTAwJTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1ibHVlMyk7XHJcbiAgaGVpZ2h0OiBjYWxjKDEwMHZoIC0gNzBweCk7XHJcbn1cclxuXHJcbi5jb250YWluX3RvcCwgLmNvbnRhaW5fYm90dG9tIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XHJcbn1cclxuXHJcbi5jb250YWluX3RvcCB7aGVpZ2h0OiAxMDAlO31cclxuXHJcbi5jb250YWluX2JvdHRvbSB7XHJcbiAgaGVpZ2h0OiAyMHZoO1xyXG4gIG1hcmdpbi10b3A6IGF1dG87XHJcbn1cclxuXHJcbi5jb250YWluX2xlZnQge1xyXG4gIHdpZHRoOiA2NSU7XHJcbiAgLy8gaGVpZ2h0OiAxMDAlO1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG5cclxuLnNob3dfbGl2ZV9sZWZ0IHtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tYmxhY2spO1xyXG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcclxuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlcjtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbn1cclxuXHJcbi5jb250YWluX3JpZ2h0IHtcclxuICB3aWR0aDogMzUlO1xyXG4gIC8vIGhlaWdodDogMTAwJTtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuXHJcbi5zaG93X2xpdmVfcmlnaHQge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1ibHVlMyk7XHJcbn1cclxuXHJcbi5jb250YWluX2FjdGlvbiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwYWRkaW5nLWxlZnQ6IDE1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMTVweDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcclxuICB3aWR0aDogMTAwJTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1ibHVlMyk7XHJcbiAgbWFyZ2luLXRvcDogYXV0bztcclxuICBoZWlnaHQ6IDE1dmg7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxufVxyXG5cclxuLmJ0biB7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG4gIGhlaWdodDogNTBweDtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBib3JkZXItcmFkaXVzOiAzcHg7XHJcbiAgei1pbmRleDogOTAwICFpbXBvcnRhbnQ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbn1cclxuXHJcbi5idG5fc2hvdyBwIHttYXJnaW4tdG9wOiAxMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtc2l6ZTogMTNweDt9XHJcblxyXG4uY29udGFpbl9yaWdodCB7cGFkZGluZzogMDt9XHJcbi5saXZlX3JpZ2h0IHtwYWRkaW5nOiAwO21hcmdpbi1sZWZ0OiAtMTBweDt9XHJcblxyXG4uYnRuX3Nob3cge1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgcGFkZGluZy10b3A6IDIwcHg7XHJcbn1cclxuXHJcbi8vIENvbnRhaW4gbWVzc2FnZVxyXG4uY29udGFpbl9tZXNzYWdlIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgcGFkZGluZy1sZWZ0OiAxNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDE1cHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tYmx1ZTIpO1xyXG4gIG1hcmdpbi10b3A6IGF1dG87XHJcbiAgaGVpZ2h0OiAxNnZoO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcblxyXG5cclxuLmNvbnRhaW5fdGhyb21ib25lIHtkaXNwbGF5OiBmbGV4O31cclxuLnRocm9tYm9uZSB7XHJcbiAgd2lkdGg6IDIycHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xyXG59XHJcblxyXG4uaW5wdXRfdGV4dCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW4tdG9wOiA1cHg7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxufVxyXG5cclxuLmlucHV0X3RleHQgYnV0dG9uIHtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgcGFkZGluZzogMHB4O1xyXG4gIG1hcmdpbjogMHB4O1xyXG59XHJcblxyXG4uaW5wdXRfdGV4dCBpbnB1dCB7XHJcbiAgcGFkZGluZzogOHB4O1xyXG4gIHBhZGRpbmctbGVmdDogMHB4ICFpbXBvcnRhbnQ7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGJvcmRlci10b3A6IG5vbmU7XHJcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbiAgYm9yZGVyLXJpZ2h0OiBub25lO1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCB3aGl0ZTtcclxuICB3aWR0aDogOTUlO1xyXG4gIGhlaWdodDogMzVweDtcclxufVxyXG5cclxuLmlucHV0X3RleHQgaW5wdXQ6Zm9jdXMge1xyXG4gIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmlucHV0X3RleHQgLnAge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgb3BhY2l0eTogMC44O1xyXG4gIG1hcmdpbi1sZWZ0OiAxNXB4O1xyXG4gIGhlaWdodDogMTAwJTtcclxuICAtd2Via2l0LXVzZXItc2VsZWN0OiBub25lO1xyXG4gIC1tb3otdXNlci1zZWxlY3Q6IG5vbmU7XHJcbiAgdXNlci1zZWxlY3Q6IG5vbmU7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBwYWRkaW5nLXRvcDogMHB4O1xyXG4gIGltZyB7XHJcbiAgICB3aWR0aDogMjBweDtcclxuICB9XHJcbn1cclxuXHJcbi5iZ19sZWZ0IHtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG59XHJcblxyXG4ucGFzc19wcml2YXRlIHtcclxuICBmaWx0ZXI6IGJsdXIoM3B4KTtcclxuICAtd2Via2l0LWZpbHRlcjogYmx1cigzcHgpO1xyXG4gIHotaW5kZXg6IDA7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcblxyXG5hcHAtdG9wYmFyLCBhcHAtdG9wYmFyLW1vZGVsIHtcclxuICB6LWluZGV4OiA1O1xyXG59XHJcblxyXG4uY29tZV9vbiB7XHJcbiAgZmlsdGVyOiBibHVyKDBweCkgIWltcG9ydGFudDtcclxuICBjb2xvcjogdmFyKC0tcGluayk7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7XHJcbiAgcGFkZGluZzogMjBweDtcclxuICBib3gtc2hhZG93OiAwcHggMHB4IDE1cHggd2hpdGU7XHJcbiAgYm9yZGVyLXJhZGl1czogN3B4O1xyXG4gIGJhY2tncm91bmQ6ICNmZmZmZmY0MDtcclxuICBmb250LXdlaWdodDogNjAwO1xyXG4gIGZvbnQtc2l6ZTogMTZweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHRvcDogNTAlO1xyXG4gIGxlZnQ6IDUwJTtcclxuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICB6LWluZGV4OiAyO1xyXG59XHJcblxyXG4ubGVhdmUge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBvcGFjaXR5OiAxO1xyXG4gIGZvbnQtc2l6ZTogMTVweDtcclxuICBjb2xvcjogdmFyKC0tcGluayk7XHJcbn1cclxuXHJcbi5jb250YWluX2FjdGlvbl9tb2JpbGUge2Rpc3BsYXk6IG5vbmU7fVxyXG5cclxuXHJcbi5kcnlfdXAge1xyXG4gIHVzZXItc2VsZWN0OiBub25lO1xyXG4gIGZpbHRlcjogYmx1cig1cHgpO1xyXG4gIHBvaW50ZXItZXZlbnRzOiBub25lO1xyXG59XHJcblxyXG4uaGlkZVN0cmVhbSB7XHJcbiAgZmlsdGVyOiBibHVyKDIwMHB4KTtcclxufVxyXG5cclxuLnNob3dTdHJlYW0ge1xyXG4gIGZpbHRlcjogbm9uZTtcclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzYwcHgpIHtcclxuICAuYnRuX3Nob3cgKiB7Zm9udC1zaXplOiAxMnB4O31cclxuICAuYnRuX2NyZWRpdCAuYnRuIHtmb250LXNpemU6IDEycHg7fVxyXG59XHJcblxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzAwcHgpIHtcclxuICAuY29udGFpbl9hY3Rpb25fZGVza3RvcCB7ZGlzcGxheTogbm9uZSAhaW1wb3J0YW50O31cclxuICAuY29udGFpbl9hY3Rpb25fbW9iaWxlIHtkaXNwbGF5OiBibG9jayAhaW1wb3J0YW50O31cclxuICAjZG90cywgLmNvbnRhaW5fY2xvc2Uge2Rpc3BsYXk6IGJsb2NrO31cclxuICAubWFpbl9saXZlIHttaW4taGVpZ2h0OiAxMDB2aDt9XHJcbiAgLmNvbnRhaW5fdG9wIHtoZWlnaHQ6IDQwdmg7fVxyXG4gIC5jb250YWluX3RvcCwgLmNvbnRhaW5fYm90dG9tIHtmbGV4LWRpcmVjdGlvbjogY29sdW1uICFpbXBvcnRhbnQ7fVxyXG4gIC5zaG93X2xpdmVfbGVmdCB7aGVpZ2h0OiAzMHZoOyBwb3NpdGlvbjogZml4ZWQ7IHRvcDogNzBweDt9XHJcbiAgLnNob3dfbGl2ZV9yaWdodCB7XHJcbiAgICBoZWlnaHQ6IDQ1dmg7XHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICBtYXJnaW4tdG9wOiAwdmg7XHJcbiAgfVxyXG4gIC5jb250YWluX3JpZ2h0IHt3aWR0aDogMTAwJTt9XHJcbiAgLmNvbnRhaW5fbGVmdCB7d2lkdGg6IDEwMCU7fVxyXG4gIC5jb250YWluX2FjdGlvbiB7XHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICB0b3A6IDE5dmg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xyXG4gICAgaGVpZ2h0OiAxMHZoICFpbXBvcnRhbnQ7XHJcbiAgICB0cmFuc2l0aW9uOiBhbGwgMC40cztcclxuICB9XHJcbiAgLmJ0biB7XHJcbiAgICBoZWlnaHQ6IGF1dG8gIWltcG9ydGFudDtcclxuICB9XHJcbiAgLmNvbnRhaW5fbWVzc2FnZSB7XHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICBoZWlnaHQ6IDE1dmg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgYm90dG9tOiAwcHg7XHJcbiAgfVxyXG5cclxuICB2aWRlbyN2aWRlb19saXZlX21vZGVsIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiA0MHZoICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG5cclxuICBzZWxlY3Qjc2Fsb25fbGlicmUge1xyXG4gICAgd2lkdGg6IDEwMCUgIWltcG9ydGFudDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB9XHJcbn1cclxuXHJcblxyXG4vLyBTUEVDSUFMIE1PREVMXHJcbi5jb250YWluX2xlZnQuY29udGFpbl9sZWZ0X21vZGVsIHtcclxuICB3aWR0aDogNTUlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5jb250YWluX3JpZ2h0LmNvbnRhaW5fcmlnaHRfbW9kZWwge1xyXG4gIHdpZHRoOiA0NSUgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmNvbnRhaW5fbGlzdF9pbmZvIHtcclxuICBwYWRkaW5nLXRvcDogMTBweDtcclxuICBtYXJnaW4tdG9wOiA1MHB4O1xyXG4gIGJhY2tncm91bmQ6ICMwMDAwMDA0NztcclxuICBvcGFjaXR5OiAwLjk1O1xyXG4gIGhlaWdodDogY2FsYygxMDAlIC0gMTAwcHgpO1xyXG4gIGxpbmUtaGVpZ2h0OiAyMnB4O1xyXG4gIHBhZGRpbmctbGVmdDogN3B4O1xyXG4gIHRleHQtYWxpZ246IGp1c3RpZnk7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG4gIG92ZXJmbG93LXg6IGF1dG87XHJcbiAgb3ZlcmZsb3cteTogYXV0bztcclxufVxyXG5cclxuLmNvbnRhaW5fbGlzdF9pbmZvOjotd2Via2l0LXNjcm9sbGJhciB7XHJcbiAgd2lkdGg6IDBweCAhaW1wb3J0YW50O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIGNvbG9yOiB0cmFuc3BhcmVudDtcclxufVxyXG5cclxuXHJcbi5pbmZvX2NoYXQge1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXdlaWdodDogNTAwO1xyXG59XHJcblxyXG4uam9pbl9jaGF0IHtcclxuICBjb2xvcjogdmFyKC0tcGluayk7XHJcbiAgZm9udC13ZWlnaHQ6IDUwMDtcclxufVxyXG5cclxuLmxlYXZlX2NoYXQge1xyXG4gIGNvbG9yOiByZWQ7XHJcbiAgZm9udC13ZWlnaHQ6IDUwMDtcclxufVxyXG5cclxuLmNvbnRhaW5faW5mb19yb29tIHtcclxuICBvcGFjaXR5OiAwLjk7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIG1heC1oZWlnaHQ6IDIwdmg7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbiAgbWFyZ2luLXRvcDogMTBweDtcclxuICBsZWZ0OiAxMHB4O1xyXG4gIGJvdHRvbTogMjBweDtcclxufVxyXG5cclxuLmNvbnRhaW5fZGV0YWlsIHtcclxuICBmb250LXN0eWxlOiBpdGFsaWM7XHJcbiAgZm9udC1zaXplOiAxMnB4O1xyXG4gIG9wYWNpdHk6IDAuODtcclxuICBsaW5lLWhlaWdodDogMjNweDtcclxufVxyXG5cclxuLmNvbnRhaW5fZ2FpbiB7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tYmx1ZTIpO1xyXG4gIHBhZGRpbmc6IDVweDtcclxuICBib3JkZXItcmFkaXVzOiAzcHg7XHJcbiAgcGFkZGluZy1sZWZ0OiAxNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDE1cHg7XHJcbiAgaGVpZ2h0OiA1MHB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxufVxyXG5cclxuLmxhYmVsX3Jvb20ge1xyXG4gIGNvbG9yOiB2YXIoLS1waW5rKTtcclxufVxyXG5cclxuLy8gU2Fsb24gbGlicmVcclxuc2VsZWN0I3NhbG9uX2xpYnJlIHtcclxuICBib3JkZXI6IHRyYW5zcGFyZW50O1xyXG4gIHBhZGRpbmc6IDIwcHg7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGJvcmRlci1yYWRpdXM6IDNweDtcclxuICBmb250LXNpemU6IDE2cHg7XHJcbiAgd2lkdGg6IDE1MHB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBiYWNrZ3JvdW5kOiB2YXIoLS1waW5rKTtcclxufVxyXG5cclxuc2VsZWN0I3NhbG9uX2xpYnJlIG9wdGlvbiB7XHJcbiAgdGV4dC1hbGlnbjogbGVmdCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4ubGl2ZV9ub25lX3NhbG9uIHtcclxuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuMzcpO1xyXG4gIGZvbnQtd2VpZ2h0OiBub3JtYWw7XHJcbn1cclxuXHJcbi5saXZlX3RpcHNfc2Fsb24ge1xyXG4gIGJhY2tncm91bmQ6IHZhcigtLWdvbGQpO1xyXG4gIGZvbnQtd2VpZ2h0OiBub3JtYWw7XHJcbn1cclxuXHJcbi5saXZlX2ZyZWVfc2Fsb24ge1xyXG4gIGJhY2tncm91bmQ6IHZhcigtLXB1cnBsZSk7XHJcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxufVxyXG5cclxuXHJcbi8vIEVtb2ppXHJcbmltZy5pbWdfZW1vamkge1xyXG4gIHdpZHRoOiAyMHB4O1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbn1cclxuXHJcbmltZy5pbWdfZ2lmdCB7XHJcbiAgd2lkdGg6IDI1cHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuXHJcbi5jb250YWluX3dlbGNvbWUge1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuXHJcbiAgaS5mYSB7XHJcbiAgZm9udC1zaXplOiAxMnB4O1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICByaWdodDogMHB4O1xyXG4gIGJvdHRvbTogMXB4O1xyXG4gIH1cclxuXHJcbiAgc3BhbiB7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICB9XHJcbn1cclxuIl19 */"]
       });
       /***/
@@ -12143,16 +12140,16 @@
         }, {
           key: "ngAfterContentChecked",
           value: function ngAfterContentChecked() {
-            var _this68 = this;
+            var _this67 = this;
 
             setTimeout(function () {
-              if (_this68.isVisible == false && _this68.map.nativeElement.offsetParent != null) {
-                _this68.isVisible = true; // console.log('visible');
+              if (_this67.isVisible == false && _this67.map.nativeElement.offsetParent != null) {
+                _this67.isVisible = true; // console.log('visible');
 
                 jquery__WEBPACK_IMPORTED_MODULE_1__('.live_cam').trigger('play');
-              } else if (_this68.isVisible == true && _this68.map.nativeElement.offsetParent == null) {
+              } else if (_this67.isVisible == true && _this67.map.nativeElement.offsetParent == null) {
                 // console.log('invisible')
-                _this68.isVisible = false;
+                _this67.isVisible = false;
               }
             }, 1000);
           }
@@ -12191,12 +12188,12 @@
         }, {
           key: "getPseudo",
           value: function getPseudo(clientId) {
-            var _this69 = this;
+            var _this68 = this;
 
             if (!clientId) return null;
             this.clientService.getClient(clientId).subscribe(function (data) {
               if (data && data.pseudo) {
-                _this69.currentPseudo = data.pseudo;
+                _this68.currentPseudo = data.pseudo;
               } // console.log(this.currentPseudo);
 
             });
@@ -12221,10 +12218,10 @@
         }, {
           key: "banishClient",
           value: function banishClient(clientId) {
-            var _this70 = this;
+            var _this69 = this;
 
             this.banishService.banishClient(this.modelId, clientId).subscribe(function (data) {
-              _this70.socketService.banishClient(_this70.roomId, clientId); // console.log(data)
+              _this69.socketService.banishClient(_this69.roomId, clientId); // console.log(data)
 
             });
           }
@@ -12419,24 +12416,24 @@
         }, {
           key: "getCredit",
           value: function getCredit() {
-            var _this71 = this;
+            var _this70 = this;
 
             this.creditService.getCredit().subscribe(function (data) {
               console.log(data);
-              _this71.solde = data.credit;
+              _this70.solde = data.credit;
 
-              _this71.getInfoModel();
+              _this70.getInfoModel();
             });
           }
         }, {
           key: "getInfoModel",
           value: function getInfoModel() {
-            var _this72 = this;
+            var _this71 = this;
 
             this.modelService.getInfo().subscribe(function (data) {
               // console.log(data);
-              _this72.modelId = data.id;
-              _this72.modelPseudo = data.pseudo;
+              _this71.modelId = data.id;
+              _this71.modelPseudo = data.pseudo;
             });
           }
         }, {
@@ -12664,7 +12661,7 @@
 
       var NewPasswordComponent = /*#__PURE__*/function () {
         function NewPasswordComponent(activatedRoute, profilService, store, clientService, modelService, router, authService, logService, roomService) {
-          var _this73 = this;
+          var _this72 = this;
 
           _classCallCheck(this, NewPasswordComponent);
 
@@ -12687,7 +12684,7 @@
             role: null
           };
           this.activatedRoute.queryParams.subscribe(function (params) {
-            _this73.token = params['token'];
+            _this72.token = params['token'];
           });
         }
 
@@ -12699,7 +12696,7 @@
         }, {
           key: "verifyToken",
           value: function verifyToken() {
-            var _this74 = this;
+            var _this73 = this;
 
             if (!this.token) {
               this.errorToken = "Token invalid";
@@ -12709,21 +12706,21 @@
             this.store.set("token", this.token);
             this.profilService.getCredential().subscribe(function (data) {
               if (data.id && data.role) {
-                _this74.info.id = data.id;
-                _this74.info.role = data.role;
+                _this73.info.id = data.id;
+                _this73.info.role = data.role;
               } else {
-                _this74.errorToken = "Token invalid";
+                _this73.errorToken = "Token invalid";
               }
 
               console.log("Credential ", data);
             }, function (error) {
-              _this74.errorToken = "Token invalid";
+              _this73.errorToken = "Token invalid";
             });
           }
         }, {
           key: "send",
           value: function send() {
-            var _this75 = this;
+            var _this74 = this;
 
             this.errorToken = null;
 
@@ -12743,19 +12740,19 @@
               this.modelService.reinitPassword(this.info.id, this.newPassword).subscribe(function (data) {
                 // console.log(" reinit model ",data);
                 if (data.access_token) {
-                  _this75.authService.saveToken(data.access_token).then(function () {
-                    _this75.saveLog();
+                  _this74.authService.saveToken(data.access_token).then(function () {
+                    _this74.saveLog();
 
-                    _this75.roomService.createRoom().subscribe(function (data) {
-                      _this75.loading = false;
+                    _this74.roomService.createRoom().subscribe(function (data) {
+                      _this74.loading = false;
 
-                      _this75.store.set("room", data.room);
+                      _this74.store.set("room", data.room);
 
-                      _this75.router.navigate(['/modele/profile']);
+                      _this74.router.navigate(['/modele/profile']);
                     });
                   }, function (error) {
                     console.log(error);
-                    _this75.loading = false;
+                    _this74.loading = false;
                   });
                 }
               });
@@ -12763,15 +12760,15 @@
               this.clientService.reinitPassword(this.info.id, this.newPassword).subscribe(function (data) {
                 // console.log(" reinit client ",data);
                 if (data.access_token) {
-                  _this75.authService.saveToken(data.access_token, data.id).then(function () {
-                    _this75.loading = false;
+                  _this74.authService.saveToken(data.access_token, data.id).then(function () {
+                    _this74.loading = false;
 
-                    _this75.router.navigate(['/client/accueil/registered']);
+                    _this74.router.navigate(['/client/accueil/registered']);
                   });
                 }
               }, function (error) {
                 console.log(error);
-                _this75.loading = false;
+                _this74.loading = false;
               });
             }
           }
@@ -13312,7 +13309,7 @@
 
       var LiveTipsComponent = /*#__PURE__*/function () {
         function LiveTipsComponent(_platform, router, route, modelService, roomVipService, store, chatService, socketService, popupService, profilService, clientService, dialog, timerService, notificationService, albumService, banishService, creditService) {
-          var _this76 = this;
+          var _this75 = this;
 
           _classCallCheck(this, LiveTipsComponent);
 
@@ -13400,23 +13397,23 @@
           this.getPeerId = function () {
             console.log("Get Peer");
 
-            _this76.peer.on('open', function (id) {
+            _this75.peer.on('open', function (id) {
               console.log("Peer Id ", id);
-              _this76.peerId = id;
+              _this75.peerId = id;
             });
 
-            _this76.peer.on('call', function (call) {
+            _this75.peer.on('call', function (call) {
               console.log('On call');
-              call.answer(_this76.lazyStream);
+              call.answer(_this75.lazyStream);
               call.on('stream', function (remoteStream) {
                 console.log('Receive stream');
 
-                if (!_this76.peerList.includes(call.peer)) {
-                  _this76.streamRemoteVideo(remoteStream);
+                if (!_this75.peerList.includes(call.peer)) {
+                  _this75.streamRemoteVideo(remoteStream);
 
-                  _this76.currentPeer = call.peerConnection;
+                  _this75.currentPeer = call.peerConnection;
 
-                  _this76.peerList.push(call.peer);
+                  _this75.peerList.push(call.peer);
                 }
               }); // this.onStop();
               // navigator.mediaDevices.getUserMedia({
@@ -13506,96 +13503,96 @@
         }, {
           key: "getModel",
           value: function getModel() {
-            var _this77 = this;
+            var _this76 = this;
 
             this.modelService.getModel(this.modelId).subscribe(function (data) {
               // console.log('Model ', data);
-              _this77.bg = data.path_soft;
-              _this77.modelPseudo = data.pseudo;
+              _this76.bg = data.path_soft;
+              _this76.modelPseudo = data.pseudo;
 
               if (data.profile.status !== 'En vip') {
-                _this77.errorRoom();
+                _this76.errorRoom();
 
                 return null;
               }
 
-              _this77.getMyInfo();
+              _this76.getMyInfo();
             });
           } // Get client infos + get model info
 
         }, {
           key: "getMyInfo",
           value: function getMyInfo() {
-            var _this78 = this;
+            var _this77 = this;
 
             this.clientService.getMyInfos().subscribe(function (data) {
               // console.log('My INFO ', data);
-              _this78.clientId = data.id;
-              _this78.clientPseudo = data.pseudo;
-              _this78.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
+              _this77.clientId = data.id;
+              _this77.clientPseudo = data.pseudo;
+              _this77.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
 
-              _this78.isBanished();
+              _this77.isBanished();
             });
           }
         }, {
           key: "isBanished",
           value: function isBanished() {
-            var _this79 = this;
+            var _this78 = this;
 
             this.banishService.isBanished(this.modelId, this.clientId).subscribe(function (data) {
               var ok = data.authorized;
 
               if (!ok) {
-                _this79.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
+                _this78.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
 
-                _this79.router.navigateByUrl('/client/accueil/registered');
+                _this78.router.navigateByUrl('/client/accueil/registered');
               } else {
-                _this79.getInfoRoom();
+                _this78.getInfoRoom();
               }
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this80 = this;
+            var _this79 = this;
 
             this.roomVipService.getRoomModel(this.modelId).subscribe(function (data) {
               // console.log('Model room ', data);
-              _this80.idRoom = data.idRoom;
-              _this80.palier.gain = data.gain;
-              _this80.palier.mini = data.mini;
-              _this80.palier.bronze = data.bronze;
-              _this80.palier.argent = data.argent;
-              _this80.palier.or = data.or;
+              _this79.idRoom = data.idRoom;
+              _this79.palier.gain = data.gain;
+              _this79.palier.mini = data.mini;
+              _this79.palier.bronze = data.bronze;
+              _this79.palier.argent = data.argent;
+              _this79.palier.or = data.or;
 
               if (data.idRoom === null) {
-                _this80.obsolete();
+                _this79.obsolete();
 
-                _this80.actif = 0;
-                _this80.idRoom = 0;
+                _this79.actif = 0;
+                _this79.idRoom = 0;
                 return false;
               }
 
-              _this80.actif = data.actif > 2 ? 2 : data.actif;
+              _this79.actif = data.actif > 2 ? 2 : data.actif;
 
-              if (_this80.clientId !== data.clientId) {
-                _this80.errorRoom();
+              if (_this79.clientId !== data.clientId) {
+                _this79.errorRoom();
 
                 return false;
               }
 
-              _this80.getMessages();
+              _this79.getMessages();
 
-              _this80.initSocket();
+              _this79.initSocket();
             });
           }
         }, {
           key: "getGain",
           value: function getGain() {
-            var _this81 = this;
+            var _this80 = this;
 
             this.roomVipService.getRoomInfo(this.idRoom).subscribe(function (data) {
-              _this81.palier.gain = data.gain;
+              _this80.palier.gain = data.gain;
             });
           } // Init the room + Get client infos
           // initRoom() {
@@ -13611,17 +13608,17 @@
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this82 = this;
+            var _this81 = this;
 
             this.chatService.getMessage(this.idRoom, 'vip').subscribe(function (data) {
-              _this82.messages = data;
+              _this81.messages = data;
             });
           }
         }, {
           key: "initSocket",
           value: function initSocket() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee53() {
-              var _this83 = this;
+              var _this82 = this;
 
               return regeneratorRuntime.wrap(function _callee53$(_context53) {
                 while (1) {
@@ -13633,67 +13630,67 @@
                     case 2:
                       this.joinSub = this.socketService.listen("joined ".concat(this.idRoom, "V")).subscribe(function (data) {
                         // console.log('Joined ', data);
-                        _this83.actif = data < 0 ? 0 : data;
-                        _this83.actif = data > 2 ? 2 : data;
-                        console.log('Actif ', _this83.actif);
+                        _this82.actif = data < 0 ? 0 : data;
+                        _this82.actif = data > 2 ? 2 : data;
+                        console.log('Actif ', _this82.actif);
                       });
                       this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom, "V")).subscribe(function (data) {
                         // console.log('leaved ', data);
-                        _this83.actif = data < 0 ? 0 : data;
-                        _this83.actif = data > 2 ? 2 : data;
-                        console.log('Actif ', _this83.actif);
+                        _this82.actif = data < 0 ? 0 : data;
+                        _this82.actif = data > 2 ? 2 : data;
+                        console.log('Actif ', _this82.actif);
                       });
                       this.messageSub = this.socketService.listen("message ".concat(this.idRoom, "V")).subscribe(function (data) {
                         // console.log('Msg to client ', data);
-                        _this83.getMessages();
+                        _this82.getMessages();
                       });
                       this.banishSub = this.socketService.listen("Banish client ".concat(this.idRoom, "V ").concat(this.clientId)).subscribe(function (data) {
-                        _this83.isBanished();
+                        _this82.isBanished();
                       });
                       this.modelLeaveSub = this.socketService.listen("model leaved ".concat(this.idRoom, "V")).subscribe(function (data) {
-                        _this83.leaved = true;
-                        _this83.indisponible = true;
-                        _this83.actif = 1;
+                        _this82.leaved = true;
+                        _this82.indisponible = true;
+                        _this82.actif = 1;
 
-                        _this83.popupService.info('/client/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this83.modelPseudo, " a ferm\xE9 le live de ce room"));
+                        _this82.popupService.info('/client/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this82.modelPseudo, " a ferm\xE9 le live de ce room"));
                       });
                       this.peerSub = this.socketService.listen("ans peerId ".concat(this.clientId, " ").concat(this.idRoom, "V")).subscribe(function (data) {
                         console.log("ans peerId ", data);
-                        _this83.peerIdShare = data.peerId;
+                        _this82.peerIdShare = data.peerId;
 
-                        _this83.connectWithPeer();
+                        _this82.connectWithPeer();
                       });
                       this.newPeerSub = this.socketService.listen("new model peerId ".concat(this.idRoom, "V")).subscribe(function (data) {
                         console.log("new model peerId");
-                        _this83.peerIdShare = data.peerId;
+                        _this82.peerIdShare = data.peerId;
 
-                        _this83.connectWithPeer();
+                        _this82.connectWithPeer();
                       });
                       this.toggleAudioSub = this.socketService.listen("Toggle audio ".concat(this.idRoom, "V")).subscribe(function (data) {
-                        if (data.clientId === _this83.clientId) return false;
+                        if (data.clientId === _this82.clientId) return false;
 
                         if (data.modelId) {
-                          _this83.toggleAudioModelStream(data.peerId, data.isAudio);
+                          _this82.toggleAudioModelStream(data.peerId, data.isAudio);
                         }
                       });
                       this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.idRoom, "V")).subscribe(function (data) {
-                        if (data.clientId === _this83.clientId) return false;
+                        if (data.clientId === _this82.clientId) return false;
 
                         if (data.modelId) {
-                          _this83.toggleVideoModelStream(data.peerId, data.isVideo);
+                          _this82.toggleVideoModelStream(data.peerId, data.isVideo);
                         }
                       }); // Live tips change
 
                       this.updatePalierTipsSub = this.socketService.listen("updatePalier ".concat(this.idRoom, "V")).subscribe(function (data) {
-                        _this83.palier.mini = data.mini;
-                        _this83.palier.bronze = data.bronze;
-                        _this83.palier.argent = data.argent;
-                        _this83.palier.or = data.or;
+                        _this82.palier.mini = data.mini;
+                        _this82.palier.bronze = data.bronze;
+                        _this82.palier.argent = data.argent;
+                        _this82.palier.or = data.or;
                       });
                       this.newTipsSub = this.socketService.listen("new tips ".concat(this.idRoom, "V")).subscribe(function (data) {
                         console.log('new tips ', data);
 
-                        _this83.getGain();
+                        _this82.getGain();
                       });
                       this.initTimer();
 
@@ -13740,15 +13737,15 @@
         }, {
           key: "relaunchPeerId",
           value: function relaunchPeerId() {
-            var _this84 = this;
+            var _this83 = this;
 
             this.peer.on('open', function (id) {
               console.log("Relaunch Peer Id ", id);
-              _this84.peerId = id;
+              _this83.peerId = id;
 
-              _this84.socketService.sendClientPeerId({
-                peerId: _this84.peerId,
-                room: _this84.idRoom + 'V'
+              _this83.socketService.sendClientPeerId({
+                peerId: _this83.peerId,
+                room: _this83.idRoom + 'V'
               });
             });
           }
@@ -13760,7 +13757,7 @@
         }, {
           key: "initColor",
           value: function initColor() {
-            var _this85 = this;
+            var _this84 = this;
 
             if (this.store.get("ticket_chat")) {
               this.chatColor = this.store.get("ticket_chat");
@@ -13769,15 +13766,15 @@
 
             ;
             this.roomVipService.getColor().subscribe(function (data) {
-              _this85.chatColor = data.color;
+              _this84.chatColor = data.color;
 
-              _this85.store.set("ticket_chat", data.color);
+              _this84.store.set("ticket_chat", data.color);
             });
           }
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this86 = this;
+            var _this85 = this;
 
             if (!this.message) return;
             var data = {
@@ -13792,16 +13789,16 @@
             this.message = null; // console.log(data);
 
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this86.getMessages();
+              _this85.getMessages();
 
               var msg = {
-                room: _this86.idRoom + 'V',
+                room: _this85.idRoom + 'V',
                 role: 'client',
-                id: _this86.clientId,
-                message: _this86.message
+                id: _this85.clientId,
+                message: _this85.message
               };
 
-              _this86.socketService.sendMessage(msg);
+              _this85.socketService.sendMessage(msg);
             });
           }
         }, {
@@ -13814,7 +13811,7 @@
           key: "liveOut",
           value: function liveOut() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee54() {
-              var _this87 = this;
+              var _this86 = this;
 
               return regeneratorRuntime.wrap(function _callee54$(_context54) {
                 while (1) {
@@ -13822,12 +13819,12 @@
                     case 0:
                       _context54.next = 2;
                       return this.leaveTimer().then(function (data) {
-                        _this87.roomVipService.leaveRoom();
+                        _this86.roomVipService.leaveRoom();
 
-                        _this87.socketService.leaveVip(_this87.idRoom, 'client').then(function () {
-                          _this87.store.remove('roomVIP');
+                        _this86.socketService.leaveVip(_this86.idRoom, 'client').then(function () {
+                          _this86.store.remove('roomVIP');
 
-                          _this87.router.navigate(['/client/accueil/registered']);
+                          _this86.router.navigate(['/client/accueil/registered']);
                         });
                       });
 
@@ -13846,7 +13843,7 @@
           key: "leaveTimer",
           value: function leaveTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee55() {
-              var _this88 = this;
+              var _this87 = this;
 
               var data;
               return regeneratorRuntime.wrap(function _callee55$(_context55) {
@@ -13863,7 +13860,7 @@
                       _context55.next = 3;
                       return this.timerService.updateTimer(data).subscribe(function (data) {
                         // console.log('Leave timer ', data);
-                        _this88.timer.reinit = true;
+                        _this87.timer.reinit = true;
                       });
 
                     case 3:
@@ -13896,7 +13893,7 @@
           key: "getCredit",
           value: function getCredit() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee56() {
-              var _this89 = this;
+              var _this88 = this;
 
               return regeneratorRuntime.wrap(function _callee56$(_context56) {
                 while (1) {
@@ -13904,8 +13901,8 @@
                     case 0:
                       _context56.next = 2;
                       return this.clientService.getCredit().subscribe(function (data) {
-                        _this89.clientCredit = data.credit;
-                        console.log('Client credit ', _this89.clientCredit);
+                        _this88.clientCredit = data.credit;
+                        console.log('Client credit ', _this88.clientCredit);
                       });
 
                     case 2:
@@ -13924,14 +13921,14 @@
           key: "initTimer",
           value: function initTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee58() {
-              var _this90 = this;
+              var _this89 = this;
 
               return regeneratorRuntime.wrap(function _callee58$(_context58) {
                 while (1) {
                   switch (_context58.prev = _context58.next) {
                     case 0:
                       this.timerService.getTimer(this.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].VIP).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this90, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee57() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this89, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee57() {
                           var created, updated, _this$timerService$co2, hour, minute, second;
 
                           return regeneratorRuntime.wrap(function _callee57$(_context57) {
@@ -13972,7 +13969,7 @@
           key: "getCostShow",
           value: function getCostShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee59() {
-              var _this91 = this;
+              var _this90 = this;
 
               return regeneratorRuntime.wrap(function _callee59$(_context59) {
                 while (1) {
@@ -13980,13 +13977,13 @@
                     case 0:
                       _context59.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].VIP).subscribe(function (data) {
-                        _this91.show.id = data.id;
-                        _this91.show.credit = data.credit;
-                        _this91.show.second = data.second;
-                        _this91.show.type = data.type; // console.log('Show cost ' , this.show, " - credit - " , this.clientCredit);
+                        _this90.show.id = data.id;
+                        _this90.show.credit = data.credit;
+                        _this90.show.second = data.second;
+                        _this90.show.type = data.type; // console.log('Show cost ' , this.show, " - credit - " , this.clientCredit);
 
                         // console.log('Show cost ' , this.show, " - credit - " , this.clientCredit);
-                        _this91.beginTimer();
+                        _this90.beginTimer();
                       });
 
                     case 2:
@@ -14003,11 +14000,11 @@
         }, {
           key: "creditInsuffisant",
           value: function creditInsuffisant() {
-            var _this92 = this;
+            var _this91 = this;
 
             this.popupService.info(null, 'CREDIT INSUFFISANT', "Vous n'avez presque plus de cr\xE9dit. Veuillez vous recharger.");
             setTimeout(function () {
-              _this92.getCredit();
+              _this91.getCredit();
             }, 20000);
           }
         }, {
@@ -14020,7 +14017,7 @@
           key: "beginTimer",
           value: function beginTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee61() {
-              var _this93 = this;
+              var _this92 = this;
 
               var delay;
               return regeneratorRuntime.wrap(function _callee61$(_context61) {
@@ -14029,7 +14026,7 @@
                     case 0:
                       delay = this.show.second * 1000;
                       this.timer.timer = setInterval(function () {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this93, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee60() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this92, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee60() {
                           return regeneratorRuntime.wrap(function _callee60$(_context60) {
                             while (1) {
                               switch (_context60.prev = _context60.next) {
@@ -14060,28 +14057,27 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this94 = this;
+            var _this93 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: false,
                 audio: true
               }).then(function (ms) {
-                _this94.lazyStream = ms;
-                console.log('My stream ', ms);
-
-                _this94.lazyStream.getVideoTracks().forEach(function (track) {
-                  _this94.showVideo = false;
-                  track.enabled = false;
-
-                  _this94.notificationService.infoMsg('Votre caméra est désactivé par defaut');
-                }); // this.video.nativeElement.srcObject = this.lazyStream;
+                _this93.lazyStream = ms;
+                console.log('My stream ', ms); // this.lazyStream.getVideoTracks().forEach(
+                //   (track) => {
+                //     this.showVideo = false;
+                //     track.enabled = false;
+                //     this.notificationService.infoMsg('Votre caméra est désactivé par defaut');
+                //   }
+                // );
+                // this.video.nativeElement.srcObject = this.lazyStream;
                 // this.remote_video.nativeElement.srcObject = ms;
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
                 // $('#video_live_client').prop('volume', 0);
-
               });
             }
           }
@@ -14104,19 +14100,19 @@
         }, {
           key: "callPeer",
           value: function callPeer(id) {
-            var _this95 = this;
+            var _this94 = this;
 
             console.log('Call Peer');
             var call = this.peer.call(id, this.lazyStream);
             call.on('stream', function (remoteStream) {
               console.log('Receive stream');
 
-              if (!_this95.peerList.includes(call.peer)) {
-                _this95.streamRemoteVideo(remoteStream);
+              if (!_this94.peerList.includes(call.peer)) {
+                _this94.streamRemoteVideo(remoteStream);
 
-                _this95.currentPeer = call.peerConnection;
+                _this94.currentPeer = call.peerConnection;
 
-                _this95.peerList.push(call.peer);
+                _this94.peerList.push(call.peer);
               }
             }); // this.onStop();
             // navigator.mediaDevices.getUserMedia({
@@ -14152,7 +14148,7 @@
         }, {
           key: "getAlbums",
           value: function getAlbums() {
-            var _this96 = this;
+            var _this95 = this;
 
             var data = {
               modelId: this.modelId,
@@ -14160,7 +14156,7 @@
             };
             this.albumService.getModelAlbums(data).subscribe(function (data) {
               for (var i = 0; i < data.length; i++) {
-                _this96.albums.push({
+                _this95.albums.push({
                   url: data[i].path_album
                 });
               }
@@ -14172,10 +14168,19 @@
             this.showVideo = !this.showVideo;
 
             if (this.showVideo) {
-              jquery__WEBPACK_IMPORTED_MODULE_5__("#video_live_client").removeClass("hideStream").addClass("showStream");
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = true;
+              });
             } else {
-              jquery__WEBPACK_IMPORTED_MODULE_5__("#video_live_client").removeClass("showStream").addClass("hideStream");
-            } // this.onStop();
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = false;
+              });
+            } // if (this.showVideo) {
+            //   $("#video_live_client").removeClass( "hideStream" ).addClass("showStream");
+            // } else {
+            //   $("#video_live_client").removeClass("showStream").addClass("hideStream");
+            // }
+            // this.onStop();
             // this.onStart();
 
 
@@ -14232,6 +14237,28 @@
         }, {
           key: "selectTips",
           value: function selectTips(value) {
+            var _this96 = this;
+
+            // console.log('Tips ', value);
+            this.loading = true;
+
+            if (value.credit > this.clientCredit) {
+              this.notificationService.infoMsg('Votre crédit est insuffisant');
+              this.loading = false;
+              return null;
+            }
+
+            this.creditService.buyGift(this.clientId, this.modelId, value.credit).subscribe(function (data) {
+              _this96.clientCredit = data.creditClient;
+
+              _this96.sendTips(value.symbole, value.credit, value.designation);
+            }, function (error) {
+              console.log(error);
+            });
+          }
+        }, {
+          key: "buyTips",
+          value: function buyTips(value) {
             var _this97 = this;
 
             // console.log('Tips ', value);
@@ -14246,33 +14273,11 @@
             this.creditService.buyGift(this.clientId, this.modelId, value.credit).subscribe(function (data) {
               _this97.clientCredit = data.creditClient;
 
-              _this97.sendTips(value.symbole, value.credit, value.designation);
-            }, function (error) {
-              console.log(error);
-            });
-          }
-        }, {
-          key: "buyTips",
-          value: function buyTips(value) {
-            var _this98 = this;
-
-            // console.log('Tips ', value);
-            this.loading = true;
-
-            if (value.credit > this.clientCredit) {
-              this.notificationService.infoMsg('Votre crédit est insuffisant');
-              this.loading = false;
-              return null;
-            }
-
-            this.creditService.buyGift(this.clientId, this.modelId, value.credit).subscribe(function (data) {
-              _this98.clientCredit = data.creditClient;
-
-              _this98.roomVipService.updateGain(_this98.idRoom, value.credit).subscribe(function (data) {
+              _this97.roomVipService.updateGain(_this97.idRoom, value.credit).subscribe(function (data) {
                 // notify send and animation
-                _this98.socketService.newTips(_this98.idRoom + 'V', value.symbole, value.credit, value.designation);
+                _this97.socketService.newTips(_this97.idRoom + 'V', value.symbole, value.credit, value.designation);
 
-                _this98.sendTips(value.symbole, value.credit, value.designation);
+                _this97.sendTips(value.symbole, value.credit, value.designation);
               });
             }, function (error) {
               console.log(error);
@@ -14286,7 +14291,7 @@
         }, {
           key: "sendTips",
           value: function sendTips(symbole, credit, designation) {
-            var _this99 = this;
+            var _this98 = this;
 
             var data = {
               idRoom: this.idRoom,
@@ -14301,22 +14306,22 @@
               pseudo: this.clientPseudo
             };
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this99.getMessages();
+              _this98.getMessages();
 
               var msg = {
-                room: _this99.idRoom + 'V',
+                room: _this98.idRoom + 'V',
                 role: 'client',
-                id: _this99.clientId,
+                id: _this98.clientId,
                 message: 'This is a gift',
-                pseudo: _this99.clientPseudo
+                pseudo: _this98.clientPseudo
               };
 
-              _this99.socketService.sendMessage(msg);
+              _this98.socketService.sendMessage(msg);
 
-              _this99.loading = false;
-              _this99.showTips = false;
+              _this98.loading = false;
+              _this98.showTips = false;
 
-              _this99.notificationService.success('Tips offert', designation);
+              _this98.notificationService.success('Tips offert', designation);
             });
           }
         }]);
@@ -15142,7 +15147,7 @@
 
       var LiveFreeSaloonComponent = /*#__PURE__*/function () {
         function LiveFreeSaloonComponent(_platform, router, route, modelService, roomVipService, store, chatService, socketService, popupService, profilService, clientService, dialog, timerService, notificationService, albumService, banishService, creditService) {
-          var _this100 = this;
+          var _this99 = this;
 
           _classCallCheck(this, LiveFreeSaloonComponent);
 
@@ -15227,23 +15232,23 @@
           this.getPeerId = function () {
             console.log("Get Peer");
 
-            _this100.peer.on('open', function (id) {
+            _this99.peer.on('open', function (id) {
               console.log("Peer Id ", id);
-              _this100.peerId = id;
+              _this99.peerId = id;
             });
 
-            _this100.peer.on('call', function (call) {
+            _this99.peer.on('call', function (call) {
               console.log('On call');
-              call.answer(_this100.lazyStream);
+              call.answer(_this99.lazyStream);
               call.on('stream', function (remoteStream) {
                 console.log('Receive stream');
 
-                if (!_this100.peerList.includes(call.peer)) {
-                  _this100.streamRemoteVideo(remoteStream);
+                if (!_this99.peerList.includes(call.peer)) {
+                  _this99.streamRemoteVideo(remoteStream);
 
-                  _this100.currentPeer = call.peerConnection;
+                  _this99.currentPeer = call.peerConnection;
 
-                  _this100.peerList.push(call.peer);
+                  _this99.peerList.push(call.peer);
                 }
               }); // this.onStop();
               // navigator.mediaDevices.getUserMedia({
@@ -15345,92 +15350,92 @@
         }, {
           key: "getModel",
           value: function getModel() {
-            var _this101 = this;
+            var _this100 = this;
 
             this.modelService.getModel(this.modelId).subscribe(function (data) {
               // console.log('Model ', data);
-              _this101.bg = data.path_soft;
-              _this101.modelPseudo = data.pseudo;
+              _this100.bg = data.path_soft;
+              _this100.modelPseudo = data.pseudo;
 
               if (data.profile.status !== 'En live choice') {
-                _this101.errorRoom();
+                _this100.errorRoom();
 
                 return null;
               }
 
-              _this101.getMyInfo();
+              _this100.getMyInfo();
             });
           } // Get client infos + get model info
 
         }, {
           key: "getMyInfo",
           value: function getMyInfo() {
-            var _this102 = this;
+            var _this101 = this;
 
             this.clientService.getMyInfos().subscribe(function (data) {
               // console.log('My INFO ', data);
-              _this102.clientId = data.id;
-              _this102.clientPseudo = data.pseudo;
-              _this102.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
+              _this101.clientId = data.id;
+              _this101.clientPseudo = data.pseudo;
+              _this101.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
 
-              _this102.isBanished();
+              _this101.isBanished();
             });
           }
         }, {
           key: "isBanished",
           value: function isBanished() {
-            var _this103 = this;
+            var _this102 = this;
 
             this.banishService.isBanished(this.modelId, this.clientId).subscribe(function (data) {
               var ok = data.authorized;
 
               if (!ok) {
-                _this103.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
+                _this102.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
 
-                _this103.router.navigateByUrl('/client/accueil/registered');
+                _this102.router.navigateByUrl('/client/accueil/registered');
               } else {
-                _this103.getInfoRoom();
+                _this102.getInfoRoom();
               }
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this104 = this;
+            var _this103 = this;
 
             this.roomVipService.getRoomModel(this.modelId).subscribe(function (data) {
               console.log('Model room ', data);
-              _this104.idRoom = data.idRoom;
-              _this104.roomIdString = _this104.idRoom + 'V';
+              _this103.idRoom = data.idRoom;
+              _this103.roomIdString = _this103.idRoom + 'V';
 
-              _this104.clientService.storeLastChat(_this104.roomIdString);
+              _this103.clientService.storeLastChat(_this103.roomIdString);
 
               if (data.idRoom === null) {
-                _this104.obsolete();
+                _this103.obsolete();
 
-                _this104.actif = 0;
-                _this104.idRoom = 0;
+                _this103.actif = 0;
+                _this103.idRoom = 0;
                 return false;
               }
 
-              _this104.actif = data.actif > 2 ? 2 : data.actif;
-              _this104.show.credit = data.free;
-              _this104.show.id = 0;
-              _this104.show.second = 60;
-              _this104.show.type = 'CHOICE US';
-              _this104.choiceUs.title = data.title;
-              _this104.choiceUs.description = data.description;
-              _this104.choiceUs.tarif = data.free;
+              _this103.actif = data.actif > 2 ? 2 : data.actif;
+              _this103.show.credit = data.free;
+              _this103.show.id = 0;
+              _this103.show.second = 60;
+              _this103.show.type = 'CHOICE US';
+              _this103.choiceUs.title = data.title;
+              _this103.choiceUs.description = data.description;
+              _this103.choiceUs.tarif = data.free;
 
-              if (_this104.clientId !== data.clientId) {
-                _this104.errorRoom();
+              if (_this103.clientId !== data.clientId) {
+                _this103.errorRoom();
 
                 return false;
               }
 
-              _this104.getMessages();
+              _this103.getMessages();
 
-              _this104.initSocket();
+              _this103.initSocket();
             });
           } // Init the room + Get client infos
           // initRoom() {
@@ -15446,17 +15451,17 @@
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this105 = this;
+            var _this104 = this;
 
             this.chatService.getMessage(this.idRoom, 'vip').subscribe(function (data) {
-              _this105.messages = data;
+              _this104.messages = data;
             });
           }
         }, {
           key: "initSocket",
           value: function initSocket() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee63() {
-              var _this106 = this;
+              var _this105 = this;
 
               return regeneratorRuntime.wrap(function _callee63$(_context63) {
                 while (1) {
@@ -15468,63 +15473,63 @@
                     case 2:
                       this.joinSub = this.socketService.listen("joined ".concat(this.idRoom, "V")).subscribe(function (data) {
                         // console.log('Joined ', data);
-                        _this106.actif = data < 0 ? 0 : data;
-                        _this106.actif = data > 2 ? 2 : data;
-                        console.log('Actif ', _this106.actif);
+                        _this105.actif = data < 0 ? 0 : data;
+                        _this105.actif = data > 2 ? 2 : data;
+                        console.log('Actif ', _this105.actif);
                       });
                       this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom, "V")).subscribe(function (data) {
                         // console.log('leaved ', data);
-                        _this106.actif = data < 0 ? 0 : data;
-                        _this106.actif = data > 2 ? 2 : data;
-                        console.log('Actif ', _this106.actif);
+                        _this105.actif = data < 0 ? 0 : data;
+                        _this105.actif = data > 2 ? 2 : data;
+                        console.log('Actif ', _this105.actif);
                       });
                       this.messageSub = this.socketService.listen("message ".concat(this.idRoom, "V")).subscribe(function (data) {
                         // console.log('Msg to client ', data);
-                        _this106.getMessages();
+                        _this105.getMessages();
                       });
                       this.banishSub = this.socketService.listen("Banish client ".concat(this.idRoom, "V ").concat(this.clientId)).subscribe(function (data) {
-                        _this106.isBanished();
+                        _this105.isBanished();
                       });
                       this.modelLeaveSub = this.socketService.listen("model leaved ".concat(this.idRoom, "V")).subscribe(function (data) {
-                        _this106.leaved = true;
-                        _this106.indisponible = true;
-                        _this106.actif = 1;
+                        _this105.leaved = true;
+                        _this105.indisponible = true;
+                        _this105.actif = 1;
 
-                        _this106.popupService.info('/client/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this106.modelPseudo, " a ferm\xE9 le live de ce room"));
+                        _this105.popupService.info('/client/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this105.modelPseudo, " a ferm\xE9 le live de ce room"));
                       });
                       this.peerSub = this.socketService.listen("ans peerId ".concat(this.clientId, " ").concat(this.idRoom, "V")).subscribe(function (data) {
                         console.log("ans peerId ", data);
-                        _this106.peerIdShare = data.peerId;
+                        _this105.peerIdShare = data.peerId;
 
-                        _this106.connectWithPeer();
+                        _this105.connectWithPeer();
                       });
                       this.newPeerSub = this.socketService.listen("new model peerId ".concat(this.idRoom, "V")).subscribe(function (data) {
                         console.log("new model peerId");
-                        _this106.peerIdShare = data.peerId;
+                        _this105.peerIdShare = data.peerId;
 
-                        _this106.connectWithPeer();
+                        _this105.connectWithPeer();
                       });
                       this.toggleAudioSub = this.socketService.listen("Toggle audio ".concat(this.idRoom, "V")).subscribe(function (data) {
-                        if (data.clientId === _this106.clientId) return false;
+                        if (data.clientId === _this105.clientId) return false;
 
                         if (data.modelId) {
-                          _this106.toggleAudioModelStream(data.peerId, data.isAudio);
+                          _this105.toggleAudioModelStream(data.peerId, data.isAudio);
                         }
                       });
                       this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.idRoom, "V")).subscribe(function (data) {
-                        if (data.clientId === _this106.clientId) return false;
+                        if (data.clientId === _this105.clientId) return false;
 
                         if (data.modelId) {
-                          _this106.toggleVideoModelStream(data.peerId, data.isVideo);
+                          _this105.toggleVideoModelStream(data.peerId, data.isVideo);
                         }
                       }); // Live Choice us change
 
                       this.updateChoiceUsSub = this.socketService.listen("updateChoiceUs ".concat(this.idRoom, "V")).subscribe(function (data) {
-                        _this106.choiceUs.title = data.title;
-                        _this106.choiceUs.description = data.description;
-                        _this106.choiceUs.tarif = data.tarif;
+                        _this105.choiceUs.title = data.title;
+                        _this105.choiceUs.description = data.description;
+                        _this105.choiceUs.tarif = data.tarif;
 
-                        _this106.getCostShow(_this106.choiceUs);
+                        _this105.getCostShow(_this105.choiceUs);
                       });
                       this.initTimer();
 
@@ -15571,15 +15576,15 @@
         }, {
           key: "relaunchPeerId",
           value: function relaunchPeerId() {
-            var _this107 = this;
+            var _this106 = this;
 
             this.peer.on('open', function (id) {
               console.log("Relaunch Peer Id ", id);
-              _this107.peerId = id;
+              _this106.peerId = id;
 
-              _this107.socketService.sendClientPeerId({
-                peerId: _this107.peerId,
-                room: _this107.idRoom + 'V'
+              _this106.socketService.sendClientPeerId({
+                peerId: _this106.peerId,
+                room: _this106.idRoom + 'V'
               });
             });
           }
@@ -15591,7 +15596,7 @@
         }, {
           key: "initColor",
           value: function initColor() {
-            var _this108 = this;
+            var _this107 = this;
 
             if (this.store.get("ticket_chat")) {
               this.chatColor = this.store.get("ticket_chat");
@@ -15600,15 +15605,15 @@
 
             ;
             this.roomVipService.getColor().subscribe(function (data) {
-              _this108.chatColor = data.color;
+              _this107.chatColor = data.color;
 
-              _this108.store.set("ticket_chat", data.color);
+              _this107.store.set("ticket_chat", data.color);
             });
           }
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this109 = this;
+            var _this108 = this;
 
             if (!this.message) return;
             var data = {
@@ -15623,17 +15628,17 @@
             this.message = null; // console.log(data);
 
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this109.getMessages();
+              _this108.getMessages();
 
               var msg = {
-                room: _this109.idRoom + 'V',
+                room: _this108.idRoom + 'V',
                 role: 'client',
-                id: _this109.clientId,
-                message: _this109.message,
-                pseudo: _this109.clientPseudo
+                id: _this108.clientId,
+                message: _this108.message,
+                pseudo: _this108.clientPseudo
               };
 
-              _this109.socketService.sendMessage(msg);
+              _this108.socketService.sendMessage(msg);
             });
           }
         }, {
@@ -15646,7 +15651,7 @@
           key: "liveOut",
           value: function liveOut() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee64() {
-              var _this110 = this;
+              var _this109 = this;
 
               return regeneratorRuntime.wrap(function _callee64$(_context64) {
                 while (1) {
@@ -15654,12 +15659,12 @@
                     case 0:
                       _context64.next = 2;
                       return this.leaveTimer().then(function (data) {
-                        _this110.roomVipService.leaveRoom();
+                        _this109.roomVipService.leaveRoom();
 
-                        _this110.socketService.leaveVip(_this110.idRoom, 'client').then(function () {
-                          _this110.store.remove('roomVIP');
+                        _this109.socketService.leaveVip(_this109.idRoom, 'client').then(function () {
+                          _this109.store.remove('roomVIP');
 
-                          _this110.clientService.deleteLastChat();
+                          _this109.clientService.deleteLastChat();
 
                           window.location.href = '/client/accueil/registered'; // this.router.navigate(['/client/accueil/registered']);
                         });
@@ -15680,7 +15685,7 @@
           key: "leaveTimer",
           value: function leaveTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee65() {
-              var _this111 = this;
+              var _this110 = this;
 
               var data;
               return regeneratorRuntime.wrap(function _callee65$(_context65) {
@@ -15697,7 +15702,7 @@
                       _context65.next = 3;
                       return this.timerService.updateTimer(data).subscribe(function (data) {
                         // console.log('Leave timer ', data);
-                        _this111.timer.reinit = true;
+                        _this110.timer.reinit = true;
                       });
 
                     case 3:
@@ -15731,7 +15736,7 @@
           key: "getCredit",
           value: function getCredit() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee66() {
-              var _this112 = this;
+              var _this111 = this;
 
               return regeneratorRuntime.wrap(function _callee66$(_context66) {
                 while (1) {
@@ -15739,14 +15744,14 @@
                     case 0:
                       _context66.next = 2;
                       return this.clientService.getCredit().subscribe(function (data) {
-                        _this112.clientCredit = data.credit;
-                        console.log('Client credit ', _this112.clientCredit);
-                        if (_this112.show.credit < _this112.clientCredit) return null;
-                        _this112.timer.fail = true; // if Not leaved
+                        _this111.clientCredit = data.credit;
+                        console.log('Client credit ', _this111.clientCredit);
+                        if (_this111.show.credit < _this111.clientCredit) return null;
+                        _this111.timer.fail = true; // if Not leaved
 
                         // if Not leaved
-                        if (!_this112.timer.reinit) {
-                          _this112.notificationService.failure("CREDIT INSUFFISANT", "Veuillez vous recharger.");
+                        if (!_this111.timer.reinit) {
+                          _this111.notificationService.failure("CREDIT INSUFFISANT", "Veuillez vous recharger.");
                         }
                       });
 
@@ -15766,14 +15771,14 @@
           key: "initTimer",
           value: function initTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee68() {
-              var _this113 = this;
+              var _this112 = this;
 
               return regeneratorRuntime.wrap(function _callee68$(_context68) {
                 while (1) {
                   switch (_context68.prev = _context68.next) {
                     case 0:
                       this.timerService.getTimer(this.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].VIP).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this113, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee67() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this112, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee67() {
                           var created, updated, _this$timerService$co3, hour, minute, second;
 
                           return regeneratorRuntime.wrap(function _callee67$(_context67) {
@@ -15854,11 +15859,11 @@
         }, {
           key: "creditInsuffisant",
           value: function creditInsuffisant() {
-            var _this114 = this;
+            var _this113 = this;
 
             this.popupService.info(null, 'CREDIT INSUFFISANT', "Vous n'avez presque plus de cr\xE9dit. Veuillez vous recharger.");
             setTimeout(function () {
-              _this114.getCredit();
+              _this113.getCredit();
             }, 20000);
           }
         }, {
@@ -15871,7 +15876,7 @@
           key: "beginTimer",
           value: function beginTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee71() {
-              var _this115 = this;
+              var _this114 = this;
 
               var delay;
               return regeneratorRuntime.wrap(function _callee71$(_context71) {
@@ -15888,14 +15893,14 @@
                       return _context71.sent.subscribe( // launch main creditation
                       function (data) {
                         // console.log("Response credit timer ", data);
-                        _this115.clientCredit = data.credit ? data.credit : 0;
+                        _this114.clientCredit = data.credit ? data.credit : 0;
 
                         if (data.credit <= 0) {
-                          _this115.aucunCredit();
+                          _this114.aucunCredit();
 
                           return null;
-                        } else if (data.credit <= _this115.show.credit * 2) {
-                          _this115.creditInsuffisant();
+                        } else if (data.credit <= _this114.show.credit * 2) {
+                          _this114.creditInsuffisant();
 
                           return null;
                         }
@@ -15903,8 +15908,8 @@
 
                     case 5:
                       this.timer.timer = setInterval(function () {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this115, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee70() {
-                          var _this116 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this114, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee70() {
+                          var _this115 = this;
 
                           return regeneratorRuntime.wrap(function _callee70$(_context70) {
                             while (1) {
@@ -15922,14 +15927,14 @@
                                   _context70.next = 5;
                                   return _context70.sent.subscribe(function (data) {
                                     // console.log("Response credit timer ", data);
-                                    _this116.clientCredit = data.credit ? data.credit : 0;
+                                    _this115.clientCredit = data.credit ? data.credit : 0;
 
                                     if (data.credit <= 0) {
-                                      _this116.aucunCredit();
+                                      _this115.aucunCredit();
 
                                       return null;
-                                    } else if (data.credit <= _this116.show.credit * 2) {
-                                      _this116.creditInsuffisant();
+                                    } else if (data.credit <= _this115.show.credit * 2) {
+                                      _this115.creditInsuffisant();
 
                                       return null;
                                     }
@@ -16003,26 +16008,26 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this117 = this;
+            var _this116 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
               }).then(function (ms) {
-                _this117.lazyStream = ms;
+                _this116.lazyStream = ms;
                 console.log('My stream ', ms);
-                _this117.video.nativeElement.srcObject = _this117.lazyStream; // this.remote_video.nativeElement.srcObject = ms;
+                _this116.video.nativeElement.srcObject = _this116.lazyStream; // this.remote_video.nativeElement.srcObject = ms;
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
-
-                _this117.lazyStream.getVideoTracks().forEach(function (track) {
-                  _this117.showVideo = false;
-                  track.enabled = false;
-
-                  _this117.notificationService.infoMsg('Votre caméra est désactivé par defaut');
-                });
+                // this.lazyStream.getVideoTracks().forEach(
+                //   (track) => {
+                //     this.showVideo = false;
+                //     track.enabled = false;
+                //     this.notificationService.infoMsg('Votre caméra est désactivé par defaut');
+                //   }
+                // );
 
                 jquery__WEBPACK_IMPORTED_MODULE_5__('#video_live_client').prop('volume', 0);
               });
@@ -16051,19 +16056,19 @@
         }, {
           key: "callPeer",
           value: function callPeer(id) {
-            var _this118 = this;
+            var _this117 = this;
 
             console.log('Call Peer');
             var call = this.peer.call(id, this.lazyStream);
             call.on('stream', function (remoteStream) {
               console.log('Receive stream');
 
-              if (!_this118.peerList.includes(call.peer)) {
-                _this118.streamRemoteVideo(remoteStream);
+              if (!_this117.peerList.includes(call.peer)) {
+                _this117.streamRemoteVideo(remoteStream);
 
-                _this118.currentPeer = call.peerConnection;
+                _this117.currentPeer = call.peerConnection;
 
-                _this118.peerList.push(call.peer);
+                _this117.peerList.push(call.peer);
               }
             }); // this.onStop();
             // navigator.mediaDevices.getUserMedia({
@@ -16099,7 +16104,7 @@
         }, {
           key: "getAlbums",
           value: function getAlbums() {
-            var _this119 = this;
+            var _this118 = this;
 
             var data = {
               modelId: this.modelId,
@@ -16107,7 +16112,7 @@
             };
             this.albumService.getModelAlbums(data).subscribe(function (data) {
               for (var i = 0; i < data.length; i++) {
-                _this119.albums.push({
+                _this118.albums.push({
                   url: data[i].path_album
                 });
               }
@@ -16119,10 +16124,19 @@
             this.showVideo = !this.showVideo;
 
             if (this.showVideo) {
-              jquery__WEBPACK_IMPORTED_MODULE_5__("#video_live_client").removeClass("hideStream").addClass("showStream");
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = true;
+              });
             } else {
-              jquery__WEBPACK_IMPORTED_MODULE_5__("#video_live_client").removeClass("showStream").addClass("hideStream");
-            } // this.onStop();
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = false;
+              });
+            } // if (this.showVideo) {
+            //   $("#video_live_client").removeClass( "hideStream" ).addClass("showStream");
+            // } else {
+            //   $("#video_live_client").removeClass("showStream").addClass("hideStream");
+            // }
+            // this.onStop();
             // this.onStart();
 
 
@@ -16178,7 +16192,7 @@
         }, {
           key: "selectTips",
           value: function selectTips(value) {
-            var _this120 = this;
+            var _this119 = this;
 
             // console.log('Tips ', value);
             this.loading = true;
@@ -16191,9 +16205,9 @@
 
             this.creditService.buyGift(this.clientId, this.modelId, value.credit).subscribe(function (data) {
               console.log(data);
-              _this120.clientCredit = data.creditClient;
+              _this119.clientCredit = data.creditClient;
 
-              _this120.sendTips(value.symbole, value.credit, value.designation, value.vip);
+              _this119.sendTips(value.symbole, value.credit, value.designation, value.vip);
             }, function (error) {
               console.log(error);
             });
@@ -16206,7 +16220,7 @@
         }, {
           key: "sendTips",
           value: function sendTips(symbole, credit, designation) {
-            var _this121 = this;
+            var _this120 = this;
 
             var vip = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
             var data = {
@@ -16222,20 +16236,20 @@
               pseudo: this.clientPseudo
             };
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this121.getMessages();
+              _this120.getMessages();
 
               var msg = {
-                room: _this121.idRoom + 'V',
+                room: _this120.idRoom + 'V',
                 role: 'client',
-                id: _this121.clientId,
+                id: _this120.clientId,
                 message: vip ? 'vip' : 'This is a gift',
-                pseudo: _this121.clientPseudo
+                pseudo: _this120.clientPseudo
               };
 
-              _this121.socketService.sendMessage(msg);
+              _this120.socketService.sendMessage(msg);
 
-              _this121.loading = false;
-              _this121.showTips = false;
+              _this120.loading = false;
+              _this120.showTips = false;
             });
           }
         }]);
@@ -16857,7 +16871,7 @@
 
       var MainRightDashboardAdminComponent = /*#__PURE__*/function () {
         function MainRightDashboardAdminComponent(adminService, timerService) {
-          var _this122 = this;
+          var _this121 = this;
 
           _classCallCheck(this, MainRightDashboardAdminComponent);
 
@@ -16887,32 +16901,32 @@
           this.labelUser = this.labelsShow[2];
 
           this.useDefaultGridStyle = function () {
-            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this122.options);
+            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this121.options);
             var gridStyle = [{
               stroke: 'white',
               lineDash: [2, 1]
             }];
             options.axes[0].gridStyle = gridStyle;
             options.axes[1].gridStyle = gridStyle;
-            _this122.options = options;
+            _this121.options = options;
           };
 
           this.update = function () {
-            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this122.options);
-            options.data = _this122.getData();
-            _this122.options = options;
+            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this121.options);
+            options.data = _this121.getData();
+            _this121.options = options;
           };
 
           this.startUpdates = function () {
-            if (_this122.updating) {
+            if (_this121.updating) {
               return;
             }
 
-            _this122.updating = true;
+            _this121.updating = true;
 
-            _this122.update();
+            _this121.update();
 
-            setInterval(_this122.update, 1000);
+            setInterval(_this121.update, 1000);
           };
 
           this.options = {
@@ -17008,16 +17022,16 @@
         }, {
           key: "getInscriptionsModel",
           value: function getInscriptionsModel() {
-            var _this123 = this;
+            var _this122 = this;
 
             this.adminService.getStatInscriptionModel().subscribe(function (data) {
               var tmp = data;
               tmp.forEach(function (inscrit) {
-                inscrit.date = _this123.adminService.formatDate(inscrit.date);
+                inscrit.date = _this122.adminService.formatDate(inscrit.date);
                 inscrit.count = parseInt(inscrit.count);
               });
-              _this123.modelesOrig = tmp;
-              _this123.modeles = tmp;
+              _this122.modelesOrig = tmp;
+              _this122.modeles = tmp;
             }, function (error) {
               console.log(error);
             });
@@ -17025,17 +17039,17 @@
         }, {
           key: "getInscriptionsClient",
           value: function getInscriptionsClient() {
-            var _this124 = this;
+            var _this123 = this;
 
             this.adminService.getStatInscriptionClient().subscribe(function (data) {
               // console.log(data)
               var tmp = data;
               tmp.forEach(function (inscrit) {
-                inscrit.date = _this124.adminService.formatDate(inscrit.date);
+                inscrit.date = _this123.adminService.formatDate(inscrit.date);
                 inscrit.count = parseInt(inscrit.count);
               });
-              _this124.clientsOrig = tmp;
-              _this124.clients = tmp; // console.log(this.clients)
+              _this123.clientsOrig = tmp;
+              _this123.clients = tmp; // console.log(this.clients)
             }, function (error) {
               console.log(error);
             });
@@ -17065,7 +17079,7 @@
         }, {
           key: "selectYear",
           value: function selectYear(event) {
-            var _this125 = this;
+            var _this124 = this;
 
             this.isIntegral = false;
             var value = event.target.value;
@@ -17074,13 +17088,13 @@
             if (this.currentSelect === 'client') {
               this.clients = this.clientsOrig.filter(function (element) {
                 var year = element.date.substring(6, 10);
-                if (year === _this125.currentYear) return true;
+                if (year === _this124.currentYear) return true;
                 return false;
               });
             } else if (this.currentSelect === 'model') {
               this.modeles = this.modelesOrig.filter(function (element) {
                 var year = element.date.substring(6, 10);
-                if (year === _this125.currentYear) return true;
+                if (year === _this124.currentYear) return true;
                 return false;
               });
             }
@@ -17117,13 +17131,13 @@
         }, {
           key: "getAverageClient",
           value: function getAverageClient() {
-            var _this126 = this;
+            var _this125 = this;
 
             this.adminService.getAverageClient().subscribe(function (data) {
-              _this126.valueUser = [];
+              _this125.valueUser = [];
               var tmp = data;
               tmp.forEach(function (val) {
-                val.duree = _this126.timerService.convertToTime(val.duree); // console.log(val.duree)
+                val.duree = _this125.timerService.convertToTime(val.duree); // console.log(val.duree)
               });
               var countLoop = 0; // console.log(' Get average client ', tmp);
 
@@ -17132,7 +17146,7 @@
                 if (!tmp[index]) continue;
                 tmp[index].rang = countLoop + 1;
 
-                _this126.valueUser.push(tmp[index]);
+                _this125.valueUser.push(tmp[index]);
 
                 countLoop++;
               }
@@ -17755,7 +17769,7 @@
 
       var LiveTipsModelComponent = /*#__PURE__*/function () {
         function LiveTipsModelComponent(_platform, router, store, modelService, route, chatService, roomVipService, socketService, profilService, timerService, creditService, banishService, profileService) {
-          var _this127 = this;
+          var _this126 = this;
 
           _classCallCheck(this, LiveTipsModelComponent);
 
@@ -17848,32 +17862,32 @@
 
           this.getPeerId = function () {
             // console.log("Get Peer");
-            _this127.peer.on('open', function (id) {
+            _this126.peer.on('open', function (id) {
               console.log("Peer Id ", id);
-              _this127.peerId = id;
+              _this126.peerId = id;
               var data = {
                 role: 'model',
-                modelId: _this127.info.modelId,
-                room: _this127.info.idRoom + 'V',
-                peerId: _this127.peerId
+                modelId: _this126.info.modelId,
+                room: _this126.info.idRoom + 'V',
+                peerId: _this126.peerId
               };
 
-              _this127.socketService.newPeerIdModel(data);
+              _this126.socketService.newPeerIdModel(data);
             });
 
-            _this127.peer.on('call', function (call) {
+            _this126.peer.on('call', function (call) {
               console.log('On Call');
-              call.answer(_this127.lazyStream);
+              call.answer(_this126.lazyStream);
               console.log('Answer stream');
               call.on('stream', function (remoteStream) {
                 console.log('Receive stream');
 
-                if (!_this127.peerList.includes(call.peer)) {
-                  _this127.streamRemoteVideo(remoteStream);
+                if (!_this126.peerList.includes(call.peer)) {
+                  _this126.streamRemoteVideo(remoteStream);
 
-                  _this127.currentPeer = call.peerConnection;
+                  _this126.currentPeer = call.peerConnection;
 
-                  _this127.peerList.push(call.peer);
+                  _this126.peerList.push(call.peer);
                 }
               }); // this.onStop();
               // navigator.mediaDevices.getUserMedia({
@@ -17923,12 +17937,12 @@
         }, {
           key: "verifySound",
           value: function verifySound() {
-            var _this128 = this;
+            var _this127 = this;
 
             this.profileService.getInfo().subscribe(function (data) {
               // console.log(data.setting);
-              _this128.sound_notification = data.setting.sound_notification === 1 ? true : false;
-              _this128.sound_message = data.setting.sound_message === 1 ? true : false;
+              _this127.sound_notification = data.setting.sound_notification === 1 ? true : false;
+              _this127.sound_message = data.setting.sound_message === 1 ? true : false;
             });
           }
         }, {
@@ -17947,71 +17961,71 @@
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this129 = this;
+            var _this128 = this;
 
             this.modelService.getInfo().subscribe(function (data) {
               // console.log('Get info ', data);
               if (data.profile.status === 'En live') {
-                _this129.onStop();
+                _this128.onStop();
 
-                _this129.router.navigate(['/modele/live-private']);
+                _this128.router.navigate(['/modele/live-private']);
               }
 
               if (data.profile.status === 'En ligne') {
-                _this129.onStop();
+                _this128.onStop();
 
-                _this129.router.navigate(['/modele/chat']);
+                _this128.router.navigate(['/modele/chat']);
               }
 
-              _this129.info.bg = data.path_soft;
-              _this129.info.modelId = data.id;
-              _this129.info.pseudo = data.pseudo;
+              _this128.info.bg = data.path_soft;
+              _this128.info.modelId = data.id;
+              _this128.info.pseudo = data.pseudo;
 
-              _this129.getInfoRoom();
+              _this128.getInfoRoom();
 
-              _this129.getCredit();
+              _this128.getCredit();
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this130 = this;
+            var _this129 = this;
 
             this.roomVipService.getRoomModel(this.info.modelId).subscribe(function (data) {
-              _this130.info.idRoom = data.idRoom;
-              _this130.roomId = data.idRoom + 'V';
-              _this130.info.actif = data.actif;
-              _this130.client.id = data.clientId;
-              _this130.palier.mini = data.mini;
-              _this130.palier.bronze = data.bronze;
-              _this130.palier.argent = data.argent;
-              _this130.palier.or = data.or;
+              _this129.info.idRoom = data.idRoom;
+              _this129.roomId = data.idRoom + 'V';
+              _this129.info.actif = data.actif;
+              _this129.client.id = data.clientId;
+              _this129.palier.mini = data.mini;
+              _this129.palier.bronze = data.bronze;
+              _this129.palier.argent = data.argent;
+              _this129.palier.or = data.or;
 
               if (data.mini > 0 && data.bronze > 0 && data.argent > 0 && data.or > 0) {
-                _this130.palier.filled = 1;
+                _this129.palier.filled = 1;
               } else {
-                _this130.palier.filled = 0;
+                _this129.palier.filled = 0;
               }
 
-              _this130.getMessages();
+              _this129.getMessages();
 
-              _this130.initSocket();
+              _this129.initSocket();
 
-              _this130.getInfoClient();
+              _this129.getInfoClient();
             });
           }
         }, {
           key: "getCredit",
           value: function getCredit() {
-            var _this131 = this;
+            var _this130 = this;
 
             this.creditService.getCredit().subscribe(function (data) {
               // console.log("Credit ", data);
-              _this131.info.creditModel = data ? data.credit : 0;
-              _this131.info.idCreditModel = data ? data.id : 0;
-              _this131.stat.totalCredit = _this131.info.creditModel;
+              _this130.info.creditModel = data ? data.credit : 0;
+              _this130.info.idCreditModel = data ? data.id : 0;
+              _this130.stat.totalCredit = _this130.info.creditModel;
 
-              _this131.getGain();
+              _this130.getGain();
             }); // Launch the timer
 
             this.initTimer();
@@ -18020,7 +18034,7 @@
         }, {
           key: "initSocket",
           value: function initSocket() {
-            var _this132 = this;
+            var _this131 = this;
 
             if (!this.roomVipService.joinedRoom(this.info.idRoom)) {
               this.roomVipService.joinRoom(this.info.idRoom);
@@ -18031,63 +18045,63 @@
               // console.log('joined ', data);
               // this.info.actif = data < 1 ? 0 : data;
               // this.info.actif = data > 2 ? 2 : data;
-              _this132.info.actif = 2;
+              _this131.info.actif = 2;
 
-              if (_this132.sound_notification) {
-                _this132.socketService.soundIncome();
+              if (_this131.sound_notification) {
+                _this131.socketService.soundIncome();
               }
 
-              _this132.leaved = false;
+              _this131.leaved = false;
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               // console.log('leaved ', data);
               // this.info.actif = data < 1 ? 0 : data;
               // this.info.actif = data > 2 ? 2 : data;
-              _this132.info.actif = 1;
+              _this131.info.actif = 1;
 
-              if (_this132.sound_notification) {
-                _this132.socketService.soundOutcome();
+              if (_this131.sound_notification) {
+                _this131.socketService.soundOutcome();
               }
 
-              _this132.leaved = true;
+              _this131.leaved = true;
             });
             this.messageSub = this.socketService.listen("message ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               // console.log('Message from client ', data);
-              _this132.getMessages();
+              _this131.getMessages();
             });
             this.peerSub = this.socketService.listen("peerId ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               console.log('Received Peer Id ', data);
-              _this132.peerIdShare = data.peerId;
+              _this131.peerIdShare = data.peerId;
 
-              _this132.connectWithPeer();
+              _this131.connectWithPeer();
             });
             this.toggleAudioSub = this.socketService.listen("Toggle audio ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               if (data.clientId) {
-                _this132.toggleAudioClientStream(data.peerId, data.isAudio);
+                _this131.toggleAudioClientStream(data.peerId, data.isAudio);
               }
             });
             this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               if (data.clientId) {
-                _this132.toggleVideoClientStream(data.peerId, data.isVideo);
+                _this131.toggleVideoClientStream(data.peerId, data.isVideo);
               }
             }); // Live tips change
 
             this.updatePalierTipsSub = this.socketService.listen("updatePalier ".concat(this.info.idRoom, "V")).subscribe(function (data) {
-              _this132.palier.mini = data.mini;
-              _this132.palier.bronze = data.bronze;
-              _this132.palier.argent = data.argent;
-              _this132.palier.or = data.or;
+              _this131.palier.mini = data.mini;
+              _this131.palier.bronze = data.bronze;
+              _this131.palier.argent = data.argent;
+              _this131.palier.or = data.or;
             });
             this.newTipsSub = this.socketService.listen("new tips ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               console.log('new tips ', data);
 
               if (data.credit) {
-                _this132.info.creditModel += data.credit;
+                _this131.info.creditModel += data.credit;
               }
 
-              _this132.getGain();
+              _this131.getGain();
 
-              _this132.socketService.soundIncome();
+              _this131.socketService.soundIncome();
             });
           }
         }, {
@@ -18119,7 +18133,7 @@
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this133 = this;
+            var _this132 = this;
 
             if (!this.info.message) return;
             var data = {
@@ -18133,45 +18147,45 @@
             };
             this.info.message = null;
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this133.getMessages();
+              _this132.getMessages();
 
               var msg = {
-                room: _this133.info.idRoom + 'V',
+                room: _this132.info.idRoom + 'V',
                 role: 'model',
-                id: _this133.info.modelId,
-                message: _this133.info.message
+                id: _this132.info.modelId,
+                message: _this132.info.message
               };
 
-              _this133.socketService.sendMessage(msg);
+              _this132.socketService.sendMessage(msg);
             });
           }
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this134 = this;
+            var _this133 = this;
 
             this.chatService.getMessage(this.info.idRoom, 'vip').subscribe(function (data) {
               // console.log('Messages ', data);
-              _this134.messages = data;
+              _this133.messages = data;
             });
           }
         }, {
           key: "getInfoClient",
           value: function getInfoClient() {
-            var _this135 = this;
+            var _this134 = this;
 
             this.roomVipService.getInfo(this.client.id).subscribe( // info client
             function (data) {
               // console.log("Info client ", data);
-              _this135.client.pseudo = data.pseudo;
-              _this135.stat.client = data.pseudo;
+              _this134.client.pseudo = data.pseudo;
+              _this134.stat.client = data.pseudo;
             });
           }
         }, {
           key: "liveOut",
           value: function liveOut() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee75() {
-              var _this136 = this;
+              var _this135 = this;
 
               return regeneratorRuntime.wrap(function _callee75$(_context75) {
                 while (1) {
@@ -18185,8 +18199,8 @@
                     case 4:
                       _context75.next = 6;
                       return _context75.sent.subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this136, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee74() {
-                          var _this137 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this135, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee74() {
+                          var _this136 = this;
 
                           return regeneratorRuntime.wrap(function _callee74$(_context74) {
                             while (1) {
@@ -18197,8 +18211,8 @@
 
                                   _context74.next = 4;
                                   return this.socketService.leaveVip(this.info.idRoom, 'model').then(function (data) {
-                                    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this137, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee73() {
-                                      var _this138 = this;
+                                    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this136, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee73() {
+                                      var _this137 = this;
 
                                       return regeneratorRuntime.wrap(function _callee73$(_context73) {
                                         while (1) {
@@ -18207,7 +18221,7 @@
                                               this.roomVipService.leaveRoom();
                                               _context73.next = 3;
                                               return this.profilService.updateStatus(this.info.modelId, 'En ligne').subscribe(function (data) {
-                                                _this138.loading = false;
+                                                _this137.loading = false;
                                                 window.location.href = '/modele/chat'; // this.router.navigate(['/modele/chat']);
                                               });
 
@@ -18231,7 +18245,7 @@
                           }, _callee74, this);
                         }));
                       }, function (error) {
-                        _this136.loading = false;
+                        _this135.loading = false;
                       });
 
                     case 6:
@@ -18247,14 +18261,14 @@
           key: "initTimer",
           value: function initTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee77() {
-              var _this139 = this;
+              var _this138 = this;
 
               return regeneratorRuntime.wrap(function _callee77$(_context77) {
                 while (1) {
                   switch (_context77.prev = _context77.next) {
                     case 0:
                       this.timerService.beginTimerModel(this.info.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_3__["TypeTimer"].VIP).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this139, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee76() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this138, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee76() {
                           var created, updated, _this$timerService$co4, hour, minute, second;
 
                           return regeneratorRuntime.wrap(function _callee76$(_context76) {
@@ -18296,7 +18310,7 @@
           key: "getCostShow",
           value: function getCostShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee78() {
-              var _this140 = this;
+              var _this139 = this;
 
               return regeneratorRuntime.wrap(function _callee78$(_context78) {
                 while (1) {
@@ -18305,12 +18319,12 @@
                       _context78.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_3__["TypeTimer"].VIP).subscribe(function (data) {
                         // console.log("Show Cost ", data);
-                        _this140.stat.tarif_show = data.credit;
-                        _this140.stat.time_show = data.second;
-                        _this140.stat.type_show = (data.type + '').toString().toUpperCase();
-                        _this140.stat.id_show = data.id;
+                        _this139.stat.tarif_show = data.credit;
+                        _this139.stat.time_show = data.second;
+                        _this139.stat.type_show = (data.type + '').toString().toUpperCase();
+                        _this139.stat.id_show = data.id;
 
-                        _this140.beginTimer();
+                        _this139.beginTimer();
                       });
 
                     case 2:
@@ -18327,27 +18341,27 @@
         }, {
           key: "beginTimer",
           value: function beginTimer() {
-            var _this141 = this;
+            var _this140 = this;
 
             // console.log("timer second ", this.show.second);
             var delay = this.stat.time_show * 1000; // console.log(delay, " ms ");
 
             this.timer.timer = setInterval(function () {
-              if (_this141.info.actif > 1) _this141.getGain();
+              if (_this140.info.actif > 1) _this140.getGain();
             }, delay);
           }
         }, {
           key: "getGain",
           value: function getGain() {
-            var _this142 = this;
+            var _this141 = this;
 
             this.roomVipService.getRoomModel(this.info.modelId).subscribe(function (data) {
               console.log("Gain ", data);
-              _this142.stat.winCredit = data.gain;
-              _this142.stat.totalCredit = _this142.info.creditModel;
-              _this142.stat.actualCredit = _this142.stat.totalCredit - data.gain; // this.stat.actualCredit = this.stat.totalCredit - this.stat.winCredit;
+              _this141.stat.winCredit = data.gain;
+              _this141.stat.totalCredit = _this141.info.creditModel;
+              _this141.stat.actualCredit = _this141.stat.totalCredit - data.gain; // this.stat.actualCredit = this.stat.totalCredit - this.stat.winCredit;
 
-              _this142.info.winCredit = data.gain;
+              _this141.info.winCredit = data.gain;
             });
           } // Timer set to 0
 
@@ -18396,16 +18410,16 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this143 = this;
+            var _this142 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
               }).then(function (ms) {
-                _this143.lazyStream = ms; // console.log('My stream ', ms);
+                _this142.lazyStream = ms; // console.log('My stream ', ms);
 
-                _this143.video.nativeElement.srcObject = _this143.lazyStream; // this.remote_video.nativeElement.srcObject = ms;
+                _this142.video.nativeElement.srcObject = _this142.lazyStream; // this.remote_video.nativeElement.srcObject = ms;
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
@@ -18443,19 +18457,19 @@
         }, {
           key: "callPeer",
           value: function callPeer(id) {
-            var _this144 = this;
+            var _this143 = this;
 
             console.log('Call peer');
             var call = this.peer.call(id, this.lazyStream);
             call.on('stream', function (remoteStream) {
               console.log('Receive stream');
 
-              if (!_this144.peerList.includes(call.peer)) {
-                _this144.streamRemoteVideo(remoteStream);
+              if (!_this143.peerList.includes(call.peer)) {
+                _this143.streamRemoteVideo(remoteStream);
 
-                _this144.currentPeer = call.peerConnection;
+                _this143.currentPeer = call.peerConnection;
 
-                _this144.peerList.push(call.peer);
+                _this143.peerList.push(call.peer);
               }
             }); // this.onStop();
             // navigator.mediaDevices.getUserMedia({
@@ -18498,10 +18512,19 @@
             this.showVideo = !this.showVideo;
 
             if (this.showVideo) {
-              jquery__WEBPACK_IMPORTED_MODULE_4__("#video_live_model").removeClass("hideStream").addClass("showStream");
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = true;
+              });
             } else {
-              jquery__WEBPACK_IMPORTED_MODULE_4__("#video_live_model").removeClass("showStream").addClass("hideStream");
-            } // this.onStop();
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = false;
+              });
+            } // if (this.showVideo) {
+            //   $("#video_live_model").removeClass( "hideStream" ).addClass("showStream");
+            // } else {
+            //   $("#video_live_model").removeClass("showStream").addClass("hideStream");
+            // }
+            // this.onStop();
             // this.onStart();
 
 
@@ -18531,11 +18554,11 @@
         }, {
           key: "banish",
           value: function banish() {
-            var _this145 = this;
+            var _this144 = this;
 
             if (this.client.id === 0 || !this.client.id || !this.roomId) return null;
             this.banishService.banishClient(this.info.modelId, this.client.id).subscribe(function (data) {
-              _this145.socketService.banishClient(_this145.roomId, _this145.client.id); // console.log(data)
+              _this144.socketService.banishClient(_this144.roomId, _this144.client.id); // console.log(data)
 
             });
           } // -------- EMOJI -----------------
@@ -19468,7 +19491,7 @@
           key: "getInfo",
           value: function getInfo() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee82() {
-              var _this146 = this;
+              var _this145 = this;
 
               return regeneratorRuntime.wrap(function _callee82$(_context82) {
                 while (1) {
@@ -19477,8 +19500,8 @@
                       this.loading = true;
                       _context82.next = 3;
                       return this.profileService.getProfil().subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this146, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee81() {
-                          var _this147 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this145, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee81() {
+                          var _this146 = this;
 
                           return regeneratorRuntime.wrap(function _callee81$(_context81) {
                             while (1) {
@@ -19489,13 +19512,13 @@
                                   return this.profileService.getInfo().subscribe(function (data) {
                                     // console.log(data);
                                     var date = new Date().getFullYear();
-                                    _this147.model.age = date - data.year_birth;
-                                    _this147.model.pseudo = data.pseudo;
-                                    _this147.model.path_soft = data.path_soft;
-                                    _this147.model.date_last_connection = _this147.getDate(_this147.model.date_last_connection);
-                                    _this147.loading = false;
+                                    _this146.model.age = date - data.year_birth;
+                                    _this146.model.pseudo = data.pseudo;
+                                    _this146.model.path_soft = data.path_soft;
+                                    _this146.model.date_last_connection = _this146.getDate(_this146.model.date_last_connection);
+                                    _this146.loading = false;
                                   }, function (error) {
-                                    _this147.loading = false;
+                                    _this146.loading = false;
                                   });
 
                                 case 3:
@@ -19524,10 +19547,10 @@
         }, {
           key: "getStatus",
           value: function getStatus() {
-            var _this148 = this;
+            var _this147 = this;
 
             this.profileService.getProfil().subscribe(function (data) {
-              _this148.model.status = data.status;
+              _this147.model.status = data.status;
             });
           }
         }, {
@@ -19545,17 +19568,17 @@
           key: "countAlbum",
           value: function countAlbum() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee83() {
-              var _this149 = this;
+              var _this148 = this;
 
               return regeneratorRuntime.wrap(function _callee83$(_context83) {
                 while (1) {
                   switch (_context83.prev = _context83.next) {
                     case 0:
                       this.albumService.getCount().subscribe(function (data) {
-                        _this149.count = data;
-                        _this149.totalAlbumPrivate = _this149.count["private"];
-                        _this149.totalAlbumVIP = _this149.count.vip;
-                        _this149.totalAlbumFree = _this149.count.free;
+                        _this148.count = data;
+                        _this148.totalAlbumPrivate = _this148.count["private"];
+                        _this148.totalAlbumVIP = _this148.count.vip;
+                        _this148.totalAlbumFree = _this148.count.free;
                       });
 
                     case 1:
@@ -19570,7 +19593,7 @@
           key: "init",
           value: function init() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee84() {
-              var _this150 = this;
+              var _this149 = this;
 
               return regeneratorRuntime.wrap(function _callee84$(_context84) {
                 while (1) {
@@ -19586,7 +19609,7 @@
                     case 4:
                       _context84.next = 6;
                       return _context84.sent.subscribe(function (data) {
-                        _this150.currentAlbumPrivate = data;
+                        _this149.currentAlbumPrivate = data;
                       });
 
                     case 6:
@@ -19596,7 +19619,7 @@
                     case 8:
                       _context84.next = 10;
                       return _context84.sent.subscribe(function (data) {
-                        _this150.currentAlbumFree = data;
+                        _this149.currentAlbumFree = data;
                       });
 
                     case 10:
@@ -19606,7 +19629,7 @@
                     case 12:
                       _context84.next = 14;
                       return _context84.sent.subscribe(function (data) {
-                        _this150.currentAlbumVIP = data;
+                        _this149.currentAlbumVIP = data;
                       });
 
                     case 14:
@@ -19702,7 +19725,7 @@
           key: "fetchAlbum",
           value: function fetchAlbum(context, debut) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee85() {
-              var _this151 = this;
+              var _this150 = this;
 
               return regeneratorRuntime.wrap(function _callee85$(_context85) {
                 while (1) {
@@ -19720,10 +19743,10 @@
                     case 6:
                       _context85.next = 8;
                       return _context85.sent.subscribe(function (data) {
-                        _this151.currentAlbumPrivate = data;
-                        _this151.loading = false;
+                        _this150.currentAlbumPrivate = data;
+                        _this150.loading = false;
                       }, function (error) {
-                        _this151.loading = false;
+                        _this150.loading = false;
                       });
 
                     case 8:
@@ -19736,10 +19759,10 @@
                     case 11:
                       _context85.next = 13;
                       return _context85.sent.subscribe(function (data) {
-                        _this151.currentAlbumVIP = data;
-                        _this151.loading = false;
+                        _this150.currentAlbumVIP = data;
+                        _this150.loading = false;
                       }, function (error) {
-                        _this151.loading = false;
+                        _this150.loading = false;
                       });
 
                     case 13:
@@ -19752,10 +19775,10 @@
                     case 16:
                       _context85.next = 18;
                       return _context85.sent.subscribe(function (data) {
-                        _this151.currentAlbumFree = data;
-                        _this151.loading = false;
+                        _this150.currentAlbumFree = data;
+                        _this150.loading = false;
                       }, function (error) {
-                        _this151.loading = false;
+                        _this150.loading = false;
                       });
 
                     case 18:
@@ -20665,18 +20688,18 @@
         }, {
           key: "startMinuteur",
           value: function startMinuteur() {
-            var _this152 = this;
+            var _this151 = this;
 
             setInterval(function () {
-              _this152.second_passed++;
+              _this151.second_passed++;
 
-              if (_this152.second_passed > 59) {
-                _this152.second_passed = 0;
-                _this152.minute_passed++;
+              if (_this151.second_passed > 59) {
+                _this151.second_passed = 0;
+                _this151.minute_passed++;
 
-                if (_this152.minute_passed > 59) {
-                  _this152.minute_passed = 0;
-                  _this152.hour_passed++;
+                if (_this151.minute_passed > 59) {
+                  _this151.minute_passed = 0;
+                  _this151.hour_passed++;
                 }
               }
             }, 1000);
@@ -20691,14 +20714,14 @@
         }, {
           key: "changeChoiceUs",
           value: function changeChoiceUs(event) {
-            var _this153 = this;
+            var _this152 = this;
 
             var found = false;
             this.choiceUs.forEach(function (element) {
               if (element.title === event.target.value) {
-                _this153.choiceUsDetail.title = element.title;
-                _this153.choiceUsDetail.description = element.description;
-                _this153.description = element.description;
+                _this152.choiceUsDetail.title = element.title;
+                _this152.choiceUsDetail.description = element.description;
+                _this152.description = element.description;
                 found = true;
               }
             });
@@ -20716,7 +20739,7 @@
         }, {
           key: "saveChoiceUs",
           value: function saveChoiceUs() {
-            var _this154 = this;
+            var _this153 = this;
 
             if (this.choiceUsDetail.description === '' || this.choiceUsDetail.title === '' || this.choiceUsDetail.tarif === 0) {
               this.notificationService.infoMsg('Veuillez préciser le detail de votre room');
@@ -20725,11 +20748,11 @@
               this.roomVipService.updateChoiceUs(this.roomId, this.choiceUsDetail.title, this.choiceUsDetail.description, this.choiceUsDetail.tarif).subscribe(function (data) {
                 console.log(data);
 
-                _this154.socketService.updateChoiceUs(_this154.roomId + 'V', _this154.choiceUsDetail.title, _this154.choiceUsDetail.description, _this154.choiceUsDetail.tarif);
+                _this153.socketService.updateChoiceUs(_this153.roomId + 'V', _this153.choiceUsDetail.title, _this153.choiceUsDetail.description, _this153.choiceUsDetail.tarif);
 
-                _this154.notificationService.infoMsg("LIVE CHOICE US : ".concat(_this154.choiceUsDetail.title, " - ").concat(_this154.choiceUsDetail.tarif, " cr\xE9dits / mn"));
+                _this153.notificationService.infoMsg("LIVE CHOICE US : ".concat(_this153.choiceUsDetail.title, " - ").concat(_this153.choiceUsDetail.tarif, " cr\xE9dits / mn"));
 
-                _this154.filledChoiceUs = true;
+                _this153.filledChoiceUs = true;
               });
             }
           }
@@ -21517,36 +21540,36 @@
         }, {
           key: "getLive",
           value: function getLive() {
-            var _this155 = this;
+            var _this154 = this;
 
             this.loading = true;
             this.modelSrv.getLive().subscribe(function (data) {
-              _this155.allLive = data;
+              _this154.allLive = data;
               var random = Math.floor(Math.random() * (data.length - 1 + 1)) + 1;
-              _this155.mainModel = _this155.allLive[random];
+              _this154.mainModel = _this154.allLive[random];
 
-              _this155.getNoLive(); // console.log("Live ", this.allLive);
+              _this154.getNoLive(); // console.log("Live ", this.allLive);
 
             }, function (error) {
-              _this155.loading = false;
+              _this154.loading = false;
             });
           }
         }, {
           key: "getNoLive",
           value: function getNoLive() {
-            var _this156 = this;
+            var _this155 = this;
 
             this.modelSrv.getNoLive().subscribe(function (data) {
-              _this156.other = data;
-              _this156.loading = false; // console.log("NoLive ", this.other);
+              _this155.other = data;
+              _this155.loading = false; // console.log("NoLive ", this.other);
             }, function (error) {
-              _this156.loading = false;
+              _this155.loading = false;
             });
           }
         }, {
           key: "seeModel",
           value: function seeModel(modelId, path_soft) {
-            var _this157 = this;
+            var _this156 = this;
 
             this.imageData = [];
             var data = {
@@ -21558,12 +21581,12 @@
                 path_album: path_soft // Profil Model
 
               };
-              _this157.imageData = data;
+              _this156.imageData = data;
 
-              _this157.imageData.push(path_album); // console.log("Image dada ", this.imageData);
+              _this156.imageData.push(path_album); // console.log("Image dada ", this.imageData);
 
 
-              _this157.init();
+              _this156.init();
             });
           }
         }]);
@@ -22167,7 +22190,7 @@
           key: "send",
           value: function send(event) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee87() {
-              var _this158 = this;
+              var _this157 = this;
 
               var message;
               return regeneratorRuntime.wrap(function _callee87$(_context87) {
@@ -22189,20 +22212,20 @@
                       message = this.loginForm.value;
                       console.log(message);
                       this.clientService.sendMessage(message).subscribe(function (data) {
-                        _this158.submitted = false;
+                        _this157.submitted = false;
                         console.log(data);
 
-                        _this158.popupService.info(null, 'Accusé de réception', 'Votre message a été bien envoyé !');
+                        _this157.popupService.info(null, 'Accusé de réception', 'Votre message a été bien envoyé !');
 
-                        _this158.loginForm.reset();
+                        _this157.loginForm.reset();
 
-                        _this158.loading = false;
+                        _this157.loading = false;
                       }, function (error) {
                         console.log(error);
 
-                        _this158.notificationService.errorMsg('Une erreur s\'est produite');
+                        _this157.notificationService.errorMsg('Une erreur s\'est produite');
 
-                        _this158.loading = false;
+                        _this157.loading = false;
                       });
 
                     case 8:
@@ -23210,7 +23233,7 @@
 
       var LiveVipComponent = /*#__PURE__*/function () {
         function LiveVipComponent(_platform, router, route, modelService, roomVipService, store, chatService, socketService, popupService, profilService, clientService, dialog, timerService, notificationService, albumService, banishService, creditService, subscribeService) {
-          var _this159 = this;
+          var _this158 = this;
 
           _classCallCheck(this, LiveVipComponent);
 
@@ -23296,23 +23319,23 @@
           this.getPeerId = function () {
             console.log("Get Peer");
 
-            _this159.peer.on('open', function (id) {
+            _this158.peer.on('open', function (id) {
               console.log("Peer Id ", id);
-              _this159.peerId = id;
+              _this158.peerId = id;
             });
 
-            _this159.peer.on('call', function (call) {
+            _this158.peer.on('call', function (call) {
               console.log('On call');
-              call.answer(_this159.lazyStream);
+              call.answer(_this158.lazyStream);
               call.on('stream', function (remoteStream) {
                 console.log('Receive stream');
 
-                if (!_this159.peerList.includes(call.peer)) {
-                  _this159.streamRemoteVideo(remoteStream);
+                if (!_this158.peerList.includes(call.peer)) {
+                  _this158.streamRemoteVideo(remoteStream);
 
-                  _this159.currentPeer = call.peerConnection;
+                  _this158.currentPeer = call.peerConnection;
 
-                  _this159.peerList.push(call.peer);
+                  _this158.peerList.push(call.peer);
                 }
               }); // this.onStop();
               // navigator.mediaDevices.getUserMedia({
@@ -23409,11 +23432,11 @@
         }, {
           key: "isSubscribed",
           value: function isSubscribed() {
-            var _this160 = this;
+            var _this159 = this;
 
             this.subscribeService.verify().subscribe(function (data) {
               // console.log(data);
-              _this160.subscription = data;
+              _this159.subscription = data;
             }, function (error) {
               console.log(error);
             });
@@ -23422,85 +23445,85 @@
         }, {
           key: "getModel",
           value: function getModel() {
-            var _this161 = this;
+            var _this160 = this;
 
             this.modelService.getModel(this.modelId).subscribe(function (data) {
               // console.log('Model ', data);
-              _this161.bg = data.path_soft;
-              _this161.modelPseudo = data.pseudo;
+              _this160.bg = data.path_soft;
+              _this160.modelPseudo = data.pseudo;
 
               if (data.profile.status !== 'En vip') {
-                _this161.errorRoom();
+                _this160.errorRoom();
 
                 return null;
               }
 
-              _this161.getMyInfo();
+              _this160.getMyInfo();
             });
           } // Get client infos + get model info
 
         }, {
           key: "getMyInfo",
           value: function getMyInfo() {
-            var _this162 = this;
+            var _this161 = this;
 
             this.clientService.getMyInfos().subscribe(function (data) {
               // console.log('My INFO ', data);
-              _this162.clientId = data.id;
-              _this162.clientPseudo = data.pseudo;
-              _this162.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
+              _this161.clientId = data.id;
+              _this161.clientPseudo = data.pseudo;
+              _this161.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
 
-              _this162.isBanished();
+              _this161.isBanished();
             });
           }
         }, {
           key: "isBanished",
           value: function isBanished() {
-            var _this163 = this;
+            var _this162 = this;
 
             this.banishService.isBanished(this.modelId, this.clientId).subscribe(function (data) {
               var ok = data.authorized;
 
               if (!ok) {
-                _this163.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
+                _this162.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
 
-                _this163.router.navigateByUrl('/client/accueil/registered');
+                _this162.router.navigateByUrl('/client/accueil/registered');
               } else {
-                _this163.getInfoRoom();
+                _this162.getInfoRoom();
               }
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this164 = this;
+            var _this163 = this;
 
             this.roomVipService.getRoomModel(this.modelId).subscribe(function (data) {
               // console.log('Model room ', data);
-              _this164.idRoom = data.idRoom;
-              _this164.roomIdString = _this164.idRoom + 'V';
+              _this163.idRoom = data.idRoom;
+              _this163.roomIdString = _this163.idRoom + 'V';
 
-              _this164.clientService.storeLastChat(_this164.roomIdString);
+              _this163.clientService.storeLastChat(_this163.roomIdString);
 
               if (data.idRoom === null) {
-                _this164.obsolete();
+                _this163.obsolete();
 
-                _this164.actif = 0;
-                _this164.idRoom = 0;
+                _this163.actif = 0;
+                _this163.idRoom = 0;
                 return false;
               }
 
-              _this164.actif = data.actif > 2 ? 2 : data.actif;
+              _this163.actif = data.actif > 2 ? 2 : data.actif;
 
-              if (_this164.clientId !== data.clientId) {
-                _this164.errorRoom();
+              if (_this163.clientId !== data.clientId) {
+                _this163.errorRoom();
 
                 return false;
               }
 
-              _this164.getMessages();
+              _this163.getMessages();
 
-              _this164.initSocket();
+              _this163.initSocket();
             });
           } // Init the room + Get client infos
           // initRoom() {
@@ -23516,17 +23539,17 @@
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this165 = this;
+            var _this164 = this;
 
             this.chatService.getMessage(this.idRoom, 'vip').subscribe(function (data) {
-              _this165.messages = data;
+              _this164.messages = data;
             });
           }
         }, {
           key: "initSocket",
           value: function initSocket() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee89() {
-              var _this166 = this;
+              var _this165 = this;
 
               return regeneratorRuntime.wrap(function _callee89$(_context89) {
                 while (1) {
@@ -23538,52 +23561,52 @@
                     case 2:
                       this.joinSub = this.socketService.listen("joined ".concat(this.idRoom, "V")).subscribe(function (data) {
                         // console.log('Joined ', data);
-                        _this166.actif = data < 0 ? 0 : data;
-                        _this166.actif = data > 2 ? 2 : data; // console.log('Actif ', this.actif);
+                        _this165.actif = data < 0 ? 0 : data;
+                        _this165.actif = data > 2 ? 2 : data; // console.log('Actif ', this.actif);
                       });
                       this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom, "V")).subscribe(function (data) {
                         // console.log('leaved ', data);
-                        _this166.actif = data < 0 ? 0 : data;
-                        _this166.actif = data > 2 ? 2 : data; // console.log('Actif ', this.actif);
+                        _this165.actif = data < 0 ? 0 : data;
+                        _this165.actif = data > 2 ? 2 : data; // console.log('Actif ', this.actif);
                       });
                       this.messageSub = this.socketService.listen("message ".concat(this.idRoom, "V")).subscribe(function (data) {
                         // console.log('Msg to client ', data);
-                        _this166.getMessages();
+                        _this165.getMessages();
                       });
                       this.banishSub = this.socketService.listen("Banish client ".concat(this.idRoom, "V ").concat(this.clientId)).subscribe(function (data) {
-                        _this166.isBanished();
+                        _this165.isBanished();
                       });
                       this.modelLeaveSub = this.socketService.listen("model leaved ".concat(this.idRoom, "V")).subscribe(function (data) {
-                        _this166.leaved = true;
-                        _this166.indisponible = true;
-                        _this166.actif = 1;
+                        _this165.leaved = true;
+                        _this165.indisponible = true;
+                        _this165.actif = 1;
 
-                        _this166.popupService.info('/client/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this166.modelPseudo, " a ferm\xE9 le live de ce room"));
+                        _this165.popupService.info('/client/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this165.modelPseudo, " a ferm\xE9 le live de ce room"));
                       });
                       this.peerSub = this.socketService.listen("ans peerId ".concat(this.clientId, " ").concat(this.idRoom, "V")).subscribe(function (data) {
                         console.log("ans peerId ", data);
-                        _this166.peerIdShare = data.peerId;
+                        _this165.peerIdShare = data.peerId;
 
-                        _this166.connectWithPeer();
+                        _this165.connectWithPeer();
                       });
                       this.newPeerSub = this.socketService.listen("new model peerId ".concat(this.idRoom, "V")).subscribe(function (data) {
                         console.log("new model peerId");
-                        _this166.peerIdShare = data.peerId;
+                        _this165.peerIdShare = data.peerId;
 
-                        _this166.connectWithPeer();
+                        _this165.connectWithPeer();
                       });
                       this.toggleAudioSub = this.socketService.listen("Toggle audio ".concat(this.idRoom, "V")).subscribe(function (data) {
-                        if (data.clientId === _this166.clientId) return false;
+                        if (data.clientId === _this165.clientId) return false;
 
                         if (data.modelId) {
-                          _this166.toggleAudioModelStream(data.peerId, data.isAudio);
+                          _this165.toggleAudioModelStream(data.peerId, data.isAudio);
                         }
                       });
                       this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.idRoom, "V")).subscribe(function (data) {
-                        if (data.clientId === _this166.clientId) return false;
+                        if (data.clientId === _this165.clientId) return false;
 
                         if (data.modelId) {
-                          _this166.toggleVideoModelStream(data.peerId, data.isVideo);
+                          _this165.toggleVideoModelStream(data.peerId, data.isVideo);
                         }
                       });
                       this.initTimer();
@@ -23631,15 +23654,15 @@
         }, {
           key: "relaunchPeerId",
           value: function relaunchPeerId() {
-            var _this167 = this;
+            var _this166 = this;
 
             this.peer.on('open', function (id) {
               console.log("Relaunch Peer Id ", id);
-              _this167.peerId = id;
+              _this166.peerId = id;
 
-              _this167.socketService.sendClientPeerId({
-                peerId: _this167.peerId,
-                room: _this167.idRoom + 'V'
+              _this166.socketService.sendClientPeerId({
+                peerId: _this166.peerId,
+                room: _this166.idRoom + 'V'
               });
             });
           }
@@ -23651,7 +23674,7 @@
         }, {
           key: "initColor",
           value: function initColor() {
-            var _this168 = this;
+            var _this167 = this;
 
             if (this.store.get("ticket_chat")) {
               this.chatColor = this.store.get("ticket_chat");
@@ -23660,15 +23683,15 @@
 
             ;
             this.roomVipService.getColor().subscribe(function (data) {
-              _this168.chatColor = data.color;
+              _this167.chatColor = data.color;
 
-              _this168.store.set("ticket_chat", data.color);
+              _this167.store.set("ticket_chat", data.color);
             });
           }
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this169 = this;
+            var _this168 = this;
 
             if (!this.message) return;
             var data = {
@@ -23683,16 +23706,16 @@
             this.message = null; // console.log(data);
 
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this169.getMessages();
+              _this168.getMessages();
 
               var msg = {
-                room: _this169.idRoom + 'V',
+                room: _this168.idRoom + 'V',
                 role: 'client',
-                id: _this169.clientId,
-                message: _this169.message
+                id: _this168.clientId,
+                message: _this168.message
               };
 
-              _this169.socketService.sendMessage(msg);
+              _this168.socketService.sendMessage(msg);
             });
           }
         }, {
@@ -23705,7 +23728,7 @@
           key: "liveOut",
           value: function liveOut() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee90() {
-              var _this170 = this;
+              var _this169 = this;
 
               return regeneratorRuntime.wrap(function _callee90$(_context90) {
                 while (1) {
@@ -23713,12 +23736,12 @@
                     case 0:
                       _context90.next = 2;
                       return this.leaveTimer().then(function (data) {
-                        _this170.roomVipService.leaveRoom();
+                        _this169.roomVipService.leaveRoom();
 
-                        _this170.socketService.leaveVip(_this170.idRoom, 'client').then(function () {
-                          _this170.store.remove('roomVIP');
+                        _this169.socketService.leaveVip(_this169.idRoom, 'client').then(function () {
+                          _this169.store.remove('roomVIP');
 
-                          _this170.clientService.deleteLastChat();
+                          _this169.clientService.deleteLastChat();
 
                           window.location.href = '/client/accueil/registered'; // this.router.navigate(['/client/accueil/registered']);
                         });
@@ -23739,7 +23762,7 @@
           key: "leaveTimer",
           value: function leaveTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee91() {
-              var _this171 = this;
+              var _this170 = this;
 
               var data;
               return regeneratorRuntime.wrap(function _callee91$(_context91) {
@@ -23756,7 +23779,7 @@
                       _context91.next = 3;
                       return this.timerService.updateTimer(data).subscribe(function (data) {
                         // console.log('Leave timer ', data);
-                        _this171.timer.reinit = true;
+                        _this170.timer.reinit = true;
                       });
 
                     case 3:
@@ -23789,7 +23812,7 @@
           key: "getCredit",
           value: function getCredit() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee92() {
-              var _this172 = this;
+              var _this171 = this;
 
               return regeneratorRuntime.wrap(function _callee92$(_context92) {
                 while (1) {
@@ -23797,15 +23820,15 @@
                     case 0:
                       _context92.next = 2;
                       return this.clientService.getCredit().subscribe(function (data) {
-                        _this172.clientCredit = data.credit; // console.log('Client credit ', this.clientCredit);
+                        _this171.clientCredit = data.credit; // console.log('Client credit ', this.clientCredit);
 
                         // console.log('Client credit ', this.clientCredit);
-                        if (_this172.show.credit < _this172.clientCredit) return null;
-                        _this172.timer.fail = true; // if Not leaved
+                        if (_this171.show.credit < _this171.clientCredit) return null;
+                        _this171.timer.fail = true; // if Not leaved
 
                         // if Not leaved
-                        if (!_this172.timer.reinit) {
-                          _this172.notificationService.failure("CREDIT INSUFFISANT", "Veuillez vous recharger.");
+                        if (!_this171.timer.reinit) {
+                          _this171.notificationService.failure("CREDIT INSUFFISANT", "Veuillez vous recharger.");
                         }
                       });
 
@@ -23825,14 +23848,14 @@
           key: "initTimer",
           value: function initTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee94() {
-              var _this173 = this;
+              var _this172 = this;
 
               return regeneratorRuntime.wrap(function _callee94$(_context94) {
                 while (1) {
                   switch (_context94.prev = _context94.next) {
                     case 0:
                       this.timerService.getTimer(this.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].VIP).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this173, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee93() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this172, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee93() {
                           var created, updated, _this$timerService$co5, hour, minute, second;
 
                           return regeneratorRuntime.wrap(function _callee93$(_context93) {
@@ -23873,7 +23896,7 @@
           key: "getCostShow",
           value: function getCostShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee95() {
-              var _this174 = this;
+              var _this173 = this;
 
               return regeneratorRuntime.wrap(function _callee95$(_context95) {
                 while (1) {
@@ -23881,23 +23904,23 @@
                     case 0:
                       _context95.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].VIP).subscribe(function (data) {
-                        _this174.show.id = data.id;
-                        _this174.show.credit = data.credit;
-                        _this174.show.second = data.second;
-                        _this174.show.type = data.type; // console.log('Show cost ' , this.show, " - credit - " , this.clientCredit);
+                        _this173.show.id = data.id;
+                        _this173.show.credit = data.credit;
+                        _this173.show.second = data.second;
+                        _this173.show.type = data.type; // console.log('Show cost ' , this.show, " - credit - " , this.clientCredit);
 
                         // console.log('Show cost ' , this.show, " - credit - " , this.clientCredit);
-                        if (_this174.clientCredit < _this174.show.credit) {
-                          _this174.aucunCredit();
+                        if (_this173.clientCredit < _this173.show.credit) {
+                          _this173.aucunCredit();
 
                           return null;
-                        } else if (_this174.clientCredit <= _this174.show.credit * 2) {
-                          _this174.creditInsuffisant();
+                        } else if (_this173.clientCredit <= _this173.show.credit * 2) {
+                          _this173.creditInsuffisant();
 
                           return null;
                         }
 
-                        _this174.beginTimer();
+                        _this173.beginTimer();
                       });
 
                     case 2:
@@ -23914,11 +23937,11 @@
         }, {
           key: "creditInsuffisant",
           value: function creditInsuffisant() {
-            var _this175 = this;
+            var _this174 = this;
 
             this.popupService.info(null, 'CREDIT INSUFFISANT', "Vous n'avez presque plus de cr\xE9dit. Veuillez vous recharger.");
             setTimeout(function () {
-              _this175.getCredit();
+              _this174.getCredit();
             }, 20000);
           }
         }, {
@@ -23931,7 +23954,7 @@
           key: "beginTimer",
           value: function beginTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee97() {
-              var _this176 = this;
+              var _this175 = this;
 
               var delay;
               return regeneratorRuntime.wrap(function _callee97$(_context97) {
@@ -23948,14 +23971,14 @@
                       return _context97.sent.subscribe( // launch main creditation
                       function (data) {
                         // console.log("Response credit timer ", data);
-                        _this176.clientCredit = data.credit ? data.credit : 0;
+                        _this175.clientCredit = data.credit ? data.credit : 0;
 
                         if (data.credit <= 0) {
-                          _this176.aucunCredit();
+                          _this175.aucunCredit();
 
                           return null;
-                        } else if (data.credit <= _this176.show.credit * 2) {
-                          _this176.creditInsuffisant();
+                        } else if (data.credit <= _this175.show.credit * 2) {
+                          _this175.creditInsuffisant();
 
                           return null;
                         }
@@ -23963,8 +23986,8 @@
 
                     case 5:
                       this.timer.timer = setInterval(function () {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this176, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee96() {
-                          var _this177 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this175, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee96() {
+                          var _this176 = this;
 
                           return regeneratorRuntime.wrap(function _callee96$(_context96) {
                             while (1) {
@@ -23982,14 +24005,14 @@
                                   _context96.next = 5;
                                   return _context96.sent.subscribe(function (data) {
                                     // console.log("Response credit timer ", data);
-                                    _this177.clientCredit = data.credit ? data.credit : 0;
+                                    _this176.clientCredit = data.credit ? data.credit : 0;
 
                                     if (data.credit <= 0) {
-                                      _this177.aucunCredit();
+                                      _this176.aucunCredit();
 
                                       return null;
-                                    } else if (data.credit <= _this177.show.credit * 2) {
-                                      _this177.creditInsuffisant();
+                                    } else if (data.credit <= _this176.show.credit * 2) {
+                                      _this176.creditInsuffisant();
 
                                       return null;
                                     }
@@ -24063,26 +24086,26 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this178 = this;
+            var _this177 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
               }).then(function (ms) {
-                _this178.lazyStream = ms; // console.log('My stream ', ms);
+                _this177.lazyStream = ms; // console.log('My stream ', ms);
 
-                _this178.video.nativeElement.srcObject = _this178.lazyStream; // this.remote_video.nativeElement.srcObject = ms;
+                _this177.video.nativeElement.srcObject = _this177.lazyStream; // this.remote_video.nativeElement.srcObject = ms;
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
-
-                _this178.lazyStream.getVideoTracks().forEach(function (track) {
-                  _this178.showVideo = false;
-                  track.enabled = false;
-
-                  _this178.notificationService.infoMsg('Votre caméra est désactivé par defaut');
-                });
+                // this.lazyStream.getVideoTracks().forEach(
+                //   (track) => {
+                //     this.showVideo = false;
+                //     track.enabled = false;
+                //     this.notificationService.infoMsg('Votre caméra est désactivé par defaut');
+                //   }
+                // );
 
                 jquery__WEBPACK_IMPORTED_MODULE_5__('#video_live_client').prop('volume', 0);
               });
@@ -24117,19 +24140,19 @@
         }, {
           key: "callPeer",
           value: function callPeer(id) {
-            var _this179 = this;
+            var _this178 = this;
 
             console.log('Call Peer');
             var call = this.peer.call(id, this.lazyStream);
             call.on('stream', function (remoteStream) {
               console.log('Receive stream');
 
-              if (!_this179.peerList.includes(call.peer)) {
-                _this179.streamRemoteVideo(remoteStream);
+              if (!_this178.peerList.includes(call.peer)) {
+                _this178.streamRemoteVideo(remoteStream);
 
-                _this179.currentPeer = call.peerConnection;
+                _this178.currentPeer = call.peerConnection;
 
-                _this179.peerList.push(call.peer);
+                _this178.peerList.push(call.peer);
               }
             }); // this.onStop();
             // navigator.mediaDevices.getUserMedia({
@@ -24165,7 +24188,7 @@
         }, {
           key: "getAlbums",
           value: function getAlbums() {
-            var _this180 = this;
+            var _this179 = this;
 
             var data = {
               modelId: this.modelId,
@@ -24173,7 +24196,7 @@
             };
             this.albumService.getModelAlbums(data).subscribe(function (data) {
               for (var i = 0; i < data.length; i++) {
-                _this180.albums.push({
+                _this179.albums.push({
                   url: data[i].path_album
                 });
               }
@@ -24185,9 +24208,13 @@
             this.showVideo = !this.showVideo;
 
             if (this.showVideo) {
-              jquery__WEBPACK_IMPORTED_MODULE_5__("#video_live_client").removeClass("hideStream").addClass("showStream");
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = true;
+              }); // $("#video_live_client").removeClass( "hideStream" ).addClass("showStream");
             } else {
-              jquery__WEBPACK_IMPORTED_MODULE_5__("#video_live_client").removeClass("showStream").addClass("hideStream");
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = false;
+              }); // $("#video_live_client").removeClass("showStream").addClass("hideStream");
             } // this.onStop();
             // this.onStart();
 
@@ -24244,7 +24271,7 @@
         }, {
           key: "selectTips",
           value: function selectTips(value) {
-            var _this181 = this;
+            var _this180 = this;
 
             // console.log('Tips ', value);
             this.loading = true;
@@ -24257,9 +24284,9 @@
 
             this.creditService.buyGift(this.clientId, this.modelId, value.credit).subscribe(function (data) {
               // console.log(data);
-              _this181.clientCredit = data.creditClient;
+              _this180.clientCredit = data.creditClient;
 
-              _this181.sendTips(value.symbole, value.credit, value.designation);
+              _this180.sendTips(value.symbole, value.credit, value.designation);
             }, function (error) {
               console.log(error);
             });
@@ -24272,7 +24299,7 @@
         }, {
           key: "sendTips",
           value: function sendTips(symbole, credit, designation) {
-            var _this182 = this;
+            var _this181 = this;
 
             var vip = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
             var data = {
@@ -24288,20 +24315,20 @@
               pseudo: this.clientPseudo
             };
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this182.getMessages();
+              _this181.getMessages();
 
               var msg = {
-                room: _this182.idRoom + 'V',
+                room: _this181.idRoom + 'V',
                 role: 'client',
-                id: _this182.clientId,
+                id: _this181.clientId,
                 message: vip ? 'vip' : 'This is a gift',
-                pseudo: _this182.clientPseudo
+                pseudo: _this181.clientPseudo
               };
 
-              _this182.socketService.sendMessage(msg);
+              _this181.socketService.sendMessage(msg);
 
-              _this182.loading = false;
-              _this182.showTips = false;
+              _this181.loading = false;
+              _this181.showTips = false;
             });
           }
         }]);
@@ -25054,17 +25081,17 @@
         }, {
           key: "getProfilModel",
           value: function getProfilModel() {
-            var _this183 = this;
+            var _this182 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
               // console.log(data);
-              _this183.model = data;
+              _this182.model = data;
             });
           }
         }, {
           key: "seeModel",
           value: function seeModel() {
-            var _this184 = this;
+            var _this183 = this;
 
             this.imageData = [];
             var data = {
@@ -25073,7 +25100,7 @@
             };
             this.albumService.getModelAlbums(data).subscribe(function (data) {
               // console.log(data);
-              _this184.imageData = data;
+              _this183.imageData = data;
             });
           }
         }, {
@@ -25105,7 +25132,7 @@
         }, {
           key: "liveTips",
           value: function liveTips() {
-            var _this185 = this;
+            var _this184 = this;
 
             if (this.clientCredit <= 10) {
               this.popupService.info(null, 'LIVE TIPS', "Veuillez acheter du cr\xE9dit (10 cr\xE9dits minimum).");
@@ -25113,9 +25140,9 @@
             }
 
             this.roomTipsService.debiterRoom(this.clientCreditId, 1).subscribe(function (data) {
-              _this185.navigateTo('/client/live/tips-clients', _this185.modelId);
+              _this184.navigateTo('/client/live/tips-clients', _this184.modelId);
 
-              _this185.close();
+              _this184.close();
             }, function (error) {
               console.log(error);
             });
@@ -25123,16 +25150,16 @@
         }, {
           key: "getCreditClient",
           value: function getCreditClient() {
-            var _this186 = this;
+            var _this185 = this;
 
             this.clientService.getMyInfos().subscribe( // My info
             function (data) {
               // console.log("My info ", data)
-              _this186.clientId = data.id;
-              _this186.clientPseudo = data.pseudo;
-              _this186.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
+              _this185.clientId = data.id;
+              _this185.clientPseudo = data.pseudo;
+              _this185.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
 
-              _this186.clientCreditId = data.credit ? data.credit.id : 0; // Client Credit Id
+              _this185.clientCreditId = data.credit ? data.credit.id : 0; // Client Credit Id
             });
           }
         }, {
@@ -26174,7 +26201,7 @@
         }, {
           key: "goToChat",
           value: function goToChat() {
-            var _this187 = this;
+            var _this186 = this;
 
             // console.log('chate')
             this.modelService.getInfo().subscribe(function (data) {
@@ -26182,17 +26209,17 @@
               var status = data.profile.status;
 
               if (status === 'En live') {
-                _this187.router.navigate(['/modele/live-private']);
+                _this186.router.navigate(['/modele/live-private']);
               } else if (status === 'En vip') {
-                _this187.router.navigate(['/modele/live-vip']);
+                _this186.router.navigate(['/modele/live-vip']);
               } else if (status === 'En tips') {
-                _this187.router.navigate(['/modele/live-tips-model']);
+                _this186.router.navigate(['/modele/live-tips-model']);
               } else if (status === 'En live choice') {
-                _this187.router.navigate(['/modele/live-choice-us']);
+                _this186.router.navigate(['/modele/live-choice-us']);
               } else if (status === 'En ligne') {
-                _this187.router.navigate(['/modele/chat']);
+                _this186.router.navigate(['/modele/chat']);
               } else {
-                _this187.router.navigate(['/modele/connexion']);
+                _this186.router.navigate(['/modele/connexion']);
               }
             }, function (error) {
               console.log(error);
@@ -26876,31 +26903,31 @@
         }, {
           key: "countClient",
           value: function countClient() {
-            var _this188 = this;
+            var _this187 = this;
 
             this.adminService.countModels(this.selected).subscribe(function (data) {
-              _this188.count = data.count;
+              _this187.count = data.count;
 
-              _this188.initPagination();
+              _this187.initPagination();
             });
           }
         }, {
           key: "listClients",
           value: function listClients() {
-            var _this189 = this;
+            var _this188 = this;
 
             this.adminService.getModels(this.selected, this.range, this.page, this.filter).subscribe(function (data) {
               // console.log(data)
-              _this189.clients = data;
+              _this188.clients = data;
 
-              _this189.clients.forEach(function (client) {
-                client.createdAt = _this189.adminService.formatDate(client.createdAt);
+              _this188.clients.forEach(function (client) {
+                client.createdAt = _this188.adminService.formatDate(client.createdAt);
                 client.status = client.profile ? client.profile.status : 'Hors ligne';
               });
 
-              _this189.count = _this189.clients.length;
+              _this188.count = _this188.clients.length;
 
-              _this189.initPagination();
+              _this188.initPagination();
             }, function (error) {
               console.log(error);
             });
@@ -26948,10 +26975,10 @@
         }, {
           key: "deleteClient",
           value: function deleteClient(idClient) {
-            var _this190 = this;
+            var _this189 = this;
 
             this.adminService.deleteModel(idClient).subscribe(function (data) {
-              if (data.success) _this190.listClients();else if (data.error) _this190.notificationService.errorMsg(data.message);
+              if (data.success) _this189.listClients();else if (data.error) _this189.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -26959,14 +26986,14 @@
         }, {
           key: "blockClient",
           value: function blockClient(idClient) {
-            var _this191 = this;
+            var _this190 = this;
 
             var data = {
               idClient: idClient,
               reverse: false
             };
             this.adminService.blockModel(data).subscribe(function (data) {
-              if (data.success) _this191.listClients();else if (data.error) _this191.notificationService.errorMsg(data.message);
+              if (data.success) _this190.listClients();else if (data.error) _this190.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -26974,10 +27001,10 @@
         }, {
           key: "deactivateClient",
           value: function deactivateClient(idClient) {
-            var _this192 = this;
+            var _this191 = this;
 
             this.adminService.deactivateModel(idClient).subscribe(function (data) {
-              if (data.success) _this192.listClients();else if (data.error) _this192.notificationService.errorMsg(data.message);
+              if (data.success) _this191.listClients();else if (data.error) _this191.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -26985,10 +27012,10 @@
         }, {
           key: "activateClient",
           value: function activateClient(idClient) {
-            var _this193 = this;
+            var _this192 = this;
 
             this.adminService.activateModel(idClient).subscribe(function (data) {
-              if (data.success) _this193.listClients();else if (data.error) _this193.notificationService.errorMsg(data.message);
+              if (data.success) _this192.listClients();else if (data.error) _this192.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -27008,20 +27035,20 @@
         }, {
           key: "listStatusClients",
           value: function listStatusClients() {
-            var _this194 = this;
+            var _this193 = this;
 
             this.adminService.getStatusModel(this.selectedStatus, this.filter).subscribe(function (data) {
               // console.log(data)
-              _this194.clients = data;
+              _this193.clients = data;
 
-              _this194.clients.forEach(function (client) {
-                client.createdAt = _this194.adminService.formatDate(client.createdAt);
+              _this193.clients.forEach(function (client) {
+                client.createdAt = _this193.adminService.formatDate(client.createdAt);
                 client.status = client.profile ? client.profile.status : 'Hors ligne';
               });
 
-              _this194.count = _this194.clients.length;
+              _this193.count = _this193.clients.length;
 
-              _this194.initPagination();
+              _this193.initPagination();
             }, function (error) {
               console.log(error);
             });
@@ -27422,79 +27449,49 @@
         }, {
           key: "ngAfterContentChecked",
           value: function ngAfterContentChecked() {
-            var _this195 = this;
+            var _this194 = this;
 
             setTimeout(function () {
-              if (_this195.isVisible == false && _this195.map.nativeElement.offsetParent != null) {
-                _this195.onStart();
+              if (_this194.isVisible == false && _this194.map.nativeElement.offsetParent != null) {
+                _this194.onStart();
 
-                _this195.isVisible = true;
+                _this194.isVisible = true;
                 initSettingVideoModel(); // var localStream = AgoraRTC.createStream({ audio: true, video: true })
                 // localStream.init();
                 // localStream.play(elementID);
 
                 jquery__WEBPACK_IMPORTED_MODULE_2__('.video_live_model').trigger('play');
-              } else if (_this195.isVisible == true && _this195.map.nativeElement.offsetParent == null) {
-                _this195.onStop();
+              } else if (_this194.isVisible == true && _this194.map.nativeElement.offsetParent == null) {
+                _this194.onStop();
 
-                _this195.isVisible = false;
+                _this194.isVisible = false;
               }
             }, 1000);
           }
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this196 = this;
+            var _this195 = this;
 
             this.loading = true;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_0__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: true
+                audio: false
               }).then(function (ms) {
-                _this196.lazyStream = ms;
-
-                _this196.lazyStream.getAudioTracks().forEach(function (track) {
-                  track.enabled = false;
-                });
-
-                _this196.video.nativeElement.srcObject = _this196.lazyStream; // this.lazyStream.getVideoTracks()[0].onended = function(event) {
+                _this195.lazyStream = ms;
+                _this195.video.nativeElement.srcObject = _this195.lazyStream; // this.lazyStream.getVideoTracks()[0].onended = function(event) {
                 //   console.log('inactive cam');
                 // }
-                // this.lazyStream.getVideoTracks()[0].addEventListener('ended', () => console.log('RIP'));
 
-                _this196.loading = false; // this.lazyStream.getVideoTracks().forEach(
+                _this195.loading = false; // this.lazyStream.getVideoTracks().forEach(
                 //   (track) => {
                 //     this.showVideo = false;
                 //     track.enabled = false;
                 //     this.notificationService.infoMsg('Votre caméra est désactivé par defaut');
                 //   }
                 // );
-                // Special micro
-                // var audioContext = new AudioContext();
-                // var audioSource = audioContext.createMediaStreamSource(ms);
-                // var analyser = audioContext.createAnalyser();
-                // analyser.fftSize = 512;
-                // analyser.minDecibels = -127;
-                // analyser.maxDecibels = 0;
-                // analyser.smoothingTimeConstant = 0.4;
-                // audioSource.connect(analyser);
-                // const volumes = new Uint8Array(analyser.frequencyBinCount);
-                // console.log('Volume ', volumes);
-                // const volumeCallback = () => {
-                //   analyser.getByteFrequencyData(volumes);
-                //   let volumeSum = 0;
-                //   for (const volume of volumes) volumeSum += volume;
-                //   console.log('Volumes Sum ', volumeSum);
-                //   const averageVolume = volumeSum / volumes.length;
-                //   console.log('Average ' ,averageVolume);
-                //   // volumeVisualizer.style.setProperty('--volume', (averageVolume * 100 / 127) + '%');
-                //   console.log((averageVolume * 100 / 127) + '%');
-                // }
-                // setInterval(volumeCallback, 100);
-              })["catch"](function (err) {
-                console.log('Erreur audio context ', err);
               });
             }
           }
@@ -27533,19 +27530,17 @@
         }, {
           key: "toggleAudio",
           value: function toggleAudio() {
-            this.showAudio = !this.showAudio; // if (!this.showAudio) {
-            //   this.lazyStream.getAudioTracks().forEach(
-            //     (track) => {
-            //       track.enabled = false;
-            //     }
-            //   );
-            // } else {
-            //   this.lazyStream.getAudioTracks().forEach(
-            //     (track) => {
-            //       track.enabled = true;
-            //     }
-            //   );
-            // }
+            this.showAudio = !this.showAudio;
+
+            if (!this.showAudio) {
+              this.lazyStream.getAudioTracks().forEach(function (track) {
+                track.enabled = false;
+              });
+            } else {
+              this.lazyStream.getAudioTracks().forEach(function (track) {
+                track.enabled = true;
+              });
+            }
           }
         }]);
 
@@ -28160,7 +28155,7 @@
           key: "validate",
           value: function validate(event) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee99() {
-              var _this197 = this;
+              var _this196 = this;
 
               var passwords;
               return regeneratorRuntime.wrap(function _callee99$(_context99) {
@@ -28184,11 +28179,11 @@
                         console.log("change Password ", data);
 
                         if (data.error) {
-                          _this197.errorPassword = data.message;
+                          _this196.errorPassword = data.message;
                         } else {
-                          _this197.notificationService.success("Mot de passe", "Modifié");
+                          _this196.notificationService.success("Mot de passe", "Modifié");
 
-                          _this197.dialogRef.close("success");
+                          _this196.dialogRef.close("success");
                         }
                       });
 
@@ -29146,7 +29141,7 @@
           key: "getMyInfo",
           value: function getMyInfo() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee100() {
-              var _this198 = this;
+              var _this197 = this;
 
               var id;
               return regeneratorRuntime.wrap(function _callee100$(_context100) {
@@ -29158,10 +29153,10 @@
                       _context100.next = 4;
                       return this.clientService.getMyInfos().subscribe(function (data) {
                         // console.log('My INFO ', data);
-                        _this198.info.id = data.id;
-                        _this198.info.pseudo = data.pseudo;
-                        _this198.info.credit = data.credit ? data.credit.credit : 0;
-                        _this198.info.creditId = data.credit ? data.credit.id : 0;
+                        _this197.info.id = data.id;
+                        _this197.info.pseudo = data.pseudo;
+                        _this197.info.credit = data.credit ? data.credit.credit : 0;
+                        _this197.info.creditId = data.credit ? data.credit.id : 0;
                       });
 
                     case 4:
@@ -29182,16 +29177,16 @@
         }, {
           key: "buyPack",
           value: function buyPack(montant, credit, designation) {
-            var _this199 = this;
+            var _this198 = this;
 
             if (this.info.creditId === null) return false;
 
             if (designation === 'bienvenue') {
               this.paiementService.verifyPack().subscribe(function (data) {
                 if (data.error) {
-                  _this199.notificationService.infoMsg(data.message);
+                  _this198.notificationService.infoMsg(data.message);
                 } else {
-                  _this199.openCentralPayModal(montant, credit, designation);
+                  _this198.openCentralPayModal(montant, credit, designation);
                 }
               }, function (error) {
                 console.log(error);
@@ -29203,24 +29198,24 @@
         }, {
           key: "openCentralPayModal",
           value: function openCentralPayModal(montant, credit, designation) {
-            var _this200 = this;
+            var _this199 = this;
 
             this.loading = true;
             this.paiementService.openCentralPay(montant * 100).subscribe(function (data) {
-              _this200.loading = false; // console.log('Test ', data);
+              _this199.loading = false; // console.log('Test ', data);
 
               if (data && data.breakdowns[0] && data.breakdowns[0].endpoint) {
                 var url = data.breakdowns[0].endpoint;
                 var paymentRequestId = data.paymentRequestId; // console.log('Endpoint ', url);
 
-                var dialogRef = _this200.dialog.open(_modals_central_pay_central_pay_component__WEBPACK_IMPORTED_MODULE_2__["CentralPayComponent"], {
+                var dialogRef = _this199.dialog.open(_modals_central_pay_central_pay_component__WEBPACK_IMPORTED_MODULE_2__["CentralPayComponent"], {
                   width: '90vh',
                   data: {
                     montant: montant,
                     credit: credit,
                     designation: designation,
-                    creditId: _this200.info.creditId,
-                    id: _this200.info.id,
+                    creditId: _this199.info.creditId,
+                    id: _this199.info.id,
                     url: url,
                     paymentRequestId: paymentRequestId
                   }
@@ -29229,9 +29224,9 @@
                 dialogRef.afterClosed().subscribe(function (result) {
                   if (Object(util__WEBPACK_IMPORTED_MODULE_1__["isBoolean"])(result)) {} else {
                     if (result === 'good') {
-                      _this200.getMyInfo().then(function (data) {
-                        _this200.paiementService.buyPack(credit).subscribe(function (data) {
-                          _this200.notificationService.success("Pack ".concat(_this200.currentPack), "Vous avez obtenu ".concat(credit, " cr\xE9dits de plus."));
+                      _this199.getMyInfo().then(function (data) {
+                        _this199.paiementService.buyPack(credit).subscribe(function (data) {
+                          _this199.notificationService.success("Pack ".concat(_this199.currentPack), "Vous avez obtenu ".concat(credit, " cr\xE9dits de plus."));
                         }, function (error) {
                           console.log(error);
                         });
@@ -29241,20 +29236,20 @@
                 });
               }
             }, function (error) {
-              _this200.loading = false;
+              _this199.loading = false;
               console.log(error);
             });
           }
         }, {
           key: "getValueVIP",
           value: function getValueVIP(credit) {
-            var _this201 = this;
+            var _this200 = this;
 
             var point = 0;
 
             _services_credit_creditVIP_json__WEBPACK_IMPORTED_MODULE_3__["points"].forEach(function (value) {
               if (value.credit === credit) {
-                if (_this201.subscription.subscribed) point = value.subscribe;else point = value.unsubscribe;
+                if (_this200.subscription.subscribed) point = value.subscribe;else point = value.unsubscribe;
               }
             });
 
@@ -29263,17 +29258,17 @@
         }, {
           key: "isSubscribed",
           value: function isSubscribed() {
-            var _this202 = this;
+            var _this201 = this;
 
             this.subscribeService.verify().subscribe(function (data) {
               // console.log(data);
-              _this202.subscription = data;
+              _this201.subscription = data;
             });
           }
         }, {
           key: "paySubscription",
           value: function paySubscription() {
-            var _this203 = this;
+            var _this202 = this;
 
             var futureDate = new Date();
             futureDate.setDate(futureDate.getDate() + 30); // console.log(futureDate);
@@ -29292,12 +29287,12 @@
             dialogRef.afterClosed().subscribe(function (result) {
               if (Object(util__WEBPACK_IMPORTED_MODULE_1__["isBoolean"])(result)) {} else {
                 if (result === 'good') {
-                  _this203.subscribeService["new"](price, futureDate).subscribe(function (data) {
+                  _this202.subscribeService["new"](price, futureDate).subscribe(function (data) {
                     console.log(data);
 
-                    _this203.isSubscribed();
+                    _this202.isSubscribed();
 
-                    _this203.notificationService.success('Abonnement', 'Félicitation, vous êtes abonné');
+                    _this202.notificationService.success('Abonnement', 'Félicitation, vous êtes abonné');
                   }, function (error) {
                     console.log(error);
                   });
@@ -29841,7 +29836,7 @@
           key: "validate",
           value: function validate(event) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee101() {
-              var _this204 = this;
+              var _this203 = this;
 
               var passwords;
               return regeneratorRuntime.wrap(function _callee101$(_context101) {
@@ -29861,11 +29856,11 @@
                     case 4:
                       passwords = this.changeForm.value;
                       this.profileService.changePassword(passwords).subscribe(function (data) {
-                        _this204.submitted = false;
+                        _this203.submitted = false;
                         console.log(data);
-                        if (data.error) _this204.notificationService.errorMsg("Mot de passe incorrect");else _this204.notificationService.success("Mot de passe", "Modification avec succès");
+                        if (data.error) _this203.notificationService.errorMsg("Mot de passe incorrect");else _this203.notificationService.success("Mot de passe", "Modification avec succès");
 
-                        _this204.changeForm.reset();
+                        _this203.changeForm.reset();
                       });
 
                     case 6:
@@ -30132,11 +30127,11 @@
         }, {
           key: "getModelsActif",
           value: function getModelsActif() {
-            var _this205 = this;
+            var _this204 = this;
 
             this.adminService.getModelsActif().subscribe(function (data) {
               console.log(data);
-              _this205.list = data;
+              _this204.list = data;
             }, function (error) {
               console.log(error);
             });
@@ -30144,7 +30139,7 @@
         }, {
           key: "savePay",
           value: function savePay() {
-            var _this206 = this;
+            var _this205 = this;
 
             this.error = null;
 
@@ -30167,11 +30162,11 @@
               console.log(data);
 
               if (data.success) {
-                _this206.notificationService.info('Paiement', 'Paiement effectué');
+                _this205.notificationService.info('Paiement', 'Paiement effectué');
 
-                _this206.router.navigate(['/admin/list-paiement']);
+                _this205.router.navigate(['/admin/list-paiement']);
               } else if (data.error) {
-                _this206.notificationService.errorMsg(data.message);
+                _this205.notificationService.errorMsg(data.message);
               }
             }, function (error) {
               console.log(error);
@@ -30861,29 +30856,29 @@
         }, {
           key: "countClient",
           value: function countClient() {
-            var _this207 = this;
+            var _this206 = this;
 
             this.adminService.countRequestsModel().subscribe(function (data) {
-              _this207.count = data ? data : 0;
+              _this206.count = data ? data : 0;
 
-              _this207.initPagination();
+              _this206.initPagination();
             });
           }
         }, {
           key: "listClients",
           value: function listClients() {
-            var _this208 = this;
+            var _this207 = this;
 
             this.adminService.getRequestsModel(this.selected, this.range, this.page, this.filter).subscribe(function (data) {
-              _this208.clients = data;
+              _this207.clients = data;
 
-              _this208.clients.forEach(function (client) {
-                client.updatedAt = _this208.adminService.formatDate(client.updatedAt);
+              _this207.clients.forEach(function (client) {
+                client.updatedAt = _this207.adminService.formatDate(client.updatedAt);
               });
 
-              _this208.count = _this208.clients.length;
+              _this207.count = _this207.clients.length;
 
-              _this208.initPagination();
+              _this207.initPagination();
             }, function (error) {
               console.log(error);
             });
@@ -30938,11 +30933,11 @@
         }, {
           key: "accept",
           value: function accept(idClient, accepted) {
-            var _this209 = this;
+            var _this208 = this;
 
             this.adminService.acceptRequestModel(idClient, accepted).subscribe(function (data) {
               // console.log(data)
-              if (data.success) _this209.listClients();else if (data.error) _this209.notificationService.errorMsg(data.message);
+              if (data.success) _this208.listClients();else if (data.error) _this208.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -31790,7 +31785,7 @@
 
       var LivePrivateModelComponent = /*#__PURE__*/function () {
         function LivePrivateModelComponent(_platform, router, store, modelService, chatService, roomPrivateService, roomVipService, socketService, profilService, popupService, creditService, timerService, profileService) {
-          var _this210 = this;
+          var _this209 = this;
 
           _classCallCheck(this, LivePrivateModelComponent);
 
@@ -31879,35 +31874,35 @@
           this.peerList = [];
 
           this.getPeerId = function () {
-            _this210.peer.on('open', function (id) {
+            _this209.peer.on('open', function (id) {
               console.log("Peer Id ", id);
-              _this210.peerId = id;
+              _this209.peerId = id;
               var data = {
                 role: 'model',
-                modelId: _this210.info.modelId,
-                room: _this210.info.idRoom + 'P',
-                peerId: _this210.peerId
+                modelId: _this209.info.modelId,
+                room: _this209.info.idRoom + 'P',
+                peerId: _this209.peerId
               };
 
-              _this210.socketService.newPeerIdModel(data);
+              _this209.socketService.newPeerIdModel(data);
             });
 
-            _this210.peer.on('call', function (call) {
+            _this209.peer.on('call', function (call) {
               console.log("Someone call model");
-              call.answer(_this210.lazyStream);
+              call.answer(_this209.lazyStream);
               console.log("After answer stream");
               call.on('stream', function (remoteStream) {
                 console.log("On receive stream in model");
 
-                if (!_this210.peerList.includes(call.peer)) {
-                  _this210.streamRemoteVideo(remoteStream, call.peer);
+                if (!_this209.peerList.includes(call.peer)) {
+                  _this209.streamRemoteVideo(remoteStream, call.peer);
 
-                  _this210.currentPeer = call.peerConnection;
+                  _this209.currentPeer = call.peerConnection;
 
-                  _this210.peerList.push(call.peer);
+                  _this209.peerList.push(call.peer);
                 }
 
-                console.log("Peer list ", _this210.peerList);
+                console.log("Peer list ", _this209.peerList);
               }); // this.onStop();
               // navigator.mediaDevices.getUserMedia({
               //   video: this.showVideo,
@@ -31975,12 +31970,12 @@
         }, {
           key: "verifySound",
           value: function verifySound() {
-            var _this211 = this;
+            var _this210 = this;
 
             this.profileService.getInfo().subscribe(function (data) {
               // console.log(data.setting);
-              _this211.sound_notification = data.setting.sound_notification === 1 ? true : false;
-              _this211.sound_message = data.setting.sound_message === 1 ? true : false;
+              _this210.sound_notification = data.setting.sound_notification === 1 ? true : false;
+              _this210.sound_message = data.setting.sound_message === 1 ? true : false;
             });
           }
         }, {
@@ -32000,36 +31995,36 @@
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this212 = this;
+            var _this211 = this;
 
             this.modelService.getInfo().subscribe(function (data) {
               // console.log('Get info ', data);
               if (data.profile.status === 'En vip') {
-                _this212.onStop();
+                _this211.onStop();
 
-                _this212.router.navigate(['/modele/live-vip']);
+                _this211.router.navigate(['/modele/live-vip']);
               }
 
               if (data.profile.status === 'En ligne') {
-                _this212.onStop();
+                _this211.onStop();
 
-                _this212.router.navigate(['/modele/chat']);
+                _this211.router.navigate(['/modele/chat']);
               }
 
-              _this212.info.bg = data.path_soft;
-              _this212.info.modelId = data.id;
-              _this212.info.pseudo = data.pseudo;
+              _this211.info.bg = data.path_soft;
+              _this211.info.modelId = data.id;
+              _this211.info.pseudo = data.pseudo;
 
-              _this212.getInfoRoom();
+              _this211.getInfoRoom();
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this213 = this;
+            var _this212 = this;
 
             this.roomPrivateService.getRoomModel(this.info.modelId).subscribe(function (data) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this213, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee102() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this212, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee102() {
                 return regeneratorRuntime.wrap(function _callee102$(_context102) {
                   while (1) {
                     switch (_context102.prev = _context102.next) {
@@ -32053,7 +32048,7 @@
           key: "getActifs",
           value: function getActifs() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee103() {
-              var _this214 = this;
+              var _this213 = this;
 
               return regeneratorRuntime.wrap(function _callee103$(_context103) {
                 while (1) {
@@ -32062,8 +32057,8 @@
                       _context103.next = 2;
                       return this.roomPrivateService.getActif(this.info.idRoom).subscribe(function (data) {
                         // console.log("Get les actifs ", data);
-                        _this214.info.actif = data.clients.length;
-                        _this214.clients = data.clients;
+                        _this213.info.actif = data.clients.length;
+                        _this213.clients = data.clients;
                       });
 
                     case 2:
@@ -32077,11 +32072,11 @@
         }, {
           key: "getCredit",
           value: function getCredit() {
-            var _this215 = this;
+            var _this214 = this;
 
             this.creditService.getCredit().subscribe(function (data) {
-              _this215.info.creditModel = data ? data.credit : 0;
-              _this215.info.idCreditModel = data ? data.id : 0;
+              _this214.info.creditModel = data ? data.credit : 0;
+              _this214.info.idCreditModel = data ? data.id : 0;
             }); // Launch the timer
 
             this.initTimer();
@@ -32089,39 +32084,39 @@
         }, {
           key: "initSocket",
           value: function initSocket() {
-            var _this216 = this;
+            var _this215 = this;
 
             this.getMessages();
             this.socketService.listen("ask currentSaloon ".concat(this.info.idRoom, "P ").concat(this.info.modelId)).subscribe(function (data) {
-              _this216.socketService.sendCurrentSaloon(_this216.info.idRoom, _this216.live_selected);
+              _this215.socketService.sendCurrentSaloon(_this215.info.idRoom, _this215.live_selected);
             });
             this.joinSub = this.socketService.listen("joined ".concat(this.info.idRoom, "P")).subscribe(function (data) {
               // console.log('joined ', data);
-              if (_this216.sound_notification) {
-                _this216.socketService.soundIncome();
+              if (_this215.sound_notification) {
+                _this215.socketService.soundIncome();
               }
 
-              _this216.getActifs();
+              _this215.getActifs();
 
-              _this216.callClient(data.id, data.peerId);
+              _this215.callClient(data.id, data.peerId);
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.info.idRoom, "P")).subscribe(function (data) {
-              if (_this216.sound_notification) {
-                _this216.socketService.soundOutcome();
+              if (_this215.sound_notification) {
+                _this215.socketService.soundOutcome();
               } // console.log('leaved ', data);
 
 
-              _this216.getActifs();
+              _this215.getActifs();
 
-              _this216.removeStream(data.clientId);
+              _this215.removeStream(data.clientId);
             });
             this.messageSub = this.socketService.listen("message ".concat(this.info.idRoom, "P")).subscribe(function (data) {
-              _this216.socketService.soundOutcome();
+              _this215.socketService.soundOutcome();
 
-              _this216.getMessages();
+              _this215.getMessages();
             });
             this.peerSub = this.socketService.listen("ask peerId ".concat(this.info.idRoom, "P")).subscribe(function (data) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this216, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee104() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this215, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee104() {
                 return regeneratorRuntime.wrap(function _callee104$(_context104) {
                   while (1) {
                     switch (_context104.prev = _context104.next) {
@@ -32154,27 +32149,27 @@
             this.inviteVIPSub = this.socketService.listen("invite model to vip ".concat(this.info.idRoom, "P ").concat(this.info.modelId)).subscribe(function (data) {
               console.log('Invitation to vip ', data);
 
-              _this216.addInvitationToVIP(data.clientId, data.clientPseudo, data.roomId, data.special);
+              _this215.addInvitationToVIP(data.clientId, data.clientPseudo, data.roomId, data.special);
             });
             this.askModelStreamSub = this.socketService.listen("Ask current model stream ".concat(this.info.idRoom, "P ").concat(this.info.modelId)).subscribe(function (data) {
               console.log('Ask for stream');
 
-              if (!_this216.lazyStream) {
-                _this216.onStart();
+              if (!_this215.lazyStream) {
+                _this215.onStart();
               }
 
-              _this216.answerModelStream(data.clientId);
+              _this215.answerModelStream(data.clientId);
             });
             this.toggleAudioSub = this.socketService.listen("Toggle audio ".concat(this.info.idRoom, "P")).subscribe(function (data) {
               if (data.clientId) {
                 console.log('Toggle audio from ', data.clientId);
 
-                _this216.toggleAudioClientStream(data.peerId, data.isAudio);
+                _this215.toggleAudioClientStream(data.peerId, data.isAudio);
               }
             });
             this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.info.idRoom, "P")).subscribe(function (data) {
               if (data.clientId) {
-                _this216.toggleVideoClientStream(data.peerId, data.isVideo);
+                _this215.toggleVideoClientStream(data.peerId, data.isVideo);
               }
             });
             this.getActifs();
@@ -32189,11 +32184,11 @@
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this217 = this;
+            var _this216 = this;
 
             this.chatService.getMessage(this.info.idRoom, 'private').subscribe(function (data) {
               // console.log('Messages ', data);
-              _this217.messages = data;
+              _this216.messages = data;
             });
           }
         }, {
@@ -32204,7 +32199,7 @@
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this218 = this;
+            var _this217 = this;
 
             if (!this.info.message) return;
             var data = {
@@ -32218,16 +32213,16 @@
             };
             this.info.message = null;
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this218.getMessages();
+              _this217.getMessages();
 
               var msg = {
-                room: _this218.info.idRoom + 'P',
+                room: _this217.info.idRoom + 'P',
                 role: 'model',
-                id: _this218.info.modelId,
-                message: _this218.info.message
+                id: _this217.info.modelId,
+                message: _this217.info.message
               };
 
-              _this218.socketService.sendMessage(msg);
+              _this217.socketService.sendMessage(msg);
             });
           }
         }, {
@@ -32273,7 +32268,7 @@
           key: "liveVIP",
           value: function liveVIP(clientId, roomId, special) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee105() {
-              var _this219 = this;
+              var _this218 = this;
 
               return regeneratorRuntime.wrap(function _callee105$(_context105) {
                 while (1) {
@@ -32287,38 +32282,38 @@
 
                     case 5:
                       _context105.sent.subscribe(function (data) {
-                        _this219.timer.reinit = true;
+                        _this218.timer.reinit = true;
 
-                        _this219.roomVipService.createRoom(clientId).subscribe(function (data) {
-                          _this219.store.set("vipRoomId", data.room);
+                        _this218.roomVipService.createRoom(clientId).subscribe(function (data) {
+                          _this218.store.set("vipRoomId", data.room);
 
                           var msg = {
-                            room: _this219.info.idRoom + 'P',
+                            room: _this218.info.idRoom + 'P',
                             role: 'model',
                             clientId: clientId,
                             message: 'Let\'s go to VIP',
                             roomVIP: data.room + 'V'
                           };
 
-                          _this219.askLeave().then(function (data) {
-                            _this219.socketService.emit('Invitation to VIP', msg).then(function (data) {
-                              _this219.socketService.responsePositiveInvitationModelToVIP(roomId, clientId, _this219.info.modelId, _this219.info.pseudo, special); // this.router.navigate(['/modele/live-vip', {clientId: this.clientId}]);
+                          _this218.askLeave().then(function (data) {
+                            _this218.socketService.emit('Invitation to VIP', msg).then(function (data) {
+                              _this218.socketService.responsePositiveInvitationModelToVIP(roomId, clientId, _this218.info.modelId, _this218.info.pseudo, special); // this.router.navigate(['/modele/live-vip', {clientId: this.clientId}]);
 
 
-                              _this219.loading = false;
+                              _this218.loading = false;
 
                               if (!special) {
-                                _this219.router.navigate(['/modele/live-vip']);
+                                _this218.router.navigate(['/modele/live-vip']);
                               } else if (special && special === 'live tips') {
-                                _this219.router.navigate(['/modele/live-tips']);
+                                _this218.router.navigate(['/modele/live-tips']);
                               } else if (special && special === 'live free') {
-                                _this219.router.navigate(['/modele/live-choice-us']);
+                                _this218.router.navigate(['/modele/live-choice-us']);
                               }
                             });
                           });
                         });
                       }, function (error) {
-                        _this219.loading = false;
+                        _this218.loading = false;
                       });
 
                     case 6:
@@ -32363,7 +32358,7 @@
           key: "liveOut",
           value: function liveOut() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee107() {
-              var _this220 = this;
+              var _this219 = this;
 
               return regeneratorRuntime.wrap(function _callee107$(_context107) {
                 while (1) {
@@ -32379,18 +32374,18 @@
                     case 5:
                       _context107.next = 7;
                       return _context107.sent.subscribe(function (data) {
-                        _this220.timer.reinit = true;
+                        _this219.timer.reinit = true;
 
-                        _this220.clearTimer(); // set to zero
+                        _this219.clearTimer(); // set to zero
 
 
                         // set to zero
-                        _this220.socketService.leavePrivate(_this220.info.idRoom, 'model', _this220.info.modelId);
+                        _this219.socketService.leavePrivate(_this219.info.idRoom, 'model', _this219.info.modelId);
 
-                        _this220.roomPrivateService.leaveRoom();
+                        _this219.roomPrivateService.leaveRoom();
 
-                        _this220.profilService.updateStatus(_this220.info.modelId, 'En ligne').subscribe(function (data) {
-                          _this220.loading = false;
+                        _this219.profilService.updateStatus(_this219.info.modelId, 'En ligne').subscribe(function (data) {
+                          _this219.loading = false;
                           window.location.href = '/modele/chat'; // this.router.navigate(['/modele/chat']);
                           // setTimeout(
                           //   () => {
@@ -32399,7 +32394,7 @@
                           // );
                         });
                       }, function (error) {
-                        _this220.loading = false;
+                        _this219.loading = false;
                       });
 
                     case 7:
@@ -32420,14 +32415,14 @@
           key: "initTimer",
           value: function initTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee109() {
-              var _this221 = this;
+              var _this220 = this;
 
               return regeneratorRuntime.wrap(function _callee109$(_context109) {
                 while (1) {
                   switch (_context109.prev = _context109.next) {
                     case 0:
                       this.timerService.beginTimerModel(this.info.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_3__["TypeTimer"].PRIVATE).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this221, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee108() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this220, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee108() {
                           var created, updated, _this$timerService$co6, hour, minute, second;
 
                           return regeneratorRuntime.wrap(function _callee108$(_context108) {
@@ -32467,7 +32462,7 @@
           key: "getCostShow",
           value: function getCostShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee110() {
-              var _this222 = this;
+              var _this221 = this;
 
               return regeneratorRuntime.wrap(function _callee110$(_context110) {
                 while (1) {
@@ -32476,13 +32471,13 @@
                       _context110.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_3__["TypeTimer"].PRIVATE).subscribe(function (data) {
                         // console.log("Show Cost ", data)
-                        _this222.stat.tarif_show = data.credit ? data.credit : 0;
-                        _this222.stat.time_show = data.second ? data.second : 0;
-                        _this222.stat.type_show = (data.type + '').toString().toUpperCase();
+                        _this221.stat.tarif_show = data.credit ? data.credit : 0;
+                        _this221.stat.time_show = data.second ? data.second : 0;
+                        _this221.stat.type_show = (data.type + '').toString().toUpperCase();
 
-                        _this222.getCostVIPShow();
+                        _this221.getCostVIPShow();
 
-                        _this222.beginCountCredit(_this222.stat.time_show);
+                        _this221.beginCountCredit(_this221.stat.time_show);
                       });
 
                     case 2:
@@ -32500,7 +32495,7 @@
           key: "getCostVIPShow",
           value: function getCostVIPShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee111() {
-              var _this223 = this;
+              var _this222 = this;
 
               return regeneratorRuntime.wrap(function _callee111$(_context111) {
                 while (1) {
@@ -32509,8 +32504,8 @@
                       _context111.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_3__["TypeTimer"].VIP).subscribe(function (data) {
                         // console.log("Show Cost ", data)
-                        _this223.statVIP.tarif_show = data.credit ? data.credit : 0;
-                        _this223.statVIP.time_show = data.second ? data.second : 0;
+                        _this222.statVIP.tarif_show = data.credit ? data.credit : 0;
+                        _this222.statVIP.time_show = data.second ? data.second : 0;
                       });
 
                     case 2:
@@ -32527,13 +32522,13 @@
         }, {
           key: "beginCountCredit",
           value: function beginCountCredit(nbSecond) {
-            var _this224 = this;
+            var _this223 = this;
 
             var delay = nbSecond * 1000;
             this.timer.timer = setInterval(function () {
-              if (_this224.info.actif > 0) {
-                _this224.creditService.getCredit().subscribe(function (data) {
-                  _this224.info.creditModel = data ? data.credit : 0;
+              if (_this223.info.actif > 0) {
+                _this223.creditService.getCredit().subscribe(function (data) {
+                  _this223.info.creditModel = data ? data.credit : 0;
                 });
               }
             }, delay);
@@ -32583,7 +32578,7 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this225 = this;
+            var _this224 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
@@ -32593,8 +32588,8 @@
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
-                _this225.lazyStream = ms;
-                _this225.video.nativeElement.srcObject = _this225.lazyStream;
+                _this224.lazyStream = ms;
+                _this224.video.nativeElement.srcObject = _this224.lazyStream;
                 jquery__WEBPACK_IMPORTED_MODULE_4__('#video_live_model').prop('volume', 0);
               });
             }
@@ -32628,16 +32623,16 @@
         }, {
           key: "callPeer",
           value: function callPeer(id) {
-            var _this226 = this;
+            var _this225 = this;
 
             var call = this.peer.call(id, this.lazyStream);
             call.on('stream', function (remoteStream) {
-              if (!_this226.peerList.includes(call.peer)) {
-                _this226.streamRemoteVideo(remoteStream, call.peer);
+              if (!_this225.peerList.includes(call.peer)) {
+                _this225.streamRemoteVideo(remoteStream, call.peer);
 
-                _this226.currentPeer = call.peerConnection;
+                _this225.currentPeer = call.peerConnection;
 
-                _this226.peerList.push(call.peer);
+                _this225.peerList.push(call.peer);
               }
             }); // this.onStop();
             // navigator.mediaDevices.getUserMedia({
@@ -32661,16 +32656,16 @@
         }, {
           key: "callClient",
           value: function callClient(clientId, peerId) {
-            var _this227 = this;
+            var _this226 = this;
 
             var call = this.peer.call(peerId, this.lazyStream);
             call.on('stream', function (remoteStream) {
-              if (!_this227.peerList.includes(call.peer)) {
-                _this227.streamRemoteVideo(remoteStream, call.peer, clientId);
+              if (!_this226.peerList.includes(call.peer)) {
+                _this226.streamRemoteVideo(remoteStream, call.peer, clientId);
 
-                _this227.currentPeer = call.peerConnection;
+                _this226.currentPeer = call.peerConnection;
 
-                _this227.peerList.push(call.peer);
+                _this226.peerList.push(call.peer);
               }
             }); // this.onStop();
             // navigator.mediaDevices.getUserMedia({
@@ -32705,8 +32700,6 @@
         }, {
           key: "streamRemoteVideo",
           value: function streamRemoteVideo(stream, peerId, clientId) {
-            var _this228 = this;
-
             console.log('Add remote stream client ', stream); // const video = document.createElement('video');
             // video.classList.add('video');
             // video.srcObject = stream;
@@ -32721,18 +32714,6 @@
             } else {
               id = clientId;
             }
-
-            stream.getVideoTracks()[0].addEventListener('ended', function () {
-              console.log('inactive cam of ', peerId);
-
-              if (peerId) {
-                var index = _this228.clientStream.findIndex(function (element) {
-                  return element.peerId === peerId;
-                });
-
-                if (index) _this228.clientStream.splice(index, 1);
-              }
-            });
 
             if (this.clientStream.length < 5) {
               this.clientStream.push({
@@ -32768,10 +32749,19 @@
             this.showVideo = !this.showVideo;
 
             if (this.showVideo) {
-              jquery__WEBPACK_IMPORTED_MODULE_4__("#video_live_model").removeClass("hideStream").addClass("showStream");
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = true;
+              });
             } else {
-              jquery__WEBPACK_IMPORTED_MODULE_4__("#video_live_model").removeClass("showStream").addClass("hideStream");
-            } // this.onStop();
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = false;
+              });
+            } // if (this.showVideo) {
+            //   $("#video_live_model").removeClass( "hideStream" ).addClass("showStream");
+            // } else {
+            //   $("#video_live_model").removeClass("showStream").addClass("hideStream");
+            // }
+            // this.onStop();
             // this.onStart();
 
 
@@ -33336,7 +33326,7 @@
       }
 
       var AppComponent = function AppComponent(headerSrv, router) {
-        var _this229 = this;
+        var _this227 = this;
 
         _classCallCheck(this, AppComponent);
 
@@ -33349,26 +33339,26 @@
         this.router.events.subscribe(function (event) {
           if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_0__["NavigationStart"]) {
             // Show loading indicator
-            _this229.loading = true;
+            _this227.loading = true;
           }
 
           if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_0__["NavigationEnd"]) {
             // Hide loading indicator
-            _this229.loading = false;
+            _this227.loading = false;
           }
 
           if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_0__["NavigationError"]) {
             // Hide loading indicator
-            _this229.loading = false; // Present error to user
+            _this227.loading = false; // Present error to user
 
             console.log(event.error);
           }
         });
         this.headerSrv.hidded.subscribe(function (data) {
-          _this229.hide = data;
+          _this227.hide = data;
         });
         this.headerSrv.unselected.subscribe(function (data) {
-          _this229.unselect = data;
+          _this227.unselect = data;
         });
       };
 
@@ -33755,31 +33745,31 @@
         }, {
           key: "countClient",
           value: function countClient() {
-            var _this230 = this;
+            var _this228 = this;
 
             this.adminService.countModelsBlocked().subscribe(function (data) {
-              _this230.count = data ? data : 0;
+              _this228.count = data ? data : 0;
 
-              _this230.initPagination();
+              _this228.initPagination();
             });
           }
         }, {
           key: "listClients",
           value: function listClients() {
-            var _this231 = this;
+            var _this229 = this;
 
             this.adminService.getModelsBlocked(this.range, this.page, this.filter).subscribe(function (data) {
               // console.log(data)
-              _this231.clients = data;
+              _this229.clients = data;
 
-              _this231.clients.forEach(function (client) {
-                client.createdAt = _this231.adminService.formatDate(client.createdAt);
-                client.updatedAt = _this231.adminService.formatDate(client.updatedAt);
+              _this229.clients.forEach(function (client) {
+                client.createdAt = _this229.adminService.formatDate(client.createdAt);
+                client.updatedAt = _this229.adminService.formatDate(client.updatedAt);
               });
 
-              _this231.count = _this231.clients.length;
+              _this229.count = _this229.clients.length;
 
-              _this231.initPagination();
+              _this229.initPagination();
             }, function (error) {
               console.log(error);
             });
@@ -33822,10 +33812,10 @@
         }, {
           key: "deleteClient",
           value: function deleteClient(idClient) {
-            var _this232 = this;
+            var _this230 = this;
 
             this.adminService.deleteModel(idClient).subscribe(function (data) {
-              if (data.success) _this232.listClients();else if (data.error) _this232.notificationService.errorMsg(data.message);
+              if (data.success) _this230.listClients();else if (data.error) _this230.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -33833,14 +33823,14 @@
         }, {
           key: "deblockedClient",
           value: function deblockedClient(idClient) {
-            var _this233 = this;
+            var _this231 = this;
 
             var data = {
               idClient: idClient,
               reverse: true
             };
             this.adminService.blockModel(data).subscribe(function (data) {
-              if (data.success) _this233.listClients();else if (data.error) _this233.notificationService.errorMsg(data.message);
+              if (data.success) _this231.listClients();else if (data.error) _this231.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -34815,10 +34805,10 @@
         }, {
           key: "getPseudo",
           value: function getPseudo(clientId) {
-            var _this234 = this;
+            var _this232 = this;
 
             this.clientService.getClient(clientId).subscribe(function (data) {
-              _this234.currentPseudo = data.pseudo; // console.log(this.currentPseudo);
+              _this232.currentPseudo = data.pseudo; // console.log(this.currentPseudo);
             });
           }
         }, {
@@ -34844,13 +34834,13 @@
         }, {
           key: "banishClient",
           value: function banishClient(item) {
-            var _this235 = this;
+            var _this233 = this;
 
             if (!item.id_source || item.id_source == this.modelId) return null;
             var clientId = item.id_source; // console.log('banish client : ', item.id_source, ' model :', this.modelId)
 
             this.banishService.banishClient(this.modelId, clientId).subscribe(function (data) {
-              _this235.socketService.banishClient(_this235.roomId, clientId); // console.log(data)
+              _this233.socketService.banishClient(_this233.roomId, clientId); // console.log(data)
 
             });
           }
@@ -35868,7 +35858,7 @@
         }, {
           key: "preview",
           value: function preview(type) {
-            var _this236 = this;
+            var _this234 = this;
 
             this.errorRecto = this.errorVerso = this.errorPhoto = this.errorSoft = false;
             var mimeType;
@@ -35884,8 +35874,8 @@
                 reader.readAsDataURL(this.fileRecto);
 
                 reader.onload = function (event) {
-                  _this236.previewRecto = reader.result;
-                  _this236.nameRecto = _this236.fileRecto.name;
+                  _this234.previewRecto = reader.result;
+                  _this234.nameRecto = _this234.fileRecto.name;
                 };
 
                 break;
@@ -35898,8 +35888,8 @@
                 reader.readAsDataURL(this.fileVerso);
 
                 reader.onload = function (event) {
-                  _this236.previewVerso = reader.result;
-                  _this236.nameVerso = _this236.fileVerso.name;
+                  _this234.previewVerso = reader.result;
+                  _this234.nameVerso = _this234.fileVerso.name;
                 };
 
                 break;
@@ -35912,8 +35902,8 @@
                 reader.readAsDataURL(this.filePhoto);
 
                 reader.onload = function (event) {
-                  _this236.previewPhoto = reader.result;
-                  _this236.namePhoto = _this236.filePhoto.name;
+                  _this234.previewPhoto = reader.result;
+                  _this234.namePhoto = _this234.filePhoto.name;
                 };
 
                 break;
@@ -35926,8 +35916,8 @@
                 reader.readAsDataURL(this.fileSoft);
 
                 reader.onload = function (event) {
-                  _this236.previewSoft = reader.result;
-                  _this236.nameSoft = _this236.fileSoft.name;
+                  _this234.previewSoft = reader.result;
+                  _this234.nameSoft = _this234.fileSoft.name;
                 };
 
                 break;
@@ -35945,7 +35935,7 @@
           key: "register",
           value: function register() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee113() {
-              var _this237 = this;
+              var _this235 = this;
 
               var formData;
               return regeneratorRuntime.wrap(function _callee113$(_context113) {
@@ -35975,10 +35965,10 @@
                       _context113.next = 15;
                       return this.authService.uploadImagesModel(formData).subscribe(function (events) {
                         if (events.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpEventType"].UploadProgress) {
-                          _this237.fileUploadProgress = Math.round(events.loaded / events.total * 100) + '%'; // console.log(this.fileUploadProgress);
+                          _this235.fileUploadProgress = Math.round(events.loaded / events.total * 100) + '%'; // console.log(this.fileUploadProgress);
                         } else if (events.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpEventType"].Response) {
-                          var user = _this237.signForm.value;
-                          user = _this237.signForm.value;
+                          var user = _this235.signForm.value;
+                          user = _this235.signForm.value;
                           user.date_birth = user.day_birth + '/' + user.month_birth + '/' + user.year_birth;
                           user.path_recto = events.body.path_recto;
                           user.path_verso = events.body.path_verso;
@@ -35986,36 +35976,36 @@
                           user.path_soft = events.body.path_soft; // console.log("Post register ", user);
 
                           // console.log("Post register ", user);
-                          _this237.authService.registerModel(user).subscribe(function (res) {
+                          _this235.authService.registerModel(user).subscribe(function (res) {
                             // console.log(res);
                             if (res.error) {
-                              _this237.error = res.message;
-                              if (res.pseudo) _this237.pseudoExist = true;
-                              if (res.email) _this237.emailExist = true;
-                              _this237.loading = false;
+                              _this235.error = res.message;
+                              if (res.pseudo) _this235.pseudoExist = true;
+                              if (res.email) _this235.emailExist = true;
+                              _this235.loading = false;
                             } else {
-                              _this237.profileService.createSetting(res.id).subscribe(function (data) {
-                                _this237.creditService.createCredit(res.id).subscribe(function (data) {
-                                  _this237.profileService.createProfil(res.id).subscribe(function (data) {
-                                    _this237.submitted = false;
+                              _this235.profileService.createSetting(res.id).subscribe(function (data) {
+                                _this235.creditService.createCredit(res.id).subscribe(function (data) {
+                                  _this235.profileService.createProfil(res.id).subscribe(function (data) {
+                                    _this235.submitted = false;
 
-                                    _this237.popupService.info('model', 'Félicitation', "Cher nouveau mod\xE8le, Un email est envoy\xE9 \xE0\n                              <span style=\"font-style: italic; color: var(--pink)\">".concat(res.email, "</span>\n                              pour les informations de votre compte. <br>\n                              <small>Veuillez v\xE9rifier dans vos spams</small>"));
+                                    _this235.popupService.info('model', 'Félicitation', "Cher nouveau mod\xE8le, Un email est envoy\xE9 \xE0\n                              <span style=\"font-style: italic; color: var(--pink)\">".concat(res.email, "</span>\n                              pour les informations de votre compte. <br>\n                              <small>Veuillez v\xE9rifier dans vos spams</small>"));
 
-                                    _this237.signForm.reset();
+                                    _this235.signForm.reset();
 
-                                    _this237.loading = false;
+                                    _this235.loading = false;
                                   });
                                 });
                               });
                             } // this.loading = false;
 
                           }, function (err) {
-                            _this237.loading = false;
+                            _this235.loading = false;
                             console.log(err);
                           });
                         }
                       }, function (error) {
-                        _this237.loading = false;
+                        _this235.loading = false;
                         console.log(error);
                       });
 
@@ -37287,7 +37277,7 @@
 
       var StatistiqueModelsAdminComponent = /*#__PURE__*/function () {
         function StatistiqueModelsAdminComponent(adminService) {
-          var _this238 = this;
+          var _this236 = this;
 
           _classCallCheck(this, StatistiqueModelsAdminComponent);
 
@@ -37303,32 +37293,32 @@
           this.isIntegral = false;
 
           this.useDefaultGridStyle = function () {
-            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this238.options);
+            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this236.options);
             var gridStyle = [{
               stroke: 'white',
               lineDash: [2, 1]
             }];
             options.axes[0].gridStyle = gridStyle;
             options.axes[1].gridStyle = gridStyle;
-            _this238.options = options;
+            _this236.options = options;
           };
 
           this.update = function () {
-            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this238.options);
-            options.data = _this238.getData();
-            _this238.options = options;
+            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this236.options);
+            options.data = _this236.getData();
+            _this236.options = options;
           };
 
           this.startUpdates = function () {
-            if (_this238.updating) {
+            if (_this236.updating) {
               return;
             }
 
-            _this238.updating = true;
+            _this236.updating = true;
 
-            _this238.update();
+            _this236.update();
 
-            setInterval(_this238.update, 1000);
+            setInterval(_this236.update, 1000);
           };
 
           this.options = {
@@ -37418,10 +37408,10 @@
         }, {
           key: "countModelActif",
           value: function countModelActif() {
-            var _this239 = this;
+            var _this237 = this;
 
             this.adminService.countModelActif().subscribe(function (data) {
-              _this239.actif = data ? data : 0;
+              _this237.actif = data ? data : 0;
             }, function (error) {
               console.log(error);
             });
@@ -37444,20 +37434,20 @@
         }, {
           key: "getInscriptions",
           value: function getInscriptions() {
-            var _this240 = this;
+            var _this238 = this;
 
             this.originModels = [];
             this.adminService.getStatInscriptionModel().subscribe(function (data) {
               var tmp = data;
               tmp.forEach(function (inscrit) {
-                inscrit.date = _this240.adminService.formatDate(inscrit.date);
+                inscrit.date = _this238.adminService.formatDate(inscrit.date);
                 inscrit.count = parseInt(inscrit.count);
                 inscrit.inscription = parseInt(inscrit.count);
                 inscrit.suppression = 0;
               });
-              _this240.originModels = tmp;
+              _this238.originModels = tmp;
 
-              _this240.getSuppression();
+              _this238.getSuppression();
             }, function (error) {
               console.log(error);
             });
@@ -37465,20 +37455,20 @@
         }, {
           key: "getSuppression",
           value: function getSuppression() {
-            var _this241 = this;
+            var _this239 = this;
 
             this.adminService.getStatSuppressionModel().subscribe(function (data) {
               var tmp = data;
               tmp.forEach(function (inscrit) {
-                inscrit.date = _this241.adminService.formatDate(inscrit.date);
+                inscrit.date = _this239.adminService.formatDate(inscrit.date);
                 inscrit.count = parseInt(inscrit.count);
                 inscrit.inscription = 0;
                 inscrit.suppression = parseInt(inscrit.count);
 
-                _this241.originModels.push(inscrit);
+                _this239.originModels.push(inscrit);
               }); // console.log(this.originModels)
 
-              _this241.resume();
+              _this239.resume();
             }, function (error) {
               console.log(error);
             });
@@ -37499,14 +37489,14 @@
         }, {
           key: "selectYear",
           value: function selectYear(event) {
-            var _this242 = this;
+            var _this240 = this;
 
             this.isIntegral = false;
             var value = event.target.value;
             this.currentYear = value;
             this.models = this.original.filter(function (element) {
               var year = element.date.substring(6, 10);
-              if (year === _this242.currentYear) return true;
+              if (year === _this240.currentYear) return true;
               return false;
             });
           }
@@ -37529,22 +37519,22 @@
         }, {
           key: "resume",
           value: function resume() {
-            var _this243 = this;
+            var _this241 = this;
 
             var find = false;
             this.models = [];
             this.originModels.forEach(function (element) {
               find = false;
 
-              for (var i = 0; i < _this243.models.length; i++) {
-                if (_this243.models[i].date === element.date) {
-                  _this243.models[i].inscription += element.inscription;
-                  _this243.models[i].suppression += element.suppression;
+              for (var i = 0; i < _this241.models.length; i++) {
+                if (_this241.models[i].date === element.date) {
+                  _this241.models[i].inscription += element.inscription;
+                  _this241.models[i].suppression += element.suppression;
                   find = true;
                 }
               }
 
-              if (!find) _this243.models.push(element);
+              if (!find) _this241.models.push(element);
             });
             this.original = this.models;
           }
@@ -38101,7 +38091,7 @@
 
       var LiveTipsClientsModelComponent = /*#__PURE__*/function () {
         function LiveTipsClientsModelComponent(_platform, router, store, modelService, chatService, socketService, profilService, popupService, creditService, timerService, profileService, roomTipsService) {
-          var _this244 = this;
+          var _this242 = this;
 
           _classCallCheck(this, LiveTipsClientsModelComponent);
 
@@ -38188,35 +38178,35 @@
           this.peerList = [];
 
           this.getPeerId = function () {
-            _this244.peer.on('open', function (id) {
+            _this242.peer.on('open', function (id) {
               console.log("Peer Id ", id);
-              _this244.peerId = id;
+              _this242.peerId = id;
               var data = {
                 role: 'model',
-                modelId: _this244.info.modelId,
-                room: _this244.info.idRoom + 'T',
-                peerId: _this244.peerId
+                modelId: _this242.info.modelId,
+                room: _this242.info.idRoom + 'T',
+                peerId: _this242.peerId
               };
 
-              _this244.socketService.newPeerIdModel(data);
+              _this242.socketService.newPeerIdModel(data);
             });
 
-            _this244.peer.on('call', function (call) {
+            _this242.peer.on('call', function (call) {
               console.log("Someone call model");
-              call.answer(_this244.lazyStream);
+              call.answer(_this242.lazyStream);
               console.log("After answer stream");
               call.on('stream', function (remoteStream) {
                 console.log("On receive stream in model");
 
-                if (!_this244.peerList.includes(call.peer)) {
-                  _this244.streamRemoteVideo(remoteStream, call.peer);
+                if (!_this242.peerList.includes(call.peer)) {
+                  _this242.streamRemoteVideo(remoteStream, call.peer);
 
-                  _this244.currentPeer = call.peerConnection;
+                  _this242.currentPeer = call.peerConnection;
 
-                  _this244.peerList.push(call.peer);
+                  _this242.peerList.push(call.peer);
                 }
 
-                console.log("Peer list ", _this244.peerList);
+                console.log("Peer list ", _this242.peerList);
               });
             });
           };
@@ -38243,12 +38233,12 @@
         }, {
           key: "verifySound",
           value: function verifySound() {
-            var _this245 = this;
+            var _this243 = this;
 
             this.profileService.getInfo().subscribe(function (data) {
               // console.log(data.setting);
-              _this245.sound_notification = data.setting.sound_notification === 1 ? true : false;
-              _this245.sound_message = data.setting.sound_message === 1 ? true : false;
+              _this243.sound_notification = data.setting.sound_notification === 1 ? true : false;
+              _this243.sound_message = data.setting.sound_message === 1 ? true : false;
             });
           }
         }, {
@@ -38268,42 +38258,42 @@
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this246 = this;
+            var _this244 = this;
 
             this.modelService.getInfo().subscribe(function (data) {
               // console.log('Get info ', data);
               if (data.profile.status === 'En vip') {
-                _this246.onStop();
+                _this244.onStop();
 
-                _this246.router.navigate(['/modele/live-vip']);
+                _this244.router.navigate(['/modele/live-vip']);
               }
 
               if (data.profile.status === 'En ligne') {
-                _this246.onStop();
+                _this244.onStop();
 
-                _this246.router.navigate(['/modele/chat']);
+                _this244.router.navigate(['/modele/chat']);
               }
 
               if (data.profile.status === 'En live choice') {
-                _this246.onStop();
+                _this244.onStop();
 
-                _this246.router.navigate(['/modele/live-choice-us']);
+                _this244.router.navigate(['/modele/live-choice-us']);
               }
 
-              _this246.info.bg = data.path_soft;
-              _this246.info.modelId = data.id;
-              _this246.info.pseudo = data.pseudo;
+              _this244.info.bg = data.path_soft;
+              _this244.info.modelId = data.id;
+              _this244.info.pseudo = data.pseudo;
 
-              _this246.getInfoRoom();
+              _this244.getInfoRoom();
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this247 = this;
+            var _this245 = this;
 
             this.roomTipsService.getRoomModel(this.info.modelId).subscribe(function (data) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this247, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee115() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this245, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee115() {
                 return regeneratorRuntime.wrap(function _callee115$(_context115) {
                   while (1) {
                     switch (_context115.prev = _context115.next) {
@@ -38339,7 +38329,7 @@
           key: "getActifRoom",
           value: function getActifRoom() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee116() {
-              var _this248 = this;
+              var _this246 = this;
 
               return regeneratorRuntime.wrap(function _callee116$(_context116) {
                 while (1) {
@@ -38347,7 +38337,7 @@
                     case 0:
                       this.roomTipsService.getActifs(this.info.idRoom).subscribe(function (data) {
                         // console.log('Actifs ', data);
-                        _this248.info.actif = data ? data.length : 0;
+                        _this246.info.actif = data ? data.length : 0;
                       });
 
                     case 1:
@@ -38362,7 +38352,7 @@
           key: "getStatRoom",
           value: function getStatRoom(idRoom) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee117() {
-              var _this249 = this;
+              var _this247 = this;
 
               return regeneratorRuntime.wrap(function _callee117$(_context117) {
                 while (1) {
@@ -38378,7 +38368,7 @@
                     case 2:
                       this.roomTipsService.getStatRoom(this.info.idRoom).subscribe(function (data) {
                         if (!data) return null;
-                        _this249.info.gain = data.gain;
+                        _this247.info.gain = data.gain;
                       });
 
                     case 3:
@@ -38392,11 +38382,11 @@
         }, {
           key: "getCredit",
           value: function getCredit() {
-            var _this250 = this;
+            var _this248 = this;
 
             this.creditService.getCredit().subscribe(function (data) {
-              _this250.info.creditModel = data ? data.credit : 0;
-              _this250.info.idCreditModel = data ? data.id : 0;
+              _this248.info.creditModel = data ? data.credit : 0;
+              _this248.info.idCreditModel = data ? data.id : 0;
             }); // Launch the timer
 
             this.initTimer();
@@ -38404,41 +38394,41 @@
         }, {
           key: "initSocket",
           value: function initSocket() {
-            var _this251 = this;
+            var _this249 = this;
 
             this.joinSub = this.socketService.listen("joined ".concat(this.info.idRoom, "T")).subscribe(function (data) {
               // console.log('joined ', data);
-              _this251.getActifRoom();
+              _this249.getActifRoom();
 
-              if (_this251.sound_notification) {
-                _this251.socketService.soundIncome();
+              if (_this249.sound_notification) {
+                _this249.socketService.soundIncome();
               }
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.info.idRoom, "T")).subscribe(function (data) {
-              _this251.getActifRoom();
+              _this249.getActifRoom();
 
-              if (_this251.sound_notification) {
-                _this251.socketService.soundOutcome();
+              if (_this249.sound_notification) {
+                _this249.socketService.soundOutcome();
               } // console.log('leaved ', data);
 
             });
             this.messageSub = this.socketService.listen("message ".concat(this.info.idRoom, "T")).subscribe(function (data) {
-              _this251.socketService.soundOutcome();
+              _this249.socketService.soundOutcome();
 
-              _this251.getMessages();
+              _this249.getMessages();
             });
             this.newTipsSub = this.socketService.listen("new tips ".concat(this.info.idRoom, "T")).subscribe(function (data) {
               // console.log('new tips ', data);
               if (data.credit) {
-                _this251.info.creditModel += data.credit;
+                _this249.info.creditModel += data.credit;
               }
 
-              _this251.getStatRoom(_this251.info.idRoom);
+              _this249.getStatRoom(_this249.info.idRoom);
 
-              _this251.socketService.soundIncome();
+              _this249.socketService.soundIncome();
             });
             this.peerSub = this.socketService.listen("ask peerId ".concat(this.info.idRoom, "T")).subscribe(function (data) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this251, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee118() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this249, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee118() {
                 return regeneratorRuntime.wrap(function _callee118$(_context118) {
                   while (1) {
                     switch (_context118.prev = _context118.next) {
@@ -38472,12 +38462,12 @@
               if (data.clientId) {
                 console.log('Toggle audio from ', data.clientId);
 
-                _this251.toggleAudioClientStream(data.peerId, data.isAudio);
+                _this249.toggleAudioClientStream(data.peerId, data.isAudio);
               }
             });
             this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.info.idRoom, "T")).subscribe(function (data) {
               if (data.clientId) {
-                _this251.toggleVideoClientStream(data.peerId, data.isVideo);
+                _this249.toggleVideoClientStream(data.peerId, data.isVideo);
               }
             });
             this.getMessages();
@@ -38485,11 +38475,11 @@
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this252 = this;
+            var _this250 = this;
 
             this.chatService.getMessage(this.info.idRoom, 'tips').subscribe(function (data) {
               // console.log('Messages ', data);
-              _this252.messages = data;
+              _this250.messages = data;
             });
           }
         }, {
@@ -38500,7 +38490,7 @@
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this253 = this;
+            var _this251 = this;
 
             if (!this.info.message) return;
             var data = {
@@ -38514,23 +38504,23 @@
             };
             this.info.message = null;
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this253.getMessages();
+              _this251.getMessages();
 
               var msg = {
-                room: _this253.info.idRoom + 'T',
+                room: _this251.info.idRoom + 'T',
                 role: 'model',
-                id: _this253.info.modelId,
-                message: _this253.info.message
+                id: _this251.info.modelId,
+                message: _this251.info.message
               };
 
-              _this253.socketService.sendMessage(msg);
+              _this251.socketService.sendMessage(msg);
             });
           }
         }, {
           key: "liveOut",
           value: function liveOut() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee119() {
-              var _this254 = this;
+              var _this252 = this;
 
               return regeneratorRuntime.wrap(function _callee119$(_context119) {
                 while (1) {
@@ -38546,18 +38536,18 @@
                     case 5:
                       _context119.next = 7;
                       return _context119.sent.subscribe(function (data) {
-                        _this254.timer.reinit = true;
+                        _this252.timer.reinit = true;
 
-                        _this254.clearTimer(); // set to zero
+                        _this252.clearTimer(); // set to zero
 
 
                         // set to zero
-                        _this254.socketService.leaveTips(_this254.info.idRoom, 'model', _this254.info.modelId); // this.roomPrivateService.leaveRoom();
+                        _this252.socketService.leaveTips(_this252.info.idRoom, 'model', _this252.info.modelId); // this.roomPrivateService.leaveRoom();
 
 
                         // this.roomPrivateService.leaveRoom();
-                        _this254.profilService.updateStatus(_this254.info.modelId, 'En ligne').subscribe(function (data) {
-                          _this254.loading = false;
+                        _this252.profilService.updateStatus(_this252.info.modelId, 'En ligne').subscribe(function (data) {
+                          _this252.loading = false;
                           window.location.href = '/modele/chat'; // this.router.navigate(['/modele/chat']);
                           // setTimeout(
                           //   () => {
@@ -38566,7 +38556,7 @@
                           // );
                         });
                       }, function (error) {
-                        _this254.loading = false;
+                        _this252.loading = false;
                       });
 
                     case 7:
@@ -38582,14 +38572,14 @@
           key: "initTimer",
           value: function initTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee121() {
-              var _this255 = this;
+              var _this253 = this;
 
               return regeneratorRuntime.wrap(function _callee121$(_context121) {
                 while (1) {
                   switch (_context121.prev = _context121.next) {
                     case 0:
                       this.timerService.beginTimerModel(this.info.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_3__["TypeTimer"].TIPS).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this255, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee120() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this253, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee120() {
                           var created, updated, _this$timerService$co7, hour, minute, second;
 
                           return regeneratorRuntime.wrap(function _callee120$(_context120) {
@@ -38626,13 +38616,13 @@
         }, {
           key: "beginCountCredit",
           value: function beginCountCredit(nbSecond) {
-            var _this256 = this;
+            var _this254 = this;
 
             var delay = nbSecond * 1000;
             this.timer.timer = setInterval(function () {
-              if (_this256.info.actif > 0) {
-                _this256.creditService.getCredit().subscribe(function (data) {
-                  _this256.info.creditModel = data ? data.credit : 0;
+              if (_this254.info.actif > 0) {
+                _this254.creditService.getCredit().subscribe(function (data) {
+                  _this254.info.creditModel = data ? data.credit : 0;
                 });
               }
             }, delay);
@@ -38682,15 +38672,15 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this257 = this;
+            var _this255 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
               }).then(function (ms) {
-                _this257.lazyStream = ms;
-                _this257.video.nativeElement.srcObject = _this257.lazyStream;
+                _this255.lazyStream = ms;
+                _this255.video.nativeElement.srcObject = _this255.lazyStream;
                 jquery__WEBPACK_IMPORTED_MODULE_4__('#video_live_model').prop('volume', 0);
               });
             }
@@ -38724,32 +38714,32 @@
         }, {
           key: "callPeer",
           value: function callPeer(id) {
-            var _this258 = this;
+            var _this256 = this;
 
             var call = this.peer.call(id, this.lazyStream);
             call.on('stream', function (remoteStream) {
-              if (!_this258.peerList.includes(call.peer)) {
-                _this258.streamRemoteVideo(remoteStream, call.peer);
+              if (!_this256.peerList.includes(call.peer)) {
+                _this256.streamRemoteVideo(remoteStream, call.peer);
 
-                _this258.currentPeer = call.peerConnection;
+                _this256.currentPeer = call.peerConnection;
 
-                _this258.peerList.push(call.peer);
+                _this256.peerList.push(call.peer);
               }
             });
           }
         }, {
           key: "callClient",
           value: function callClient(clientId, peerId) {
-            var _this259 = this;
+            var _this257 = this;
 
             var call = this.peer.call(peerId, this.lazyStream);
             call.on('stream', function (remoteStream) {
-              if (!_this259.peerList.includes(call.peer)) {
-                _this259.streamRemoteVideo(remoteStream, call.peer, clientId);
+              if (!_this257.peerList.includes(call.peer)) {
+                _this257.streamRemoteVideo(remoteStream, call.peer, clientId);
 
-                _this259.currentPeer = call.peerConnection;
+                _this257.currentPeer = call.peerConnection;
 
-                _this259.peerList.push(call.peer);
+                _this257.peerList.push(call.peer);
               }
             });
           }
@@ -39342,7 +39332,7 @@
 
       var ReactivateAccountComponent = /*#__PURE__*/function () {
         function ReactivateAccountComponent(activatedRoute, http, store, router, notificationService, clientService) {
-          var _this260 = this;
+          var _this258 = this;
 
           _classCallCheck(this, ReactivateAccountComponent);
 
@@ -39358,7 +39348,7 @@
           this.errorMessageToken = null;
           this.successMessageToken = null;
           this.activatedRoute.queryParams.subscribe(function (params) {
-            _this260.token = params['token'];
+            _this258.token = params['token'];
           });
         }
 
@@ -39370,7 +39360,7 @@
         }, {
           key: "confirmToken",
           value: function confirmToken() {
-            var _this261 = this;
+            var _this259 = this;
 
             if (!this.token) {
               this.errorToken = true;
@@ -39383,15 +39373,15 @@
             this.clientService.reactivateAccount().subscribe(function (data) {
               // console.log("Client token ", data);
               if (!data.success) {
-                _this261.errorMessageToken = data.message;
-                _this261.errorToken = true;
+                _this259.errorMessageToken = data.message;
+                _this259.errorToken = true;
               } else {
-                _this261.errorToken = false;
-                _this261.successMessageToken = data.message;
+                _this259.errorToken = false;
+                _this259.successMessageToken = data.message;
 
-                _this261.notificationService.infoMsg("Votre compte est réactivé");
+                _this259.notificationService.infoMsg("Votre compte est réactivé");
 
-                _this261.router.navigate(['/client/connexion']);
+                _this259.router.navigate(['/client/connexion']);
               }
             });
           }
@@ -39688,14 +39678,14 @@
         }, {
           key: "verifyToken",
           value: function verifyToken() {
-            var _this262 = this;
+            var _this260 = this;
 
             var token = this.store.get("token");
             this.authService.verifyToken(token).subscribe(function (data) {
               if (data.role === 'client') {
-                _this262.router.navigateByUrl("client/accueil/registered");
+                _this260.router.navigateByUrl("client/accueil/registered");
               } else if (data.role === 'model') {
-                _this262.router.navigateByUrl("modele/profile");
+                _this260.router.navigateByUrl("modele/profile");
               }
             }, function (error) {});
           }
@@ -39765,7 +39755,7 @@
           key: "login",
           value: function login(event) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee124() {
-              var _this263 = this;
+              var _this261 = this;
 
               var user;
               return regeneratorRuntime.wrap(function _callee124$(_context124) {
@@ -39789,40 +39779,40 @@
                       return this.authService.loginClient(user).subscribe(function (res) {
                         // console.log(res);
                         if (res.error) {
-                          _this263.errorAuth = res.message;
-                          _this263.loading = false;
+                          _this261.errorAuth = res.message;
+                          _this261.loading = false;
                         } else {
-                          _this263.errorAuth = null;
+                          _this261.errorAuth = null;
 
                           if (res.role && res.role === 'client' && res.access_token) {
-                            _this263.authService.saveToken(res.access_token, res.id).then(function () {
-                              _this263.isRemember(user).then(function () {
-                                _this263.loading = false;
+                            _this261.authService.saveToken(res.access_token, res.id).then(function () {
+                              _this261.isRemember(user).then(function () {
+                                _this261.loading = false;
 
-                                _this263.router.navigate(['/client/accueil/registered']);
+                                _this261.router.navigate(['/client/accueil/registered']);
                               });
                             });
                           } else if (res.access_token) {
-                            _this263.authService.saveToken(res.access_token).then(function () {
-                              _this263.logService.createLog("connection").subscribe(function (data) {
-                                _this263.isRemember(user).then(function () {
-                                  _this263.roomService.createRoom().subscribe(function (data) {
-                                    _this263.store.set("room", data.room);
+                            _this261.authService.saveToken(res.access_token).then(function () {
+                              _this261.logService.createLog("connection").subscribe(function (data) {
+                                _this261.isRemember(user).then(function () {
+                                  _this261.roomService.createRoom().subscribe(function (data) {
+                                    _this261.store.set("room", data.room);
 
-                                    _this263.loading = false;
+                                    _this261.loading = false;
 
-                                    _this263.router.navigate(['/modele/profile']);
+                                    _this261.router.navigate(['/modele/profile']);
                                   });
                                 });
                               }, function (error) {
-                                _this263.loading = false;
+                                _this261.loading = false;
                                 console.log(error);
                               });
                             });
                           }
                         }
                       }, function (err) {
-                        _this263.loading = false;
+                        _this261.loading = false;
                         console.log(err);
                       });
 
@@ -40804,7 +40794,7 @@
         }, {
           key: "sendMail",
           value: function sendMail() {
-            var _this264 = this;
+            var _this262 = this;
 
             this.error = null;
 
@@ -40816,7 +40806,7 @@
             var message = this.messageForm.value;
             this.adminService.sendMail(message.email, message.objet, message.message).subscribe(function (data) {
               if (data.success) {
-                _this264.notificationService.info('Message', "Envoy\xE9 \xE0 ".concat(message.email));
+                _this262.notificationService.info('Message', "Envoy\xE9 \xE0 ".concat(message.email));
               }
             }, function (error) {
               console.log(error);
@@ -42351,30 +42341,30 @@
         }, {
           key: "countClient",
           value: function countClient() {
-            var _this265 = this;
+            var _this263 = this;
 
             this.adminService.countClients(this.selected).subscribe(function (data) {
-              _this265.count = data.count;
+              _this263.count = data.count;
 
-              _this265.initPagination();
+              _this263.initPagination();
             });
           }
         }, {
           key: "listClients",
           value: function listClients() {
-            var _this266 = this;
+            var _this264 = this;
 
             this.adminService.getClients(this.selected, this.range, this.page, this.filter).subscribe(function (data) {
               // console.log(data)
-              _this266.clients = data;
+              _this264.clients = data;
 
-              _this266.clients.forEach(function (client) {
-                client.createdAt = _this266.adminService.formatDate(client.createdAt);
+              _this264.clients.forEach(function (client) {
+                client.createdAt = _this264.adminService.formatDate(client.createdAt);
               });
 
-              _this266.count = _this266.clients.length;
+              _this264.count = _this264.clients.length;
 
-              _this266.initPagination();
+              _this264.initPagination();
             }, function (error) {
               console.log(error);
             });
@@ -42422,10 +42412,10 @@
         }, {
           key: "deleteClient",
           value: function deleteClient(idClient) {
-            var _this267 = this;
+            var _this265 = this;
 
             this.adminService.deleteClient(idClient).subscribe(function (data) {
-              if (data.success) _this267.listClients();else if (data.error) _this267.notificationService.errorMsg(data.message);
+              if (data.success) _this265.listClients();else if (data.error) _this265.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -42433,14 +42423,14 @@
         }, {
           key: "blockClient",
           value: function blockClient(idClient) {
-            var _this268 = this;
+            var _this266 = this;
 
             var data = {
               idClient: idClient,
               reverse: false
             };
             this.adminService.blockClient(data).subscribe(function (data) {
-              if (data.success) _this268.listClients();else if (data.error) _this268.notificationService.errorMsg(data.message);
+              if (data.success) _this266.listClients();else if (data.error) _this266.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -42448,10 +42438,10 @@
         }, {
           key: "deactivateClient",
           value: function deactivateClient(idClient) {
-            var _this269 = this;
+            var _this267 = this;
 
             this.adminService.deactivateClient(idClient).subscribe(function (data) {
-              if (data.success) _this269.listClients();else if (data.error) _this269.notificationService.errorMsg(data.message);
+              if (data.success) _this267.listClients();else if (data.error) _this267.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -42459,10 +42449,10 @@
         }, {
           key: "activateClient",
           value: function activateClient(idClient) {
-            var _this270 = this;
+            var _this268 = this;
 
             this.adminService.activateClient(idClient).subscribe(function (data) {
-              if (data.success) _this270.listClients();else if (data.error) _this270.notificationService.errorMsg(data.message);
+              if (data.success) _this268.listClients();else if (data.error) _this268.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -43040,15 +43030,15 @@
         }, {
           key: "getModels",
           value: function getModels() {
-            var _this271 = this;
+            var _this269 = this;
 
             this.adminService.getCreditActifsModels().subscribe(function (data) {
-              _this271.models = data;
-              _this271.origModels = data;
+              _this269.models = data;
+              _this269.origModels = data;
 
-              _this271.models.forEach(function (model) {
-                model.createdAt = _this271.adminService.formatDate(model.createdAt);
-                model.nextPayment = _this271.nextPayment(model.credit.lastPayment);
+              _this269.models.forEach(function (model) {
+                model.createdAt = _this269.adminService.formatDate(model.createdAt);
+                model.nextPayment = _this269.nextPayment(model.credit.lastPayment);
                 model.payCredit = 0;
                 model.soldeCredit = model.credit.credit;
               }); // console.log(this.models);
@@ -43060,7 +43050,7 @@
         }, {
           key: "payModel",
           value: function payModel(index, idModel, pseudoModel, emailModel) {
-            var _this272 = this;
+            var _this270 = this;
 
             console.log(index);
             var payCredit = this.models[index].payCredit;
@@ -43073,9 +43063,9 @@
 
             this.adminService.payCreditModel(idModel, pseudoModel, emailModel, payCredit, this.today).subscribe(function (data) {
               // console.log(data);
-              _this272.getModels();
+              _this270.getModels();
 
-              _this272.notificationService.successMsg("".concat(payCredit, " cr\xE9dits pay\xE9s \xE0 ").concat(pseudoModel));
+              _this270.notificationService.successMsg("".concat(payCredit, " cr\xE9dits pay\xE9s \xE0 ").concat(pseudoModel));
             }, function (error) {
               console.log(error);
             });
@@ -43159,11 +43149,11 @@
         }, {
           key: "filterModel",
           value: function filterModel() {
-            var _this273 = this;
+            var _this271 = this;
 
             console.log('something change');
             this.models = this.origModels.filter(function (models) {
-              return models.pseudo.includes(_this273.filterPseudo);
+              return models.pseudo.includes(_this271.filterPseudo);
             });
           }
         }, {
@@ -44620,11 +44610,11 @@
         }, {
           key: "getSuiviPay",
           value: function getSuiviPay() {
-            var _this274 = this;
+            var _this272 = this;
 
             this.paiementService.getSuiviPay(this.modelId).subscribe(function (data) {
               console.log('Get suivi ', data);
-              _this274.pay = data;
+              _this272.pay = data;
             }, function (error) {
               console.log(error);
             });
@@ -46011,49 +46001,43 @@
       /* harmony import */
 
 
-      var _services_notification_notification_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
-      /*! ../../../services/notification/notification.service */
-      "nak+");
-      /* harmony import */
-
-
-      var _layouts_header_header_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+      var _layouts_header_header_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
       /*! ../../../layouts/header/header.component */
       "OPNc");
       /* harmony import */
 
 
-      var _live_topbar_model_topbar_model_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+      var _live_topbar_model_topbar_model_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
       /*! ../../live/topbar-model/topbar-model.component */
       "7eag");
       /* harmony import */
 
 
-      var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+      var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
       /*! @angular/material/tabs */
       "wZkO");
       /* harmony import */
 
 
-      var _live_live_vip_live_vip_stat_live_vip_stat_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
+      var _live_live_vip_live_vip_stat_live_vip_stat_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
       /*! ../../live/live-vip/live-vip-stat/live-vip-stat.component */
       "FA6P");
       /* harmony import */
 
 
-      var _live_live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
+      var _live_live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
       /*! ../../live/live-free/live-free-chat/live-free-chat.component */
       "UAgE");
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
       /*! @angular/forms */
       "3Pt+");
       /* harmony import */
 
 
-      var _ctrl_ngx_emoji_mart__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
+      var _ctrl_ngx_emoji_mart__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
       /*! @ctrl/ngx-emoji-mart */
       "KN7V"); // Peer
 
@@ -46320,8 +46304,8 @@
       };
 
       var LiveFreeSaloonModelComponent = /*#__PURE__*/function () {
-        function LiveFreeSaloonModelComponent(_platform, router, store, modelService, route, chatService, roomVipService, socketService, profilService, timerService, creditService, banishService, profileService, notificationService) {
-          var _this275 = this;
+        function LiveFreeSaloonModelComponent(_platform, router, store, modelService, route, chatService, roomVipService, socketService, profilService, timerService, creditService, banishService, profileService) {
+          var _this273 = this;
 
           _classCallCheck(this, LiveFreeSaloonModelComponent);
 
@@ -46338,7 +46322,6 @@
           this.creditService = creditService;
           this.banishService = banishService;
           this.profileService = profileService;
-          this.notificationService = notificationService;
           this.context = "LIVE CHOICE US";
           this.imgPoster = "assets/images/image.png";
           this.thrombone = "assets/icons/paper-clip.svg";
@@ -46413,32 +46396,32 @@
 
           this.getPeerId = function () {
             // console.log("Get Peer");
-            _this275.peer.on('open', function (id) {
+            _this273.peer.on('open', function (id) {
               console.log("Peer Id ", id);
-              _this275.peerId = id;
+              _this273.peerId = id;
               var data = {
                 role: 'model',
-                modelId: _this275.info.modelId,
-                room: _this275.info.idRoom + 'V',
-                peerId: _this275.peerId
+                modelId: _this273.info.modelId,
+                room: _this273.info.idRoom + 'V',
+                peerId: _this273.peerId
               };
 
-              _this275.socketService.newPeerIdModel(data);
+              _this273.socketService.newPeerIdModel(data);
             });
 
-            _this275.peer.on('call', function (call) {
+            _this273.peer.on('call', function (call) {
               console.log('On Call');
-              call.answer(_this275.lazyStream);
+              call.answer(_this273.lazyStream);
               console.log('Answer stream');
               call.on('stream', function (remoteStream) {
                 console.log('Receive stream');
 
-                if (!_this275.peerList.includes(call.peer)) {
-                  _this275.streamRemoteVideo(remoteStream);
+                if (!_this273.peerList.includes(call.peer)) {
+                  _this273.streamRemoteVideo(remoteStream);
 
-                  _this275.currentPeer = call.peerConnection;
+                  _this273.currentPeer = call.peerConnection;
 
-                  _this275.peerList.push(call.peer);
+                  _this273.peerList.push(call.peer);
                 }
               }); // this.onStop();
               // navigator.mediaDevices.getUserMedia({
@@ -46493,12 +46476,12 @@
         }, {
           key: "verifySound",
           value: function verifySound() {
-            var _this276 = this;
+            var _this274 = this;
 
             this.profileService.getInfo().subscribe(function (data) {
               // console.log(data.setting);
-              _this276.sound_notification = data.setting.sound_notification === 1 ? true : false;
-              _this276.sound_message = data.setting.sound_message === 1 ? true : false;
+              _this274.sound_notification = data.setting.sound_notification === 1 ? true : false;
+              _this274.sound_message = data.setting.sound_message === 1 ? true : false;
             });
           }
         }, {
@@ -46517,66 +46500,66 @@
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this277 = this;
+            var _this275 = this;
 
             this.modelService.getInfo().subscribe(function (data) {
               // console.log('Get info ', data);
               if (data.profile.status === 'En live') {
-                _this277.onStop();
+                _this275.onStop();
 
-                _this277.router.navigate(['/modele/live-private']);
+                _this275.router.navigate(['/modele/live-private']);
               } else if (data.profile.status === 'En ligne') {
-                _this277.onStop();
+                _this275.onStop();
 
-                _this277.router.navigate(['/modele/chat']);
+                _this275.router.navigate(['/modele/chat']);
               }
 
-              _this277.info.bg = data.path_soft;
-              _this277.info.modelId = data.id;
-              _this277.info.pseudo = data.pseudo;
+              _this275.info.bg = data.path_soft;
+              _this275.info.modelId = data.id;
+              _this275.info.pseudo = data.pseudo;
 
-              _this277.getInfoRoom();
+              _this275.getInfoRoom();
 
-              _this277.getCredit();
+              _this275.getCredit();
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this278 = this;
+            var _this276 = this;
 
             this.roomVipService.getRoomModel(this.info.modelId).subscribe(function (data) {
               // console.log('Model room ', data);
-              _this278.info.idRoom = data.idRoom;
-              _this278.roomId = data.idRoom + 'V';
-              _this278.info.actif = data.actif < 0 ? 0 : data.actif;
-              _this278.info.actif = data.actif > 2 ? 2 : data.actif;
-              _this278.client.id = data.clientId;
-              _this278.stat.tarif_show = data.free;
-              _this278.stat.filledChoiceUs = data.free !== null ? true : false;
-              _this278.choiceUs.title = data.title;
-              _this278.choiceUs.description = data.description;
-              _this278.choiceUs.tarif = data.free;
+              _this276.info.idRoom = data.idRoom;
+              _this276.roomId = data.idRoom + 'V';
+              _this276.info.actif = data.actif < 0 ? 0 : data.actif;
+              _this276.info.actif = data.actif > 2 ? 2 : data.actif;
+              _this276.client.id = data.clientId;
+              _this276.stat.tarif_show = data.free;
+              _this276.stat.filledChoiceUs = data.free !== null ? true : false;
+              _this276.choiceUs.title = data.title;
+              _this276.choiceUs.description = data.description;
+              _this276.choiceUs.tarif = data.free;
 
-              _this278.getMessages();
+              _this276.getMessages();
 
-              _this278.initSocket();
+              _this276.initSocket();
 
-              _this278.getInfoClient();
+              _this276.getInfoClient();
             });
           }
         }, {
           key: "getCredit",
           value: function getCredit() {
-            var _this279 = this;
+            var _this277 = this;
 
             this.creditService.getCredit().subscribe(function (data) {
               // console.log("Credit ", data);
-              _this279.info.creditModel = data ? data.credit : 0;
-              _this279.info.idCreditModel = data ? data.id : 0;
-              _this279.stat.totalCredit = _this279.info.creditModel;
+              _this277.info.creditModel = data ? data.credit : 0;
+              _this277.info.idCreditModel = data ? data.id : 0;
+              _this277.stat.totalCredit = _this277.info.creditModel;
 
-              _this279.getGain();
+              _this277.getGain();
             }); // Launch the timer
 
             this.initTimer();
@@ -46589,7 +46572,7 @@
         }, {
           key: "initSocket",
           value: function initSocket() {
-            var _this280 = this;
+            var _this278 = this;
 
             if (!this.roomVipService.joinedRoom(this.info.idRoom)) {
               this.roomVipService.joinRoom(this.info.idRoom);
@@ -46600,55 +46583,55 @@
               // console.log('joined ', data);
               // this.info.actif = data < 1 ? 0 : data;
               // this.info.actif = data > 2 ? 2 : data;
-              _this280.info.actif = 2;
+              _this278.info.actif = 2;
 
-              if (_this280.sound_notification) {
-                _this280.socketService.soundIncome();
+              if (_this278.sound_notification) {
+                _this278.socketService.soundIncome();
               }
 
-              _this280.leaved = false;
+              _this278.leaved = false;
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               // console.log('leaved ', data);
               // this.info.actif = data < 1 ? 0 : data;
               // this.info.actif = data > 2 ? 2 : data;
-              _this280.info.actif = 1;
+              _this278.info.actif = 1;
 
-              if (_this280.sound_notification) {
-                _this280.socketService.soundOutcome();
+              if (_this278.sound_notification) {
+                _this278.socketService.soundOutcome();
               }
 
-              _this280.leaved = true;
+              _this278.leaved = true;
             });
             this.messageSub = this.socketService.listen("message ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               // console.log('Message from client ', data);
-              _this280.getMessages();
+              _this278.getMessages();
             });
             this.peerSub = this.socketService.listen("peerId ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               console.log('Received Peer Id ', data);
-              _this280.peerIdShare = data.peerId;
+              _this278.peerIdShare = data.peerId;
 
-              _this280.connectWithPeer();
+              _this278.connectWithPeer();
             });
             this.toggleAudioSub = this.socketService.listen("Toggle audio ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               if (data.clientId) {
-                _this280.toggleAudioClientStream(data.peerId, data.isAudio);
+                _this278.toggleAudioClientStream(data.peerId, data.isAudio);
               }
             });
             this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               if (data.clientId) {
-                _this280.toggleVideoClientStream(data.peerId, data.isVideo);
+                _this278.toggleVideoClientStream(data.peerId, data.isVideo);
               }
             }); // Live Choice us change
 
             this.updateChoiceUsSub = this.socketService.listen("updateChoiceUs ".concat(this.info.idRoom, "V")).subscribe(function (data) {
-              _this280.choiceUs.title = data.title;
-              _this280.choiceUs.description = data.description;
-              _this280.choiceUs.tarif = data.tarif;
+              _this278.choiceUs.title = data.title;
+              _this278.choiceUs.description = data.description;
+              _this278.choiceUs.tarif = data.tarif;
 
-              _this280.getCostShow(_this280.choiceUs);
+              _this278.getCostShow(_this278.choiceUs);
 
-              _this280.stat.filledChoiceUs = true;
+              _this278.stat.filledChoiceUs = true;
             });
           }
         }, {
@@ -46680,7 +46663,7 @@
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this281 = this;
+            var _this279 = this;
 
             if (!this.info.message) return;
             var data = {
@@ -46694,45 +46677,45 @@
             };
             this.info.message = null;
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this281.getMessages();
+              _this279.getMessages();
 
               var msg = {
-                room: _this281.info.idRoom + 'V',
+                room: _this279.info.idRoom + 'V',
                 role: 'model',
-                id: _this281.info.modelId,
-                message: _this281.info.message
+                id: _this279.info.modelId,
+                message: _this279.info.message
               };
 
-              _this281.socketService.sendMessage(msg);
+              _this279.socketService.sendMessage(msg);
             });
           }
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this282 = this;
+            var _this280 = this;
 
             this.chatService.getMessage(this.info.idRoom, 'vip').subscribe(function (data) {
               // console.log('Messages ', data);
-              _this282.messages = data;
+              _this280.messages = data;
             });
           }
         }, {
           key: "getInfoClient",
           value: function getInfoClient() {
-            var _this283 = this;
+            var _this281 = this;
 
             this.roomVipService.getInfo(this.client.id).subscribe( // info client
             function (data) {
               // console.log("Info client ", data);
-              _this283.client.pseudo = data.pseudo;
-              _this283.stat.client = data.pseudo;
+              _this281.client.pseudo = data.pseudo;
+              _this281.stat.client = data.pseudo;
             });
           }
         }, {
           key: "liveOut",
           value: function liveOut() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee129() {
-              var _this284 = this;
+              var _this282 = this;
 
               return regeneratorRuntime.wrap(function _callee129$(_context129) {
                 while (1) {
@@ -46746,8 +46729,8 @@
                     case 4:
                       _context129.next = 6;
                       return _context129.sent.subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this284, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee128() {
-                          var _this285 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this282, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee128() {
+                          var _this283 = this;
 
                           return regeneratorRuntime.wrap(function _callee128$(_context128) {
                             while (1) {
@@ -46758,8 +46741,8 @@
 
                                   _context128.next = 4;
                                   return this.socketService.leaveVip(this.info.idRoom, 'model').then(function (data) {
-                                    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this285, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee127() {
-                                      var _this286 = this;
+                                    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this283, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee127() {
+                                      var _this284 = this;
 
                                       return regeneratorRuntime.wrap(function _callee127$(_context127) {
                                         while (1) {
@@ -46768,7 +46751,7 @@
                                               this.roomVipService.leaveRoom();
                                               _context127.next = 3;
                                               return this.profilService.updateStatus(this.info.modelId, 'En ligne').subscribe(function (data) {
-                                                _this286.loading = false;
+                                                _this284.loading = false;
                                                 window.location.href = '/modele/chat'; // this.router.navigate(['/modele/chat']);
                                               });
 
@@ -46792,7 +46775,7 @@
                           }, _callee128, this);
                         }));
                       }, function (error) {
-                        _this284.loading = false;
+                        _this282.loading = false;
                       });
 
                     case 6:
@@ -46808,14 +46791,14 @@
           key: "initTimer",
           value: function initTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee131() {
-              var _this287 = this;
+              var _this285 = this;
 
               return regeneratorRuntime.wrap(function _callee131$(_context131) {
                 while (1) {
                   switch (_context131.prev = _context131.next) {
                     case 0:
                       this.timerService.beginTimerModel(this.info.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_3__["TypeTimer"].VIP).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this287, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee130() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this285, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee130() {
                           var created, updated, _this$timerService$co8, hour, minute, second;
 
                           return regeneratorRuntime.wrap(function _callee130$(_context130) {
@@ -46879,25 +46862,25 @@
         }, {
           key: "beginTimer",
           value: function beginTimer() {
-            var _this288 = this;
+            var _this286 = this;
 
             // console.log("timer second ", this.show.second);
             var delay = this.stat.time_show * 1000; // console.log(delay, " ms ");
 
             this.timer.timer = setInterval(function () {
-              if (_this288.info.actif > 1) _this288.getGain();
+              if (_this286.info.actif > 1) _this286.getGain();
             }, delay);
           }
         }, {
           key: "getGain",
           value: function getGain() {
-            var _this289 = this;
+            var _this287 = this;
 
             this.roomVipService.getRoomModel(this.info.modelId).subscribe(function (data) {
               // console.log("Gain ", data);
-              _this289.stat.winCredit = data.gain;
-              _this289.stat.actualCredit = _this289.stat.totalCredit - _this289.stat.winCredit;
-              _this289.info.winCredit = data.gain;
+              _this287.stat.winCredit = data.gain;
+              _this287.stat.actualCredit = _this287.stat.totalCredit - _this287.stat.winCredit;
+              _this287.info.winCredit = data.gain;
             });
           } // Timer set to 0
 
@@ -46946,16 +46929,16 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this290 = this;
+            var _this288 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
               }).then(function (ms) {
-                _this290.lazyStream = ms;
+                _this288.lazyStream = ms;
                 console.log('My stream ', ms);
-                _this290.video.nativeElement.srcObject = _this290.lazyStream; // this.remote_video.nativeElement.srcObject = ms;
+                _this288.video.nativeElement.srcObject = _this288.lazyStream; // this.remote_video.nativeElement.srcObject = ms;
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
@@ -46993,19 +46976,19 @@
         }, {
           key: "callPeer",
           value: function callPeer(id) {
-            var _this291 = this;
+            var _this289 = this;
 
             console.log('Call peer');
             var call = this.peer.call(id, this.lazyStream);
             call.on('stream', function (remoteStream) {
               console.log('Receive stream');
 
-              if (!_this291.peerList.includes(call.peer)) {
-                _this291.streamRemoteVideo(remoteStream);
+              if (!_this289.peerList.includes(call.peer)) {
+                _this289.streamRemoteVideo(remoteStream);
 
-                _this291.currentPeer = call.peerConnection;
+                _this289.currentPeer = call.peerConnection;
 
-                _this291.peerList.push(call.peer);
+                _this289.peerList.push(call.peer);
               }
             }); // this.onStop();
             // navigator.mediaDevices.getUserMedia({
@@ -47030,18 +47013,13 @@
         }, {
           key: "streamRemoteVideo",
           value: function streamRemoteVideo(stream) {
-            var _this292 = this;
-
             console.log('Stream Remote video ', stream); // this.remote_video.nativeElement.srcObject = stream;
 
             var _video = this.remote_video.nativeElement;
             _video.srcObject = stream;
             setTimeout(function () {
               _video.play();
-            }, 3000);
-            stream.getVideoTracks()[0].addEventListener('ended', function () {
-              _this292.notificationService.errorMsg('Votre client a perdu la connexion');
-            }); // const video = document.createElement('video');
+            }, 3000); // const video = document.createElement('video');
             // video.classList.add('video');
             // video.srcObject = stream;
             // video.play();
@@ -47053,10 +47031,19 @@
             this.showVideo = !this.showVideo;
 
             if (this.showVideo) {
-              jquery__WEBPACK_IMPORTED_MODULE_4__("#video_live_model").removeClass("hideStream").addClass("showStream");
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = true;
+              });
             } else {
-              jquery__WEBPACK_IMPORTED_MODULE_4__("#video_live_model").removeClass("showStream").addClass("hideStream");
-            } // this.onStop();
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = false;
+              });
+            } // if (this.showVideo) {
+            //   $("#video_live_model").removeClass( "hideStream" ).addClass("showStream");
+            // } else {
+            //   $("#video_live_model").removeClass("showStream").addClass("hideStream");
+            // }
+            // this.onStop();
             // this.onStart();
 
 
@@ -47086,11 +47073,11 @@
         }, {
           key: "banish",
           value: function banish() {
-            var _this293 = this;
+            var _this290 = this;
 
             if (this.client.id === 0 || !this.client.id || !this.roomId) return null;
             this.banishService.banishClient(this.info.modelId, this.client.id).subscribe(function (data) {
-              _this293.socketService.banishClient(_this293.roomId, _this293.client.id); // console.log(data)
+              _this290.socketService.banishClient(_this290.roomId, _this290.client.id); // console.log(data)
 
             });
           } // -------- EMOJI -----------------
@@ -47128,7 +47115,7 @@
       }();
 
       LiveFreeSaloonModelComponent.ɵfac = function LiveFreeSaloonModelComponent_Factory(t) {
-        return new (t || LiveFreeSaloonModelComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ngx_localstorage__WEBPACK_IMPORTED_MODULE_9__["LocalStorageService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_model_model_service__WEBPACK_IMPORTED_MODULE_10__["ModelService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_11__["ChatService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_roomVip_room_vip_service__WEBPACK_IMPORTED_MODULE_12__["RoomVipService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_socket_socket_service__WEBPACK_IMPORTED_MODULE_13__["SocketService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_profil_profil_service__WEBPACK_IMPORTED_MODULE_14__["ProfilService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_timer_timer_service__WEBPACK_IMPORTED_MODULE_15__["TimerService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_credit_credit_service__WEBPACK_IMPORTED_MODULE_16__["CreditService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_banish_banish_service__WEBPACK_IMPORTED_MODULE_17__["BanishService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_profil_profil_service__WEBPACK_IMPORTED_MODULE_14__["ProfilService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_notification_notification_service__WEBPACK_IMPORTED_MODULE_18__["NotificationService"]));
+        return new (t || LiveFreeSaloonModelComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ngx_localstorage__WEBPACK_IMPORTED_MODULE_9__["LocalStorageService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_model_model_service__WEBPACK_IMPORTED_MODULE_10__["ModelService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_11__["ChatService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_roomVip_room_vip_service__WEBPACK_IMPORTED_MODULE_12__["RoomVipService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_socket_socket_service__WEBPACK_IMPORTED_MODULE_13__["SocketService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_profil_profil_service__WEBPACK_IMPORTED_MODULE_14__["ProfilService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_timer_timer_service__WEBPACK_IMPORTED_MODULE_15__["TimerService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_credit_credit_service__WEBPACK_IMPORTED_MODULE_16__["CreditService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_banish_banish_service__WEBPACK_IMPORTED_MODULE_17__["BanishService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_profil_profil_service__WEBPACK_IMPORTED_MODULE_14__["ProfilService"]));
       };
 
       LiveFreeSaloonModelComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
@@ -47508,7 +47495,7 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.loading);
           }
         },
-        directives: [_layouts_header_header_component__WEBPACK_IMPORTED_MODULE_19__["HeaderComponent"], _live_topbar_model_topbar_model_component__WEBPACK_IMPORTED_MODULE_20__["TopbarModelComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgClass"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_21__["MatTabGroup"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_21__["MatTab"], _live_live_vip_live_vip_stat_live_vip_stat_component__WEBPACK_IMPORTED_MODULE_22__["LiveVipStatComponent"], _live_live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_23__["LiveFreeChatComponent"], _angular_forms__WEBPACK_IMPORTED_MODULE_24__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_24__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_24__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_24__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_24__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_24__["NgModel"], _ctrl_ngx_emoji_mart__WEBPACK_IMPORTED_MODULE_25__["PickerComponent"]],
+        directives: [_layouts_header_header_component__WEBPACK_IMPORTED_MODULE_18__["HeaderComponent"], _live_topbar_model_topbar_model_component__WEBPACK_IMPORTED_MODULE_19__["TopbarModelComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgClass"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_20__["MatTabGroup"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_20__["MatTab"], _live_live_vip_live_vip_stat_live_vip_stat_component__WEBPACK_IMPORTED_MODULE_21__["LiveVipStatComponent"], _live_live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_22__["LiveFreeChatComponent"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_23__["NgModel"], _ctrl_ngx_emoji_mart__WEBPACK_IMPORTED_MODULE_24__["PickerComponent"]],
         styles: [".btn.btn_vip[_ngcontent-%COMP%] {\n  background-color: var(--gold);\n}\n\n.btn.btn_buy[_ngcontent-%COMP%] {\n  background-color: transparent;\n  border-color: rgba(255, 255, 255, 0.541) !important;\n}\n\n.btn.btn_out_show[_ngcontent-%COMP%] {\n  background-color: red;\n}\n\n.show_vip[_ngcontent-%COMP%] {\n  text-align: center;\n}\n\n.buy_credit[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], .out_show[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  visibility: hidden;\n}\n\n.contain_left[_ngcontent-%COMP%] {\n  position: relative;\n}\n\n.client_live[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: -6px;\n  right: 0px;\n  padding: 0 !important;\n  text-align: right;\n}\n\n.client_flow[_ngcontent-%COMP%] {\n  width: 150px;\n  height: auto;\n}\n\n.btn[_ngcontent-%COMP%] {\n  height: 50px !important;\n  border-radius: 3px !important;\n  font-size: 15px !important;\n}\n\n.btn_credit[_ngcontent-%COMP%] {\n  background: var(--blue2);\n  border-radius: 3px;\n  height: 50px;\n  padding-left: 10px;\n  padding-right: 10px;\n  text-align: center;\n  justify-content: center;\n  display: flex;\n}\n\nbutton.btn.btn_banish.lighter[_ngcontent-%COMP%] {\n  background: var(--blue2);\n  transition: all 0.3s;\n}\n\nbutton.btn.btn_banish.lighter[_ngcontent-%COMP%]:hover {\n  background: red;\n}\n\n@media screen and (max-width: 700px) {\n  .show_live_left[_ngcontent-%COMP%] {\n    height: 40vh !important;\n  }\n\n  .show_live_right[_ngcontent-%COMP%] {\n    height: 52vh !important;\n    position: fixed;\n    margin-top: 6vh !important;\n  }\n\n  .client_live[_ngcontent-%COMP%] {\n    position: absolute;\n    bottom: -70px;\n    right: 0px;\n    padding: 0 !important;\n    text-align: right;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcbGl2ZS1mcmVlLXNhbG9vbi1tb2RlbC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUFjLDZCQUFBO0FBRWQ7O0FBREE7RUFBYyw2QkFBQTtFQUErQixtREFBQTtBQU03Qzs7QUFMQTtFQUFtQixxQkFBQTtBQVNuQjs7QUFQQTtFQUFXLGtCQUFBO0FBV1g7O0FBVkE7RUFBNEIsa0JBQUE7QUFjNUI7O0FBWkE7RUFBZSxrQkFBQTtBQWdCZjs7QUFkQTtFQUNFLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFVBQUE7RUFDQSxxQkFBQTtFQUNBLGlCQUFBO0FBaUJGOztBQWRBO0VBQ0UsWUFBQTtFQUNBLFlBQUE7QUFpQkY7O0FBZEE7RUFDRSx1QkFBQTtFQUNBLDZCQUFBO0VBQ0EsMEJBQUE7QUFpQkY7O0FBZEE7RUFDRSx3QkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtFQUNBLHVCQUFBO0VBQ0EsYUFBQTtBQWlCRjs7QUFkQTtFQUNFLHdCQUFBO0VBQ0Esb0JBQUE7QUFpQkY7O0FBZEE7RUFDRSxlQUFBO0FBaUJGOztBQWRBO0VBQ0U7SUFBaUIsdUJBQUE7RUFrQmpCOztFQWpCQTtJQUNFLHVCQUFBO0lBQ0EsZUFBQTtJQUNBLDBCQUFBO0VBb0JGOztFQWxCQTtJQUNFLGtCQUFBO0lBQ0EsYUFBQTtJQUNBLFVBQUE7SUFDQSxxQkFBQTtJQUNBLGlCQUFBO0VBcUJGO0FBQ0YiLCJmaWxlIjoibGl2ZS1mcmVlLXNhbG9vbi1tb2RlbC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5idG4uYnRuX3ZpcCB7YmFja2dyb3VuZC1jb2xvcjogdmFyKC0tZ29sZCk7fVxyXG4uYnRuLmJ0bl9idXkge2JhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OyBib3JkZXItY29sb3I6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC41NDEpICFpbXBvcnRhbnQ7fVxyXG4uYnRuLmJ0bl9vdXRfc2hvdyB7YmFja2dyb3VuZC1jb2xvcjogcmVkO31cclxuXHJcbi5zaG93X3ZpcCB7dGV4dC1hbGlnbjogY2VudGVyO31cclxuLmJ1eV9jcmVkaXQgcCwgLm91dF9zaG93IHAge3Zpc2liaWxpdHk6IGhpZGRlbjt9XHJcblxyXG4uY29udGFpbl9sZWZ0IHtwb3NpdGlvbjogcmVsYXRpdmU7fVxyXG5cclxuLmNsaWVudF9saXZlIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgYm90dG9tOiAtNnB4O1xyXG4gIHJpZ2h0OiAwcHg7XHJcbiAgcGFkZGluZzogMCAhaW1wb3J0YW50O1xyXG4gIHRleHQtYWxpZ246IHJpZ2h0O1xyXG59XHJcblxyXG4uY2xpZW50X2Zsb3cge1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBoZWlnaHQ6IGF1dG87XHJcbn1cclxuXHJcbi5idG4ge1xyXG4gIGhlaWdodDogNTBweCAhaW1wb3J0YW50O1xyXG4gIGJvcmRlci1yYWRpdXM6IDNweCAhaW1wb3J0YW50O1xyXG4gIGZvbnQtc2l6ZTogMTVweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uYnRuX2NyZWRpdCB7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tYmx1ZTIpO1xyXG4gIGJvcmRlci1yYWRpdXM6IDNweDtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuXHJcbmJ1dHRvbi5idG4uYnRuX2JhbmlzaC5saWdodGVyIHtcclxuICBiYWNrZ3JvdW5kOiB2YXIoLS1ibHVlMik7XHJcbiAgdHJhbnNpdGlvbjogYWxsIDAuM3M7XHJcbn1cclxuXHJcbmJ1dHRvbi5idG4uYnRuX2JhbmlzaC5saWdodGVyOmhvdmVyIHtcclxuICBiYWNrZ3JvdW5kOiByZWQ7XHJcbn1cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDcwMHB4KSB7XHJcbiAgLnNob3dfbGl2ZV9sZWZ0IHtoZWlnaHQ6IDQwdmggIWltcG9ydGFudDt9XHJcbiAgLnNob3dfbGl2ZV9yaWdodCB7XHJcbiAgICBoZWlnaHQ6IDUydmggIWltcG9ydGFudDtcclxuICAgIHBvc2l0aW9uOiBmaXhlZDtcclxuICAgIG1hcmdpbi10b3A6IDZ2aCAhaW1wb3J0YW50O1xyXG4gIH1cclxuICAuY2xpZW50X2xpdmUge1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgYm90dG9tOiAtNzBweDtcclxuICAgIHJpZ2h0OiAwcHg7XHJcbiAgICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XHJcbiAgICB0ZXh0LWFsaWduOiByaWdodDtcclxuICAgIC8vIGRpc3BsYXk6IG5vbmUgIWltcG9ydGFudDtcclxuICB9XHJcbn1cclxuIl19 */", ".txt_live_chat[_ngcontent-%COMP%] {\n  margin: 0;\n  padding: 0;\n  font-style: italic;\n  color: grey;\n  font-size: 16px;\n}\n\n#video-controls[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 10px;\n  right: 5px;\n  display: flex !important;\n  flex-direction: row;\n  z-index: 100;\n}\n\n@media screen and (max-width: 750px) {\n  #video-controls[_ngcontent-%COMP%] {\n    position: absolute;\n    top: 50px;\n    right: 0px;\n    display: flex !important;\n    flex-direction: column;\n    z-index: 100;\n    line-height: 50px;\n  }\n}\n\n.btn_control[_ngcontent-%COMP%] {\n  width: 30px;\n  background: transparent;\n  border: none;\n  height: 30px;\n  margin-right: 25px;\n}\n\n.btn_control[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 30px;\n}\n\nvideo#video_live_model[_ngcontent-%COMP%] {\n  position: absolute;\n  width: 100%;\n  height: 80vh;\n}\n\n#dots[_ngcontent-%COMP%] {\n  display: none;\n  height: 45px;\n  position: fixed;\n  right: 10px;\n  z-index: 200;\n  top: 45vh;\n  cursor: pointer;\n}\n\n#close[_ngcontent-%COMP%] {\n  height: 20px;\n  cursor: pointer;\n  z-index: 200;\n}\n\n.contain_close[_ngcontent-%COMP%] {\n  display: none;\n  position: absolute;\n  left: 10px;\n  margin-top: -20px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  background: black;\n  border-radius: 20px;\n}\n\n.main_live[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  background-color: var(--blue3);\n  height: calc(100vh - 70px);\n}\n\n.contain_top[_ngcontent-%COMP%], .contain_bottom[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-around;\n}\n\n.contain_top[_ngcontent-%COMP%] {\n  height: 100%;\n}\n\n.contain_bottom[_ngcontent-%COMP%] {\n  height: 20vh;\n  margin-top: auto;\n}\n\n.contain_left[_ngcontent-%COMP%] {\n  width: 65%;\n  flex-direction: column;\n  display: flex;\n}\n\n.show_live_left[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  background: var(--black);\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  position: relative;\n}\n\n.contain_right[_ngcontent-%COMP%] {\n  width: 35%;\n  flex-direction: column;\n  display: flex;\n}\n\n.show_live_right[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  background-color: var(--blue3);\n}\n\n.contain_action[_ngcontent-%COMP%] {\n  display: flex;\n  padding-left: 15px;\n  padding-right: 15px;\n  justify-content: space-around;\n  width: 100%;\n  background-color: var(--blue3);\n  margin-top: auto;\n  height: 15vh;\n  align-items: center;\n}\n\n.btn[_ngcontent-%COMP%] {\n  font-size: 14px;\n  height: 50px;\n  padding: 10px;\n  color: white;\n  border-radius: 3px;\n  z-index: 900 !important;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n}\n\n.btn_show[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  text-align: center;\n  font-size: 13px;\n}\n\n.contain_right[_ngcontent-%COMP%] {\n  padding: 0;\n}\n\n.live_right[_ngcontent-%COMP%] {\n  padding: 0;\n  margin-left: -10px;\n}\n\n.btn_show[_ngcontent-%COMP%] {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  padding-top: 20px;\n}\n\n.contain_message[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  padding-left: 15px;\n  padding-right: 15px;\n  background-color: var(--blue2);\n  margin-top: auto;\n  height: 16vh;\n  justify-content: center;\n}\n\n.contain_thrombone[_ngcontent-%COMP%] {\n  display: flex;\n}\n\n.thrombone[_ngcontent-%COMP%] {\n  width: 22px;\n  margin-right: 10px;\n}\n\n.input_text[_ngcontent-%COMP%] {\n  display: flex;\n  margin-top: 5px;\n  align-items: center;\n}\n\n.input_text[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  background: transparent;\n  border: none;\n  padding: 0px;\n  margin: 0px;\n}\n\n.input_text[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  padding: 8px;\n  padding-left: 0px !important;\n  background-color: transparent;\n  color: white;\n  border-top: none;\n  border-left: none;\n  border-right: none;\n  border-bottom: 1px solid white;\n  width: 95%;\n  height: 35px;\n}\n\n.input_text[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus {\n  outline: none !important;\n}\n\n.input_text[_ngcontent-%COMP%]   .p[_ngcontent-%COMP%] {\n  display: flex;\n  opacity: 0.8;\n  margin-left: 15px;\n  height: 100%;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  user-select: none;\n  align-items: center;\n  padding-top: 0px;\n}\n\n.input_text[_ngcontent-%COMP%]   .p[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: 20px;\n}\n\n.bg_left[_ngcontent-%COMP%] {\n  height: 100%;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: contain;\n}\n\n.pass_private[_ngcontent-%COMP%] {\n  filter: blur(3px);\n  -webkit-filter: blur(3px);\n  z-index: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\napp-topbar[_ngcontent-%COMP%], app-topbar-model[_ngcontent-%COMP%] {\n  z-index: 5;\n}\n\n.come_on[_ngcontent-%COMP%] {\n  filter: blur(0px) !important;\n  color: var(--pink);\n  border: 1px solid transparent;\n  padding: 20px;\n  box-shadow: 0px 0px 15px white;\n  border-radius: 7px;\n  background: #ffffff40;\n  font-weight: 600;\n  font-size: 16px;\n  text-align: center;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 2;\n}\n\n.leave[_ngcontent-%COMP%] {\n  text-align: center;\n  opacity: 1;\n  font-size: 15px;\n  color: var(--pink);\n}\n\n.contain_action_mobile[_ngcontent-%COMP%] {\n  display: none;\n}\n\n.dry_up[_ngcontent-%COMP%] {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  filter: blur(5px);\n  pointer-events: none;\n}\n\n.hideStream[_ngcontent-%COMP%] {\n  filter: blur(200px);\n}\n\n.showStream[_ngcontent-%COMP%] {\n  filter: none;\n}\n\n@media screen and (max-width: 760px) {\n  .btn_show[_ngcontent-%COMP%]   *[_ngcontent-%COMP%] {\n    font-size: 12px;\n  }\n\n  .btn_credit[_ngcontent-%COMP%]   .btn[_ngcontent-%COMP%] {\n    font-size: 12px;\n  }\n}\n\n@media screen and (max-width: 700px) {\n  .contain_action_desktop[_ngcontent-%COMP%] {\n    display: none !important;\n  }\n\n  .contain_action_mobile[_ngcontent-%COMP%] {\n    display: block !important;\n  }\n\n  #dots[_ngcontent-%COMP%], .contain_close[_ngcontent-%COMP%] {\n    display: block;\n  }\n\n  .main_live[_ngcontent-%COMP%] {\n    min-height: 100vh;\n  }\n\n  .contain_top[_ngcontent-%COMP%] {\n    height: 40vh;\n  }\n\n  .contain_top[_ngcontent-%COMP%], .contain_bottom[_ngcontent-%COMP%] {\n    flex-direction: column !important;\n  }\n\n  .show_live_left[_ngcontent-%COMP%] {\n    height: 30vh;\n    position: fixed;\n    top: 70px;\n  }\n\n  .show_live_right[_ngcontent-%COMP%] {\n    height: 45vh;\n    position: fixed;\n    margin-top: 0vh;\n  }\n\n  .contain_right[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n\n  .contain_left[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n\n  .contain_action[_ngcontent-%COMP%] {\n    position: fixed;\n    top: 19vh;\n    background-color: transparent !important;\n    height: 10vh !important;\n    transition: all 0.4s;\n  }\n\n  .btn[_ngcontent-%COMP%] {\n    height: auto !important;\n  }\n\n  .contain_message[_ngcontent-%COMP%] {\n    position: fixed;\n    height: 15vh;\n    justify-content: center;\n    width: 100%;\n    bottom: 0px;\n  }\n\n  video#video_live_model[_ngcontent-%COMP%] {\n    width: 100%;\n    height: 40vh !important;\n  }\n\n  select#salon_libre[_ngcontent-%COMP%] {\n    width: 100% !important;\n    text-align: center;\n  }\n}\n\n.contain_left.contain_left_model[_ngcontent-%COMP%] {\n  width: 55% !important;\n}\n\n.contain_right.contain_right_model[_ngcontent-%COMP%] {\n  width: 45% !important;\n}\n\n.contain_list_info[_ngcontent-%COMP%] {\n  padding-top: 10px;\n  margin-top: 50px;\n  background: #00000047;\n  opacity: 0.95;\n  height: calc(100% - 100px);\n  line-height: 22px;\n  padding-left: 7px;\n  text-align: justify;\n  font-size: 14px;\n  overflow-x: auto;\n  overflow-y: auto;\n}\n\n.contain_list_info[_ngcontent-%COMP%]::-webkit-scrollbar {\n  width: 0px !important;\n  background-color: transparent;\n  color: transparent;\n}\n\n.info_chat[_ngcontent-%COMP%] {\n  color: white;\n  font-weight: 500;\n}\n\n.join_chat[_ngcontent-%COMP%] {\n  color: var(--pink);\n  font-weight: 500;\n}\n\n.leave_chat[_ngcontent-%COMP%] {\n  color: red;\n  font-weight: 500;\n}\n\n.contain_info_room[_ngcontent-%COMP%] {\n  opacity: 0.9;\n  display: flex;\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n  max-height: 20vh;\n  overflow: auto;\n  margin-top: 10px;\n  left: 10px;\n  bottom: 20px;\n}\n\n.contain_detail[_ngcontent-%COMP%] {\n  font-style: italic;\n  font-size: 12px;\n  opacity: 0.8;\n  line-height: 23px;\n}\n\n.contain_gain[_ngcontent-%COMP%] {\n  background: var(--blue2);\n  padding: 5px;\n  border-radius: 3px;\n  padding-left: 15px;\n  padding-right: 15px;\n  height: 50px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.label_room[_ngcontent-%COMP%] {\n  color: var(--pink);\n}\n\nselect#salon_libre[_ngcontent-%COMP%] {\n  border: transparent;\n  padding: 20px;\n  color: white;\n  border-radius: 3px;\n  font-size: 16px;\n  width: 150px;\n  text-align: center;\n  background: var(--pink);\n}\n\nselect#salon_libre[_ngcontent-%COMP%]   option[_ngcontent-%COMP%] {\n  text-align: left !important;\n}\n\n.live_none_salon[_ngcontent-%COMP%] {\n  background: rgba(0, 0, 0, 0.37);\n  font-weight: normal;\n}\n\n.live_tips_salon[_ngcontent-%COMP%] {\n  background: var(--gold);\n  font-weight: normal;\n}\n\n.live_free_salon[_ngcontent-%COMP%] {\n  background: var(--purple);\n  font-weight: normal;\n}\n\nimg.img_emoji[_ngcontent-%COMP%] {\n  width: 20px;\n  margin-left: 5px;\n}\n\nimg.img_gift[_ngcontent-%COMP%] {\n  width: 25px;\n  margin-right: 15px;\n  cursor: pointer;\n}\n\n.contain_welcome[_ngcontent-%COMP%] {\n  cursor: pointer;\n}\n\n.contain_welcome[_ngcontent-%COMP%]   i.fa[_ngcontent-%COMP%] {\n  font-size: 12px;\n  position: relative;\n  right: 0px;\n  bottom: 1px;\n}\n\n.contain_welcome[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  padding-left: 5px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxsaXZlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBT0E7RUFDRSxTQUFBO0VBQ0EsVUFBQTtFQUNBLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLGVBQUE7QUFORjs7QUFTQTtFQUNFLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLFVBQUE7RUFDQSx3QkFBQTtFQUNBLG1CQUFBO0VBQ0EsWUFBQTtBQU5GOztBQVNBO0VBQ0U7SUFDRSxrQkFBQTtJQUNBLFNBQUE7SUFDQSxVQUFBO0lBQ0Esd0JBQUE7SUFDQSxzQkFBQTtJQUNBLFlBQUE7SUFDQSxpQkFBQTtFQU5GO0FBQ0Y7O0FBU0E7RUFDRSxXQUFBO0VBQ0EsdUJBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0FBUEY7O0FBVUE7RUFDRSxXQUFBO0VBQ0EsWUFBQTtBQVBGOztBQVdBO0VBQ0Usa0JBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQVJGOztBQVdBO0VBQ0UsYUFBQTtFQUNBLFlBQUE7RUFDQSxlQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxTQUFBO0VBQ0EsZUFBQTtBQVJGOztBQVdBO0VBQ0UsWUFBQTtFQUNBLGVBQUE7RUFDQSxZQUFBO0FBUkY7O0FBVUE7RUFDRSxhQUFBO0VBQ0Esa0JBQUE7RUFDQSxVQUFBO0VBQ0EsaUJBQUE7RUFDQSx5QkFBQTtLQUFBLHNCQUFBO1VBQUEsaUJBQUE7RUFDQSxpQkFBQTtFQUNBLG1CQUFBO0FBUEY7O0FBVUE7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxXQUFBO0VBQ0EsOEJBQUE7RUFDQSwwQkFBQTtBQVBGOztBQVVBO0VBQ0UsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsV0FBQTtFQUNBLDZCQUFBO0FBUEY7O0FBVUE7RUFBYyxZQUFBO0FBTmQ7O0FBUUE7RUFDRSxZQUFBO0VBQ0EsZ0JBQUE7QUFMRjs7QUFRQTtFQUNFLFVBQUE7RUFFQSxzQkFBQTtFQUNBLGFBQUE7QUFORjs7QUFTQTtFQUNFLFdBQUE7RUFDQSxZQUFBO0VBQ0Esd0JBQUE7RUFDQSx3QkFBQTtFQUNBLDRCQUFBO0VBQ0EsMkJBQUE7RUFDQSxrQkFBQTtBQU5GOztBQVNBO0VBQ0UsVUFBQTtFQUVBLHNCQUFBO0VBQ0EsYUFBQTtBQVBGOztBQVVBO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFDQSw4QkFBQTtBQVBGOztBQVVBO0VBQ0UsYUFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSw2QkFBQTtFQUNBLFdBQUE7RUFDQSw4QkFBQTtFQUNBLGdCQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0FBUEY7O0FBVUE7RUFDRSxlQUFBO0VBQ0EsWUFBQTtFQUNBLGFBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSx1QkFBQTtFQUNBLGFBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7QUFQRjs7QUFVQTtFQUFhLGdCQUFBO0VBQWtCLGtCQUFBO0VBQW9CLGVBQUE7QUFKbkQ7O0FBTUE7RUFBZ0IsVUFBQTtBQUZoQjs7QUFHQTtFQUFhLFVBQUE7RUFBVyxrQkFBQTtBQUV4Qjs7QUFBQTtFQUNFLFlBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSx1QkFBQTtFQUNBLGlCQUFBO0FBR0Y7O0FBQ0E7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsOEJBQUE7RUFDQSxnQkFBQTtFQUNBLFlBQUE7RUFDQSx1QkFBQTtBQUVGOztBQUVBO0VBQW9CLGFBQUE7QUFFcEI7O0FBREE7RUFDRSxXQUFBO0VBQ0Esa0JBQUE7QUFJRjs7QUFEQTtFQUNFLGFBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7QUFJRjs7QUFEQTtFQUNFLHVCQUFBO0VBQ0EsWUFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0FBSUY7O0FBREE7RUFDRSxZQUFBO0VBQ0EsNEJBQUE7RUFDQSw2QkFBQTtFQUNBLFlBQUE7RUFDQSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSw4QkFBQTtFQUNBLFVBQUE7RUFDQSxZQUFBO0FBSUY7O0FBREE7RUFDRSx3QkFBQTtBQUlGOztBQURBO0VBQ0UsYUFBQTtFQUNBLFlBQUE7RUFDQSxpQkFBQTtFQUNBLFlBQUE7RUFDQSx5QkFBQTtFQUNBLHNCQUFBO0VBQ0EsaUJBQUE7RUFDQSxtQkFBQTtFQUNBLGdCQUFBO0FBSUY7O0FBSEU7RUFDRSxXQUFBO0FBS0o7O0FBREE7RUFDRSxZQUFBO0VBQ0EsMkJBQUE7RUFDQSw0QkFBQTtFQUNBLHdCQUFBO0FBSUY7O0FBREE7RUFDRSxpQkFBQTtFQUNBLHlCQUFBO0VBQ0EsVUFBQTtFQUNBLGFBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0FBSUY7O0FBREE7RUFDRSxVQUFBO0FBSUY7O0FBREE7RUFDRSw0QkFBQTtFQUNBLGtCQUFBO0VBQ0EsNkJBQUE7RUFDQSxhQUFBO0VBQ0EsOEJBQUE7RUFDQSxrQkFBQTtFQUNBLHFCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBQ0EsZ0NBQUE7RUFDQSxVQUFBO0FBSUY7O0FBREE7RUFDRSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7QUFJRjs7QUFEQTtFQUF3QixhQUFBO0FBS3hCOztBQUZBO0VBQ0UseUJBQUE7S0FBQSxzQkFBQTtVQUFBLGlCQUFBO0VBQ0EsaUJBQUE7RUFDQSxvQkFBQTtBQUtGOztBQUZBO0VBQ0UsbUJBQUE7QUFLRjs7QUFGQTtFQUNFLFlBQUE7QUFLRjs7QUFGQTtFQUNFO0lBQWEsZUFBQTtFQU1iOztFQUxBO0lBQWtCLGVBQUE7RUFTbEI7QUFDRjs7QUFOQTtFQUNFO0lBQXlCLHdCQUFBO0VBU3pCOztFQVJBO0lBQXdCLHlCQUFBO0VBWXhCOztFQVhBO0lBQXVCLGNBQUE7RUFldkI7O0VBZEE7SUFBWSxpQkFBQTtFQWtCWjs7RUFqQkE7SUFBYyxZQUFBO0VBcUJkOztFQXBCQTtJQUErQixpQ0FBQTtFQXdCL0I7O0VBdkJBO0lBQWlCLFlBQUE7SUFBYyxlQUFBO0lBQWlCLFNBQUE7RUE2QmhEOztFQTVCQTtJQUNFLFlBQUE7SUFDQSxlQUFBO0lBQ0EsZUFBQTtFQStCRjs7RUE3QkE7SUFBZ0IsV0FBQTtFQWlDaEI7O0VBaENBO0lBQWUsV0FBQTtFQW9DZjs7RUFuQ0E7SUFDRSxlQUFBO0lBQ0EsU0FBQTtJQUNBLHdDQUFBO0lBQ0EsdUJBQUE7SUFDQSxvQkFBQTtFQXNDRjs7RUFwQ0E7SUFDRSx1QkFBQTtFQXVDRjs7RUFyQ0E7SUFDRSxlQUFBO0lBQ0EsWUFBQTtJQUNBLHVCQUFBO0lBQ0EsV0FBQTtJQUNBLFdBQUE7RUF3Q0Y7O0VBckNBO0lBQ0UsV0FBQTtJQUNBLHVCQUFBO0VBd0NGOztFQXJDQTtJQUNFLHNCQUFBO0lBQ0Esa0JBQUE7RUF3Q0Y7QUFDRjs7QUFuQ0E7RUFDRSxxQkFBQTtBQXFDRjs7QUFsQ0E7RUFDRSxxQkFBQTtBQXFDRjs7QUFsQ0E7RUFDRSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EscUJBQUE7RUFDQSxhQUFBO0VBQ0EsMEJBQUE7RUFDQSxpQkFBQTtFQUNBLGlCQUFBO0VBQ0EsbUJBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxnQkFBQTtBQXFDRjs7QUFsQ0E7RUFDRSxxQkFBQTtFQUNBLDZCQUFBO0VBQ0Esa0JBQUE7QUFxQ0Y7O0FBakNBO0VBQ0UsWUFBQTtFQUNBLGdCQUFBO0FBb0NGOztBQWpDQTtFQUNFLGtCQUFBO0VBQ0EsZ0JBQUE7QUFvQ0Y7O0FBakNBO0VBQ0UsVUFBQTtFQUNBLGdCQUFBO0FBb0NGOztBQWpDQTtFQUNFLFlBQUE7RUFDQSxhQUFBO0VBQ0Esa0JBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtFQUNBLGNBQUE7RUFDQSxnQkFBQTtFQUNBLFVBQUE7RUFDQSxZQUFBO0FBb0NGOztBQWpDQTtFQUNFLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLFlBQUE7RUFDQSxpQkFBQTtBQW9DRjs7QUFqQ0E7RUFDRSx3QkFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtFQUNBLHVCQUFBO0VBQ0EsbUJBQUE7QUFvQ0Y7O0FBakNBO0VBQ0Usa0JBQUE7QUFvQ0Y7O0FBaENBO0VBQ0UsbUJBQUE7RUFDQSxhQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLHVCQUFBO0FBbUNGOztBQWhDQTtFQUNFLDJCQUFBO0FBbUNGOztBQWhDQTtFQUNFLCtCQUFBO0VBQ0EsbUJBQUE7QUFtQ0Y7O0FBaENBO0VBQ0UsdUJBQUE7RUFDQSxtQkFBQTtBQW1DRjs7QUFoQ0E7RUFDRSx5QkFBQTtFQUNBLG1CQUFBO0FBbUNGOztBQTlCQTtFQUNFLFdBQUE7RUFDQSxnQkFBQTtBQWlDRjs7QUE5QkE7RUFDRSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0FBaUNGOztBQTdCQTtFQUNFLGVBQUE7QUFnQ0Y7O0FBOUJFO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLFdBQUE7QUFnQ0Y7O0FBN0JFO0VBQ0UsaUJBQUE7QUErQkoiLCJmaWxlIjoibGl2ZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gLmNvbC1jb250YWluZXIge1xyXG4vLyAgIGRpc3BsYXk6IHRhYmxlO1xyXG4vLyAgIHdpZHRoOiAxMDAlO1xyXG4vLyB9XHJcbi8vIC5jb2wge1xyXG4vLyAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XHJcbi8vIH1cclxuLnR4dF9saXZlX2NoYXQge1xyXG4gIG1hcmdpbjogMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGZvbnQtc3R5bGU6IGl0YWxpYztcclxuICBjb2xvcjogZ3JleTtcclxuICBmb250LXNpemU6IDE2cHg7XHJcbn1cclxuXHJcbiN2aWRlby1jb250cm9scyB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHRvcDogMTBweDtcclxuICByaWdodDogNXB4O1xyXG4gIGRpc3BsYXk6IGZsZXggIWltcG9ydGFudDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIHotaW5kZXg6IDEwMDtcclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzUwcHgpe1xyXG4gICN2aWRlby1jb250cm9scyB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDUwcHg7XHJcbiAgICByaWdodDogMHB4O1xyXG4gICAgZGlzcGxheTogZmxleCAhaW1wb3J0YW50O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIHotaW5kZXg6IDEwMDtcclxuICAgIGxpbmUtaGVpZ2h0OiA1MHB4O1xyXG4gIH1cclxufVxyXG5cclxuLmJ0bl9jb250cm9sIHtcclxuICB3aWR0aDogMzBweDtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgaGVpZ2h0OiAzMHB4O1xyXG4gIG1hcmdpbi1yaWdodDogMjVweDtcclxufVxyXG5cclxuLmJ0bl9jb250cm9sIGltZyB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAzMHB4O1xyXG59XHJcblxyXG5cclxudmlkZW8jdmlkZW9fbGl2ZV9tb2RlbCB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogODB2aDsgLy8gNzB2aFxyXG59XHJcblxyXG4jZG90cyB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICBoZWlnaHQ6IDQ1cHg7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHJpZ2h0OiAxMHB4O1xyXG4gIHotaW5kZXg6IDIwMDtcclxuICB0b3A6IDQ1dmg7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4jY2xvc2Uge1xyXG4gIGhlaWdodDogMjBweDtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgei1pbmRleDogMjAwO1xyXG59XHJcbi5jb250YWluX2Nsb3NlIHtcclxuICBkaXNwbGF5OiBub25lO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBsZWZ0OiAxMHB4O1xyXG4gIG1hcmdpbi10b3A6IC0yMHB4O1xyXG4gIHVzZXItc2VsZWN0OiBub25lO1xyXG4gIGJhY2tncm91bmQ6IGJsYWNrO1xyXG4gIGJvcmRlci1yYWRpdXM6IDIwcHg7XHJcbn1cclxuXHJcbi5tYWluX2xpdmUge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICB3aWR0aDogMTAwJTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1ibHVlMyk7XHJcbiAgaGVpZ2h0OiBjYWxjKDEwMHZoIC0gNzBweCk7XHJcbn1cclxuXHJcbi5jb250YWluX3RvcCwgLmNvbnRhaW5fYm90dG9tIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XHJcbn1cclxuXHJcbi5jb250YWluX3RvcCB7aGVpZ2h0OiAxMDAlO31cclxuXHJcbi5jb250YWluX2JvdHRvbSB7XHJcbiAgaGVpZ2h0OiAyMHZoO1xyXG4gIG1hcmdpbi10b3A6IGF1dG87XHJcbn1cclxuXHJcbi5jb250YWluX2xlZnQge1xyXG4gIHdpZHRoOiA2NSU7XHJcbiAgLy8gaGVpZ2h0OiAxMDAlO1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG5cclxuLnNob3dfbGl2ZV9sZWZ0IHtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tYmxhY2spO1xyXG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcclxuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlcjtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbn1cclxuXHJcbi5jb250YWluX3JpZ2h0IHtcclxuICB3aWR0aDogMzUlO1xyXG4gIC8vIGhlaWdodDogMTAwJTtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuXHJcbi5zaG93X2xpdmVfcmlnaHQge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1ibHVlMyk7XHJcbn1cclxuXHJcbi5jb250YWluX2FjdGlvbiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwYWRkaW5nLWxlZnQ6IDE1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMTVweDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcclxuICB3aWR0aDogMTAwJTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1ibHVlMyk7XHJcbiAgbWFyZ2luLXRvcDogYXV0bztcclxuICBoZWlnaHQ6IDE1dmg7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxufVxyXG5cclxuLmJ0biB7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG4gIGhlaWdodDogNTBweDtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBib3JkZXItcmFkaXVzOiAzcHg7XHJcbiAgei1pbmRleDogOTAwICFpbXBvcnRhbnQ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbn1cclxuXHJcbi5idG5fc2hvdyBwIHttYXJnaW4tdG9wOiAxMHB4OyB0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtc2l6ZTogMTNweDt9XHJcblxyXG4uY29udGFpbl9yaWdodCB7cGFkZGluZzogMDt9XHJcbi5saXZlX3JpZ2h0IHtwYWRkaW5nOiAwO21hcmdpbi1sZWZ0OiAtMTBweDt9XHJcblxyXG4uYnRuX3Nob3cge1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgcGFkZGluZy10b3A6IDIwcHg7XHJcbn1cclxuXHJcbi8vIENvbnRhaW4gbWVzc2FnZVxyXG4uY29udGFpbl9tZXNzYWdlIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgcGFkZGluZy1sZWZ0OiAxNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDE1cHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tYmx1ZTIpO1xyXG4gIG1hcmdpbi10b3A6IGF1dG87XHJcbiAgaGVpZ2h0OiAxNnZoO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcblxyXG5cclxuLmNvbnRhaW5fdGhyb21ib25lIHtkaXNwbGF5OiBmbGV4O31cclxuLnRocm9tYm9uZSB7XHJcbiAgd2lkdGg6IDIycHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xyXG59XHJcblxyXG4uaW5wdXRfdGV4dCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW4tdG9wOiA1cHg7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxufVxyXG5cclxuLmlucHV0X3RleHQgYnV0dG9uIHtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgcGFkZGluZzogMHB4O1xyXG4gIG1hcmdpbjogMHB4O1xyXG59XHJcblxyXG4uaW5wdXRfdGV4dCBpbnB1dCB7XHJcbiAgcGFkZGluZzogOHB4O1xyXG4gIHBhZGRpbmctbGVmdDogMHB4ICFpbXBvcnRhbnQ7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGJvcmRlci10b3A6IG5vbmU7XHJcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbiAgYm9yZGVyLXJpZ2h0OiBub25lO1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCB3aGl0ZTtcclxuICB3aWR0aDogOTUlO1xyXG4gIGhlaWdodDogMzVweDtcclxufVxyXG5cclxuLmlucHV0X3RleHQgaW5wdXQ6Zm9jdXMge1xyXG4gIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmlucHV0X3RleHQgLnAge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgb3BhY2l0eTogMC44O1xyXG4gIG1hcmdpbi1sZWZ0OiAxNXB4O1xyXG4gIGhlaWdodDogMTAwJTtcclxuICAtd2Via2l0LXVzZXItc2VsZWN0OiBub25lO1xyXG4gIC1tb3otdXNlci1zZWxlY3Q6IG5vbmU7XHJcbiAgdXNlci1zZWxlY3Q6IG5vbmU7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBwYWRkaW5nLXRvcDogMHB4O1xyXG4gIGltZyB7XHJcbiAgICB3aWR0aDogMjBweDtcclxuICB9XHJcbn1cclxuXHJcbi5iZ19sZWZ0IHtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG59XHJcblxyXG4ucGFzc19wcml2YXRlIHtcclxuICBmaWx0ZXI6IGJsdXIoM3B4KTtcclxuICAtd2Via2l0LWZpbHRlcjogYmx1cigzcHgpO1xyXG4gIHotaW5kZXg6IDA7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcblxyXG5hcHAtdG9wYmFyLCBhcHAtdG9wYmFyLW1vZGVsIHtcclxuICB6LWluZGV4OiA1O1xyXG59XHJcblxyXG4uY29tZV9vbiB7XHJcbiAgZmlsdGVyOiBibHVyKDBweCkgIWltcG9ydGFudDtcclxuICBjb2xvcjogdmFyKC0tcGluayk7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7XHJcbiAgcGFkZGluZzogMjBweDtcclxuICBib3gtc2hhZG93OiAwcHggMHB4IDE1cHggd2hpdGU7XHJcbiAgYm9yZGVyLXJhZGl1czogN3B4O1xyXG4gIGJhY2tncm91bmQ6ICNmZmZmZmY0MDtcclxuICBmb250LXdlaWdodDogNjAwO1xyXG4gIGZvbnQtc2l6ZTogMTZweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHRvcDogNTAlO1xyXG4gIGxlZnQ6IDUwJTtcclxuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICB6LWluZGV4OiAyO1xyXG59XHJcblxyXG4ubGVhdmUge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBvcGFjaXR5OiAxO1xyXG4gIGZvbnQtc2l6ZTogMTVweDtcclxuICBjb2xvcjogdmFyKC0tcGluayk7XHJcbn1cclxuXHJcbi5jb250YWluX2FjdGlvbl9tb2JpbGUge2Rpc3BsYXk6IG5vbmU7fVxyXG5cclxuXHJcbi5kcnlfdXAge1xyXG4gIHVzZXItc2VsZWN0OiBub25lO1xyXG4gIGZpbHRlcjogYmx1cig1cHgpO1xyXG4gIHBvaW50ZXItZXZlbnRzOiBub25lO1xyXG59XHJcblxyXG4uaGlkZVN0cmVhbSB7XHJcbiAgZmlsdGVyOiBibHVyKDIwMHB4KTtcclxufVxyXG5cclxuLnNob3dTdHJlYW0ge1xyXG4gIGZpbHRlcjogbm9uZTtcclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzYwcHgpIHtcclxuICAuYnRuX3Nob3cgKiB7Zm9udC1zaXplOiAxMnB4O31cclxuICAuYnRuX2NyZWRpdCAuYnRuIHtmb250LXNpemU6IDEycHg7fVxyXG59XHJcblxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzAwcHgpIHtcclxuICAuY29udGFpbl9hY3Rpb25fZGVza3RvcCB7ZGlzcGxheTogbm9uZSAhaW1wb3J0YW50O31cclxuICAuY29udGFpbl9hY3Rpb25fbW9iaWxlIHtkaXNwbGF5OiBibG9jayAhaW1wb3J0YW50O31cclxuICAjZG90cywgLmNvbnRhaW5fY2xvc2Uge2Rpc3BsYXk6IGJsb2NrO31cclxuICAubWFpbl9saXZlIHttaW4taGVpZ2h0OiAxMDB2aDt9XHJcbiAgLmNvbnRhaW5fdG9wIHtoZWlnaHQ6IDQwdmg7fVxyXG4gIC5jb250YWluX3RvcCwgLmNvbnRhaW5fYm90dG9tIHtmbGV4LWRpcmVjdGlvbjogY29sdW1uICFpbXBvcnRhbnQ7fVxyXG4gIC5zaG93X2xpdmVfbGVmdCB7aGVpZ2h0OiAzMHZoOyBwb3NpdGlvbjogZml4ZWQ7IHRvcDogNzBweDt9XHJcbiAgLnNob3dfbGl2ZV9yaWdodCB7XHJcbiAgICBoZWlnaHQ6IDQ1dmg7XHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICBtYXJnaW4tdG9wOiAwdmg7XHJcbiAgfVxyXG4gIC5jb250YWluX3JpZ2h0IHt3aWR0aDogMTAwJTt9XHJcbiAgLmNvbnRhaW5fbGVmdCB7d2lkdGg6IDEwMCU7fVxyXG4gIC5jb250YWluX2FjdGlvbiB7XHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICB0b3A6IDE5dmg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xyXG4gICAgaGVpZ2h0OiAxMHZoICFpbXBvcnRhbnQ7XHJcbiAgICB0cmFuc2l0aW9uOiBhbGwgMC40cztcclxuICB9XHJcbiAgLmJ0biB7XHJcbiAgICBoZWlnaHQ6IGF1dG8gIWltcG9ydGFudDtcclxuICB9XHJcbiAgLmNvbnRhaW5fbWVzc2FnZSB7XHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICBoZWlnaHQ6IDE1dmg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgYm90dG9tOiAwcHg7XHJcbiAgfVxyXG5cclxuICB2aWRlbyN2aWRlb19saXZlX21vZGVsIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiA0MHZoICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG5cclxuICBzZWxlY3Qjc2Fsb25fbGlicmUge1xyXG4gICAgd2lkdGg6IDEwMCUgIWltcG9ydGFudDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB9XHJcbn1cclxuXHJcblxyXG4vLyBTUEVDSUFMIE1PREVMXHJcbi5jb250YWluX2xlZnQuY29udGFpbl9sZWZ0X21vZGVsIHtcclxuICB3aWR0aDogNTUlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5jb250YWluX3JpZ2h0LmNvbnRhaW5fcmlnaHRfbW9kZWwge1xyXG4gIHdpZHRoOiA0NSUgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmNvbnRhaW5fbGlzdF9pbmZvIHtcclxuICBwYWRkaW5nLXRvcDogMTBweDtcclxuICBtYXJnaW4tdG9wOiA1MHB4O1xyXG4gIGJhY2tncm91bmQ6ICMwMDAwMDA0NztcclxuICBvcGFjaXR5OiAwLjk1O1xyXG4gIGhlaWdodDogY2FsYygxMDAlIC0gMTAwcHgpO1xyXG4gIGxpbmUtaGVpZ2h0OiAyMnB4O1xyXG4gIHBhZGRpbmctbGVmdDogN3B4O1xyXG4gIHRleHQtYWxpZ246IGp1c3RpZnk7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG4gIG92ZXJmbG93LXg6IGF1dG87XHJcbiAgb3ZlcmZsb3cteTogYXV0bztcclxufVxyXG5cclxuLmNvbnRhaW5fbGlzdF9pbmZvOjotd2Via2l0LXNjcm9sbGJhciB7XHJcbiAgd2lkdGg6IDBweCAhaW1wb3J0YW50O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIGNvbG9yOiB0cmFuc3BhcmVudDtcclxufVxyXG5cclxuXHJcbi5pbmZvX2NoYXQge1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXdlaWdodDogNTAwO1xyXG59XHJcblxyXG4uam9pbl9jaGF0IHtcclxuICBjb2xvcjogdmFyKC0tcGluayk7XHJcbiAgZm9udC13ZWlnaHQ6IDUwMDtcclxufVxyXG5cclxuLmxlYXZlX2NoYXQge1xyXG4gIGNvbG9yOiByZWQ7XHJcbiAgZm9udC13ZWlnaHQ6IDUwMDtcclxufVxyXG5cclxuLmNvbnRhaW5faW5mb19yb29tIHtcclxuICBvcGFjaXR5OiAwLjk7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIG1heC1oZWlnaHQ6IDIwdmg7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbiAgbWFyZ2luLXRvcDogMTBweDtcclxuICBsZWZ0OiAxMHB4O1xyXG4gIGJvdHRvbTogMjBweDtcclxufVxyXG5cclxuLmNvbnRhaW5fZGV0YWlsIHtcclxuICBmb250LXN0eWxlOiBpdGFsaWM7XHJcbiAgZm9udC1zaXplOiAxMnB4O1xyXG4gIG9wYWNpdHk6IDAuODtcclxuICBsaW5lLWhlaWdodDogMjNweDtcclxufVxyXG5cclxuLmNvbnRhaW5fZ2FpbiB7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tYmx1ZTIpO1xyXG4gIHBhZGRpbmc6IDVweDtcclxuICBib3JkZXItcmFkaXVzOiAzcHg7XHJcbiAgcGFkZGluZy1sZWZ0OiAxNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDE1cHg7XHJcbiAgaGVpZ2h0OiA1MHB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxufVxyXG5cclxuLmxhYmVsX3Jvb20ge1xyXG4gIGNvbG9yOiB2YXIoLS1waW5rKTtcclxufVxyXG5cclxuLy8gU2Fsb24gbGlicmVcclxuc2VsZWN0I3NhbG9uX2xpYnJlIHtcclxuICBib3JkZXI6IHRyYW5zcGFyZW50O1xyXG4gIHBhZGRpbmc6IDIwcHg7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGJvcmRlci1yYWRpdXM6IDNweDtcclxuICBmb250LXNpemU6IDE2cHg7XHJcbiAgd2lkdGg6IDE1MHB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBiYWNrZ3JvdW5kOiB2YXIoLS1waW5rKTtcclxufVxyXG5cclxuc2VsZWN0I3NhbG9uX2xpYnJlIG9wdGlvbiB7XHJcbiAgdGV4dC1hbGlnbjogbGVmdCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4ubGl2ZV9ub25lX3NhbG9uIHtcclxuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuMzcpO1xyXG4gIGZvbnQtd2VpZ2h0OiBub3JtYWw7XHJcbn1cclxuXHJcbi5saXZlX3RpcHNfc2Fsb24ge1xyXG4gIGJhY2tncm91bmQ6IHZhcigtLWdvbGQpO1xyXG4gIGZvbnQtd2VpZ2h0OiBub3JtYWw7XHJcbn1cclxuXHJcbi5saXZlX2ZyZWVfc2Fsb24ge1xyXG4gIGJhY2tncm91bmQ6IHZhcigtLXB1cnBsZSk7XHJcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxufVxyXG5cclxuXHJcbi8vIEVtb2ppXHJcbmltZy5pbWdfZW1vamkge1xyXG4gIHdpZHRoOiAyMHB4O1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbn1cclxuXHJcbmltZy5pbWdfZ2lmdCB7XHJcbiAgd2lkdGg6IDI1cHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuXHJcbi5jb250YWluX3dlbGNvbWUge1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuXHJcbiAgaS5mYSB7XHJcbiAgZm9udC1zaXplOiAxMnB4O1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICByaWdodDogMHB4O1xyXG4gIGJvdHRvbTogMXB4O1xyXG4gIH1cclxuXHJcbiAgc3BhbiB7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICB9XHJcbn1cclxuIl19 */"]
       });
       /***/
@@ -47834,31 +47821,31 @@
         }, {
           key: "countPay",
           value: function countPay() {
-            var _this294 = this;
+            var _this291 = this;
 
             this.adminService.countPay().subscribe(function (data) {
-              _this294.count = data ? data : 0;
+              _this291.count = data ? data : 0;
 
-              _this294.initPagination();
+              _this291.initPagination();
             });
           }
         }, {
           key: "listPay",
           value: function listPay() {
-            var _this295 = this;
+            var _this292 = this;
 
             this.adminService.getListPaiement(this.selected, this.range, this.page, this.filter).subscribe(function (data) {
               // console.log('Paiement ', data)
-              _this295.paiements = data;
+              _this292.paiements = data;
 
-              _this295.paiements.forEach(function (client) {
-                client.createdAt = _this295.adminService.formatDate(client.createdAt);
+              _this292.paiements.forEach(function (client) {
+                client.createdAt = _this292.adminService.formatDate(client.createdAt);
                 client.montant = client.montant ? client.montant + ' €' : '';
               });
 
-              _this295.count = _this295.paiements.length;
+              _this292.count = _this292.paiements.length;
 
-              _this295.initPagination();
+              _this292.initPagination();
             }, function (error) {
               console.log(error);
             });
@@ -47906,10 +47893,10 @@
         }, {
           key: "deletePay",
           value: function deletePay(idPay) {
-            var _this296 = this;
+            var _this293 = this;
 
             this.adminService.deletePaiement(idPay).subscribe(function (data) {
-              if (data.success) _this296.listPay();else if (data.error) _this296.notificationService.errorMsg(data.message);
+              if (data.success) _this293.listPay();else if (data.error) _this293.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -48509,7 +48496,7 @@
           key: "register",
           value: function register(event) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee134() {
-              var _this297 = this;
+              var _this294 = this;
 
               var user;
               return regeneratorRuntime.wrap(function _callee134$(_context134) {
@@ -48536,23 +48523,23 @@
                       return this.authService.registerClient(user).subscribe(function (res) {
                         // console.log(res);
                         if (res.error) {
-                          _this297.error = res.message;
-                          if (res.pseudo) _this297.pseudoExist = true;
-                          if (res.email) _this297.emailExist = true;
-                          _this297.loading = false;
+                          _this294.error = res.message;
+                          if (res.pseudo) _this294.pseudoExist = true;
+                          if (res.email) _this294.emailExist = true;
+                          _this294.loading = false;
                         } else {
-                          _this297.creditService.createCreditClient(res.id).subscribe(function (data) {
-                            _this297.submitted = false;
+                          _this294.creditService.createCreditClient(res.id).subscribe(function (data) {
+                            _this294.submitted = false;
 
-                            _this297.popupService.info('client', 'Félicitation', "Un email de confirmation est envoy\xE9 \xE0\n                <span style=\"font-style: italic; color: var(--pink)\">".concat(res.email, "</span>. <br>\n                <small>Veuillez v\xE9rifier dans vos spams</small>"));
+                            _this294.popupService.info('client', 'Félicitation', "Un email de confirmation est envoy\xE9 \xE0\n                <span style=\"font-style: italic; color: var(--pink)\">".concat(res.email, "</span>. <br>\n                <small>Veuillez v\xE9rifier dans vos spams</small>"));
 
-                            _this297.signForm.reset();
+                            _this294.signForm.reset();
 
-                            _this297.loading = false;
+                            _this294.loading = false;
                           });
                         }
                       }, function (err) {
-                        _this297.loading = false;
+                        _this294.loading = false;
                         console.log(err);
                       });
 
@@ -49223,7 +49210,7 @@
 
       var StatistiqueClientsAdminComponent = /*#__PURE__*/function () {
         function StatistiqueClientsAdminComponent(adminService) {
-          var _this298 = this;
+          var _this295 = this;
 
           _classCallCheck(this, StatistiqueClientsAdminComponent);
 
@@ -49237,32 +49224,32 @@
           this.isIntegral = false;
 
           this.useDefaultGridStyle = function () {
-            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this298.options);
+            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this295.options);
             var gridStyle = [{
               stroke: 'white',
               lineDash: [2, 1]
             }];
             options.axes[0].gridStyle = gridStyle;
             options.axes[1].gridStyle = gridStyle;
-            _this298.options = options;
+            _this295.options = options;
           };
 
           this.update = function () {
-            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this298.options);
-            options.data = _this298.getData();
-            _this298.options = options;
+            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this295.options);
+            options.data = _this295.getData();
+            _this295.options = options;
           };
 
           this.startUpdates = function () {
-            if (_this298.updating) {
+            if (_this295.updating) {
               return;
             }
 
-            _this298.updating = true;
+            _this295.updating = true;
 
-            _this298.update();
+            _this295.update();
 
-            setInterval(_this298.update, 1000);
+            setInterval(_this295.update, 1000);
           };
 
           this.options = {
@@ -49356,16 +49343,16 @@
         }, {
           key: "getInscriptions",
           value: function getInscriptions() {
-            var _this299 = this;
+            var _this296 = this;
 
             this.adminService.getStatInscriptionClient().subscribe(function (data) {
               var tmp = data;
               tmp.forEach(function (inscrit) {
-                inscrit.date = _this299.adminService.formatDate(inscrit.date);
+                inscrit.date = _this296.adminService.formatDate(inscrit.date);
                 inscrit.count = parseInt(inscrit.count);
               });
-              _this299.inscriptions = tmp;
-              _this299.original = tmp;
+              _this296.inscriptions = tmp;
+              _this296.original = tmp;
             }, function (error) {
               console.log(error);
             });
@@ -49386,14 +49373,14 @@
         }, {
           key: "selectYear",
           value: function selectYear(event) {
-            var _this300 = this;
+            var _this297 = this;
 
             this.isIntegral = false;
             var value = event.target.value;
             this.currentYear = value;
             this.inscriptions = this.original.filter(function (element) {
               var year = element.date.substring(6, 10);
-              if (year === _this300.currentYear) return true;
+              if (year === _this297.currentYear) return true;
               return false;
             });
           }
@@ -50276,22 +50263,22 @@
         }, {
           key: "getCredit",
           value: function getCredit() {
-            var _this301 = this;
+            var _this298 = this;
 
             this.creditService.getCredit().subscribe(function (data) {
               // console.log(data)
-              _this301.info.credit = data.credit;
+              _this298.info.credit = data.credit;
 
-              _this301.getCostPrivateShow();
+              _this298.getCostPrivateShow();
 
-              _this301.getCostVIPShow();
+              _this298.getCostVIPShow();
             });
           }
         }, {
           key: "getCostPrivateShow",
           value: function getCostPrivateShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee135() {
-              var _this302 = this;
+              var _this299 = this;
 
               return regeneratorRuntime.wrap(function _callee135$(_context135) {
                 while (1) {
@@ -50300,8 +50287,8 @@
                       _context135.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_6__["TypeTimer"].PRIVATE).subscribe(function (data) {
                         // console.log("Show Cost ", data)
-                        _this302.statPrivate.tarif_show = data.credit ? data.credit : 0;
-                        _this302.statPrivate.time_show = data.second ? data.second : 0;
+                        _this299.statPrivate.tarif_show = data.credit ? data.credit : 0;
+                        _this299.statPrivate.time_show = data.second ? data.second : 0;
                       });
 
                     case 2:
@@ -50319,7 +50306,7 @@
           key: "getCostVIPShow",
           value: function getCostVIPShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee136() {
-              var _this303 = this;
+              var _this300 = this;
 
               return regeneratorRuntime.wrap(function _callee136$(_context136) {
                 while (1) {
@@ -50328,8 +50315,8 @@
                       _context136.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_6__["TypeTimer"].VIP).subscribe(function (data) {
                         // console.log("Show Cost ", data)
-                        _this303.statVIP.tarif_show = data.credit ? data.credit : 0;
-                        _this303.statVIP.time_show = data.second ? data.second : 0;
+                        _this300.statVIP.tarif_show = data.credit ? data.credit : 0;
+                        _this300.statVIP.time_show = data.second ? data.second : 0;
                       });
 
                     case 2:
@@ -50357,18 +50344,18 @@
         }, {
           key: "verifySound",
           value: function verifySound() {
-            var _this304 = this;
+            var _this301 = this;
 
             this.profileService.getInfo().subscribe(function (data) {
               // console.log(data.setting);
-              _this304.sound_notification = data.setting.sound_notification === 1 ? true : false;
-              _this304.sound_message = data.setting.sound_message === 1 ? true : false; // console.log(this.sound_notification);
+              _this301.sound_notification = data.setting.sound_notification === 1 ? true : false;
+              _this301.sound_message = data.setting.sound_message === 1 ? true : false; // console.log(this.sound_notification);
             });
           }
         }, {
           key: "initSocket",
           value: function initSocket() {
-            var _this305 = this;
+            var _this302 = this;
 
             if (!this.roomService.joinedRoom()) {
               this.roomService.joinRoom();
@@ -50376,88 +50363,88 @@
             }
 
             this.socketService.listen("ask currentSaloon ".concat(this.info.idRoom, " ").concat(this.info.modelId)).subscribe(function (data) {
-              _this305.socketService.sendCurrentSaloon(_this305.info.idRoom, _this305.live_selected);
+              _this302.socketService.sendCurrentSaloon(_this302.info.idRoom, _this302.live_selected);
             });
             this.joinSub = this.socketService.listen("joined ".concat(this.info.idRoom)).subscribe(function (data) {
               // console.log('joined ', data);
-              _this305.info.actif = data.count < 1 ? 1 : data.count;
+              _this302.info.actif = data.count < 1 ? 1 : data.count;
 
-              _this305.joinChat(data.clientPseudo);
+              _this302.joinChat(data.clientPseudo);
 
-              if (_this305.sound_notification) {
-                _this305.socketService.soundIncome();
+              if (_this302.sound_notification) {
+                _this302.socketService.soundIncome();
               }
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.info.idRoom)).subscribe(function (data) {
               // console.log('leaved ', data);
-              _this305.info.actif = data.count < 1 ? 1 : data.count;
+              _this302.info.actif = data.count < 1 ? 1 : data.count;
 
-              _this305.leaveChat(data.clientPseudo);
+              _this302.leaveChat(data.clientPseudo);
 
-              if (_this305.sound_notification) {
-                _this305.socketService.soundOutcome();
+              if (_this302.sound_notification) {
+                _this302.socketService.soundOutcome();
               }
             });
             this.messageSub = this.socketService.listen("message ".concat(this.info.idRoom)).subscribe(function (data) {
               // console.log('Message from client ', data);
-              _this305.getMessages();
+              _this302.getMessages();
             });
             this.invitePrivateSub = this.socketService.listen("invite model to private ".concat(this.info.idRoom, " ").concat(this.info.modelId)).subscribe(function (data) {
               // console.log('Invitation to private ', data)
-              _this305.notificationService.invitationPrivate('LIVE PRIVE', 'Un client y participe !');
+              _this302.notificationService.invitationPrivate('LIVE PRIVE', 'Un client y participe !');
 
-              _this305.loading = true;
+              _this302.loading = true;
               setTimeout(function () {
-                _this305.loading = false;
+                _this302.loading = false;
 
-                _this305.socketService.responseInvitationModelToPrivate(_this305.info.idRoom, data.clientId, _this305.info.modelId, _this305.info.pseudo);
+                _this302.socketService.responseInvitationModelToPrivate(_this302.info.idRoom, data.clientId, _this302.info.modelId, _this302.info.pseudo);
 
-                _this305.launchLive(true);
+                _this302.launchLive(true);
               }, 3000);
             });
             this.inviteVIPSub = this.socketService.listen("invite model to vip ".concat(this.info.idRoom, " ").concat(this.info.modelId)).subscribe(function (data) {
               // console.log('Invitation to vip ', data)
-              _this305.addInvitationToVIP(data.clientId, data.clientPseudo, data.roomId, data.special);
+              _this302.addInvitationToVIP(data.clientId, data.clientPseudo, data.roomId, data.special);
             });
           }
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this306 = this;
+            var _this303 = this;
 
             this.modelService.getInfo().subscribe(function (data) {
               // console.log(data);
               if (data.profile.status === 'En vip') {
-                _this306.router.navigate(['/modele/live-vip']);
+                _this303.router.navigate(['/modele/live-vip']);
               }
 
               if (data.profile.status === 'En live') {
-                _this306.router.navigate(['/modele/live-private']);
+                _this303.router.navigate(['/modele/live-private']);
               }
 
-              _this306.info.bg = data.path_soft;
-              _this306.info.modelId = data.id;
-              _this306.info.pseudo = data.pseudo;
+              _this303.info.bg = data.path_soft;
+              _this303.info.modelId = data.id;
+              _this303.info.pseudo = data.pseudo;
 
-              _this306.getInfoRoom();
+              _this303.getInfoRoom();
 
-              _this306.initInfoChat(_this306.info.pseudo);
+              _this303.initInfoChat(_this303.info.pseudo);
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this307 = this;
+            var _this304 = this;
 
             this.roomService.getRoomModel(this.info.modelId).subscribe(function (data) {
               // console.log('Model room ', data);
-              _this307.info.idRoom = data.idRoom;
-              _this307.roomId = data.idRoom;
-              _this307.info.actif = data.actif < 1 ? 1 : data.actif;
+              _this304.info.idRoom = data.idRoom;
+              _this304.roomId = data.idRoom;
+              _this304.info.actif = data.actif < 1 ? 1 : data.actif;
 
-              _this307.getMessages();
+              _this304.getMessages();
 
-              _this307.initSocket();
+              _this304.initSocket();
             });
           }
         }, {
@@ -50468,7 +50455,7 @@
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this308 = this;
+            var _this305 = this;
 
             var data = {
               idRoom: this.info.idRoom,
@@ -50480,26 +50467,26 @@
             };
             this.info.message = null;
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this308.getMessages();
+              _this305.getMessages();
 
               var msg = {
-                room: _this308.info.idRoom + '',
+                room: _this305.info.idRoom + '',
                 role: 'model',
-                id: _this308.info.modelId,
-                message: _this308.info.message
+                id: _this305.info.modelId,
+                message: _this305.info.message
               };
 
-              _this308.socketService.sendMessage(msg);
+              _this305.socketService.sendMessage(msg);
             });
           }
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this309 = this;
+            var _this306 = this;
 
             this.chatService.getMessage(this.info.idRoom).subscribe(function (data) {
               // console.log(data);
-              _this309.messages = data;
+              _this306.messages = data;
             });
           }
         }, {
@@ -50507,7 +50494,7 @@
           value: function launchLive() {
             var invitedPrivate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee138() {
-              var _this310 = this;
+              var _this307 = this;
 
               var dialogRef;
               return regeneratorRuntime.wrap(function _callee138$(_context138) {
@@ -50521,8 +50508,8 @@
 
                       this.loading = true;
                       return _context138.abrupt("return", this.roomPrivateService.createRoom().subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this310, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee137() {
-                          var _this311 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this307, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee137() {
+                          var _this308 = this;
 
                           return regeneratorRuntime.wrap(function _callee137$(_context137) {
                             while (1) {
@@ -50530,11 +50517,11 @@
                                 case 0:
                                   _context137.next = 2;
                                   return this.askLeave().then(function (data) {
-                                    _this311.store.set("privateRoomId", data.room);
+                                    _this308.store.set("privateRoomId", data.room);
 
-                                    _this311.router.navigate(['/modele/live-private']);
+                                    _this308.router.navigate(['/modele/live-private']);
 
-                                    _this311.loading = false;
+                                    _this308.loading = false;
                                   });
 
                                 case 2:
@@ -50582,23 +50569,23 @@
                           data: {}
                         });
                         dialogRef.afterClosed().subscribe(function (result) {
-                          _this310.loading = true;
+                          _this307.loading = true;
 
                           if (result.success === true) {
-                            _this310.roomTipsService.createRoom(result.tips, result.description).subscribe(function (data) {
+                            _this307.roomTipsService.createRoom(result.tips, result.description).subscribe(function (data) {
                               // console.log(data);
-                              _this310.askLeaveTips();
+                              _this307.askLeaveTips();
 
-                              _this310.store.set("tipsRoomId", data.room);
+                              _this307.store.set("tipsRoomId", data.room);
 
-                              _this310.router.navigate(['/modele/live-tips-model']);
+                              _this307.router.navigate(['/modele/live-tips-model']);
 
-                              _this310.loading = false;
+                              _this307.loading = false;
                             }, function (error) {
                               console.log(error);
                             });
                           } else {
-                            _this310.loading = false;
+                            _this307.loading = false;
                           }
                         });
                       }
@@ -50744,7 +50731,7 @@
           key: "liveVIP",
           value: function liveVIP(clientId, roomId, special) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee142() {
-              var _this312 = this;
+              var _this309 = this;
 
               return regeneratorRuntime.wrap(function _callee142$(_context142) {
                 while (1) {
@@ -50752,7 +50739,7 @@
                     case 0:
                       this.loading = true;
                       this.roomVipService.createRoom(clientId, special).subscribe(function (data) {
-                        _this312.store.set("vipRoomId", data.room);
+                        _this309.store.set("vipRoomId", data.room);
 
                         var msg = {
                           roomId: roomId,
@@ -50762,15 +50749,15 @@
                           roomVIP: data.room + 'V'
                         };
 
-                        _this312.askLeaveVIP().then(function (data) {
-                          _this312.loading = false;
+                        _this309.askLeaveVIP().then(function (data) {
+                          _this309.loading = false;
 
-                          _this312.socketService.responsePositiveInvitationModelToVIP(roomId, clientId, _this312.info.modelId, _this312.info.pseudo, special);
+                          _this309.socketService.responsePositiveInvitationModelToVIP(roomId, clientId, _this309.info.modelId, _this309.info.pseudo, special);
 
                           if (!special) {
-                            _this312.router.navigate(['/modele/live-vip']);
+                            _this309.router.navigate(['/modele/live-vip']);
                           } else if (special && special === 'live choice') {
-                            _this312.router.navigate(['/modele/live-choice-us']);
+                            _this309.router.navigate(['/modele/live-choice-us']);
                           }
                         });
                       });
@@ -50792,14 +50779,14 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this313 = this;
+            var _this310 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
               }).then(function (ms) {
-                var _video = _this313.video.nativeElement;
+                var _video = _this310.video.nativeElement;
                 _video.srcObject = ms;
 
                 _video.play();
@@ -51935,7 +51922,7 @@
 
       var LiveTipsClientsComponent = /*#__PURE__*/function () {
         function LiveTipsClientsComponent(_platform, router, route, modelService, store, chatService, socketService, popupService, profilService, dialog, timerService, clientService, notificationService, albumService, banishService, creditService, roomTipsService, roomPrivateService) {
-          var _this314 = this;
+          var _this311 = this;
 
           _classCallCheck(this, LiveTipsClientsComponent);
 
@@ -52041,14 +52028,14 @@
           this.getPeerId = function () {
             console.log('Get peer waiting...');
 
-            _this314.peer.on('open', function (id) {
+            _this311.peer.on('open', function (id) {
               console.log("Peer Id ", id);
-              _this314.peerId = id; // Send peer client
+              _this311.peerId = id; // Send peer client
             });
 
-            _this314.peer.on('call', function (call) {
+            _this311.peer.on('call', function (call) {
               console.log('on call');
-              call.answer(_this314.lazyStream); // call.on('stream', (remoteStream) => {
+              call.answer(_this311.lazyStream); // call.on('stream', (remoteStream) => {
               //   console.log('On stream from call')
               //   if (!this.peerList.includes(call.peer)) {
               //     this.addOtherClientstreamRemoteVideo(this.clientStream.length,remoteStream, call.peer);
@@ -52142,54 +52129,54 @@
         }, {
           key: "getModel",
           value: function getModel() {
-            var _this315 = this;
+            var _this312 = this;
 
             this.modelService.getModel(this.modelId).subscribe(function (data) {
-              _this315.bg = data.path_soft;
-              _this315.modelPseudo = data.pseudo;
-              _this315.info.pseudo = data.pseudo;
+              _this312.bg = data.path_soft;
+              _this312.modelPseudo = data.pseudo;
+              _this312.info.pseudo = data.pseudo;
 
               if (data.profile.status === "En vip") {
-                _this315.passedVIP = true;
+                _this312.passedVIP = true;
 
-                _this315.clearTimer();
+                _this312.clearTimer();
               } else if (data.profile.status === "En ligne" || data.profile.status === "En live choice") {
-                _this315.obsolete();
+                _this312.obsolete();
 
-                _this315.clearTimer();
+                _this312.clearTimer();
               }
 
-              _this315.getInfo();
+              _this312.getInfo();
             });
           }
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this316 = this;
+            var _this313 = this;
 
             this.clientService.getMyInfos().subscribe( // My info
             function (data) {
-              _this316.clientId = data.id;
-              _this316.clientPseudo = data.pseudo;
-              _this316.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
+              _this313.clientId = data.id;
+              _this313.clientPseudo = data.pseudo;
+              _this313.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
 
-              _this316.isBanished();
+              _this313.isBanished();
             });
           }
         }, {
           key: "isBanished",
           value: function isBanished() {
-            var _this317 = this;
+            var _this314 = this;
 
             this.banishService.isBanished(this.modelId, this.clientId).subscribe(function (data) {
               var ok = data.authorized;
 
               if (!ok) {
-                _this317.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
+                _this314.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
 
-                _this317.router.navigateByUrl('/client/accueil/registered');
+                _this314.router.navigateByUrl('/client/accueil/registered');
               } else {
-                _this317.getInfoRoom();
+                _this314.getInfoRoom();
               }
             });
           }
@@ -52197,7 +52184,7 @@
           key: "getCredit",
           value: function getCredit() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee146() {
-              var _this318 = this;
+              var _this315 = this;
 
               return regeneratorRuntime.wrap(function _callee146$(_context146) {
                 while (1) {
@@ -52205,7 +52192,7 @@
                     case 0:
                       _context146.next = 2;
                       return this.clientService.getCredit().subscribe(function (data) {
-                        _this318.clientCredit = data.credit;
+                        _this315.clientCredit = data.credit;
                       });
 
                     case 2:
@@ -52223,7 +52210,7 @@
           key: "getInfoRoom",
           value: function getInfoRoom() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee148() {
-              var _this319 = this;
+              var _this316 = this;
 
               return regeneratorRuntime.wrap(function _callee148$(_context148) {
                 while (1) {
@@ -52231,7 +52218,7 @@
                     case 0:
                       _context148.next = 2;
                       return this.roomTipsService.getRoomModel(this.modelId).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this319, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee147() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this316, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee147() {
                           return regeneratorRuntime.wrap(function _callee147$(_context147) {
                             while (1) {
                               switch (_context147.prev = _context147.next) {
@@ -52289,7 +52276,7 @@
           key: "getStatRoom",
           value: function getStatRoom(idRoom) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee149() {
-              var _this320 = this;
+              var _this317 = this;
 
               return regeneratorRuntime.wrap(function _callee149$(_context149) {
                 while (1) {
@@ -52305,7 +52292,7 @@
                     case 2:
                       this.roomTipsService.getStatRoom(this.idRoom).subscribe(function (data) {
                         if (!data) return null;
-                        _this320.info.gain = data.gain;
+                        _this317.info.gain = data.gain;
                       });
 
                     case 3:
@@ -52320,7 +52307,7 @@
           key: "getActifRoom",
           value: function getActifRoom() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee150() {
-              var _this321 = this;
+              var _this318 = this;
 
               return regeneratorRuntime.wrap(function _callee150$(_context150) {
                 while (1) {
@@ -52328,7 +52315,7 @@
                     case 0:
                       this.roomTipsService.getActifs(this.idRoom).subscribe(function (data) {
                         // console.log('Actifs ', data);
-                        _this321.info.actif = data ? data.length : 0;
+                        _this318.info.actif = data ? data.length : 0;
                       });
 
                     case 1:
@@ -52342,49 +52329,49 @@
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this322 = this;
+            var _this319 = this;
 
             this.chatService.getMessage(this.idRoom, 'tips').subscribe(function (data) {
-              _this322.messages = data;
+              _this319.messages = data;
             });
           }
         }, {
           key: "initSocket",
           value: function initSocket() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee152() {
-              var _this323 = this;
+              var _this320 = this;
 
               return regeneratorRuntime.wrap(function _callee152$(_context152) {
                 while (1) {
                   switch (_context152.prev = _context152.next) {
                     case 0:
                       this.joinSub = this.socketService.listen("joined ".concat(this.idRoom, "T")).subscribe(function (data) {
-                        _this323.getStatRoom(_this323.idRoom);
+                        _this320.getStatRoom(_this320.idRoom);
 
-                        _this323.getActifRoom();
+                        _this320.getActifRoom();
                       });
                       this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom, "T")).subscribe(function (data) {
-                        _this323.getStatRoom(_this323.idRoom);
+                        _this320.getStatRoom(_this320.idRoom);
 
-                        _this323.getActifRoom();
+                        _this320.getActifRoom();
                       });
                       this.messageSub = this.socketService.listen("message ".concat(this.idRoom, "T")).subscribe(function (data) {
-                        _this323.socketService.soundOutcome();
+                        _this320.socketService.soundOutcome();
 
-                        _this323.getMessages();
+                        _this320.getMessages();
                       });
                       this.newTipsSub = this.socketService.listen("new tips ".concat(this.idRoom, "T")).subscribe(function (data) {
                         // console.log('new tips ', data);
-                        _this323.getStatRoom(_this323.idRoom);
+                        _this320.getStatRoom(_this320.idRoom);
                       });
                       this.banishSub = this.socketService.listen("Banish client ".concat(this.idRoom, "T ").concat(this.clientId)).subscribe(function (data) {
-                        _this323.isBanished();
+                        _this320.isBanished();
                       }); // Model leaved the room
 
                       this.modelLeaveSub = this.socketService.listen("model leaved ".concat(this.idRoom, "T")).subscribe(function (data) {
-                        _this323.leaved = true;
+                        _this320.leaved = true;
 
-                        _this323.popupService.info('/client/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this323.modelPseudo, " a ferm\xE9 le live de ce room")); // this.lazyStream.getTracks().forEach(
+                        _this320.popupService.info('/client/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this320.modelPseudo, " a ferm\xE9 le live de ce room")); // this.lazyStream.getTracks().forEach(
                         //   (track) => {
                         //     track.stop();
                         //   }
@@ -52394,15 +52381,15 @@
 
                       this.peerSub = this.socketService.listen("ans peerId ".concat(this.clientId, " ").concat(this.idRoom, "T")).subscribe(function (data) {
                         console.log("ans peerId ", data);
-                        _this323.peerIdShare = data.peerId;
+                        _this320.peerIdShare = data.peerId;
 
-                        _this323.connectWithPeer();
+                        _this320.connectWithPeer();
                       });
                       this.newPeerSub = this.socketService.listen("new model peerId ".concat(this.idRoom, "T")).subscribe(function (data) {
                         console.log("new model peerId");
-                        _this323.peerIdShare = data.peerId;
+                        _this320.peerIdShare = data.peerId;
 
-                        _this323.connectWithPeer();
+                        _this320.connectWithPeer();
                       });
                       this.answerModelStreamSub = this.socketService.listen("Answer current model stream ".concat(this.idRoom, "T ").concat(this.clientId)).subscribe(function (data) {
                         console.log('Answer for stream ', data);
@@ -52413,18 +52400,18 @@
                         if (data.clientId) {
                           console.log('Toggle audio client ', data.clientId);
 
-                          _this323.toggleAudioClientStream(data.peerId, data.isAudio);
+                          _this320.toggleAudioClientStream(data.peerId, data.isAudio);
                         } else if (data.modelId) {
                           console.log('Toggle audio model');
 
-                          _this323.toggleAudioModelStream(data.isAudio);
+                          _this320.toggleAudioModelStream(data.isAudio);
                         }
                       });
                       this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.idRoom, "T")).subscribe(function (data) {
                         if (data.clientId) {
-                          _this323.toggleVideoClientStream(data.peerId, data.isVideo);
+                          _this320.toggleVideoClientStream(data.peerId, data.isVideo);
                         } else if (data.modelId) {
-                          _this323.toggleVideoModelStream(data.isVideo);
+                          _this320.toggleVideoModelStream(data.isVideo);
                         }
                       });
                       this.initTimer();
@@ -52444,7 +52431,7 @@
                       });
                       _context152.next = 18;
                       return this.roomTipsService.joinRoom(this.idRoom, true, 'tips', this.peerId).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this323, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee151() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this320, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee151() {
                           return regeneratorRuntime.wrap(function _callee151$(_context151) {
                             while (1) {
                               switch (_context151.prev = _context151.next) {
@@ -52494,7 +52481,7 @@
         }, {
           key: "initColor",
           value: function initColor() {
-            var _this324 = this;
+            var _this321 = this;
 
             if (this.store.get("ticket_chat")) {
               this.chatColor = this.store.get("ticket_chat");
@@ -52503,15 +52490,15 @@
 
             ;
             this.roomPrivateService.getColor().subscribe(function (data) {
-              _this324.chatColor = data.color;
+              _this321.chatColor = data.color;
 
-              _this324.store.set("ticket_chat", data.color);
+              _this321.store.set("ticket_chat", data.color);
             });
           }
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this325 = this;
+            var _this322 = this;
 
             if (!this.message) return;
             var data = {
@@ -52525,16 +52512,16 @@
             };
             this.message = null;
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this325.getMessages();
+              _this322.getMessages();
 
               var msg = {
-                room: _this325.idRoom + 'T',
+                room: _this322.idRoom + 'T',
                 role: 'client',
-                id: _this325.clientId,
-                message: _this325.message
+                id: _this322.clientId,
+                message: _this322.message
               };
 
-              _this325.socketService.sendMessage(msg);
+              _this322.socketService.sendMessage(msg);
             });
           }
         }, {
@@ -52546,7 +52533,7 @@
           key: "liveOut",
           value: function liveOut() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee154() {
-              var _this326 = this;
+              var _this323 = this;
 
               return regeneratorRuntime.wrap(function _callee154$(_context154) {
                 while (1) {
@@ -52560,8 +52547,8 @@
                     case 3:
                       _context154.next = 5;
                       return _context154.sent.subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this326, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee153() {
-                          var _this327 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this323, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee153() {
+                          var _this324 = this;
 
                           return regeneratorRuntime.wrap(function _callee153$(_context153) {
                             while (1) {
@@ -52570,9 +52557,9 @@
                                   this.timer.reinit = true;
                                   _context153.next = 3;
                                   return this.roomTipsService.joinRoom(this.idRoom, false, 'tips').subscribe(function (data) {
-                                    _this327.socketService.leaveTips(_this327.idRoom, 'client', _this327.clientId).then(function (data) {
+                                    _this324.socketService.leaveTips(_this324.idRoom, 'client', _this324.clientId).then(function (data) {
                                       // this.roomTipsService.leaveRoom();
-                                      _this327.clientService.deleteLastChat();
+                                      _this324.clientService.deleteLastChat();
 
                                       window.location.href = '/client/accueil/registered'; // this.router.navigate(['/client/accueil/registered']);
                                       // setTimeout(
@@ -52614,14 +52601,14 @@
           key: "initTimer",
           value: function initTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee156() {
-              var _this328 = this;
+              var _this325 = this;
 
               return regeneratorRuntime.wrap(function _callee156$(_context156) {
                 while (1) {
                   switch (_context156.prev = _context156.next) {
                     case 0:
                       this.timerService.getTimer(this.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].TIPS).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this328, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee155() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this325, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee155() {
                           var created, updated, _this$timerService$co9, hour, minute, second;
 
                           return regeneratorRuntime.wrap(function _callee155$(_context155) {
@@ -52659,7 +52646,7 @@
           key: "getCostShow",
           value: function getCostShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee157() {
-              var _this329 = this;
+              var _this326 = this;
 
               return regeneratorRuntime.wrap(function _callee157$(_context157) {
                 while (1) {
@@ -52667,18 +52654,18 @@
                     case 0:
                       _context157.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].TIPS).subscribe(function (data) {
-                        _this329.show.id = data.id;
-                        _this329.show.credit = data.credit;
-                        _this329.show.second = data.second;
-                        _this329.show.type = data.type;
+                        _this326.show.id = data.id;
+                        _this326.show.credit = data.credit;
+                        _this326.show.second = data.second;
+                        _this326.show.type = data.type;
 
-                        if (_this329.clientCredit == 0) {
-                          _this329.aucunCredit();
+                        if (_this326.clientCredit == 0) {
+                          _this326.aucunCredit();
 
                           return null;
                         }
 
-                        _this329.beginTimer();
+                        _this326.beginTimer();
                       });
 
                     case 2:
@@ -52695,11 +52682,11 @@
         }, {
           key: "creditInsuffisant",
           value: function creditInsuffisant() {
-            var _this330 = this;
+            var _this327 = this;
 
             this.popupService.info(null, 'CREDIT INSUFFISANT', "Vous n'avez presque plus de cr\xE9dit. Veuillez vous recharger.");
             setTimeout(function () {
-              _this330.getCredit();
+              _this327.getCredit();
             }, 20000);
           }
         }, {
@@ -52747,7 +52734,7 @@
           key: "beginTimer",
           value: function beginTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee160() {
-              var _this331 = this;
+              var _this328 = this;
 
               var delay;
               return regeneratorRuntime.wrap(function _callee160$(_context160) {
@@ -52756,7 +52743,7 @@
                     case 0:
                       delay = this.show.second * 1000;
                       this.timer.timer = setInterval(function () {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this331, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee159() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this328, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee159() {
                           return regeneratorRuntime.wrap(function _callee159$(_context159) {
                             while (1) {
                               switch (_context159.prev = _context159.next) {
@@ -52831,7 +52818,7 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this332 = this;
+            var _this329 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
@@ -52842,18 +52829,18 @@
                 // _video.srcObject = ms;
                 // _video.play();
                 // console.log('my stream ', ms)
-                _this332.lazyStream = ms;
-
-                _this332.lazyStream.getAudioTracks().forEach(function (track) {
-                  track.stop();
-                }); // this.clientStream.push({
+                _this329.lazyStream = ms; // this.lazyStream.getAudioTracks().forEach(
+                //   (track) => {
+                //     track.stop();
+                //   }
+                // );
+                // this.clientStream.push({
                 //   clientId: this.clientId,
                 //   stream: this.lazyStream,
                 //   peerId: this.peerId,
                 //   isAudio: false,
                 //   isVideo: true
                 // });
-
               });
             }
           }
@@ -52882,20 +52869,20 @@
         }, {
           key: "relaunchPeerId",
           value: function relaunchPeerId() {
-            var _this333 = this;
+            var _this330 = this;
 
             this.peer.on('open', function (id) {
               console.log('Relaunch peer id ', id);
-              _this333.peerId = id; // Send peer client
+              _this330.peerId = id; // Send peer client
 
-              _this333.socketService.askModelPeerId({
-                peerId: _this333.peerId,
-                room: _this333.idRoom + 'T',
-                clientId: _this333.clientId
+              _this330.socketService.askModelPeerId({
+                peerId: _this330.peerId,
+                room: _this330.idRoom + 'T',
+                clientId: _this330.clientId
               });
 
-              _this333.roomTipsService.joinRoom(_this333.idRoom, true, 'tips', _this333.peerId).subscribe(function (data) {
-                _this333.socketService.joinTips(_this333.idRoom, _this333.modelId, _this333.clientId, _this333.clientPseudo, _this333.peerId);
+              _this330.roomTipsService.joinRoom(_this330.idRoom, true, 'tips', _this330.peerId).subscribe(function (data) {
+                _this330.socketService.joinTips(_this330.idRoom, _this330.modelId, _this330.clientId, _this330.clientPseudo, _this330.peerId);
               });
             });
           }
@@ -52907,7 +52894,7 @@
         }, {
           key: "callPeer",
           value: function callPeer(id) {
-            var _this334 = this;
+            var _this331 = this;
 
             console.log('CallPeer  id : ', id);
             if (!id) return null;
@@ -52920,12 +52907,12 @@
               call.on('stream', function (remoteStream) {
                 console.log("On stream after call in client");
 
-                if (!_this334.peerList.includes(call.peer)) {
-                  _this334.streamRemoteVideo(remoteStream);
+                if (!_this331.peerList.includes(call.peer)) {
+                  _this331.streamRemoteVideo(remoteStream);
 
-                  _this334.currentPeer = call.peerConnection;
+                  _this331.currentPeer = call.peerConnection;
 
-                  _this334.peerList.push(call.peer);
+                  _this331.peerList.push(call.peer);
                 }
               });
             } // this.onStop();
@@ -52971,7 +52958,7 @@
         }, {
           key: "callPeerClient",
           value: function callPeerClient(clientId, clientPeer) {
-            var _this335 = this;
+            var _this332 = this;
 
             console.log('CallPeerClient id ', clientId, 'My ID ', this.clientId, ' Peer ', clientPeer);
             if (!clientPeer) return null;
@@ -52983,12 +52970,12 @@
               call.on('stream', function (remoteStream) {
                 console.log("On stream in call other client");
 
-                if (!_this335.peerList.includes(call.peer)) {
-                  _this335.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
+                if (!_this332.peerList.includes(call.peer)) {
+                  _this332.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
 
-                  _this335.currentPeer = call.peerConnection;
+                  _this332.currentPeer = call.peerConnection;
 
-                  _this335.peerList.push(call.peer);
+                  _this332.peerList.push(call.peer);
                 }
               });
             } // this.onStop();
@@ -53027,7 +53014,7 @@
         }, {
           key: "getAlbums",
           value: function getAlbums() {
-            var _this336 = this;
+            var _this333 = this;
 
             // this.getActifRoom();
             var data = {
@@ -53036,7 +53023,7 @@
             };
             this.albumService.getModelAlbums(data).subscribe(function (data) {
               for (var i = 0; i < data.length; i++) {
-                _this336.albums.push({
+                _this333.albums.push({
                   url: data[i].path_album
                 });
               }
@@ -53101,14 +53088,33 @@
           key: "toggleVideo",
           value: function toggleVideo() {
             this.showVideo = !this.showVideo;
-            var filterVal = 'blur(0px)';
-            var filterFull = 'blur(200px)';
 
             if (this.showVideo) {
-              jquery__WEBPACK_IMPORTED_MODULE_8__('#video_live_model').css('filter', filterVal).css('webkitFilter', filterVal).css('mozFilter', filterVal).css('oFilter', filterVal).css('msFilter', filterVal);
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = true;
+              });
             } else {
-              jquery__WEBPACK_IMPORTED_MODULE_8__('#video_live_model').css('filter', filterFull).css('webkitFilter', filterFull).css('mozFilter', filterFull).css('oFilter', filterFull).css('msFilter', filterFull);
-            }
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = false;
+              });
+            } // var filterVal = 'blur(0px)';
+            // var filterFull = 'blur(200px)';
+            // if (this.showVideo) {
+            //   $('#video_live_model')
+            //   .css('filter',filterVal)
+            //   .css('webkitFilter',filterVal)
+            //   .css('mozFilter',filterVal)
+            //   .css('oFilter',filterVal)
+            //   .css('msFilter',filterVal);
+            // } else {
+            //   $('#video_live_model')
+            //   .css('filter',filterFull)
+            //   .css('webkitFilter',filterFull)
+            //   .css('mozFilter',filterFull)
+            //   .css('oFilter',filterFull)
+            //   .css('msFilter',filterFull);
+            // }
+
           }
         }, {
           key: "toggleAudio",
@@ -53150,7 +53156,7 @@
         }, {
           key: "selectTips",
           value: function selectTips(value) {
-            var _this337 = this;
+            var _this334 = this;
 
             // console.log('Tips ', value);
             this.loading = true;
@@ -53163,9 +53169,9 @@
 
             this.creditService.buyGift(this.clientId, this.modelId, value.credit).subscribe(function (data) {
               // console.log(data);
-              _this337.clientCredit = data.creditClient;
+              _this334.clientCredit = data.creditClient;
 
-              _this337.sendTips(value.symbole, value.credit, value.designation, value.vip);
+              _this334.sendTips(value.symbole, value.credit, value.designation, value.vip);
             }, function (error) {
               console.log(error);
             });
@@ -53178,7 +53184,7 @@
         }, {
           key: "sendTips",
           value: function sendTips(symbole, credit, designation) {
-            var _this338 = this;
+            var _this335 = this;
 
             var vip = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
             var data = {
@@ -53194,26 +53200,26 @@
               pseudo: this.clientPseudo
             };
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this338.getMessages();
+              _this335.getMessages();
 
               var msg = {
-                room: _this338.idRoom + 'T',
+                room: _this335.idRoom + 'T',
                 role: 'client',
-                id: _this338.clientId,
+                id: _this335.clientId,
                 message: vip ? 'vip' : 'This is a gift',
-                pseudo: _this338.clientPseudo
+                pseudo: _this335.clientPseudo
               };
 
-              _this338.socketService.sendMessage(msg);
+              _this335.socketService.sendMessage(msg);
 
-              _this338.loading = false;
-              _this338.showTips = false;
+              _this335.loading = false;
+              _this335.showTips = false;
             });
           }
         }, {
           key: "buyTips",
           value: function buyTips(value) {
-            var _this339 = this;
+            var _this336 = this;
 
             this.loading = true;
 
@@ -53224,15 +53230,15 @@
             }
 
             this.creditService.buyGift(this.clientId, this.modelId, value.credit).subscribe(function (data) {
-              _this339.clientCredit = data.creditClient;
+              _this336.clientCredit = data.creditClient;
 
-              _this339.roomTipsService.updateGain(_this339.idRoom, value.credit).subscribe(function (data) {
+              _this336.roomTipsService.updateGain(_this336.idRoom, value.credit).subscribe(function (data) {
                 // notify send and animation
-                _this339.socketService.newTips(_this339.idRoom + 'T', value.symbole, value.credit, value.designation, value.vip);
+                _this336.socketService.newTips(_this336.idRoom + 'T', value.symbole, value.credit, value.designation, value.vip);
 
-                _this339.sendTips(value.symbole, value.credit, value.designation, value.vip);
+                _this336.sendTips(value.symbole, value.credit, value.designation, value.vip);
 
-                _this339.notificationService.successMsg("Votre ".concat(value.symbole, " est envoy\xE9(e)"));
+                _this336.notificationService.successMsg("Votre ".concat(value.symbole, " est envoy\xE9(e)"));
               });
             }, function (error) {
               console.log(error);
@@ -54237,15 +54243,15 @@
         }, {
           key: "verifyToken",
           value: function verifyToken() {
-            var _this340 = this;
+            var _this337 = this;
 
             var token = this.store.get("token");
             console.log(token);
             this.authService.verifyToken(token).subscribe(function (data) {
               if (data.role === 'client') {
-                _this340.router.navigateByUrl("client/accueil/registered");
+                _this337.router.navigateByUrl("client/accueil/registered");
               } else if (data.role === 'model') {
-                _this340.router.navigateByUrl("modele/profile");
+                _this337.router.navigateByUrl("modele/profile");
               }
             }, function (error) {});
           }
@@ -54315,7 +54321,7 @@
           key: "login",
           value: function login(event) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee163() {
-              var _this341 = this;
+              var _this338 = this;
 
               var user;
               return regeneratorRuntime.wrap(function _callee163$(_context163) {
@@ -54339,29 +54345,29 @@
                       return this.authService.loginModel(user).subscribe(function (res) {
                         // console.log(res);
                         if (res.error) {
-                          _this341.errorAuth = res.message;
-                          _this341.loading = false;
+                          _this338.errorAuth = res.message;
+                          _this338.loading = false;
                         } else {
-                          _this341.errorAuth = null;
-                          if (res.access_token) _this341.authService.saveToken(res.access_token).then(function () {
-                            _this341.logService.createLog("connection").subscribe(function (data) {
-                              _this341.isRemember(user).then(function () {
-                                _this341.roomService.createRoom().subscribe(function (data) {
-                                  _this341.store.set("room", data.room);
+                          _this338.errorAuth = null;
+                          if (res.access_token) _this338.authService.saveToken(res.access_token).then(function () {
+                            _this338.logService.createLog("connection").subscribe(function (data) {
+                              _this338.isRemember(user).then(function () {
+                                _this338.roomService.createRoom().subscribe(function (data) {
+                                  _this338.store.set("room", data.room);
 
-                                  _this341.loading = false;
+                                  _this338.loading = false;
 
-                                  _this341.router.navigate(['/modele/profile']);
+                                  _this338.router.navigate(['/modele/profile']);
                                 });
                               });
                             }, function (error) {
-                              _this341.loading = false;
+                              _this338.loading = false;
                               console.log(error);
                             });
                           });
                         }
                       }, function (err) {
-                        _this341.loading = false;
+                        _this338.loading = false;
                         console.log(err);
                       });
 
@@ -54878,20 +54884,20 @@
         }, {
           key: "getLastShowPrivate",
           value: function getLastShowPrivate() {
-            var _this342 = this;
+            var _this339 = this;
 
             this.adminService.get10LastShowPrivate().subscribe(function (data) {
               // console.log(data)
               var tmp = data;
               tmp.forEach(function (value) {
                 value.pseudo = value.model.pseudo;
-                value.date = _this342.adminService.formatDate(value.createdAt);
-                value.duree = _this342.getDuree(value.createdAt, value.updatedAt);
+                value.date = _this339.adminService.formatDate(value.createdAt);
+                value.duree = _this339.getDuree(value.createdAt, value.updatedAt);
                 value.gain = value.gain;
                 value.type = 'Private';
               });
-              _this342.lastShowPrivate = tmp;
-              _this342.valueShow = _this342.lastShowPrivate;
+              _this339.lastShowPrivate = tmp;
+              _this339.valueShow = _this339.lastShowPrivate;
             }, function (error) {
               console.log(error);
             });
@@ -54899,19 +54905,19 @@
         }, {
           key: "getLastShowTips",
           value: function getLastShowTips() {
-            var _this343 = this;
+            var _this340 = this;
 
             this.adminService.get10LastShowTips().subscribe(function (data) {
               // console.log('Show tips ', data)
               var tmp = data;
               tmp.forEach(function (value) {
                 value.pseudo = value.model.pseudo;
-                value.date = _this343.adminService.formatDate(value.createdAt);
-                value.duree = _this343.getDuree(value.createdAt, value.updatedAt);
+                value.date = _this340.adminService.formatDate(value.createdAt);
+                value.duree = _this340.getDuree(value.createdAt, value.updatedAt);
                 value.gain = value.gain;
                 value.type = 'TIPS';
               });
-              _this343.lastShowTIPS = tmp;
+              _this340.lastShowTIPS = tmp;
             }, function (error) {
               console.log(error);
             });
@@ -54919,22 +54925,22 @@
         }, {
           key: "getLastShowVIP",
           value: function getLastShowVIP() {
-            var _this344 = this;
+            var _this341 = this;
 
             this.adminService.get10LastShowVIP().subscribe(function (data) {
               var tmp = data;
               tmp.forEach(function (value) {
                 value.pseudo = value.model.pseudo;
-                value.date = _this344.adminService.formatDate(value.createdAt);
-                value.duree = _this344.getDuree(value.createdAt, value.updatedAt);
+                value.date = _this341.adminService.formatDate(value.createdAt);
+                value.duree = _this341.getDuree(value.createdAt, value.updatedAt);
                 value.gain = value.gain;
                 value.type = 'VIP';
               });
-              _this344.lastShowVIP = tmp.filter(function (data) {
+              _this341.lastShowVIP = tmp.filter(function (data) {
                 return data.free === null;
               });
-              _this344.lastShowVIP = _this344.lastShowVIP.slice(0, 10);
-              console.log('Show VIP ', _this344.lastShowVIP);
+              _this341.lastShowVIP = _this341.lastShowVIP.slice(0, 10);
+              console.log('Show VIP ', _this341.lastShowVIP);
             }, function (error) {
               console.log(error);
             });
@@ -54942,22 +54948,22 @@
         }, {
           key: "getLastShowChoiceUS",
           value: function getLastShowChoiceUS() {
-            var _this345 = this;
+            var _this342 = this;
 
             this.adminService.get10LastShowChoiceUS().subscribe(function (data) {
               var tmp = data;
               tmp.forEach(function (value) {
                 value.pseudo = value.model.pseudo;
-                value.date = _this345.adminService.formatDate(value.createdAt);
-                value.duree = _this345.getDuree(value.createdAt, value.updatedAt);
+                value.date = _this342.adminService.formatDate(value.createdAt);
+                value.duree = _this342.getDuree(value.createdAt, value.updatedAt);
                 value.gain = value.gain;
                 value.type = 'CHOICE US';
               });
-              _this345.lastShowChoiceUS = tmp.filter(function (data) {
+              _this342.lastShowChoiceUS = tmp.filter(function (data) {
                 return data.free !== null;
               });
-              _this345.lastShowChoiceUS = _this345.lastShowChoiceUS.slice(0, 10);
-              console.log('Show CHOICE US ', _this345.lastShowChoiceUS);
+              _this342.lastShowChoiceUS = _this342.lastShowChoiceUS.slice(0, 10);
+              console.log('Show CHOICE US ', _this342.lastShowChoiceUS);
             }, function (error) {
               console.log(error);
             });
@@ -54965,7 +54971,7 @@
         }, {
           key: "getTopModels",
           value: function getTopModels() {
-            var _this346 = this;
+            var _this343 = this;
 
             this.adminService.getTop10Model().subscribe(function (data) {
               // console.log(data)
@@ -54975,12 +54981,12 @@
                 value.pseudo = value.pseudo;
                 value.showCreated = value.privateRooms.length + value.vipRooms.length;
                 value.gain = value.credit.credit;
-                value.lastShow = _this346.adminService.formatDate(value.credit.updatedAt);
+                value.lastShow = _this343.adminService.formatDate(value.credit.updatedAt);
                 value.rang = countLoop + 1;
                 countLoop++;
               }); // console.log(tmp)
 
-              _this346.topModels = tmp;
+              _this343.topModels = tmp;
             }, function (error) {
               console.log(error);
             });
@@ -55287,10 +55293,10 @@
         }, {
           key: "getInfos",
           value: function getInfos() {
-            var _this347 = this;
+            var _this344 = this;
 
             this.adminService.getInfosAdmin().subscribe(function (data) {
-              _this347.info = data;
+              _this344.info = data;
             }, function (error) {
               console.log(error);
             });
@@ -55500,12 +55506,12 @@
         }, {
           key: "delete",
           value: function _delete(id) {
-            var _this348 = this;
+            var _this345 = this;
 
             this.albumService.deleteAlbum(id).subscribe(function (data) {
-              _this348.notificationService.info("Suppression", "Photo Supprimée");
+              _this345.notificationService.info("Suppression", "Photo Supprimée");
 
-              _this348.dialogRef.close('success');
+              _this345.dialogRef.close('success');
             });
           }
         }]);
@@ -55662,7 +55668,7 @@
 
       var ConfirmEmailComponent = /*#__PURE__*/function () {
         function ConfirmEmailComponent(activatedRoute, http, store, router, notificationService) {
-          var _this349 = this;
+          var _this346 = this;
 
           _classCallCheck(this, ConfirmEmailComponent);
 
@@ -55677,7 +55683,7 @@
           this.errorMessageToken = null;
           this.successMessageToken = null;
           this.activatedRoute.queryParams.subscribe(function (params) {
-            _this349.token = params['token'];
+            _this346.token = params['token'];
           });
         }
 
@@ -55689,7 +55695,7 @@
         }, {
           key: "confirmToken",
           value: function confirmToken() {
-            var _this350 = this;
+            var _this347 = this;
 
             if (!this.token) {
               this.errorToken = true;
@@ -55702,15 +55708,15 @@
             this.http.post("".concat(this.endpoint, "/client/confirm"), {}, httpOptions).subscribe(function (data) {
               // console.log("Client token ", data);
               if (!data.success) {
-                _this350.errorMessageToken = data.message;
-                _this350.errorToken = true;
+                _this347.errorMessageToken = data.message;
+                _this347.errorToken = true;
               } else {
-                _this350.errorToken = false;
-                _this350.successMessageToken = data.message;
+                _this347.errorToken = false;
+                _this347.successMessageToken = data.message;
 
-                _this350.notificationService.infoMsg("Votre compte est confirmé");
+                _this347.notificationService.infoMsg("Votre compte est confirmé");
 
-                _this350.router.navigate(['/client/connexion']);
+                _this347.router.navigate(['/client/connexion']);
               }
             });
           }
@@ -56179,11 +56185,11 @@
         }, {
           key: "verifyPayment",
           value: function verifyPayment() {
-            var _this351 = this;
+            var _this348 = this;
 
             this.paiementService.hasPaid().subscribe(function (data) {
               // console.log(data);
-              if (data.success) _this351.hasPaid = true; // console.log('HasPaid ', this.hasPaid);
+              if (data.success) _this348.hasPaid = true; // console.log('HasPaid ', this.hasPaid);
             }, function (error) {
               console.log(error);
             });
@@ -56191,26 +56197,26 @@
         }, {
           key: "verifySubscription",
           value: function verifySubscription() {
-            var _this352 = this;
+            var _this349 = this;
 
             this.subscribeService.verify().subscribe(function (data) {
               // console.log('Sub ', data);
-              _this352.subscription = data;
+              _this349.subscription = data;
             });
           }
         }, {
           key: "getProfilModel",
           value: function getProfilModel() {
-            var _this353 = this;
+            var _this350 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
               // console.log('Profil ', data);
-              _this353.profilModel = data;
+              _this350.profilModel = data;
             });
             this.modelService.getModel(this.modelId).subscribe(function (data) {
               // console.log('Info ',data);
-              _this353.profilModel.pseudo = data.pseudo;
-              _this353.profilModel.path_soft = data.path_soft;
+              _this350.profilModel.pseudo = data.pseudo;
+              _this350.profilModel.path_soft = data.path_soft;
             });
             this.getAlbums('free');
             this.getAlbums('private');
@@ -56219,7 +56225,7 @@
         }, {
           key: "getAlbums",
           value: function getAlbums(type) {
-            var _this354 = this;
+            var _this351 = this;
 
             var data = {
               modelId: this.modelId,
@@ -56229,17 +56235,17 @@
               // console.log("Album ", type, data);
               switch (type) {
                 case 'free':
-                  _this354.albumsFree = data;
-                  _this354.totalAlbum = _this354.albumsFree.length;
-                  _this354.currentAlbum = _this354.albumsFree;
+                  _this351.albumsFree = data;
+                  _this351.totalAlbum = _this351.albumsFree.length;
+                  _this351.currentAlbum = _this351.albumsFree;
                   break;
 
                 case 'private':
-                  _this354.albumsPrivate = data;
+                  _this351.albumsPrivate = data;
                   break;
 
                 case 'vip':
-                  _this354.albumsVIP = data;
+                  _this351.albumsVIP = data;
                   break;
               }
             });
@@ -56280,7 +56286,7 @@
         }, {
           key: "openImage",
           value: function openImage(id, url) {
-            var _this355 = this;
+            var _this352 = this;
 
             var dialogRef = this.dialog.open(src_app_modals_popup_image_popup_image_component__WEBPACK_IMPORTED_MODULE_0__["PopupImageComponent"], {
               width: '100%',
@@ -56292,7 +56298,7 @@
               }
             });
             dialogRef.afterClosed().subscribe(function (data) {
-              if (data === 'success') _this355.ngOnInit();
+              if (data === 'success') _this352.ngOnInit();
             });
           }
         }]);
@@ -57850,7 +57856,7 @@
 
       var LivePrivateComponent = /*#__PURE__*/function () {
         function LivePrivateComponent(_platform, router, route, modelService, roomPrivateService, store, chatService, socketService, popupService, profilService, dialog, timerService, clientService, notificationService, roomVipService, albumService, banishService, creditService, roomTipsService) {
-          var _this356 = this;
+          var _this353 = this;
 
           _classCallCheck(this, LivePrivateComponent);
 
@@ -57950,14 +57956,14 @@
           this.getPeerId = function () {
             console.log('Get peer waiting...');
 
-            _this356.peer.on('open', function (id) {
+            _this353.peer.on('open', function (id) {
               console.log("Peer Id ", id);
-              _this356.peerId = id; // Send peer client
+              _this353.peerId = id; // Send peer client
             });
 
-            _this356.peer.on('call', function (call) {
+            _this353.peer.on('call', function (call) {
               console.log('on call');
-              call.answer(_this356.lazyStream); // call.on('stream', (remoteStream) => {
+              call.answer(_this353.lazyStream); // call.on('stream', (remoteStream) => {
               //   console.log('On stream from call')
               //   if (!this.peerList.includes(call.peer)) {
               //     this.addOtherClientstreamRemoteVideo(this.clientStream.length,remoteStream, call.peer);
@@ -58015,7 +58021,7 @@
           key: "getCostVIPShow",
           value: function getCostVIPShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee164() {
-              var _this357 = this;
+              var _this354 = this;
 
               return regeneratorRuntime.wrap(function _callee164$(_context164) {
                 while (1) {
@@ -58023,8 +58029,8 @@
                     case 0:
                       _context164.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].VIP).subscribe(function (data) {
-                        _this357.statVIP.tarif_show = data.credit ? data.credit : 0;
-                        _this357.statVIP.time_show = data.second ? data.second : 0;
+                        _this354.statVIP.tarif_show = data.credit ? data.credit : 0;
+                        _this354.statVIP.time_show = data.second ? data.second : 0;
                       });
 
                     case 2:
@@ -58083,63 +58089,63 @@
         }, {
           key: "getModel",
           value: function getModel() {
-            var _this358 = this;
+            var _this355 = this;
 
             this.modelService.getModel(this.modelId).subscribe(function (data) {
-              _this358.bg = data.path_soft;
-              _this358.modelPseudo = data.pseudo;
+              _this355.bg = data.path_soft;
+              _this355.modelPseudo = data.pseudo;
 
               if (data.profile.status === "En vip") {
-                _this358.passedVIP = true;
+                _this355.passedVIP = true;
 
-                _this358.clearTimer();
+                _this355.clearTimer();
               } else if (data.profile.status === "En ligne") {
-                _this358.obsolete();
+                _this355.obsolete();
 
-                _this358.clearTimer();
+                _this355.clearTimer();
               }
 
               if (data.profile.status !== 'En live') {
-                _this358.popupService.info('/client/accueil/registered', 'Modèle Indisponible', 'La modèle est indisponible pour ce live');
+                _this355.popupService.info('/client/accueil/registered', 'Modèle Indisponible', 'La modèle est indisponible pour ce live');
 
-                _this358.clearTimer();
+                _this355.clearTimer();
               }
 
-              _this358.getCostVIPShow();
+              _this355.getCostVIPShow();
 
-              _this358.getInfo();
+              _this355.getInfo();
             });
           }
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this359 = this;
+            var _this356 = this;
 
             this.clientService.getMyInfos().subscribe( // My info
             function (data) {
-              _this359.clientId = data.id;
-              _this359.clientPseudo = data.pseudo;
-              _this359.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
+              _this356.clientId = data.id;
+              _this356.clientPseudo = data.pseudo;
+              _this356.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
 
-              _this359.clientCreditId = data.credit ? data.credit.id : 0;
+              _this356.clientCreditId = data.credit ? data.credit.id : 0;
 
-              _this359.isBanished();
+              _this356.isBanished();
             });
           }
         }, {
           key: "isBanished",
           value: function isBanished() {
-            var _this360 = this;
+            var _this357 = this;
 
             this.banishService.isBanished(this.modelId, this.clientId).subscribe(function (data) {
               var ok = data.authorized;
 
               if (!ok) {
-                _this360.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
+                _this357.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
 
-                _this360.router.navigateByUrl('/client/accueil/registered');
+                _this357.router.navigateByUrl('/client/accueil/registered');
               } else {
-                _this360.getInfoRoom();
+                _this357.getInfoRoom();
               }
             });
           }
@@ -58147,7 +58153,7 @@
           key: "getCredit",
           value: function getCredit() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee166() {
-              var _this361 = this;
+              var _this358 = this;
 
               return regeneratorRuntime.wrap(function _callee166$(_context166) {
                 while (1) {
@@ -58155,13 +58161,13 @@
                     case 0:
                       _context166.next = 2;
                       return this.clientService.getCredit().subscribe(function (data) {
-                        _this361.clientCredit = data.credit;
-                        if (_this361.show.credit < _this361.clientCredit) return null;
-                        _this361.timer.fail = true; // if Not leaved
+                        _this358.clientCredit = data.credit;
+                        if (_this358.show.credit < _this358.clientCredit) return null;
+                        _this358.timer.fail = true; // if Not leaved
 
                         // if Not leaved
-                        if (!_this361.timer.reinit) {
-                          _this361.notificationService.failure("CREDIT INSUFFISANT", "Veuillez vous recharger.");
+                        if (!_this358.timer.reinit) {
+                          _this358.notificationService.failure("CREDIT INSUFFISANT", "Veuillez vous recharger.");
                         }
                       });
 
@@ -58180,7 +58186,7 @@
           key: "getInfoRoom",
           value: function getInfoRoom() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee168() {
-              var _this362 = this;
+              var _this359 = this;
 
               return regeneratorRuntime.wrap(function _callee168$(_context168) {
                 while (1) {
@@ -58188,7 +58194,7 @@
                     case 0:
                       _context168.next = 2;
                       return this.roomPrivateService.getRoomModel(this.modelId).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this362, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee167() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this359, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee167() {
                           return regeneratorRuntime.wrap(function _callee167$(_context167) {
                             while (1) {
                               switch (_context167.prev = _context167.next) {
@@ -58227,7 +58233,7 @@
           key: "getActifs",
           value: function getActifs() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee169() {
-              var _this363 = this;
+              var _this360 = this;
 
               return regeneratorRuntime.wrap(function _callee169$(_context169) {
                 while (1) {
@@ -58235,10 +58241,10 @@
                     case 0:
                       _context169.next = 2;
                       return this.roomPrivateService.getActif(this.idRoom).subscribe(function (data) {
-                        _this363.actif = data.clients.length + 1; // +1 for the model
+                        _this360.actif = data.clients.length + 1; // +1 for the model
 
                         // +1 for the model
-                        _this363.clients = data.clients;
+                        _this360.clients = data.clients;
                       });
 
                     case 2:
@@ -58252,11 +58258,11 @@
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this364 = this;
+            var _this361 = this;
 
             this.chatService.getMessage(this.idRoom, 'private').subscribe(function (data) {
               // console.log(data)
-              _this364.messages = data;
+              _this361.messages = data;
             });
           }
         }, {
@@ -58293,7 +58299,7 @@
           key: "initSocket",
           value: function initSocket() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee172() {
-              var _this365 = this;
+              var _this362 = this;
 
               return regeneratorRuntime.wrap(function _callee172$(_context172) {
                 while (1) {
@@ -58307,82 +58313,82 @@
                       //   }
                       // );
                       this.socketService.listen("currentSaloon ".concat(this.idRoom)).subscribe(function (data) {
-                        _this365.live_selected = data.live_selected;
+                        _this362.live_selected = data.live_selected;
                       });
                       this.joinSub = this.socketService.listen("joined ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this365.getActifs();
+                        _this362.getActifs();
 
-                        if (data.id === _this365.modelId) return false;
-                        if (data.id === _this365.clientId) return false;
+                        if (data.id === _this362.modelId) return false;
+                        if (data.id === _this362.clientId) return false;
 
-                        _this365.verifyExistClient(data.id, data.peerId);
+                        _this362.verifyExistClient(data.id, data.peerId);
                       });
                       this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this365.removeStream(data.clientId);
+                        _this362.removeStream(data.clientId);
 
-                        _this365.getActifs();
+                        _this362.getActifs();
                       });
                       this.messageSub = this.socketService.listen("message ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this365.socketService.soundOutcome();
+                        _this362.socketService.soundOutcome();
 
-                        _this365.getMessages();
+                        _this362.getMessages();
                       });
                       this.banishSub = this.socketService.listen("Banish client ".concat(this.idRoom, "P ").concat(this.clientId)).subscribe(function (data) {
-                        _this365.isBanished();
+                        _this362.isBanished();
                       }); // Model leaved the room
 
                       this.modelLeaveSub = this.socketService.listen("model leaved ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this365.leaved = true;
-                        _this365.actif--;
+                        _this362.leaved = true;
+                        _this362.actif--;
 
-                        _this365.popupService.info('/client/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this365.modelPseudo, " a ferm\xE9 le live de ce room"));
+                        _this362.popupService.info('/client/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this362.modelPseudo, " a ferm\xE9 le live de ce room"));
 
-                        _this365.lazyStream.getTracks().forEach(function (track) {
+                        _this362.lazyStream.getTracks().forEach(function (track) {
                           track.stop();
                         });
                       }); // Model passed to VIP
 
                       this.modelPassedVipSub = this.socketService.listen("Pass to VIP ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this365.passedVIP = true;
+                        _this362.passedVIP = true;
                       }); // Invitation to pass in VIP
 
                       this.invitationVipSub = this.socketService.listen("pass VIP ".concat(this.clientId, " ").concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this365.invitedVIP = true; // this.invitationVIP();
+                        _this362.invitedVIP = true; // this.invitationVIP();
 
-                        _this365.liveVIP(data.special);
+                        _this362.liveVIP(data.special);
 
-                        _this365.roomVIP = data.roomVIP;
+                        _this362.roomVIP = data.roomVIP;
 
-                        _this365.store.set("roomVIP", _this365.roomVIP);
+                        _this362.store.set("roomVIP", _this362.roomVIP);
                       });
                       this.responsePositiveInvitationVIPSub = this.socketService.listen("response positive invitation model to vip ".concat(this.idRoom, "P ").concat(this.clientId)).subscribe(function (data) {
-                        _this365.loading = false;
+                        _this362.loading = false;
 
-                        _this365.liveVIP(data.special);
+                        _this362.liveVIP(data.special);
                       });
                       this.responseNegativeInvitationVIPSub = this.socketService.listen("response negative invitation model to vip ".concat(this.idRoom, "P ").concat(this.clientId)).subscribe(function (data) {
-                        _this365.loading = false;
+                        _this362.loading = false;
 
                         if (data && data.special) {
                           if (data.special === 'live free') {
-                            _this365.popupService.info(null, 'LIVE CHOICE US', "".concat(_this365.modelPseudo, " n'est pas disponible pour le moment."));
+                            _this362.popupService.info(null, 'LIVE CHOICE US', "".concat(_this362.modelPseudo, " n'est pas disponible pour le moment."));
                           }
                         } else {
-                          _this365.popupService.info(null, 'LIVE VIP', "".concat(_this365.modelPseudo, " n'est pas disponible pour le moment."));
+                          _this362.popupService.info(null, 'LIVE VIP', "".concat(_this362.modelPseudo, " n'est pas disponible pour le moment."));
                         }
                       }); // Invitation to pass in VIP
 
                       this.peerSub = this.socketService.listen("ans peerId ".concat(this.clientId, " ").concat(this.idRoom, "P")).subscribe(function (data) {
                         console.log("ans peerId ", data);
-                        _this365.peerIdShare = data.peerId;
+                        _this362.peerIdShare = data.peerId;
 
-                        _this365.connectWithPeer();
+                        _this362.connectWithPeer();
                       });
                       this.newPeerSub = this.socketService.listen("new model peerId ".concat(this.idRoom, "P")).subscribe(function (data) {
                         console.log("new model peerId");
-                        _this365.peerIdShare = data.peerId;
+                        _this362.peerIdShare = data.peerId;
 
-                        _this365.connectWithPeer();
+                        _this362.connectWithPeer();
                       });
                       this.answerModelStreamSub = this.socketService.listen("Answer current model stream ".concat(this.idRoom, "P ").concat(this.clientId)).subscribe(function (data) {
                         console.log('Answer for stream ', data);
@@ -58393,18 +58399,18 @@
                         if (data.clientId) {
                           console.log('Toggle audio client ', data.clientId);
 
-                          _this365.toggleAudioClientStream(data.peerId, data.isAudio);
+                          _this362.toggleAudioClientStream(data.peerId, data.isAudio);
                         } else if (data.modelId) {
                           console.log('Toggle audio model');
 
-                          _this365.toggleAudioModelStream(data.isAudio);
+                          _this362.toggleAudioModelStream(data.isAudio);
                         }
                       });
                       this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.idRoom, "P")).subscribe(function (data) {
                         if (data.clientId) {
-                          _this365.toggleVideoClientStream(data.peerId, data.isVideo);
+                          _this362.toggleVideoClientStream(data.peerId, data.isVideo);
                         } else if (data.modelId) {
-                          _this365.toggleVideoModelStream(data.isVideo);
+                          _this362.toggleVideoModelStream(data.isVideo);
                         }
                       });
                       this.socketService.askCurrentSaloon(this.idRoom + 'P', this.modelId);
@@ -58422,7 +58428,7 @@
                       });
                       _context172.next = 21;
                       return this.roomPrivateService.updateActif(this.idRoom, true, 'private', this.peerId).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this365, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee171() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this362, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee171() {
                           return regeneratorRuntime.wrap(function _callee171$(_context171) {
                             while (1) {
                               switch (_context171.prev = _context171.next) {
@@ -58475,7 +58481,7 @@
         }, {
           key: "initColor",
           value: function initColor() {
-            var _this366 = this;
+            var _this363 = this;
 
             if (this.store.get("ticket_chat")) {
               this.chatColor = this.store.get("ticket_chat");
@@ -58484,15 +58490,15 @@
 
             ;
             this.roomPrivateService.getColor().subscribe(function (data) {
-              _this366.chatColor = data.color;
+              _this363.chatColor = data.color;
 
-              _this366.store.set("ticket_chat", data.color);
+              _this363.store.set("ticket_chat", data.color);
             });
           }
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this367 = this;
+            var _this364 = this;
 
             if (!this.message) return;
             var data = {
@@ -58506,16 +58512,16 @@
             };
             this.message = null;
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this367.getMessages();
+              _this364.getMessages();
 
               var msg = {
-                room: _this367.idRoom + 'P',
+                room: _this364.idRoom + 'P',
                 role: 'client',
-                id: _this367.clientId,
-                message: _this367.message
+                id: _this364.clientId,
+                message: _this364.message
               };
 
-              _this367.socketService.sendMessage(msg);
+              _this364.socketService.sendMessage(msg);
             });
           }
         }, {
@@ -58526,19 +58532,19 @@
         }, {
           key: "invitationToVIP",
           value: function invitationToVIP() {
-            var _this368 = this;
+            var _this365 = this;
 
             this.loading = true;
             this.socketService.clientInviteModelToVIP(this.idRoom + 'P', this.clientId, this.clientPseudo, this.modelId);
             setTimeout(function () {
-              if (_this368.loading) _this368.loading = false;
+              if (_this365.loading) _this365.loading = false;
             }, 10000);
           }
         }, {
           key: "liveVIP",
           value: function liveVIP(special) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee175() {
-              var _this369 = this;
+              var _this366 = this;
 
               return regeneratorRuntime.wrap(function _callee175$(_context175) {
                 while (1) {
@@ -58549,8 +58555,8 @@
 
                     case 2:
                       return _context175.abrupt("return", _context175.sent.subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this369, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee174() {
-                          var _this370 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this366, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee174() {
+                          var _this367 = this;
 
                           return regeneratorRuntime.wrap(function _callee174$(_context174) {
                             while (1) {
@@ -58562,20 +58568,20 @@
 
                                 case 3:
                                   _context174.sent.subscribe(function (data) {
-                                    _this370.clientCredit = data.credit ? data.credit : 0;
+                                    _this367.clientCredit = data.credit ? data.credit : 0;
 
                                     if (data.credit <= 0) {
-                                      _this370.aucunCredit();
+                                      _this367.aucunCredit();
 
                                       return null;
-                                    } else if (data.credit <= _this370.show.credit * 2) {
-                                      _this370.creditInsuffisant();
+                                    } else if (data.credit <= _this367.show.credit * 2) {
+                                      _this367.creditInsuffisant();
 
                                       return null;
                                     }
 
-                                    _this370.profilService.getSpecificProfil(_this370.modelId).subscribe(function (data) {
-                                      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this370, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee173() {
+                                    _this367.profilService.getSpecificProfil(_this367.modelId).subscribe(function (data) {
+                                      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this367, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee173() {
                                         return regeneratorRuntime.wrap(function _callee173$(_context173) {
                                           while (1) {
                                             switch (_context173.prev = _context173.next) {
@@ -58629,7 +58635,7 @@
           key: "getInfoRoomVIP",
           value: function getInfoRoomVIP() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee176() {
-              var _this371 = this;
+              var _this368 = this;
 
               return regeneratorRuntime.wrap(function _callee176$(_context176) {
                 while (1) {
@@ -58641,7 +58647,7 @@
                           return false;
                         }
 
-                        if (_this371.clientId !== data.clientId) {
+                        if (_this368.clientId !== data.clientId) {
                           return false;
                         }
 
@@ -58663,26 +58669,26 @@
         }, {
           key: "liveTips",
           value: function liveTips() {
-            var _this372 = this;
+            var _this369 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
-              if (_this372.clientCredit <= 10) {
-                _this372.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips.");
+              if (_this369.clientCredit <= 10) {
+                _this369.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips.");
 
                 return false;
               }
 
               if (data.status === "En tips") {
                 // Debiter d'abord
-                _this372.roomTipsService.debiterRoom(_this372.clientCreditId, 1).subscribe(function (data) {
-                  _this372.router.navigate(['/client/live/tips-clients', {
-                    model: _this372.modelId
+                _this369.roomTipsService.debiterRoom(_this369.clientCreditId, 1).subscribe(function (data) {
+                  _this369.router.navigate(['/client/live/tips-clients', {
+                    model: _this369.modelId
                   }]);
                 }, function (error) {
                   console.log(error);
                 });
               } else {
-                _this372.popupService.info(null, 'LIVE TIPS', "Votre mod\xE8le est n'a pas lanc\xE9 le live.");
+                _this369.popupService.info(null, 'LIVE TIPS', "Votre mod\xE8le est n'a pas lanc\xE9 le live.");
 
                 return false;
               }
@@ -58692,26 +58698,26 @@
         }, {
           key: "liveChoiceUs",
           value: function liveChoiceUs() {
-            var _this373 = this;
+            var _this370 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
-              if (_this373.clientCredit <= 10) {
-                _this373.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips.");
+              if (_this370.clientCredit <= 10) {
+                _this370.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips.");
 
                 return false;
               }
 
               if (data.status === "En vip") {
-                _this373.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est indisponible pour passer le live.");
+                _this370.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est indisponible pour passer le live.");
 
                 return false;
               } else {
-                _this373.loading = true;
+                _this370.loading = true;
 
-                _this373.socketService.clientInviteModelToVIP(_this373.idRoom + 'P', _this373.clientId, _this373.clientPseudo, _this373.modelId, 'live free');
+                _this370.socketService.clientInviteModelToVIP(_this370.idRoom + 'P', _this370.clientId, _this370.clientPseudo, _this370.modelId, 'live free');
 
                 setTimeout(function () {
-                  if (_this373.loading) _this373.loading = false;
+                  if (_this370.loading) _this370.loading = false;
                 }, 10000);
               }
             });
@@ -58720,7 +58726,7 @@
           key: "liveOut",
           value: function liveOut() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee178() {
-              var _this374 = this;
+              var _this371 = this;
 
               return regeneratorRuntime.wrap(function _callee178$(_context178) {
                 while (1) {
@@ -58734,8 +58740,8 @@
                     case 3:
                       _context178.next = 5;
                       return _context178.sent.subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this374, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee177() {
-                          var _this375 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this371, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee177() {
+                          var _this372 = this;
 
                           return regeneratorRuntime.wrap(function _callee177$(_context177) {
                             while (1) {
@@ -58744,10 +58750,10 @@
                                   this.timer.reinit = true;
                                   _context177.next = 3;
                                   return this.roomPrivateService.updateActif(this.idRoom, false, 'private').subscribe(function (data) {
-                                    _this375.socketService.leavePrivate(_this375.idRoom, 'client', _this375.clientId).then(function (data) {
-                                      _this375.roomPrivateService.leaveRoom();
+                                    _this372.socketService.leavePrivate(_this372.idRoom, 'client', _this372.clientId).then(function (data) {
+                                      _this372.roomPrivateService.leaveRoom();
 
-                                      _this375.clientService.deleteLastChat();
+                                      _this372.clientService.deleteLastChat();
 
                                       window.location.href = '/client/accueil/registered'; // this.router.navigate(['/client/accueil/registered']);
                                       // setTimeout(
@@ -58794,14 +58800,14 @@
           key: "initTimer",
           value: function initTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee180() {
-              var _this376 = this;
+              var _this373 = this;
 
               return regeneratorRuntime.wrap(function _callee180$(_context180) {
                 while (1) {
                   switch (_context180.prev = _context180.next) {
                     case 0:
                       this.timerService.getTimer(this.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].PRIVATE).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this376, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee179() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this373, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee179() {
                           var created, updated, _this$timerService$co10, hour, minute, second;
 
                           return regeneratorRuntime.wrap(function _callee179$(_context179) {
@@ -58839,7 +58845,7 @@
           key: "getCostShow",
           value: function getCostShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee181() {
-              var _this377 = this;
+              var _this374 = this;
 
               return regeneratorRuntime.wrap(function _callee181$(_context181) {
                 while (1) {
@@ -58847,22 +58853,22 @@
                     case 0:
                       _context181.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].PRIVATE).subscribe(function (data) {
-                        _this377.show.id = data.id;
-                        _this377.show.credit = data.credit;
-                        _this377.show.second = data.second;
-                        _this377.show.type = data.type;
+                        _this374.show.id = data.id;
+                        _this374.show.credit = data.credit;
+                        _this374.show.second = data.second;
+                        _this374.show.type = data.type;
 
-                        if (_this377.clientCredit == 0) {
-                          _this377.aucunCredit();
+                        if (_this374.clientCredit == 0) {
+                          _this374.aucunCredit();
 
                           return null;
-                        } else if (_this377.clientCredit <= _this377.show.credit * 2) {
-                          _this377.creditInsuffisant();
+                        } else if (_this374.clientCredit <= _this374.show.credit * 2) {
+                          _this374.creditInsuffisant();
 
                           return null;
                         }
 
-                        _this377.beginTimer();
+                        _this374.beginTimer();
                       });
 
                     case 2:
@@ -58879,11 +58885,11 @@
         }, {
           key: "creditInsuffisant",
           value: function creditInsuffisant() {
-            var _this378 = this;
+            var _this375 = this;
 
             this.popupService.info(null, 'CREDIT INSUFFISANT', "Vous n'avez presque plus de cr\xE9dit. Veuillez vous recharger.");
             setTimeout(function () {
-              _this378.getCredit();
+              _this375.getCredit();
             }, 20000);
           }
         }, {
@@ -58931,7 +58937,7 @@
           key: "beginTimer",
           value: function beginTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee184() {
-              var _this379 = this;
+              var _this376 = this;
 
               var delay;
               return regeneratorRuntime.wrap(function _callee184$(_context184) {
@@ -58946,14 +58952,14 @@
                       _context184.next = 5;
                       return _context184.sent.subscribe( // launch main creditation
                       function (data) {
-                        _this379.clientCredit = data.credit ? data.credit : 0;
+                        _this376.clientCredit = data.credit ? data.credit : 0;
 
                         if (data.credit <= 0) {
-                          _this379.aucunCredit();
+                          _this376.aucunCredit();
 
                           return null;
-                        } else if (data.credit <= _this379.show.credit * 2) {
-                          _this379.creditInsuffisant();
+                        } else if (data.credit <= _this376.show.credit * 2) {
+                          _this376.creditInsuffisant();
 
                           return null;
                         }
@@ -58961,8 +58967,8 @@
 
                     case 5:
                       this.timer.timer = setInterval(function () {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this379, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee183() {
-                          var _this380 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this376, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee183() {
+                          var _this377 = this;
 
                           return regeneratorRuntime.wrap(function _callee183$(_context183) {
                             while (1) {
@@ -58979,15 +58985,15 @@
                                 case 3:
                                   _context183.next = 5;
                                   return _context183.sent.subscribe(function (data) {
-                                    _this380.clientCredit = data.credit ? data.credit : 0;
+                                    _this377.clientCredit = data.credit ? data.credit : 0;
 
                                     if (data.credit <= 0) {
-                                      _this380.aucunCredit();
+                                      _this377.aucunCredit();
 
-                                      clearInterval(_this380.timer.timer);
+                                      clearInterval(_this377.timer.timer);
                                       return null;
-                                    } else if (data.credit <= _this380.show.credit * 2) {
-                                      _this380.creditInsuffisant();
+                                    } else if (data.credit <= _this377.show.credit * 2) {
+                                      _this377.creditInsuffisant();
 
                                       return null;
                                     }
@@ -59069,7 +59075,7 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this381 = this;
+            var _this378 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
@@ -59080,19 +59086,18 @@
                 // _video.srcObject = ms;
                 // _video.play();
                 // console.log('my stream ', ms)
-                _this381.lazyStream = ms;
+                _this378.lazyStream = ms; // this.lazyStream.getVideoTracks().forEach(
+                //   (track) => {
+                //     this.showVideo = false;
+                //     track.enabled = false;
+                //     this.notificationService.infoMsg('Votre caméra est désactivé par defaut');
+                //   }
+                // );
 
-                _this381.lazyStream.getVideoTracks().forEach(function (track) {
-                  _this381.showVideo = false;
-                  track.enabled = false;
-
-                  _this381.notificationService.infoMsg('Votre caméra est désactivé par defaut');
-                });
-
-                _this381.clientStream.push({
-                  clientId: _this381.clientId,
-                  stream: _this381.lazyStream,
-                  peerId: _this381.peerId,
+                _this378.clientStream.push({
+                  clientId: _this378.clientId,
+                  stream: _this378.lazyStream,
+                  peerId: _this378.peerId,
                   isAudio: false,
                   isVideo: true
                 });
@@ -59122,22 +59127,22 @@
         }, {
           key: "relaunchPeerId",
           value: function relaunchPeerId() {
-            var _this382 = this;
+            var _this379 = this;
 
             this.peer.on('open', function (id) {
               console.log('Relaunch peer id ', id);
-              _this382.peerId = id; // Send peer client
+              _this379.peerId = id; // Send peer client
 
-              _this382.socketService.askModelPeerId({
-                peerId: _this382.peerId,
-                room: _this382.idRoom + 'P',
-                clientId: _this382.clientId
+              _this379.socketService.askModelPeerId({
+                peerId: _this379.peerId,
+                room: _this379.idRoom + 'P',
+                clientId: _this379.clientId
               });
 
-              _this382.roomPrivateService.updateActif(_this382.idRoom, true, 'private', _this382.peerId).subscribe(function (data) {
-                _this382.socketService.joinPrivate(_this382.idRoom, _this382.modelId, _this382.clientId, _this382.clientPseudo, _this382.peerId);
+              _this379.roomPrivateService.updateActif(_this379.idRoom, true, 'private', _this379.peerId).subscribe(function (data) {
+                _this379.socketService.joinPrivate(_this379.idRoom, _this379.modelId, _this379.clientId, _this379.clientPseudo, _this379.peerId);
 
-                _this382.getActifs();
+                _this379.getActifs();
               });
             });
           }
@@ -59149,7 +59154,7 @@
         }, {
           key: "callPeer",
           value: function callPeer(id) {
-            var _this383 = this;
+            var _this380 = this;
 
             console.log('CallPeer  id : ', id);
             if (!id) return null;
@@ -59162,12 +59167,12 @@
               call.on('stream', function (remoteStream) {
                 console.log("On stream after call in client");
 
-                if (!_this383.peerList.includes(call.peer)) {
-                  _this383.streamRemoteVideo(remoteStream);
+                if (!_this380.peerList.includes(call.peer)) {
+                  _this380.streamRemoteVideo(remoteStream);
 
-                  _this383.currentPeer = call.peerConnection;
+                  _this380.currentPeer = call.peerConnection;
 
-                  _this383.peerList.push(call.peer);
+                  _this380.peerList.push(call.peer);
                 }
               });
             } // this.onStop();
@@ -59213,7 +59218,7 @@
         }, {
           key: "callPeerClient",
           value: function callPeerClient(clientId, clientPeer) {
-            var _this384 = this;
+            var _this381 = this;
 
             console.log('CallPeerClient id ', clientId, 'My ID ', this.clientId, ' Peer ', clientPeer);
             if (!clientPeer) return null;
@@ -59225,12 +59230,12 @@
               call.on('stream', function (remoteStream) {
                 console.log("On stream in call other client");
 
-                if (!_this384.peerList.includes(call.peer)) {
-                  _this384.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
+                if (!_this381.peerList.includes(call.peer)) {
+                  _this381.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
 
-                  _this384.currentPeer = call.peerConnection;
+                  _this381.currentPeer = call.peerConnection;
 
-                  _this384.peerList.push(call.peer);
+                  _this381.peerList.push(call.peer);
                 }
               });
             } // this.onStop();
@@ -59269,7 +59274,7 @@
         }, {
           key: "getAlbums",
           value: function getAlbums() {
-            var _this385 = this;
+            var _this382 = this;
 
             this.getActifRoom();
             var data = {
@@ -59278,7 +59283,7 @@
             };
             this.albumService.getModelAlbums(data).subscribe(function (data) {
               for (var i = 0; i < data.length; i++) {
-                _this385.albums.push({
+                _this382.albums.push({
                   url: data[i].path_album
                 });
               }
@@ -59287,7 +59292,7 @@
         }, {
           key: "getActifRoom",
           value: function getActifRoom() {
-            var _this386 = this;
+            var _this383 = this;
 
             // console.log('Id room ', this.idRoom);
             this.roomPrivateService.getActifRoom(this.idRoom).subscribe(function (data) {
@@ -59295,7 +59300,7 @@
               var actifs = data;
               actifs.forEach(function (actif) {
                 if (actif.id && actif.peerId) {
-                  _this386.callPeerClient(actif.id, actif.peerId);
+                  _this383.callPeerClient(actif.id, actif.peerId);
                 }
               });
             }, function (error) {
@@ -59353,12 +59358,23 @@
         }, {
           key: "toggleVideo",
           value: function toggleVideo() {
-            var _this387 = this;
+            var _this384 = this;
 
             this.showVideo = !this.showVideo;
+
+            if (this.showVideo) {
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = true;
+              });
+            } else {
+              this.lazyStream.getVideoTracks().forEach(function (track) {
+                track.enabled = false;
+              });
+            }
+
             this.clientStream.forEach(function (stream) {
-              if (stream.clientId === _this387.clientId) {
-                stream.isVideo = _this387.showVideo;
+              if (stream.clientId === _this384.clientId) {
+                stream.isVideo = _this384.showVideo;
               }
             }); // this.onStop();
             // this.onStart();
@@ -59369,7 +59385,7 @@
         }, {
           key: "toggleAudio",
           value: function toggleAudio() {
-            var _this388 = this;
+            var _this385 = this;
 
             this.showAudio = !this.showAudio;
 
@@ -59384,8 +59400,8 @@
             }
 
             this.clientStream.forEach(function (stream) {
-              if (stream.clientId === _this388.clientId) {
-                stream.isAudio = _this388.showAudio;
+              if (stream.clientId === _this385.clientId) {
+                stream.isAudio = _this385.showAudio;
               }
             }); // this.onStop();
             // this.onStart();
@@ -59422,7 +59438,7 @@
         }, {
           key: "selectTips",
           value: function selectTips(value) {
-            var _this389 = this;
+            var _this386 = this;
 
             // console.log('Tips ', value);
             this.loading = true;
@@ -59435,9 +59451,9 @@
 
             this.creditService.buyGift(this.clientId, this.modelId, value.credit).subscribe(function (data) {
               // console.log(data);
-              _this389.clientCredit = data.creditClient;
+              _this386.clientCredit = data.creditClient;
 
-              _this389.sendTips(value.symbole, value.credit, value.designation, value.vip);
+              _this386.sendTips(value.symbole, value.credit, value.designation, value.vip);
             }, function (error) {
               console.log(error);
             });
@@ -59450,7 +59466,7 @@
         }, {
           key: "sendTips",
           value: function sendTips(symbole, credit, designation) {
-            var _this390 = this;
+            var _this387 = this;
 
             var vip = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
             var data = {
@@ -59466,20 +59482,20 @@
               pseudo: this.clientPseudo
             };
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this390.getMessages();
+              _this387.getMessages();
 
               var msg = {
-                room: _this390.idRoom + 'P',
+                room: _this387.idRoom + 'P',
                 role: 'client',
-                id: _this390.clientId,
+                id: _this387.clientId,
                 message: vip ? 'vip' : 'This is a gift',
-                pseudo: _this390.clientPseudo
+                pseudo: _this387.clientPseudo
               };
 
-              _this390.socketService.sendMessage(msg);
+              _this387.socketService.sendMessage(msg);
 
-              _this390.loading = false;
-              _this390.showTips = false;
+              _this387.loading = false;
+              _this387.showTips = false;
             });
           }
         }]);
@@ -60178,15 +60194,15 @@
         _createClass(EnterComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this391 = this;
+            var _this388 = this;
 
             aos__WEBPACK_IMPORTED_MODULE_2__["init"]();
             Promise.resolve().then(function () {
-              var visited = _this391.store.get('visited'); // console.log(visited);
+              var visited = _this388.store.get('visited'); // console.log(visited);
 
 
-              if (!visited) _this391.store.set('visited', 'nice');else if (visited === 'nice') {
-                _this391.router.navigate(['/accueil']);
+              if (!visited) _this388.store.set('visited', 'nice');else if (visited === 'nice') {
+                _this388.router.navigate(['/accueil']);
               }
             });
           }
@@ -61460,7 +61476,7 @@
           key: "getCostPrivateShow",
           value: function getCostPrivateShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee186() {
-              var _this392 = this;
+              var _this389 = this;
 
               return regeneratorRuntime.wrap(function _callee186$(_context186) {
                 while (1) {
@@ -61469,8 +61485,8 @@
                       _context186.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_2__["TypeTimer"].PRIVATE).subscribe(function (data) {
                         // console.log("Show Cost ", data)
-                        _this392.statPrivate.tarif_show = data.credit ? data.credit : 0;
-                        _this392.statPrivate.time_show = data.second ? data.second : 0;
+                        _this389.statPrivate.tarif_show = data.credit ? data.credit : 0;
+                        _this389.statPrivate.time_show = data.second ? data.second : 0;
                       });
 
                     case 2:
@@ -61488,7 +61504,7 @@
           key: "getCostVIPShow",
           value: function getCostVIPShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee187() {
-              var _this393 = this;
+              var _this390 = this;
 
               return regeneratorRuntime.wrap(function _callee187$(_context187) {
                 while (1) {
@@ -61497,8 +61513,8 @@
                       _context187.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_2__["TypeTimer"].VIP).subscribe(function (data) {
                         // console.log("Show Cost ", data)
-                        _this393.statVIP.tarif_show = data.credit ? data.credit : 0;
-                        _this393.statVIP.time_show = data.second ? data.second : 0;
+                        _this390.statVIP.tarif_show = data.credit ? data.credit : 0;
+                        _this390.statVIP.time_show = data.second ? data.second : 0;
                       });
 
                     case 2:
@@ -61515,19 +61531,19 @@
         }, {
           key: "isBanished",
           value: function isBanished() {
-            var _this394 = this;
+            var _this391 = this;
 
             this.banishService.isBanished(this.modelId, this.clientId).subscribe(function (data) {
               var ok = data.authorized;
 
               if (!ok) {
-                _this394.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
+                _this391.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
 
-                _this394.router.navigateByUrl('/client/accueil/registered');
+                _this391.router.navigateByUrl('/client/accueil/registered');
               } else {
-                _this394.getModel();
+                _this391.getModel();
 
-                _this394.getInfoRoom();
+                _this391.getInfoRoom();
               }
             });
           }
@@ -61551,7 +61567,7 @@
         }, {
           key: "initSocket",
           value: function initSocket() {
-            var _this395 = this;
+            var _this392 = this;
 
             // if (!this.roomService.joinedRoom()) {
             //   this.roomService.joinRoom();
@@ -61559,181 +61575,181 @@
             // }
             this.socketService.join(this.idRoom, this.modelId, this.clientPseudo, this.clientId);
             this.socketService.listen("currentSaloon ".concat(this.idRoom)).subscribe(function (data) {
-              _this395.live_selected = data.live_selected;
+              _this392.live_selected = data.live_selected;
             });
             this.joinSub = this.socketService.listen("joined ".concat(this.idRoom)).subscribe(function (data) {
               // console.log('Joined ', data);
-              _this395.actif = data.count < 0 ? 0 : data.count; // console.log('Actif ', this.actif);
+              _this392.actif = data.count < 0 ? 0 : data.count; // console.log('Actif ', this.actif);
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom)).subscribe(function (data) {
               // console.log('leaved ', data);
-              _this395.actif = data.count < 0 ? 0 : data.count; // console.log('Actif ', this.actif);
+              _this392.actif = data.count < 0 ? 0 : data.count; // console.log('Actif ', this.actif);
             });
             this.messageSub = this.socketService.listen("message ".concat(this.idRoom)).subscribe(function (data) {
               // console.log('Msg to client ', data);
-              _this395.getMessages();
+              _this392.getMessages();
             });
             this.modelPassedPrivateSub = this.socketService.listen("Pass to private ".concat(this.idRoom)).subscribe(function (data) {
               // console.log('Pass to private ', data);
-              if (_this395.acceptedInvitationToPrivate) {
-                _this395.livePrivate();
+              if (_this392.acceptedInvitationToPrivate) {
+                _this392.livePrivate();
               } else {
-                _this395.passedToPrivate = true;
+                _this392.passedToPrivate = true;
               }
             });
             this.modelLeavedSub = this.socketService.listen("model leaved ".concat(this.idRoom)).subscribe(function (data) {
-              _this395.leaved = true;
+              _this392.leaved = true;
             });
             this.banishSub = this.socketService.listen("Banish client ".concat(this.idRoom, " ").concat(this.clientId)).subscribe(function (data) {
-              _this395.isBanished();
+              _this392.isBanished();
             });
             this.responseInvitationPrivateSub = this.socketService.listen("response invitation private ".concat(this.idRoom, " ").concat(this.clientId)).subscribe(function (data) {
-              _this395.loading = false; // console.log('Answer')
+              _this392.loading = false; // console.log('Answer')
 
-              _this395.acceptedInvitationToPrivate = true;
+              _this392.acceptedInvitationToPrivate = true;
 
-              if (_this395.passedToPrivate) {
-                _this395.livePrivate();
+              if (_this392.passedToPrivate) {
+                _this392.livePrivate();
               }
             });
             this.responsePositiveInvitationVIPSub = this.socketService.listen("response positive invitation model to vip ".concat(this.idRoom, " ").concat(this.clientId)).subscribe(function (data) {
-              _this395.loading = false;
-              _this395.acceptedVIP = true;
+              _this392.loading = false;
+              _this392.acceptedVIP = true;
 
-              _this395.acceptedInvitation(data.special);
+              _this392.acceptedInvitation(data.special);
             });
             this.responseNegativeInvitationVIPSub = this.socketService.listen("response negative invitation model to vip ".concat(this.idRoom, " ").concat(this.clientId)).subscribe(function (data) {
               // console.log(data)
-              _this395.loading = false;
-              _this395.acceptedVIP = false;
+              _this392.loading = false;
+              _this392.acceptedVIP = false;
 
               if (data && data.special) {
                 if (data.special === 'live choice') {
-                  _this395.popupService.info(null, 'LIVE CHOICE US', "".concat(_this395.modelPseudo, " n'est pas disponible pour le moment."));
+                  _this392.popupService.info(null, 'LIVE CHOICE US', "".concat(_this392.modelPseudo, " n'est pas disponible pour le moment."));
                 } else if (data.special === 'live tips') {
-                  _this395.popupService.info(null, 'LIVE TIPS', "".concat(_this395.modelPseudo, " n'est pas disponible pour le moment."));
+                  _this392.popupService.info(null, 'LIVE TIPS', "".concat(_this392.modelPseudo, " n'est pas disponible pour le moment."));
                 }
               } else {
-                _this395.popupService.info(null, 'LIVE VIP', "".concat(_this395.modelPseudo, " n'est pas disponible pour le moment."));
+                _this392.popupService.info(null, 'LIVE VIP', "".concat(_this392.modelPseudo, " n'est pas disponible pour le moment."));
               }
             }); // Model passed to VIP
 
             this.modelPassedVipSub = this.socketService.listen("Pass to VIP ".concat(this.idRoom)).subscribe(function (data) {
-              if (_this395.acceptedVIP) _this395.acceptedInvitation();
-              _this395.passedVIP = true;
+              if (_this392.acceptedVIP) _this392.acceptedInvitation();
+              _this392.passedVIP = true;
             });
             this.socketService.listen("Pass to tips ".concat(this.idRoom)).subscribe(function (data) {
               // console.log('Pass to private ', data);
-              _this395.live_selected = 'live_tips';
-              _this395.passedToTips = true;
+              _this392.live_selected = 'live_tips';
+              _this392.passedToTips = true;
             });
             this.socketService.askCurrentSaloon(this.idRoom, this.modelId);
           }
         }, {
           key: "getMyInfo",
           value: function getMyInfo() {
-            var _this396 = this;
+            var _this393 = this;
 
             this.loading = true;
             this.clientService.getMyInfos().subscribe( // My info
             function (data) {
               // console.log("My info ", data)
-              _this396.clientId = data.id;
-              _this396.clientPseudo = data.pseudo;
-              _this396.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
+              _this393.clientId = data.id;
+              _this393.clientPseudo = data.pseudo;
+              _this393.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
 
-              _this396.clientCreditId = data.credit ? data.credit.id : 0; // Client Credit Id
+              _this393.clientCreditId = data.credit ? data.credit.id : 0; // Client Credit Id
 
-              _this396.isBanished();
+              _this393.isBanished();
 
-              _this396.getCostVIPShow();
+              _this393.getCostVIPShow();
 
-              _this396.getCostPrivateShow();
+              _this393.getCostPrivateShow();
             }, function (error) {
-              _this396.loading = false;
+              _this393.loading = false;
             });
           }
         }, {
           key: "getModel",
           value: function getModel() {
-            var _this397 = this;
+            var _this394 = this;
 
             this.modelService.getModel(this.modelId).subscribe(function (data) {
               if (!data) {
-                _this397.invalideRoom();
+                _this394.invalideRoom();
 
-                _this397.clientService.lastRoom(null);
+                _this394.clientService.lastRoom(null);
 
                 setTimeout(function () {
-                  _this397.router.navigateByUrl('/client/accueil/registered');
+                  _this394.router.navigateByUrl('/client/accueil/registered');
                 }, 2000);
                 return null;
               } // console.log('Model ', data);
 
 
-              _this397.bg = data.path_soft;
-              _this397.modelPseudo = data.pseudo;
+              _this394.bg = data.path_soft;
+              _this394.modelPseudo = data.pseudo;
 
               if (data.profile.status === "Hors ligne") {
-                _this397.popupService.info('/client/accueil/registered', 'CHAT INDISPONIBLE', "".concat(_this397.modelPseudo, " est hors ligne."));
+                _this394.popupService.info('/client/accueil/registered', 'CHAT INDISPONIBLE', "".concat(_this394.modelPseudo, " est hors ligne."));
 
-                _this397.router.navigateByUrl('/client/accueil/registered');
+                _this394.router.navigateByUrl('/client/accueil/registered');
               } else if (data.profile.status === "En live") {
-                _this397.passedToPrivate = true;
+                _this394.passedToPrivate = true;
               } else if (data.profile.status === "En tips") {
-                _this397.popupService.info(null, 'CHAT INDISPONIBLE', "".concat(_this397.modelPseudo, " est en live tips."));
+                _this394.popupService.info(null, 'CHAT INDISPONIBLE', "".concat(_this394.modelPseudo, " est en live tips."));
 
-                _this397.passedToTips = true;
-                _this397.live_selected = 'live_tips';
+                _this394.passedToTips = true;
+                _this394.live_selected = 'live_tips';
               } else if (data.profile.status === "En live choice") {
-                _this397.popupService.info('/client/accueil/registered', 'CHAT INDISPONIBLE', "".concat(_this397.modelPseudo, " est en live CHOICE."));
+                _this394.popupService.info('/client/accueil/registered', 'CHAT INDISPONIBLE', "".concat(_this394.modelPseudo, " est en live CHOICE."));
 
-                _this397.live_selected = 'choice_us';
+                _this394.live_selected = 'choice_us';
               } else if (data.profile.status === "En vip") {
-                _this397.popupService.info('/client/accueil/registered', 'CHAT INDISPONIBLE', "".concat(_this397.modelPseudo, " est en live VIP."));
+                _this394.popupService.info('/client/accueil/registered', 'CHAT INDISPONIBLE', "".concat(_this394.modelPseudo, " est en live VIP."));
               }
 
-              _this397.getInfo();
+              _this394.getInfo();
             }, function (error) {
-              _this397.loading = false;
+              _this394.loading = false;
             });
           }
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this398 = this;
+            var _this395 = this;
 
             var id = parseInt(this.store.get("identification//"));
             this.roomService.getInfo(id).subscribe(function (data) {
-              _this398.id = data.id;
+              _this395.id = data.id;
 
-              _this398.getAlbums();
+              _this395.getAlbums();
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this399 = this;
+            var _this396 = this;
 
             this.roomService.getRoomModel(this.modelId).subscribe(function (data) {
               if (!data) return null; // console.log('Model room ', data);
 
-              _this399.idRoom = data.idRoom;
-              _this399.actif = data.actif;
+              _this396.idRoom = data.idRoom;
+              _this396.actif = data.actif;
 
-              _this399.clientService.storeLastChat(_this399.idRoom);
+              _this396.clientService.storeLastChat(_this396.idRoom);
 
-              _this399.clientService.lastRoom(_this399.router.url);
+              _this396.clientService.lastRoom(_this396.router.url);
 
-              _this399.getMessages();
+              _this396.getMessages();
 
-              _this399.initSocket();
+              _this396.initSocket();
             });
           }
         }, {
           key: "initColor",
           value: function initColor() {
-            var _this400 = this;
+            var _this397 = this;
 
             if (this.store.get("ticket_chat")) {
               this.chatColor = this.store.get("ticket_chat");
@@ -61742,9 +61758,9 @@
 
             ;
             this.roomService.getColor().subscribe(function (data) {
-              _this400.chatColor = data.color;
+              _this397.chatColor = data.color;
 
-              _this400.store.set("ticket_chat", data.color);
+              _this397.store.set("ticket_chat", data.color);
             });
           }
         }, {
@@ -61755,7 +61771,7 @@
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this401 = this;
+            var _this398 = this;
 
             if (!this.message) return;
             var data = {
@@ -61768,65 +61784,65 @@
             };
             this.message = null;
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this401.getMessages();
+              _this398.getMessages();
 
               var msg = {
-                room: _this401.idRoom + '',
+                room: _this398.idRoom + '',
                 role: 'client',
-                id: _this401.clientId,
-                message: _this401.message
+                id: _this398.clientId,
+                message: _this398.message
               };
 
-              _this401.socketService.sendMessage(msg);
+              _this398.socketService.sendMessage(msg);
             });
           }
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this402 = this;
+            var _this399 = this;
 
             this.chatService.getMessage(this.idRoom).subscribe(function (data) {
-              _this402.messages = data;
+              _this399.messages = data;
 
-              _this402.getCostShow(); // console.log(this.messages);
+              _this399.getCostShow(); // console.log(this.messages);
 
             });
           }
         }, {
           key: "livePrivate",
           value: function livePrivate() {
-            var _this403 = this;
+            var _this400 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
-              if (_this403.clientCredit <= _this403.costShowPrivate) {
-                _this403.popupService.info(null, 'CREDIT INSUFFISANT', "Votre cr\xE9dit est insuffisant pour lancer le live. Veuillez recharger votre compte.");
+              if (_this400.clientCredit <= _this400.costShowPrivate) {
+                _this400.popupService.info(null, 'CREDIT INSUFFISANT', "Votre cr\xE9dit est insuffisant pour lancer le live. Veuillez recharger votre compte.");
 
                 return false;
               } // console.log('To private ', data);
 
 
               if (data.status === 'En tips') {
-                _this403.popupService.info(null, 'MODELE EN LIVE TIPS', "Veuillez Passer en live TIPS.");
+                _this400.popupService.info(null, 'MODELE EN LIVE TIPS', "Veuillez Passer en live TIPS.");
 
                 return false;
               }
 
               if (data.status === 'En vip' || data.status === 'En live choice') {
-                _this403.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est dans un autre live pour le moment.");
+                _this400.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est dans un autre live pour le moment.");
 
                 return false;
               } else if (data.status === "En live") {
-                _this403.router.navigate(['/client/live/private', {
-                  model: _this403.modelId
+                _this400.router.navigate(['/client/live/private', {
+                  model: _this400.modelId
                 }]);
               } else {
                 // Send invitation to pass to private
-                _this403.loading = true;
+                _this400.loading = true;
 
-                _this403.socketService.clientInviteModelToPrivate(_this403.idRoom, _this403.clientId, _this403.clientPseudo, _this403.modelId);
+                _this400.socketService.clientInviteModelToPrivate(_this400.idRoom, _this400.clientId, _this400.clientPseudo, _this400.modelId);
 
                 setTimeout(function () {
-                  if (_this403.loading) _this403.loading = false;
+                  if (_this400.loading) _this400.loading = false;
                 }, 10000); // this.popupService.info(null,'LIVE INDISPONIBLE',
                 // `${this.modelPseudo} n\'a pas encore lancé le live.`);
               }
@@ -61835,41 +61851,41 @@
         }, {
           key: "liveVIP",
           value: function liveVIP() {
-            var _this404 = this;
+            var _this401 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
-              if (_this404.clientCredit <= _this404.costShowVip) {
-                _this404.popupService.info(null, 'CREDIT INSUFFISANT', "Veuillez recharger votre compte.");
+              if (_this401.clientCredit <= _this401.costShowVip) {
+                _this401.popupService.info(null, 'CREDIT INSUFFISANT', "Veuillez recharger votre compte.");
 
                 return false;
               }
 
               if (data.status === 'En live choice') {
-                _this404.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est dans un autre live pour le moment.");
+                _this401.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est dans un autre live pour le moment.");
 
                 return false;
               }
 
               if (data.status === 'En tips') {
-                _this404.popupService.info(null, 'MODELE EN LIVE TIPS', "Veuillez Passer en live TIPS.");
+                _this401.popupService.info(null, 'MODELE EN LIVE TIPS', "Veuillez Passer en live TIPS.");
 
                 return false;
               } // console.log('To vip ', data);
 
 
               if (data.status === "En vip") {
-                _this404.router.navigate(['/client/live/vip', {
-                  model: _this404.modelId
+                _this401.router.navigate(['/client/live/vip', {
+                  model: _this401.modelId
                 }]);
               } else {
                 // this.popupService.info(null,'LIVE VIP INDISPONIBLE',
                 // `${this.modelPseudo} n\'a pas encore lancé le live en VIP.`);
-                _this404.loading = true;
+                _this401.loading = true;
 
-                _this404.socketService.clientInviteModelToVIP(_this404.idRoom, _this404.clientId, _this404.clientPseudo, _this404.modelId);
+                _this401.socketService.clientInviteModelToVIP(_this401.idRoom, _this401.clientId, _this401.clientPseudo, _this401.modelId);
 
                 setTimeout(function () {
-                  if (_this404.loading) _this404.loading = false;
+                  if (_this401.loading) _this401.loading = false;
                 }, 10000);
               }
             });
@@ -61878,24 +61894,24 @@
         }, {
           key: "liveTips",
           value: function liveTips() {
-            var _this405 = this;
+            var _this402 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
-              if (_this405.clientCredit <= 10) {
-                _this405.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips au moins 10 cr\xE9dits.");
+              if (_this402.clientCredit <= 10) {
+                _this402.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips au moins 10 cr\xE9dits.");
 
                 return false;
               }
 
               if (data.status !== "En tips") {
-                _this405.popupService.info(null, 'LIVE TIPS', "".concat(_this405.modelPseudo, " n'as pas encore lanc\xE9 le live TIPS."));
+                _this402.popupService.info(null, 'LIVE TIPS', "".concat(_this402.modelPseudo, " n'as pas encore lanc\xE9 le live TIPS."));
 
                 return false;
               } else {
                 // Debiter d'abord
-                _this405.roomTipsService.debiterRoom(_this405.clientCreditId, 1).subscribe(function (data) {
-                  _this405.router.navigate(['/client/live/tips-clients', {
-                    model: _this405.modelId
+                _this402.roomTipsService.debiterRoom(_this402.clientCreditId, 1).subscribe(function (data) {
+                  _this402.router.navigate(['/client/live/tips-clients', {
+                    model: _this402.modelId
                   }]);
                 }, function (error) {
                   console.log(error);
@@ -61907,26 +61923,26 @@
         }, {
           key: "liveChoiceUs",
           value: function liveChoiceUs() {
-            var _this406 = this;
+            var _this403 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
-              if (_this406.clientCredit <= 10) {
-                _this406.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips.");
+              if (_this403.clientCredit <= 10) {
+                _this403.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips.");
 
                 return false;
               }
 
               if (data.status === "En vip") {
-                _this406.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est indisponible pour passer le live.");
+                _this403.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est indisponible pour passer le live.");
 
                 return false;
               } else {
-                _this406.loading = true;
+                _this403.loading = true;
 
-                _this406.socketService.clientInviteModelToVIP(_this406.idRoom, _this406.clientId, _this406.clientPseudo, _this406.modelId, 'live choice');
+                _this403.socketService.clientInviteModelToVIP(_this403.idRoom, _this403.clientId, _this403.clientPseudo, _this403.modelId, 'live choice');
 
                 setTimeout(function () {
-                  if (_this406.loading) _this406.loading = false;
+                  if (_this403.loading) _this403.loading = false;
                 }, 10000);
               }
             });
@@ -61949,7 +61965,7 @@
         }, {
           key: "getAlbums",
           value: function getAlbums() {
-            var _this407 = this;
+            var _this404 = this;
 
             var data = {
               modelId: this.modelId,
@@ -61957,21 +61973,21 @@
             };
             this.albumService.getModelAlbums(data).subscribe(function (data) {
               for (var i = 0; i < data.length; i++) {
-                _this407.albums.push({
+                _this404.albums.push({
                   url: data[i].path_album
                 });
               }
 
-              _this407.loading = false;
+              _this404.loading = false;
             }, function (error) {
-              _this407.loading = false;
+              _this404.loading = false;
             });
           }
         }, {
           key: "getCostShow",
           value: function getCostShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee188() {
-              var _this408 = this;
+              var _this405 = this;
 
               return regeneratorRuntime.wrap(function _callee188$(_context188) {
                 while (1) {
@@ -61979,10 +61995,10 @@
                     case 0:
                       _context188.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_2__["TypeTimer"].PRIVATE).subscribe(function (data) {
-                        _this408.costShowPrivate = data.credit;
+                        _this405.costShowPrivate = data.credit;
 
-                        _this408.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_2__["TypeTimer"].VIP).subscribe(function (data) {
-                          _this408.costShowVip = data.credit;
+                        _this405.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_2__["TypeTimer"].VIP).subscribe(function (data) {
+                          _this405.costShowVip = data.credit;
                         });
                       });
 
@@ -62000,10 +62016,10 @@
         }, {
           key: "acceptedInvitation",
           value: function acceptedInvitation(special) {
-            var _this409 = this;
+            var _this406 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this409, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee189() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this406, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee189() {
                 return regeneratorRuntime.wrap(function _callee189$(_context189) {
                   while (1) {
                     switch (_context189.prev = _context189.next) {
@@ -62033,7 +62049,7 @@
           key: "getInfoRoomVIP",
           value: function getInfoRoomVIP() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee190() {
-              var _this410 = this;
+              var _this407 = this;
 
               return regeneratorRuntime.wrap(function _callee190$(_context190) {
                 while (1) {
@@ -62045,7 +62061,7 @@
                           return false;
                         }
 
-                        if (_this410.clientId !== data.clientId) {
+                        if (_this407.clientId !== data.clientId) {
                           return false;
                         }
 
@@ -62092,7 +62108,7 @@
         }, {
           key: "selectTips",
           value: function selectTips(value) {
-            var _this411 = this;
+            var _this408 = this;
 
             // console.log('Tips ', value);
             this.loading = true;
@@ -62105,9 +62121,9 @@
 
             this.creditService.buyGift(this.clientId, this.modelId, value.credit).subscribe(function (data) {
               console.log(data);
-              _this411.clientCredit = data.creditClient;
+              _this408.clientCredit = data.creditClient;
 
-              _this411.sendTips(value.symbole, value.credit, value.designation, value.vip);
+              _this408.sendTips(value.symbole, value.credit, value.designation, value.vip);
             }, function (error) {
               console.log(error);
             });
@@ -62120,7 +62136,7 @@
         }, {
           key: "sendTips",
           value: function sendTips(symbole, credit, designation) {
-            var _this412 = this;
+            var _this409 = this;
 
             var vip = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
             var data = {
@@ -62135,20 +62151,20 @@
               pseudo: this.clientPseudo
             };
             this.chatService.postMessage(data).subscribe(function (data) {
-              _this412.getMessages();
+              _this409.getMessages();
 
               var msg = {
-                room: _this412.idRoom + '',
+                room: _this409.idRoom + '',
                 role: 'client',
-                id: _this412.id,
+                id: _this409.id,
                 message: vip ? 'vip' : 'This is a gift',
-                pseudo: _this412.clientPseudo
+                pseudo: _this409.clientPseudo
               };
 
-              _this412.socketService.sendMessage(msg);
+              _this409.socketService.sendMessage(msg);
 
-              _this412.loading = false;
-              _this412.showTips = false;
+              _this409.loading = false;
+              _this409.showTips = false;
             });
           }
         }]);
@@ -62890,39 +62906,39 @@
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this413 = this;
+            var _this410 = this;
 
             this.clientService.getMyInfos().subscribe(function (data) {
               // console.log("My info ", data);
               if (!data) return null;
-              _this413.info.clientId = data.id;
-              _this413.info.clientPseudo = data.pseudo;
-              _this413.info.clientEmail = data.email;
-              _this413.info.clientCredit = data.credit.credit;
-              _this413.info.clientCreditId = data.credit.id;
+              _this410.info.clientId = data.id;
+              _this410.info.clientPseudo = data.pseudo;
+              _this410.info.clientEmail = data.email;
+              _this410.info.clientCredit = data.credit.credit;
+              _this410.info.clientCreditId = data.credit.id;
             });
           }
         }, {
           key: "getSetting",
           value: function getSetting() {
-            var _this414 = this;
+            var _this411 = this;
 
             this.clientService.getSettingClient().subscribe(function (data) {
-              _this414.info.setting = data;
-              _this414.sound = _this414.info.setting.sound_notification == 1 ? true : false;
+              _this411.info.setting = data;
+              _this411.sound = _this411.info.setting.sound_notification == 1 ? true : false;
             });
           }
         }, {
           key: "recharge",
           value: function recharge() {
-            var _this415 = this;
+            var _this412 = this;
 
             var dialogRef = this.dialog.open(src_app_modals_pack_modal_pack_modal_component__WEBPACK_IMPORTED_MODULE_2__["PackModalComponent"], {
               width: '100vh',
               data: {}
             });
             dialogRef.afterClosed().subscribe(function (result) {
-              _this415.getInfo();
+              _this412.getInfo();
             });
           }
         }, {
@@ -62944,7 +62960,7 @@
         }, {
           key: "modifing",
           value: function modifing() {
-            var _this416 = this;
+            var _this413 = this;
 
             if (this.isModifing) {
               // console.log("New Pseudo ", this.info.clientPseudo);
@@ -62952,8 +62968,8 @@
               this.clientService.changePseudo(newPseudo).subscribe(function (data) {
                 // console.log(data);
                 if (data.access_token) {
-                  _this416.authService.saveToken(data.access_token, data.id).then(function () {
-                    _this416.notificationService.success("Sauvegarde", "Informations enregistrées");
+                  _this413.authService.saveToken(data.access_token, data.id).then(function () {
+                    _this413.notificationService.success("Sauvegarde", "Informations enregistrées");
                   });
                 }
               });
@@ -62964,12 +62980,12 @@
         }, {
           key: "tryChangeEmail",
           value: function tryChangeEmail() {
-            var _this417 = this;
+            var _this414 = this;
 
             if (this.isModifing) {
               this.showExclam = true;
               setTimeout(function () {
-                _this417.showExclam = false;
+                _this414.showExclam = false;
               }, 4000);
             }
           }
@@ -63425,7 +63441,7 @@
           key: "validate",
           value: function validate() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee191() {
-              var _this418 = this;
+              var _this415 = this;
 
               return regeneratorRuntime.wrap(function _callee191$(_context191) {
                 while (1) {
@@ -63447,26 +63463,26 @@
                         this.clientService.deleteAccount(this.password).subscribe(function (data) {
                           // console.log(data);
                           if (data.error) {
-                            _this418.error = true;
+                            _this415.error = true;
                           } else {
-                            _this418.popupService.info('client', 'Suppression', "Un email de confirmation vous est envoy\xE9 pour motif :\n            <span style=\"font-style: italic; color: var(--pink)\">Suppression de compte</span>");
+                            _this415.popupService.info('client', 'Suppression', "Un email de confirmation vous est envoy\xE9 pour motif :\n            <span style=\"font-style: italic; color: var(--pink)\">Suppression de compte</span>");
 
-                            _this418.onNoClick();
+                            _this415.onNoClick();
 
-                            _this418.authService.logoutUser('client', '/accueil');
+                            _this415.authService.logoutUser('client', '/accueil');
                           }
                         });
                       } else if (this.action === 'désactivation') {
                         this.clientService.deactivateAccount(this.password).subscribe(function (data) {
                           // console.log(data);
                           if (data.error) {
-                            _this418.error = true;
+                            _this415.error = true;
                           } else {
-                            _this418.popupService.info('client', 'Désactivation', "Un email de confirmation vous est envoy\xE9 pour motif :\n            <span style=\"font-style: italic; color: var(--pink)\">D\xE9sactivation de compte</span>");
+                            _this415.popupService.info('client', 'Désactivation', "Un email de confirmation vous est envoy\xE9 pour motif :\n            <span style=\"font-style: italic; color: var(--pink)\">D\xE9sactivation de compte</span>");
 
-                            _this418.onNoClick();
+                            _this415.onNoClick();
 
-                            _this418.authService.logoutUser('client', '/accueil');
+                            _this415.authService.logoutUser('client', '/accueil');
                           }
                         });
                       }
@@ -63869,31 +63885,31 @@
         }, {
           key: "countClient",
           value: function countClient() {
-            var _this419 = this;
+            var _this416 = this;
 
             this.adminService.countClientsBlocked().subscribe(function (data) {
-              _this419.count = data ? data : 0;
+              _this416.count = data ? data : 0;
 
-              _this419.initPagination();
+              _this416.initPagination();
             });
           }
         }, {
           key: "listClients",
           value: function listClients() {
-            var _this420 = this;
+            var _this417 = this;
 
             this.adminService.getClientsBlocked(this.range, this.page, this.filter).subscribe(function (data) {
               console.log(data);
-              _this420.clients = data;
+              _this417.clients = data;
 
-              _this420.clients.forEach(function (client) {
-                client.createdAt = _this420.adminService.formatDate(client.createdAt);
-                client.updatedAt = _this420.adminService.formatDate(client.updatedAt);
+              _this417.clients.forEach(function (client) {
+                client.createdAt = _this417.adminService.formatDate(client.createdAt);
+                client.updatedAt = _this417.adminService.formatDate(client.updatedAt);
               });
 
-              _this420.count = _this420.clients.length;
+              _this417.count = _this417.clients.length;
 
-              _this420.initPagination();
+              _this417.initPagination();
             }, function (error) {
               console.log(error);
             });
@@ -63936,10 +63952,10 @@
         }, {
           key: "deleteClient",
           value: function deleteClient(idClient) {
-            var _this421 = this;
+            var _this418 = this;
 
             this.adminService.deleteClient(idClient).subscribe(function (data) {
-              if (data.success) _this421.listClients();else if (data.error) _this421.notificationService.errorMsg(data.message);
+              if (data.success) _this418.listClients();else if (data.error) _this418.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -63947,14 +63963,14 @@
         }, {
           key: "deblockedClient",
           value: function deblockedClient(idClient) {
-            var _this422 = this;
+            var _this419 = this;
 
             var data = {
               idClient: idClient,
               reverse: true
             };
             this.adminService.blockClient(data).subscribe(function (data) {
-              if (data.success) _this422.listClients();else if (data.error) _this422.notificationService.errorMsg(data.message);
+              if (data.success) _this419.listClients();else if (data.error) _this419.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -64572,26 +64588,26 @@
         }, {
           key: "startMinuteur",
           value: function startMinuteur() {
-            var _this423 = this;
+            var _this420 = this;
 
             setInterval(function () {
-              if (!_this423.leaved) {
-                if (!_this423.reinit) {
-                  _this423.second++;
+              if (!_this420.leaved) {
+                if (!_this420.reinit) {
+                  _this420.second++;
 
-                  if (_this423.second > 59) {
-                    _this423.second = 0;
-                    _this423.minute++;
+                  if (_this420.second > 59) {
+                    _this420.second = 0;
+                    _this420.minute++;
 
-                    if (_this423.minute > 59) {
-                      _this423.minute = 0;
-                      _this423.hour++;
+                    if (_this420.minute > 59) {
+                      _this420.minute = 0;
+                      _this420.hour++;
                     }
                   }
                 } else {
-                  _this423.second = 0;
-                  _this423.minute = 0;
-                  _this423.hour = 0;
+                  _this420.second = 0;
+                  _this420.minute = 0;
+                  _this420.hour = 0;
                 }
               }
             }, 1000);
@@ -65268,17 +65284,17 @@
         }, {
           key: "init",
           value: function init() {
-            var _this424 = this;
+            var _this421 = this;
 
             this.getTotal().then(function (data) {
-              _this424.initPagination();
+              _this421.initPagination();
             });
           }
         }, {
           key: "getTotal",
           value: function getTotal() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee192() {
-              var _this425 = this;
+              var _this422 = this;
 
               return regeneratorRuntime.wrap(function _callee192$(_context192) {
                 while (1) {
@@ -65287,9 +65303,9 @@
                       _context192.next = 2;
                       return this.modelSrv.count().subscribe(function (data) {
                         // console.log(data);
-                        _this425.totalOffline = data.offline;
-                        _this425.totalInChat = data.chat;
-                        _this425.totalInLive = data.live;
+                        _this422.totalOffline = data.offline;
+                        _this422.totalInChat = data.chat;
+                        _this422.totalInLive = data.live;
                       });
 
                     case 2:
@@ -65330,7 +65346,7 @@
           key: "initPhoto",
           value: function initPhoto(contxt, indice) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee193() {
-              var _this426 = this;
+              var _this423 = this;
 
               var debut, model;
               return regeneratorRuntime.wrap(function _callee193$(_context193) {
@@ -65362,7 +65378,7 @@
                       _context193.next = 12;
                       return this.modelSrv.getList(model).subscribe(function (data) {
                         // console.log(data);
-                        _this426.photoLive = data;
+                        _this423.photoLive = data;
                       });
 
                     case 12:
@@ -65382,7 +65398,7 @@
                       _context193.next = 19;
                       return this.modelSrv.getList(model).subscribe(function (data) {
                         // console.log('In chat ', data);
-                        _this426.photoChat = data;
+                        _this423.photoChat = data;
                       }, function (error) {
                         console.log(error);
                       });
@@ -65404,7 +65420,7 @@
                       _context193.next = 26;
                       return this.modelSrv.getList(model).subscribe(function (data) {
                         // console.log(data);
-                        _this426.photoOffline = data;
+                        _this423.photoOffline = data;
                       });
 
                     case 26:
@@ -65474,7 +65490,7 @@
           key: "liveFree",
           value: function liveFree(id) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee194() {
-              var _this427 = this;
+              var _this424 = this;
 
               return regeneratorRuntime.wrap(function _callee194$(_context194) {
                 while (1) {
@@ -65484,9 +65500,9 @@
                         var status = data ? data.status : null;
 
                         if (status === 'En ligne') {
-                          _this427.navigateTo('/client/live/free', id);
+                          _this424.navigateTo('/client/live/free', id);
                         } else {
-                          _this427.popupService.info(null, 'LIVE CHAT', 'MODELE INDISPONIBLE');
+                          _this424.popupService.info(null, 'LIVE CHAT', 'MODELE INDISPONIBLE');
                         }
                       });
 
@@ -65501,7 +65517,7 @@
         }, {
           key: "livePrivate",
           value: function livePrivate(id, pseudo, status) {
-            var _this428 = this;
+            var _this425 = this;
 
             // console.log(status);
             this.profilService.getSpecificProfil(id).subscribe(function (data) {
@@ -65509,16 +65525,16 @@
 
               if (status === newStatus) {
                 if (status === 'En live') {
-                  _this428.navigateTo('/client/live/private', id);
+                  _this425.navigateTo('/client/live/private', id);
                 } else if (status === 'En tips') {
-                  _this428.navigateTo('/client/live/tips-clients', id);
+                  _this425.navigateTo('/client/live/tips-clients', id);
                 } else if (status === 'En live choice') {
-                  _this428.popupService.info(null, 'LIVE OCCUPE', "".concat(pseudo, " est en live CHOICE US en ce moment"));
+                  _this425.popupService.info(null, 'LIVE OCCUPE', "".concat(pseudo, " est en live CHOICE US en ce moment"));
                 } else if (status === 'En vip') {
-                  _this428.popupService.info(null, 'LIVE OCCUPE', "".concat(pseudo, " est en live VIP en ce moment"));
+                  _this425.popupService.info(null, 'LIVE OCCUPE', "".concat(pseudo, " est en live VIP en ce moment"));
                 }
               } else {
-                _this428.popupService.info(null, 'LIVE CHOISI', 'MODELE INDISPONIBLE POUR CE LIVE');
+                _this425.popupService.info(null, 'LIVE CHOISI', 'MODELE INDISPONIBLE POUR CE LIVE');
               }
             });
           }
@@ -65990,10 +66006,10 @@
         }, {
           key: "getTaboos",
           value: function getTaboos() {
-            var _this429 = this;
+            var _this426 = this;
 
             this.adminService.getTaboo().subscribe(function (data) {
-              _this429.listTaboo = data;
+              _this426.listTaboo = data;
             }, function (error) {
               console.log(error);
             });
@@ -66001,10 +66017,10 @@
         }, {
           key: "deleteTaboo",
           value: function deleteTaboo(idTaboo) {
-            var _this430 = this;
+            var _this427 = this;
 
             this.adminService.deleteTaboo(idTaboo).subscribe(function (data) {
-              _this430.getTaboos();
+              _this427.getTaboos();
             }, function (error) {
               console.log(error);
             });
@@ -66012,13 +66028,13 @@
         }, {
           key: "addTaboo",
           value: function addTaboo() {
-            var _this431 = this;
+            var _this428 = this;
 
             if (!this.text || this.text === '') return false;
             this.adminService.addTaboo(this.text).subscribe(function (data) {
-              _this431.text = null;
+              _this428.text = null;
 
-              _this431.getTaboos();
+              _this428.getTaboos();
             }, function (error) {
               console.log(error);
             });
@@ -66026,11 +66042,11 @@
         }, {
           key: "getInfosAdmin",
           value: function getInfosAdmin() {
-            var _this432 = this;
+            var _this429 = this;
 
             this.adminService.getInfosAdmin().subscribe(function (data) {
               // console.log(data)
-              _this432.info = data;
+              _this429.info = data;
             }, function (error) {
               console.log(error);
             });
@@ -66039,7 +66055,7 @@
           key: "profilChoose",
           value: function profilChoose(fileInput) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee195() {
-              var _this433 = this;
+              var _this430 = this;
 
               var mimeType, reader;
               return regeneratorRuntime.wrap(function _callee195$(_context195) {
@@ -66062,8 +66078,8 @@
                       reader.readAsDataURL(this.file);
 
                       reader.onload = function (event) {
-                        _this433.info.url = reader.result;
-                        _this433.changedProfil = true; // console.log('New url ', this.info.url)
+                        _this430.info.url = reader.result;
+                        _this430.changedProfil = true; // console.log('New url ', this.info.url)
                         // this.nameRecto = this.fileRecto.name;
                       };
 
@@ -66082,7 +66098,7 @@
           key: "uploadProfil",
           value: function uploadProfil() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee197() {
-              var _this434 = this;
+              var _this431 = this;
 
               return regeneratorRuntime.wrap(function _callee197$(_context197) {
                 while (1) {
@@ -66098,7 +66114,7 @@
 
                     case 3:
                       this.profilService.updatePhoto(this.formData).subscribe(function (events) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this434, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee196() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this431, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee196() {
                           var path;
                           return regeneratorRuntime.wrap(function _callee196$(_context196) {
                             while (1) {
@@ -66134,7 +66150,7 @@
           key: "saveInfo",
           value: function saveInfo(pseudo, url) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee198() {
-              var _this435 = this;
+              var _this432 = this;
 
               return regeneratorRuntime.wrap(function _callee198$(_context198) {
                 while (1) {
@@ -66142,9 +66158,9 @@
                     case 0:
                       this.adminService.updateInfoAdmin(pseudo, url).subscribe(function (data) {
                         if (data.success) {
-                          _this435.notificationService.infoMsg("Information modifiée");
+                          _this432.notificationService.infoMsg("Information modifiée");
                         } else if (data.error) {
-                          _this435.notificationService.errorMsg(data.message);
+                          _this432.notificationService.errorMsg(data.message);
                         }
                       }, function (error) {
                         console.log(error);
@@ -66162,7 +66178,7 @@
           key: "changePassword",
           value: function changePassword() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee199() {
-              var _this436 = this;
+              var _this433 = this;
 
               return regeneratorRuntime.wrap(function _callee199$(_context199) {
                 while (1) {
@@ -66181,9 +66197,9 @@
                     case 4:
                       this.adminService.changePasswordAdmin(this.oldPassword, this.newPassword).subscribe(function (data) {
                         if (data.error) {
-                          _this436.errorPassword = data.message;
+                          _this433.errorPassword = data.message;
                         } else if (data.success) {
-                          _this436.notificationService.infoMsg('Mot de passe modifié');
+                          _this433.notificationService.infoMsg('Mot de passe modifié');
                         }
                       }, function (error) {
                         console.log(error);
@@ -66667,7 +66683,7 @@
           key: "login",
           value: function login(event) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee200() {
-              var _this437 = this;
+              var _this434 = this;
 
               var user;
               return regeneratorRuntime.wrap(function _callee200$(_context200) {
@@ -66690,18 +66706,18 @@
                       _context200.next = 8;
                       return this.adminService.login(user).subscribe(function (res) {
                         if (res.error) {
-                          _this437.errorAuth = res.message;
-                          _this437.loading = false;
+                          _this434.errorAuth = res.message;
+                          _this434.loading = false;
                         } else {
-                          _this437.errorAuth = null;
-                          if (res.access_token) _this437.authService.saveToken(res.access_token).then(function () {
-                            _this437.loading = false;
+                          _this434.errorAuth = null;
+                          if (res.access_token) _this434.authService.saveToken(res.access_token).then(function () {
+                            _this434.loading = false;
 
-                            _this437.router.navigate(['/admin']);
+                            _this434.router.navigate(['/admin']);
                           });
                         }
                       }, function (err) {
-                        _this437.loading = false;
+                        _this434.loading = false;
                         console.log(err);
                       });
 
