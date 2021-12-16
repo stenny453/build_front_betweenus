@@ -94,25 +94,19 @@
       /* harmony import */
 
 
-      var _live_tips_model_live_tips_model_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-      /*! ./live-tips-model/live-tips-model.component */
-      "Duco");
-      /* harmony import */
-
-
-      var _live_free_saloon_model_live_free_saloon_model_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _live_free_saloon_model_live_free_saloon_model_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./live-free-saloon-model/live-free-saloon-model.component */
       "iym/");
       /* harmony import */
 
 
-      var _live_tips_clients_model_live_tips_clients_model_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _live_tips_clients_model_live_tips_clients_model_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./live-tips-clients-model/live-tips-clients-model.component */
       "XLSz");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
 
@@ -150,16 +144,12 @@
         component: _live_vip_model_live_vip_model_component__WEBPACK_IMPORTED_MODULE_9__["LiveVipModelComponent"],
         canActivate: [src_app_services_auth_auth_model_guard_service__WEBPACK_IMPORTED_MODULE_1__["AuthModelGuardService"]]
       }, {
-        path: 'live-tips',
-        component: _live_tips_model_live_tips_model_component__WEBPACK_IMPORTED_MODULE_11__["LiveTipsModelComponent"],
-        canActivate: [src_app_services_auth_auth_model_guard_service__WEBPACK_IMPORTED_MODULE_1__["AuthModelGuardService"]]
-      }, {
         path: 'live-tips-model',
-        component: _live_tips_clients_model_live_tips_clients_model_component__WEBPACK_IMPORTED_MODULE_13__["LiveTipsClientsModelComponent"],
+        component: _live_tips_clients_model_live_tips_clients_model_component__WEBPACK_IMPORTED_MODULE_12__["LiveTipsClientsModelComponent"],
         canActivate: [src_app_services_auth_auth_model_guard_service__WEBPACK_IMPORTED_MODULE_1__["AuthModelGuardService"]]
       }, {
         path: 'live-choice-us',
-        component: _live_free_saloon_model_live_free_saloon_model_component__WEBPACK_IMPORTED_MODULE_12__["LiveFreeSaloonModelComponent"],
+        component: _live_free_saloon_model_live_free_saloon_model_component__WEBPACK_IMPORTED_MODULE_11__["LiveFreeSaloonModelComponent"],
         canActivate: [src_app_services_auth_auth_model_guard_service__WEBPACK_IMPORTED_MODULE_1__["AuthModelGuardService"]]
       }];
 
@@ -171,15 +161,15 @@
         return new (t || ModelRoutingModule)();
       };
 
-      ModelRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdefineNgModule"]({
+      ModelRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdefineNgModule"]({
         type: ModelRoutingModule
       });
-      ModelRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdefineInjector"]({
+      ModelRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdefineInjector"]({
         imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]]
       });
 
       (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵsetNgModuleScope"](ModelRoutingModule, {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵsetNgModuleScope"](ModelRoutingModule, {
           imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]],
           exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]]
         });
