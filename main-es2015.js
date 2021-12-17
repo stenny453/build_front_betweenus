@@ -4941,17 +4941,17 @@ class SettingTipsComponent {
         let countArgent = 0;
         let countOr = 0;
         for (let i = 0; i < 5; i++) {
-            this.settingBronze[countBronze].tips = tips[i];
+            this.settingBronze[countBronze].tips = parseInt(tips[i]);
             this.settingBronze[countBronze].description = descriptions[i];
             countBronze++;
         }
         for (let i = 5; i < 10; i++) {
-            this.settingArgent[countArgent].tips = tips[i];
+            this.settingArgent[countArgent].tips = parseInt(tips[i]);
             this.settingArgent[countArgent].description = descriptions[i];
             countArgent++;
         }
         for (let i = 10; i < 15; i++) {
-            this.settingOr[countOr].tips = tips[i];
+            this.settingOr[countOr].tips = parseInt(tips[i]);
             this.settingOr[countOr].description = descriptions[i];
             countOr++;
         }
@@ -25235,7 +25235,7 @@ class LiveChatModelComponent {
                 });
                 dialogRef.afterClosed().subscribe((result) => {
                     this.loading = true;
-                    if (result.success === true) {
+                    if (result && result.success === true) {
                         this.roomTipsService.createRoom(result.tips, result.description).subscribe((data) => {
                             // console.log(data);
                             this.askLeaveTips();

@@ -9719,19 +9719,19 @@
             var countOr = 0;
 
             for (var i = 0; i < 5; i++) {
-              this.settingBronze[countBronze].tips = tips[i];
+              this.settingBronze[countBronze].tips = parseInt(tips[i]);
               this.settingBronze[countBronze].description = descriptions[i];
               countBronze++;
             }
 
             for (var _i = 5; _i < 10; _i++) {
-              this.settingArgent[countArgent].tips = tips[_i];
+              this.settingArgent[countArgent].tips = parseInt(tips[_i]);
               this.settingArgent[countArgent].description = descriptions[_i];
               countArgent++;
             }
 
             for (var _i2 = 10; _i2 < 15; _i2++) {
-              this.settingOr[countOr].tips = tips[_i2];
+              this.settingOr[countOr].tips = parseInt(tips[_i2]);
               this.settingOr[countOr].description = descriptions[_i2];
               countOr++;
             }
@@ -47515,7 +47515,7 @@
                         dialogRef.afterClosed().subscribe(function (result) {
                           _this270.loading = true;
 
-                          if (result.success === true) {
+                          if (result && result.success === true) {
                             _this270.roomTipsService.createRoom(result.tips, result.description).subscribe(function (data) {
                               // console.log(data);
                               _this270.askLeaveTips();
