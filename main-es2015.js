@@ -4775,9 +4775,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material/dialog */ "0IaG");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _services_paiement_paiement_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/paiement/paiement.service */ "xPuh");
-/* harmony import */ var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/tabs */ "wZkO");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _services_roomTips_room_tips_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/roomTips/room-tips.service */ "Iwjz");
+/* harmony import */ var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/tabs */ "wZkO");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+
 
 
 
@@ -4892,10 +4894,11 @@ function SettingTipsComponent_span_104_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 } }
 class SettingTipsComponent {
-    constructor(dialogRef, data, paiementService) {
+    constructor(dialogRef, data, paiementService, roomTipsService) {
         this.dialogRef = dialogRef;
         this.data = data;
         this.paiementService = paiementService;
+        this.roomTipsService = roomTipsService;
         this.incomplete = false;
         this.invalid = false;
         this.loading = false;
@@ -4922,6 +4925,36 @@ class SettingTipsComponent {
         ];
     }
     ngOnInit() {
+        this.roomTipsService.getLastDescriptions().subscribe((data) => {
+            var _a, _b;
+            if (data.tips && data.descriptions) {
+                const tips = (_a = data.tips) === null || _a === void 0 ? void 0 : _a.split('~');
+                const descriptions = (_b = data.descriptions) === null || _b === void 0 ? void 0 : _b.split('~');
+                this.autocompleteField(tips, descriptions);
+            }
+        }, (error) => {
+            console.log(error);
+        });
+    }
+    autocompleteField(tips, descriptions) {
+        let countBronze = 0;
+        let countArgent = 0;
+        let countOr = 0;
+        for (let i = 0; i < 5; i++) {
+            this.settingBronze[countBronze].tips = tips[i];
+            this.settingBronze[countBronze].description = descriptions[i];
+            countBronze++;
+        }
+        for (let i = 5; i < 10; i++) {
+            this.settingArgent[countArgent].tips = tips[i];
+            this.settingArgent[countArgent].description = descriptions[i];
+            countArgent++;
+        }
+        for (let i = 10; i < 15; i++) {
+            this.settingOr[countOr].tips = tips[i];
+            this.settingOr[countOr].description = descriptions[i];
+            countOr++;
+        }
     }
     close() {
         this.dialogRef.close(0);
@@ -5025,7 +5058,7 @@ class SettingTipsComponent {
         this.validate(tipsFusion, descriptionsFusion);
     }
 }
-SettingTipsComponent.ɵfac = function SettingTipsComponent_Factory(t) { return new (t || SettingTipsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_services_paiement_paiement_service__WEBPACK_IMPORTED_MODULE_3__["PaiementService"])); };
+SettingTipsComponent.ɵfac = function SettingTipsComponent_Factory(t) { return new (t || SettingTipsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_services_paiement_paiement_service__WEBPACK_IMPORTED_MODULE_3__["PaiementService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_services_roomTips_room_tips_service__WEBPACK_IMPORTED_MODULE_4__["RoomTipsService"])); };
 SettingTipsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: SettingTipsComponent, selectors: [["app-setting-tips"]], decls: 105, vars: 15, consts: [[1, "contain_setting"], [1, "title_setting"], [1, "contain_total"], [1, "total_tips"], [1, "total_price"], ["mat-align-tabs", "center"], ["label", "Bronze"], [1, "container-fluid", "contain_value"], [1, "row"], [1, "col-4"], [1, "title_table"], [1, "col-3"], [1, "col-5"], ["class", "row", 4, "ngFor", "ngForOf"], [1, "value_table"], [1, "value_table", "calcul_table"], ["label", "Argent"], ["label", "Or"], [1, "contain_error"], [4, "ngIf"], [1, "contain_action"], [1, "btn_cancel", 3, "click"], [1, "btn_save", 3, "click"], ["class", "loader", 4, "ngIf"], ["type", "number", 3, "ngModel", "ngModelChange"], ["type", "text", "placeholder", "...", 3, "ngModel", "ngModelChange"], [1, "loader"]], template: function SettingTipsComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 1);
@@ -5236,7 +5269,7 @@ SettingTipsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdef
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx.loading);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", !ctx.loading);
-    } }, directives: [_angular_material_tabs__WEBPACK_IMPORTED_MODULE_4__["MatTabGroup"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_4__["MatTab"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgModel"]], styles: [".contain_setting[_ngcontent-%COMP%] {\n  color: white;\n}\n\n.title_setting[_ngcontent-%COMP%] {\n  width: 100%;\n  text-align: center;\n  font-size: 17px;\n  margin-bottom: 20px;\n  color: var(--pink);\n  font-weight: 500;\n  border-bottom: 1px solid;\n  padding-bottom: 10px;\n}\n\n.contain_total[_ngcontent-%COMP%], .total_tips[_ngcontent-%COMP%], .total_price[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  width: 100%;\n}\n\n.contain_total[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n\n.total_tips[_ngcontent-%COMP%] {\n  margin-right: 20px;\n}\n\n.total_price[_ngcontent-%COMP%] {\n  margin-left: 20px;\n}\n\n.contain_value[_ngcontent-%COMP%] {\n  margin-top: 15px;\n}\n\n.title_table[_ngcontent-%COMP%] {\n  width: 100%;\n  padding-bottom: 5px;\n}\n\n.row[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  margin-bottom: 10px;\n  border-bottom: 1px solid grey;\n  padding-bottom: 5px;\n}\n\ninput[_ngcontent-%COMP%] {\n  border-radius: 3px;\n  height: 30px;\n  color: white;\n  background-color: var(--blue2);\n  border: none;\n  width: 100%;\n  padding-top: 5px;\n  padding-bottom: 5px;\n  padding-left: 10px;\n}\n\n.calcul_table[_ngcontent-%COMP%] {\n  text-align: right;\n}\n\n.contain_action[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  margin-bottom: 10px;\n  margin-top: 10px;\n}\n\n.contain_action[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  width: 150px;\n  padding: 10px;\n  color: white;\n  text-align: center;\n  border-radius: 3px;\n  border: none;\n}\n\n.btn_cancel[_ngcontent-%COMP%] {\n  background-color: red;\n  margin-right: 15px;\n}\n\n.btn_save[_ngcontent-%COMP%] {\n  background-color: var(--pink);\n}\n\n.contain_error[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  text-align: center;\n  color: red;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcc2V0dGluZy10aXBzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtBQUNGOztBQUVBO0VBQ0UsV0FBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtFQUNBLHdCQUFBO0VBQ0Esb0JBQUE7QUFDRjs7QUFFQTtFQUNFLGFBQUE7RUFDQSxtQkFBQTtFQUNBLDhCQUFBO0VBQ0EsV0FBQTtBQUNGOztBQUVBO0VBQ0UsZ0JBQUE7RUFDQSxtQkFBQTtBQUNGOztBQUVBO0VBQ0Usa0JBQUE7QUFDRjs7QUFFQTtFQUNFLGlCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxnQkFBQTtBQUNGOztBQUVBO0VBQ0UsV0FBQTtFQUNBLG1CQUFBO0FBQ0Y7O0FBRUE7RUFDRSxnQkFBQTtFQUNBLG1CQUFBO0VBQ0EsNkJBQUE7RUFDQSxtQkFBQTtBQUNGOztBQUVBO0VBQ0Usa0JBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUNBLDhCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7QUFDRjs7QUFFQTtFQUNFLGlCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSx5QkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7QUFDRjs7QUFFQTtFQUNFLFlBQUE7RUFDQSxhQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0Esa0JBQUE7RUFDQSxZQUFBO0FBQ0Y7O0FBRUE7RUFDRSxxQkFBQTtFQUNBLGtCQUFBO0FBQ0Y7O0FBRUE7RUFDRSw2QkFBQTtBQUNGOztBQUVBO0VBQ0Usa0JBQUE7RUFDQSxVQUFBO0FBQ0YiLCJmaWxlIjoic2V0dGluZy10aXBzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5fc2V0dGluZyB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4udGl0bGVfc2V0dGluZyB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMTdweDtcclxuICBtYXJnaW4tYm90dG9tOiAyMHB4O1xyXG4gIGNvbG9yOiB2YXIoLS1waW5rKTtcclxuICBmb250LXdlaWdodDogNTAwO1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZDtcclxuICBwYWRkaW5nLWJvdHRvbTogMTBweDtcclxufVxyXG5cclxuLmNvbnRhaW5fdG90YWwsIC50b3RhbF90aXBzLCAudG90YWxfcHJpY2Uge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5jb250YWluX3RvdGFsIHtcclxuICBtYXJnaW4tdG9wOiAxMHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbn1cclxuXHJcbi50b3RhbF90aXBzIHtcclxuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XHJcbn1cclxuXHJcbi50b3RhbF9wcmljZSB7XHJcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XHJcbn1cclxuXHJcbi5jb250YWluX3ZhbHVlIHtcclxuICBtYXJnaW4tdG9wOiAxNXB4O1xyXG59XHJcblxyXG4udGl0bGVfdGFibGUge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIHBhZGRpbmctYm90dG9tOiA1cHg7XHJcbn1cclxuXHJcbi5yb3cge1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgZ3JleTtcclxuICBwYWRkaW5nLWJvdHRvbTogNXB4O1xyXG59XHJcblxyXG5pbnB1dCB7XHJcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xyXG4gIGhlaWdodDogMzBweDtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tYmx1ZTIpO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICB3aWR0aDogMTAwJTtcclxuICBwYWRkaW5nLXRvcDogNXB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiA1cHg7XHJcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG59XHJcblxyXG4uY2FsY3VsX3RhYmxlIHtcclxuICB0ZXh0LWFsaWduOiByaWdodDtcclxufVxyXG5cclxuLmNvbnRhaW5fYWN0aW9uIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAganVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcclxuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbn1cclxuXHJcbi5jb250YWluX2FjdGlvbiBidXR0b24ge1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG5cclxuLmJ0bl9jYW5jZWwge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJlZDtcclxuICBtYXJnaW4tcmlnaHQ6IDE1cHg7XHJcbn1cclxuXHJcbi5idG5fc2F2ZSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tcGluayk7XHJcbn1cclxuXHJcbi5jb250YWluX2Vycm9yIHB7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGNvbG9yOiByZWQ7XHJcbn1cclxuIl19 */"] });
+    } }, directives: [_angular_material_tabs__WEBPACK_IMPORTED_MODULE_5__["MatTabGroup"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_5__["MatTab"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["NgModel"]], styles: [".contain_setting[_ngcontent-%COMP%] {\n  color: white;\n}\n\n.title_setting[_ngcontent-%COMP%] {\n  width: 100%;\n  text-align: center;\n  font-size: 17px;\n  margin-bottom: 20px;\n  color: var(--pink);\n  font-weight: 500;\n  border-bottom: 1px solid;\n  padding-bottom: 10px;\n}\n\n.contain_total[_ngcontent-%COMP%], .total_tips[_ngcontent-%COMP%], .total_price[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  width: 100%;\n}\n\n.contain_total[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n\n.total_tips[_ngcontent-%COMP%] {\n  margin-right: 20px;\n}\n\n.total_price[_ngcontent-%COMP%] {\n  margin-left: 20px;\n}\n\n.contain_value[_ngcontent-%COMP%] {\n  margin-top: 15px;\n}\n\n.title_table[_ngcontent-%COMP%] {\n  width: 100%;\n  padding-bottom: 5px;\n}\n\n.row[_ngcontent-%COMP%] {\n  margin-top: 10px;\n  margin-bottom: 10px;\n  border-bottom: 1px solid grey;\n  padding-bottom: 5px;\n}\n\ninput[_ngcontent-%COMP%] {\n  border-radius: 3px;\n  height: 30px;\n  color: white;\n  background-color: var(--blue2);\n  border: none;\n  width: 100%;\n  padding-top: 5px;\n  padding-bottom: 5px;\n  padding-left: 10px;\n}\n\n.calcul_table[_ngcontent-%COMP%] {\n  text-align: right;\n}\n\n.contain_action[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  margin-bottom: 10px;\n  margin-top: 10px;\n}\n\n.contain_action[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  width: 150px;\n  padding: 10px;\n  color: white;\n  text-align: center;\n  border-radius: 3px;\n  border: none;\n}\n\n.btn_cancel[_ngcontent-%COMP%] {\n  background-color: red;\n  margin-right: 15px;\n}\n\n.btn_save[_ngcontent-%COMP%] {\n  background-color: var(--pink);\n}\n\n.contain_error[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  text-align: center;\n  color: red;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcc2V0dGluZy10aXBzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtBQUNGOztBQUVBO0VBQ0UsV0FBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtFQUNBLHdCQUFBO0VBQ0Esb0JBQUE7QUFDRjs7QUFFQTtFQUNFLGFBQUE7RUFDQSxtQkFBQTtFQUNBLDhCQUFBO0VBQ0EsV0FBQTtBQUNGOztBQUVBO0VBQ0UsZ0JBQUE7RUFDQSxtQkFBQTtBQUNGOztBQUVBO0VBQ0Usa0JBQUE7QUFDRjs7QUFFQTtFQUNFLGlCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxnQkFBQTtBQUNGOztBQUVBO0VBQ0UsV0FBQTtFQUNBLG1CQUFBO0FBQ0Y7O0FBRUE7RUFDRSxnQkFBQTtFQUNBLG1CQUFBO0VBQ0EsNkJBQUE7RUFDQSxtQkFBQTtBQUNGOztBQUVBO0VBQ0Usa0JBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUNBLDhCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7QUFDRjs7QUFFQTtFQUNFLGlCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSx5QkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7QUFDRjs7QUFFQTtFQUNFLFlBQUE7RUFDQSxhQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0Esa0JBQUE7RUFDQSxZQUFBO0FBQ0Y7O0FBRUE7RUFDRSxxQkFBQTtFQUNBLGtCQUFBO0FBQ0Y7O0FBRUE7RUFDRSw2QkFBQTtBQUNGOztBQUVBO0VBQ0Usa0JBQUE7RUFDQSxVQUFBO0FBQ0YiLCJmaWxlIjoic2V0dGluZy10aXBzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5fc2V0dGluZyB7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4udGl0bGVfc2V0dGluZyB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMTdweDtcclxuICBtYXJnaW4tYm90dG9tOiAyMHB4O1xyXG4gIGNvbG9yOiB2YXIoLS1waW5rKTtcclxuICBmb250LXdlaWdodDogNTAwO1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZDtcclxuICBwYWRkaW5nLWJvdHRvbTogMTBweDtcclxufVxyXG5cclxuLmNvbnRhaW5fdG90YWwsIC50b3RhbF90aXBzLCAudG90YWxfcHJpY2Uge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5jb250YWluX3RvdGFsIHtcclxuICBtYXJnaW4tdG9wOiAxMHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbn1cclxuXHJcbi50b3RhbF90aXBzIHtcclxuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XHJcbn1cclxuXHJcbi50b3RhbF9wcmljZSB7XHJcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XHJcbn1cclxuXHJcbi5jb250YWluX3ZhbHVlIHtcclxuICBtYXJnaW4tdG9wOiAxNXB4O1xyXG59XHJcblxyXG4udGl0bGVfdGFibGUge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIHBhZGRpbmctYm90dG9tOiA1cHg7XHJcbn1cclxuXHJcbi5yb3cge1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgZ3JleTtcclxuICBwYWRkaW5nLWJvdHRvbTogNXB4O1xyXG59XHJcblxyXG5pbnB1dCB7XHJcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xyXG4gIGhlaWdodDogMzBweDtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tYmx1ZTIpO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICB3aWR0aDogMTAwJTtcclxuICBwYWRkaW5nLXRvcDogNXB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiA1cHg7XHJcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG59XHJcblxyXG4uY2FsY3VsX3RhYmxlIHtcclxuICB0ZXh0LWFsaWduOiByaWdodDtcclxufVxyXG5cclxuLmNvbnRhaW5fYWN0aW9uIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAganVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcclxuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbn1cclxuXHJcbi5jb250YWluX2FjdGlvbiBidXR0b24ge1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG5cclxuLmJ0bl9jYW5jZWwge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJlZDtcclxuICBtYXJnaW4tcmlnaHQ6IDE1cHg7XHJcbn1cclxuXHJcbi5idG5fc2F2ZSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tcGluayk7XHJcbn1cclxuXHJcbi5jb250YWluX2Vycm9yIHB7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGNvbG9yOiByZWQ7XHJcbn1cclxuIl19 */"] });
 
 
 /***/ }),
@@ -10144,6 +10177,9 @@ class RoomTipsService {
             peerId
         };
         return this.http.post(`${this.endpoint}/actif-room-tips`, data, httpOptions);
+    }
+    getLastDescriptions() {
+        return this.http.get(`${this.endpoint}/room-tips/lastDescriptions`, httpOptions);
     }
 }
 RoomTipsService.ɵfac = function RoomTipsService_Factory(t) { return new (t || RoomTipsService)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"])); };
