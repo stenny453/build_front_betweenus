@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://betweenus-live.com/sitemap.xml
