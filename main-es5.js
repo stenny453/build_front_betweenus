@@ -8065,41 +8065,53 @@
       /* harmony import */
 
 
-      var _connexion_connexion_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _commission_commission_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! ./commission/commission.component */
+      "moc3");
+      /* harmony import */
+
+
+      var _connexion_connexion_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./connexion/connexion.component */
       "9llL");
 
-      function DashboardComponent_div_5_app_information_30_Template(rf, ctx) {
+      function DashboardComponent_div_5_app_information_33_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-information");
         }
       }
 
-      function DashboardComponent_div_5_app_setting_31_Template(rf, ctx) {
+      function DashboardComponent_div_5_app_setting_34_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-setting");
         }
       }
 
-      function DashboardComponent_div_5_app_password_modele_32_Template(rf, ctx) {
+      function DashboardComponent_div_5_app_password_modele_35_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-password-modele");
         }
       }
 
-      function DashboardComponent_div_5_app_solde_33_Template(rf, ctx) {
+      function DashboardComponent_div_5_app_solde_36_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-solde");
         }
       }
 
-      function DashboardComponent_div_5_app_gain_34_Template(rf, ctx) {
+      function DashboardComponent_div_5_app_gain_37_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-gain");
         }
       }
 
-      function DashboardComponent_div_5_app_connexion_35_Template(rf, ctx) {
+      function DashboardComponent_div_5_app_commission_38_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-commission");
+        }
+      }
+
+      function DashboardComponent_div_5_app_connexion_39_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-connexion");
         }
@@ -8119,7 +8131,7 @@
 
       function DashboardComponent_div_5_Template(rf, ctx) {
         if (rf & 1) {
-          var _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+          var _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 6);
 
@@ -8132,11 +8144,11 @@
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "div", 8);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function DashboardComponent_div_5_Template_div_click_3_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r10);
 
-            var ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+            var ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
 
-            return ctx_r8.slideMenu();
+            return ctx_r9.slideMenu();
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](4, "img", 9);
@@ -8174,11 +8186,11 @@
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "div", 15);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function DashboardComponent_div_5_Template_div_click_16_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r10);
 
-            var ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+            var ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
 
-            return ctx_r10.link(1);
+            return ctx_r11.link(1);
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](17, "Informations personnelles");
@@ -8188,11 +8200,11 @@
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](18, "div", 15);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function DashboardComponent_div_5_Template_div_click_18_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r10);
 
-            var ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+            var ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
 
-            return ctx_r11.link(2);
+            return ctx_r12.link(2);
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](19, "Param\xE8tres du compte");
@@ -8202,11 +8214,11 @@
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "div", 15);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function DashboardComponent_div_5_Template_div_click_20_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r10);
 
-            var ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+            var ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
 
-            return ctx_r12.link(3);
+            return ctx_r13.link(3);
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](21, "Changer mot de passe");
@@ -8222,11 +8234,11 @@
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](24, "div", 15);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function DashboardComponent_div_5_Template_div_click_24_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r10);
 
-            var ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+            var ctx_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
 
-            return ctx_r13.link(4);
+            return ctx_r14.link(4);
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](25, "SOLDE DE MON COMPTE");
@@ -8238,34 +8250,52 @@
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](27, "div", 15);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function DashboardComponent_div_5_Template_div_click_27_listener() {
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r10);
 
-            var ctx_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+            var ctx_r15 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
 
-            return ctx_r14.link(5);
+            return ctx_r15.link(5);
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](28, "HISTORIQUES DES GAINS");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](29, "div", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](30, "div", 15);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function DashboardComponent_div_5_Template_div_click_30_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r10);
+
+            var ctx_r16 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+
+            return ctx_r16.link(6);
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](31, "PRIMES SUR COMMISSION");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](29, "div", 17);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](32, "div", 17);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](30, DashboardComponent_div_5_app_information_30_Template, 1, 0, "app-information", 18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](33, DashboardComponent_div_5_app_information_33_Template, 1, 0, "app-information", 18);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](31, DashboardComponent_div_5_app_setting_31_Template, 1, 0, "app-setting", 18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](34, DashboardComponent_div_5_app_setting_34_Template, 1, 0, "app-setting", 18);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](32, DashboardComponent_div_5_app_password_modele_32_Template, 1, 0, "app-password-modele", 18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](35, DashboardComponent_div_5_app_password_modele_35_Template, 1, 0, "app-password-modele", 18);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](33, DashboardComponent_div_5_app_solde_33_Template, 1, 0, "app-solde", 18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](36, DashboardComponent_div_5_app_solde_36_Template, 1, 0, "app-solde", 18);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](34, DashboardComponent_div_5_app_gain_34_Template, 1, 0, "app-gain", 18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](37, DashboardComponent_div_5_app_gain_37_Template, 1, 0, "app-gain", 18);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](35, DashboardComponent_div_5_app_connexion_35_Template, 1, 0, "app-connexion", 18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](38, DashboardComponent_div_5_app_commission_38_Template, 1, 0, "app-commission", 18);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](39, DashboardComponent_div_5_app_connexion_39_Template, 1, 0, "app-connexion", 18);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -8279,7 +8309,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](13, _c0, ctx_r0.slided));
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](15, _c0, ctx_r0.slided));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
@@ -8287,23 +8317,27 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](12);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](15, _c1, ctx_r0.pageId == 1));
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](17, _c1, ctx_r0.pageId == 1));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](17, _c1, ctx_r0.pageId == 2));
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](19, _c1, ctx_r0.pageId == 2));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](19, _c1, ctx_r0.pageId == 3));
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](21, _c1, ctx_r0.pageId == 3));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](21, _c1, ctx_r0.pageId == 4));
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](23, _c1, ctx_r0.pageId == 4));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](23, _c1, ctx_r0.pageId == 5));
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](25, _c1, ctx_r0.pageId == 5));
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](27, _c1, ctx_r0.pageId == 6));
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
 
@@ -8328,6 +8362,10 @@
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.pageId === 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.pageId === 7);
         }
       }
 
@@ -8426,7 +8464,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](5, DashboardComponent_div_5_Template, 36, 25, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](5, DashboardComponent_div_5_Template, 40, 29, "div", 4);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](6, DashboardComponent_div_6_Template, 2, 0, "div", 5);
 
@@ -8451,7 +8489,7 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.loaded == 2);
           }
         },
-        directives: [_layouts_header_header_component__WEBPACK_IMPORTED_MODULE_3__["HeaderComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _information_information_component__WEBPACK_IMPORTED_MODULE_5__["InformationComponent"], _setting_setting_component__WEBPACK_IMPORTED_MODULE_6__["SettingComponent"], _password_modele_password_modele_component__WEBPACK_IMPORTED_MODULE_7__["PasswordModeleComponent"], _solde_solde_component__WEBPACK_IMPORTED_MODULE_8__["SoldeComponent"], _gain_gain_component__WEBPACK_IMPORTED_MODULE_9__["GainComponent"], _connexion_connexion_component__WEBPACK_IMPORTED_MODULE_10__["ConnexionComponent"]],
+        directives: [_layouts_header_header_component__WEBPACK_IMPORTED_MODULE_3__["HeaderComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _information_information_component__WEBPACK_IMPORTED_MODULE_5__["InformationComponent"], _setting_setting_component__WEBPACK_IMPORTED_MODULE_6__["SettingComponent"], _password_modele_password_modele_component__WEBPACK_IMPORTED_MODULE_7__["PasswordModeleComponent"], _solde_solde_component__WEBPACK_IMPORTED_MODULE_8__["SoldeComponent"], _gain_gain_component__WEBPACK_IMPORTED_MODULE_9__["GainComponent"], _commission_commission_component__WEBPACK_IMPORTED_MODULE_10__["CommissionComponent"], _connexion_connexion_component__WEBPACK_IMPORTED_MODULE_11__["ConnexionComponent"]],
         styles: [".main_dashboard[_ngcontent-%COMP%] {\n  width: 90%;\n  margin-left: 5%;\n  min-height: 70vh;\n  border: 2px solid var(--blue1);\n}\n\n.dashboard_header_1[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 50px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  background-color: var(--blue3);\n  font-weight: 500;\n}\n\n.text_param[_ngcontent-%COMP%], .text_credit[_ngcontent-%COMP%] {\n  padding-left: 20px;\n  padding-right: 20px;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  font-size: 15px;\n}\n\n.active[_ngcontent-%COMP%] {\n  background-color: var(--blue1);\n  border-top: 3px solid var(--blue2);\n}\n\n.account_credit[_ngcontent-%COMP%] {\n  min-height: 80vh;\n}\n\n.dashboard_header_2[_ngcontent-%COMP%] {\n  display: flex;\n  height: 80px;\n  justify-content: center;\n  align-items: center;\n  background-color: var(--blue1);\n  font-size: 22px;\n  font-weight: 500;\n  text-align: center;\n}\n\n.content_dashboard[_ngcontent-%COMP%] {\n  margin: 3% 2% 3% 2%;\n  display: flex;\n  justify-content: space-between;\n  width: 96%;\n}\n\n.left_side[_ngcontent-%COMP%] {\n  width: 250px;\n  background-color: var(--blue1);\n  min-height: 70vh;\n  display: flex;\n  flex-direction: column;\n}\n\n.left_side[_ngcontent-%COMP%]   .block_left_1[_ngcontent-%COMP%] {\n  margin: 0;\n}\n\n.left_side[_ngcontent-%COMP%]   .block_left_2[_ngcontent-%COMP%] {\n  margin-top: auto;\n}\n\n.right_side[_ngcontent-%COMP%] {\n  margin-left: 10px;\n  width: 75%;\n  min-height: 65vh;\n}\n\n.menu[_ngcontent-%COMP%] {\n  margin: 15px;\n  font-weight: 500;\n}\n\n.menu.link[_ngcontent-%COMP%] {\n  cursor: pointer;\n  font-weight: normal;\n}\n\n.line[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 1px;\n  background-color: white;\n}\n\n.activated[_ngcontent-%COMP%] {\n  color: var(--pink);\n}\n\n.mobile_menu[_ngcontent-%COMP%] {\n  display: flex;\n  font-size: 18px;\n  padding: 13px;\n  cursor: pointer;\n  padding-bottom: 0px;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.199);\n  padding-bottom: 2px;\n}\n\n.mobile_menu[_ngcontent-%COMP%] {\n  display: none;\n}\n\n.mobile_menu[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  position: relative;\n  height: 20px;\n  margin-right: 5px;\n  bottom: 2px;\n}\n\n.open[_ngcontent-%COMP%] {\n  border-color: white;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n\n@media screen and (min-width: 1500px) {\n  .left_side[_ngcontent-%COMP%] {\n    width: 25% !important;\n  }\n\n  .right_side[_ngcontent-%COMP%] {\n    width: 70% !important;\n  }\n}\n\n@media screen and (max-width: 570px) {\n  .mobile_menu[_ngcontent-%COMP%] {\n    display: block;\n  }\n\n  .left_side[_ngcontent-%COMP%] {\n    position: absolute;\n    border-right: 4px solid black;\n    border-bottom: 4px solid black;\n    opacity: 0;\n    width: 0;\n    z-index: -1;\n  }\n\n  .right_side[_ngcontent-%COMP%] {\n    margin-left: 0% !important;\n    width: 100% !important;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsVUFBQTtFQUNBLGVBQUE7RUFFQSxnQkFBQTtFQUNBLDhCQUFBO0FBQUY7O0FBR0E7RUFDRSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGFBQUE7RUFDQSwyQkFBQTtFQUNBLG1CQUFBO0VBQ0EsOEJBQUE7RUFDQSxnQkFBQTtBQUFGOztBQUdBO0VBQ0Usa0JBQUE7RUFDQSxtQkFBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSxlQUFBO0VBQ0EsZUFBQTtBQUFGOztBQUdBO0VBQVMsOEJBQUE7RUFBZ0Msa0NBQUE7QUFFekM7O0FBQ0E7RUFDRSxnQkFBQTtBQUVGOztBQUVBO0VBQ0UsYUFBQTtFQUNBLFlBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0VBQ0EsOEJBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtBQUNGOztBQUVBO0VBQ0UsbUJBQUE7RUFDQSxhQUFBO0VBQ0EsOEJBQUE7RUFDQSxVQUFBO0FBQ0Y7O0FBRUE7RUFDRSxZQUFBO0VBQ0EsOEJBQUE7RUFDQSxnQkFBQTtFQUNBLGFBQUE7RUFDQSxzQkFBQTtBQUNGOztBQUNBO0VBQTBCLFNBQUE7QUFHMUI7O0FBREE7RUFBMEIsZ0JBQUE7QUFLMUI7O0FBSEE7RUFDRSxpQkFBQTtFQUNBLFVBQUE7RUFDQSxnQkFBQTtBQU1GOztBQUhBO0VBQU8sWUFBQTtFQUFjLGdCQUFBO0FBUXJCOztBQVBBO0VBQVksZUFBQTtFQUFpQixtQkFBQTtBQVk3Qjs7QUFYQTtFQUFPLFdBQUE7RUFBWSxXQUFBO0VBQVksdUJBQUE7QUFpQi9COztBQWZBO0VBQVksa0JBQUE7QUFtQlo7O0FBakJBO0VBQ0UsYUFBQTtFQUNBLGVBQUE7RUFDQSxhQUFBO0VBQ0EsZUFBQTtFQUNBLG1CQUFBO0VBQ0EsNkNBQUE7RUFDQSxtQkFBQTtBQW9CRjs7QUFsQkE7RUFBYyxhQUFBO0FBc0JkOztBQXBCQTtFQUNJLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLGlCQUFBO0VBQ0EsV0FBQTtBQXVCSjs7QUFwQkE7RUFBTyxtQkFBQTtFQUFxQiwwQkFBQTtFQUFBLHVCQUFBO0VBQUEsa0JBQUE7QUF5QjVCOztBQXZCQTtFQUNFO0lBQVkscUJBQUE7RUEyQlo7O0VBMUJBO0lBQWEscUJBQUE7RUE4QmI7QUFDRjs7QUE1QkE7RUFDRTtJQUFjLGNBQUE7RUErQmQ7O0VBOUJBO0lBQ0Usa0JBQUE7SUFDQSw2QkFBQTtJQUNBLDhCQUFBO0lBQ0EsVUFBQTtJQUNBLFFBQUE7SUFDQSxXQUFBO0VBaUNGOztFQS9CQTtJQUNFLDBCQUFBO0lBQ0Esc0JBQUE7RUFrQ0Y7QUFDRiIsImZpbGUiOiJkYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbl9kYXNoYm9hcmQge1xyXG4gIHdpZHRoOiA5MCU7XHJcbiAgbWFyZ2luLWxlZnQ6IDUlO1xyXG4gIC8vIG1hcmdpbi10b3A6IDUlO1xyXG4gIG1pbi1oZWlnaHQ6IDcwdmg7XHJcbiAgYm9yZGVyOiAycHggc29saWQgdmFyKC0tYmx1ZTEpO1xyXG59XHJcblxyXG4uZGFzaGJvYXJkX2hlYWRlcl8xIHtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtc3RhcnQ7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1ibHVlMyk7XHJcbiAgZm9udC13ZWlnaHQ6IDUwMDtcclxufVxyXG5cclxuLnRleHRfcGFyYW0sIC50ZXh0X2NyZWRpdCB7XHJcbiAgcGFkZGluZy1sZWZ0OiAyMHB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDIwcHg7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgZm9udC1zaXplOiAxNXB4XHJcbn1cclxuXHJcbi5hY3RpdmUge2JhY2tncm91bmQtY29sb3I6IHZhcigtLWJsdWUxKTsgYm9yZGVyLXRvcDogM3B4IHNvbGlkIHZhcigtLWJsdWUyKTt9XHJcblxyXG5cclxuLmFjY291bnRfY3JlZGl0IHtcclxuICBtaW4taGVpZ2h0OiA4MHZoO1xyXG4gIC8vIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJsdWUxKTtcclxufVxyXG5cclxuLmRhc2hib2FyZF9oZWFkZXJfMiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBoZWlnaHQ6IDgwcHg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1ibHVlMSk7XHJcbiAgZm9udC1zaXplOiAyMnB4O1xyXG4gIGZvbnQtd2VpZ2h0OiA1MDA7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcblxyXG4uY29udGVudF9kYXNoYm9hcmQge1xyXG4gIG1hcmdpbjogMyUgMiUgMyUgMiU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbiAgd2lkdGg6IDk2JTtcclxufVxyXG5cclxuLmxlZnRfc2lkZSB7XHJcbiAgd2lkdGg6IDI1MHB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJsdWUxKTtcclxuICBtaW4taGVpZ2h0OiA3MHZoO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxufVxyXG4ubGVmdF9zaWRlIC5ibG9ja19sZWZ0XzEge21hcmdpbjogMDt9XHJcblxyXG4ubGVmdF9zaWRlIC5ibG9ja19sZWZ0XzIge21hcmdpbi10b3A6IGF1dG87fVxyXG5cclxuLnJpZ2h0X3NpZGUge1xyXG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xyXG4gIHdpZHRoOiA3NSU7XHJcbiAgbWluLWhlaWdodDogNjV2aDtcclxufVxyXG5cclxuLm1lbnUge21hcmdpbjogMTVweDsgZm9udC13ZWlnaHQ6IDUwMDt9XHJcbi5tZW51Lmxpbmsge2N1cnNvcjogcG9pbnRlcjsgZm9udC13ZWlnaHQ6IG5vcm1hbDt9XHJcbi5saW5lIHt3aWR0aDogMTAwJTtoZWlnaHQ6IDFweDtiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTt9XHJcblxyXG4uYWN0aXZhdGVkIHtjb2xvcjogdmFyKC0tcGluayk7fVxyXG5cclxuLm1vYmlsZV9tZW51IHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZvbnQtc2l6ZTogMThweDtcclxuICBwYWRkaW5nOiAxM3B4O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICBwYWRkaW5nLWJvdHRvbTogMHB4O1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCByZ2JhKDAsIDAsIDAsIDAuMTk5KTtcclxuICBwYWRkaW5nLWJvdHRvbTogMnB4O1xyXG59XHJcbi5tb2JpbGVfbWVudSB7ZGlzcGxheTogbm9uZTt9XHJcblxyXG4ubW9iaWxlX21lbnUgaW1nIHtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIGhlaWdodDogMjBweDtcclxuICAgIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gICAgYm90dG9tOiAycHg7XHJcbn1cclxuXHJcbi5vcGVuIHtib3JkZXItY29sb3I6IHdoaXRlOyB3aWR0aDogZml0LWNvbnRlbnQ7fVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1pbi13aWR0aDogMTUwMHB4KSB7XHJcbiAgLmxlZnRfc2lkZSB7d2lkdGg6IDI1JSAhaW1wb3J0YW50O31cclxuICAucmlnaHRfc2lkZSB7d2lkdGg6IDcwJSAhaW1wb3J0YW50O31cclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNTcwcHgpIHtcclxuICAubW9iaWxlX21lbnUge2Rpc3BsYXk6IGJsb2NrO31cclxuICAubGVmdF9zaWRlIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGJvcmRlci1yaWdodDogNHB4IHNvbGlkIGJsYWNrO1xyXG4gICAgYm9yZGVyLWJvdHRvbTogNHB4IHNvbGlkIGJsYWNrO1xyXG4gICAgb3BhY2l0eTogMDtcclxuICAgIHdpZHRoOiAwO1xyXG4gICAgei1pbmRleDogLTE7XHJcbiAgfVxyXG4gIC5yaWdodF9zaWRlIHtcclxuICAgIG1hcmdpbi1sZWZ0OiAwJSAhaW1wb3J0YW50O1xyXG4gICAgd2lkdGg6IDEwMCUgIWltcG9ydGFudDtcclxuICB9XHJcbn1cclxuXHJcblxyXG5cclxuIl19 */"]
       });
       /***/
@@ -8541,7 +8579,7 @@
           key: "login",
           value: function login(who) {
             if (who == 'model') {
-              console.log("connexion model");
+              // console.log("connexion model");
               this.store.set("model", true);
             }
 
@@ -8551,7 +8589,7 @@
           key: "logout",
           value: function logout(who) {
             if (who == 'model') {
-              console.log("deconnexion model");
+              // console.log("deconnexion model");
               this.store.set("model", false);
             }
 
@@ -12528,7 +12566,7 @@
             var _this73 = this;
 
             this.creditService.getCredit().subscribe(function (data) {
-              console.log(data);
+              // console.log(data);
               _this73.solde = data.credit;
 
               _this73.getInfoModel();
@@ -18460,13 +18498,14 @@
               var random = 0;
 
               if (_this116.allLive.length > 0) {
-                random = Math.floor(Math.random() * (_this116.allLive.length - 1 + 1)) + 1;
+                random = Math.floor(Math.random() * _this116.allLive.length);
+                random = random < -1 ? 0 : random;
                 _this116.mainModel = _this116.allLive[random];
               } else {
-                random = Math.floor(Math.random() * (_this116.other.length - 1 + 1)) + 1;
+                random = Math.floor(Math.random() * _this116.other.length);
+                random = random < -1 ? 0 : random;
                 _this116.mainModel = _this116.other[random];
-              } // console.log("NoLive ", this.other);
-
+              }
             }, function (error) {
               _this116.loading = false;
             });
@@ -19630,41 +19669,51 @@
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      var aos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! aos */
+      "9a8T");
+      /* harmony import */
+
+
+      var aos__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(aos__WEBPACK_IMPORTED_MODULE_0__);
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/common */
       "ofXK");
 
       function InfobarAdminComponent_div_12_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 11);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 11);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "img", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "p");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "p");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](3);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         }
 
         if (rf & 2) {
           var item_r1 = ctx.$implicit;
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", item_r1.icon, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("src", item_r1.icon, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r1.label);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](item_r1.label);
         }
       }
 
@@ -19694,7 +19743,9 @@
 
         _createClass(InfobarAdminComponent, [{
           key: "ngOnInit",
-          value: function ngOnInit() {}
+          value: function ngOnInit() {
+            aos__WEBPACK_IMPORTED_MODULE_0__["init"]();
+          }
         }]);
 
         return InfobarAdminComponent;
@@ -19704,7 +19755,7 @@
         return new (t || InfobarAdminComponent)();
       };
 
-      InfobarAdminComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+      InfobarAdminComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
         type: InfobarAdminComponent,
         selectors: [["app-infobar-admin"]],
         inputs: {
@@ -19713,73 +19764,73 @@
         },
         decls: 14,
         vars: 4,
-        consts: [[1, "main_infobar"], [1, "left_side_info"], [1, "subtitle_info"], [1, "title_info"], [1, "right_side_info"], [1, "contain_info"], ["alt", "", 3, "src"], [1, "txt_help"], [1, "contain_help"], ["class", "list_helps", 4, "ngFor", "ngForOf"], [1, "spacer_infobar"], [1, "list_helps"]],
+        consts: [[1, "main_infobar"], [1, "left_side_info"], [1, "subtitle_info"], [1, "title_info"], [1, "right_side_info"], [1, "contain_info"], ["alt", "", 3, "src"], [1, "txt_help"], [1, "contain_help"], ["class", "list_helps", "data-aos", "fade-right", 4, "ngFor", "ngForOf"], [1, "spacer_infobar"], ["data-aos", "fade-right", 1, "list_helps"]],
         template: function InfobarAdminComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 2);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "div", 3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](5);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "div", 4);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "div", 5);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "img", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](8, "img", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "div", 7);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, " aide ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, " aide ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "div", 8);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "div", 8);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, InfobarAdminComponent_div_12_Template, 4, 2, "div", 9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](12, InfobarAdminComponent_div_12_Template, 4, 2, "div", 9);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](13, "div", 10);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](13, "div", 10);
           }
 
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx.subTitle, " ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx.subTitle, " ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx.title, " ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx.title, " ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.help, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("src", ctx.help, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.helps);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.helps);
           }
         },
-        directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgForOf"]],
+        directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"]],
         styles: ["*[_ngcontent-%COMP%] {\n  color: black;\n}\n\n.main_infobar[_ngcontent-%COMP%] {\n  width: 100%;\n  background-color: white;\n  height: 60px;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px;\n  position: fixed;\n  width: calc(100% - 200px);\n  z-index: 5;\n}\n\n.contain_info[_ngcontent-%COMP%] {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding-top: 15px;\n  margin: 10px;\n  cursor: pointer;\n}\n\n.contain_info[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: 20px;\n}\n\n.subtitle_info[_ngcontent-%COMP%] {\n  font-weight: 500;\n  color: grey;\n  font-size: 13px;\n}\n\n.title_info[_ngcontent-%COMP%] {\n  font-weight: bold;\n  font-size: 16px;\n}\n\n.contain_info[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: 12px;\n  color: #4c4949;\n}\n\n.spacer_infobar[_ngcontent-%COMP%] {\n  height: 60px;\n}\n\n.txt_help[_ngcontent-%COMP%] {\n  font-size: 12px;\n}\n\n.txt_help[_ngcontent-%COMP%]:hover   .contain_help[_ngcontent-%COMP%] {\n  display: block !important;\n}\n\n.contain_help[_ngcontent-%COMP%] {\n  display: none;\n  top: 60px;\n  background-color: #ffffffdb;\n  position: absolute;\n  right: 0px;\n  width: 150px;\n  border-radius: 1px;\n  z-index: 100;\n  font-weight: bolder;\n  padding-right: 15px;\n  padding-left: 15px;\n}\n\n.list_helps[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: space-between;\n  margin-top: 10px;\n}\n\n.list_helps[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  height: 20px;\n  width: auto;\n}\n\n@media screen and (max-width: 700px) {\n  .main_infobar[_ngcontent-%COMP%] {\n    width: 100% !important;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXGluZm9iYXItYWRtaW4uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFBO0FBQ0Y7O0FBRUE7RUFDRSxXQUFBO0VBQ0EsdUJBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsOEJBQUE7RUFDQSxtQkFBQTtFQUNBLGFBQUE7RUFDQSxlQUFBO0VBQ0EseUJBQUE7RUFDQSxVQUFBO0FBQ0Y7O0FBRUE7RUFDRSxZQUFBO0VBQ0EsYUFBQTtFQUNBLHNCQUFBO0VBQ0EsbUJBQUE7RUFDQSx1QkFBQTtFQUNBLGlCQUFBO0VBQ0EsWUFBQTtFQUNBLGVBQUE7QUFDRjs7QUFFQTtFQUNFLFdBQUE7QUFDRjs7QUFFQTtFQUNFLGdCQUFBO0VBQ0EsV0FBQTtFQUNBLGVBQUE7QUFDRjs7QUFFQTtFQUNFLGlCQUFBO0VBQ0EsZUFBQTtBQUNGOztBQUVBO0VBQ0UsZUFBQTtFQUNBLGNBQUE7QUFDRjs7QUFFQTtFQUNFLFlBQUE7QUFDRjs7QUFFQTtFQUNFLGVBQUE7QUFDRjs7QUFFQTtFQUNFLHlCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxhQUFBO0VBQ0EsU0FBQTtFQUNBLDJCQUFBO0VBQ0Esa0JBQUE7RUFDQSxVQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtBQUNGOztBQUVBO0VBQ0UsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsV0FBQTtFQUNBLDhCQUFBO0VBQ0EsZ0JBQUE7QUFDRjs7QUFFQTtFQUNFLFlBQUE7RUFDQSxXQUFBO0FBQ0Y7O0FBRUE7RUFDRTtJQUNFLHNCQUFBO0VBQ0Y7QUFDRiIsImZpbGUiOiJpbmZvYmFyLWFkbWluLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiKiB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG59XHJcblxyXG4ubWFpbl9pbmZvYmFyIHtcclxuICB3aWR0aDogMTAwJTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICBoZWlnaHQ6IDYwcHg7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIHBhZGRpbmc6IDIwcHg7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHdpZHRoOiBjYWxjKDEwMCUgLSAyMDBweCk7XHJcbiAgei1pbmRleDogNTtcclxufVxyXG5cclxuLmNvbnRhaW5faW5mbyB7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIHBhZGRpbmctdG9wOiAxNXB4O1xyXG4gIG1hcmdpbjogMTBweDtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbi5jb250YWluX2luZm8gaW1nIHtcclxuICB3aWR0aDogMjBweDtcclxufVxyXG5cclxuLnN1YnRpdGxlX2luZm8ge1xyXG4gIGZvbnQtd2VpZ2h0OiA1MDA7XHJcbiAgY29sb3I6IGdyZXk7XHJcbiAgZm9udC1zaXplOiAxM3B4O1xyXG59XHJcblxyXG4udGl0bGVfaW5mbyB7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgZm9udC1zaXplOiAxNnB4O1xyXG59XHJcblxyXG4uY29udGFpbl9pbmZvIHAge1xyXG4gIGZvbnQtc2l6ZTogMTJweDtcclxuICBjb2xvcjogIzRjNDk0OTtcclxufVxyXG5cclxuLnNwYWNlcl9pbmZvYmFyIHtcclxuICBoZWlnaHQ6IDYwcHg7XHJcbn1cclxuXHJcbi50eHRfaGVscCB7XHJcbiAgZm9udC1zaXplOiAxMnB4O1xyXG59XHJcblxyXG4udHh0X2hlbHA6aG92ZXIgLmNvbnRhaW5faGVscCB7XHJcbiAgZGlzcGxheTogYmxvY2sgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmNvbnRhaW5faGVscCB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICB0b3A6IDYwcHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZmZmZmRiO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICByaWdodDogMHB4O1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBib3JkZXItcmFkaXVzOiAxcHg7XHJcbiAgei1pbmRleDogMTAwO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkZXI7XHJcbiAgcGFkZGluZy1yaWdodDogMTVweDtcclxuICBwYWRkaW5nLWxlZnQ6IDE1cHg7XHJcbn1cclxuXHJcbi5saXN0X2hlbHBzIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbn1cclxuXHJcbi5saXN0X2hlbHBzIGltZyB7XHJcbiAgaGVpZ2h0OiAyMHB4O1xyXG4gIHdpZHRoOiBhdXRvO1xyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3MDBweCkge1xyXG4gIC5tYWluX2luZm9iYXIge1xyXG4gICAgd2lkdGg6IDEwMCUgIWltcG9ydGFudDtcclxuICB9XHJcbn1cclxuIl19 */"]
       });
       /***/
@@ -33780,7 +33831,8 @@
             var year = date.substring(0, 4);
             var month = date.substring(5, 7);
             var day = date.substring(8, 10);
-            var result = day + '/' + month + '/' + year;
+            var hour = date.substring(11, 16);
+            var result = day + '/' + month + '/' + year + ' ' + hour;
             return result;
           }
         }, {
@@ -34149,6 +34201,254 @@
     },
 
     /***/
+    "WRny":
+    /*!*******************************************************************************************************************************!*\
+      !*** ./src/app/components/admin/connected/dashboard-admin/model/commissions-model-admin/commissions-model-admin.component.ts ***!
+      \*******************************************************************************************************************************/
+
+    /*! exports provided: CommissionsModelAdminComponent */
+
+    /***/
+    function WRny(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "CommissionsModelAdminComponent", function () {
+        return CommissionsModelAdminComponent;
+      });
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
+
+
+      var _services_commission_commission_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ../../../../../../services/commission/commission.service */
+      "ZfOr");
+      /* harmony import */
+
+
+      var _services_admin_admin_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ../../../../../../services/admin/admin.service */
+      "VKgo");
+      /* harmony import */
+
+
+      var _infobar_admin_infobar_admin_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ../../../infobar-admin/infobar-admin.component */
+      "KibS");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @angular/common */
+      "ofXK");
+
+      function CommissionsModelAdminComponent_tr_21_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "td");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "td");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "td");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "td");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "td");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var item_r1 = ctx.$implicit;
+
+          var ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r1.model.pseudo);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r1.commissionCredit);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r1.palierCredit);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r1.primeCredit);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r1.nouveauCredit);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r0.adminService.formatDate(item_r1.createdAt));
+        }
+      }
+
+      var CommissionsModelAdminComponent = /*#__PURE__*/function () {
+        function CommissionsModelAdminComponent(commissionService, adminService) {
+          _classCallCheck(this, CommissionsModelAdminComponent);
+
+          this.commissionService = commissionService;
+          this.adminService = adminService;
+          this.commissions = [];
+        }
+
+        _createClass(CommissionsModelAdminComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            this.getAllCommissions();
+          }
+        }, {
+          key: "getAllCommissions",
+          value: function getAllCommissions() {
+            var _this198 = this;
+
+            this.commissionService.getAllCommissions().subscribe(function (data) {
+              console.log(data);
+              _this198.commissions = data;
+            });
+          }
+        }]);
+
+        return CommissionsModelAdminComponent;
+      }();
+
+      CommissionsModelAdminComponent.ɵfac = function CommissionsModelAdminComponent_Factory(t) {
+        return new (t || CommissionsModelAdminComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_commission_commission_service__WEBPACK_IMPORTED_MODULE_1__["CommissionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_admin_admin_service__WEBPACK_IMPORTED_MODULE_2__["AdminService"]));
+      };
+
+      CommissionsModelAdminComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+        type: CommissionsModelAdminComponent,
+        selectors: [["app-commissions-model-admin"]],
+        decls: 22,
+        vars: 1,
+        consts: [["title", "Commission", "subTitle", "Commission"], [1, "admin_container"], [1, "admin_bottom_bar"], [1, "container-fluid"], [1, "table", "table-responsive", "table-striped"], [4, "ngFor", "ngForOf"]],
+        template: function CommissionsModelAdminComponent_Template(rf, ctx) {
+          if (rf & 1) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-infobar-admin", 0);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, " COMMISSIONS ");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 3);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "table", 4);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "thead");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "tr");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Pseudo");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Ancien credit");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Palier");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "Prime Credit");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Nouveau Credit");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "Date");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "tbody");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](21, CommissionsModelAdminComponent_tr_21_Template, 13, 6, "tr", 5);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          }
+
+          if (rf & 2) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](21);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.commissions);
+          }
+        },
+        directives: [_infobar_admin_infobar_admin_component__WEBPACK_IMPORTED_MODULE_3__["InfobarAdminComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"]],
+        styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjb21taXNzaW9ucy1tb2RlbC1hZG1pbi5jb21wb25lbnQuc2NzcyJ9 */"]
+      });
+      /***/
+    },
+
+    /***/
     "XGfg":
     /*!*********************************************************************************************************************************!*\
       !*** ./src/app/components/admin/connected/dashboard-admin/model/statistique-models-admin/statistique-models-admin.component.ts ***!
@@ -34242,7 +34542,7 @@
 
       var StatistiqueModelsAdminComponent = /*#__PURE__*/function () {
         function StatistiqueModelsAdminComponent(adminService) {
-          var _this198 = this;
+          var _this199 = this;
 
           _classCallCheck(this, StatistiqueModelsAdminComponent);
 
@@ -34258,32 +34558,32 @@
           this.isIntegral = false;
 
           this.useDefaultGridStyle = function () {
-            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this198.options);
+            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this199.options);
             var gridStyle = [{
               stroke: 'white',
               lineDash: [2, 1]
             }];
             options.axes[0].gridStyle = gridStyle;
             options.axes[1].gridStyle = gridStyle;
-            _this198.options = options;
+            _this199.options = options;
           };
 
           this.update = function () {
-            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this198.options);
-            options.data = _this198.getData();
-            _this198.options = options;
+            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this199.options);
+            options.data = _this199.getData();
+            _this199.options = options;
           };
 
           this.startUpdates = function () {
-            if (_this198.updating) {
+            if (_this199.updating) {
               return;
             }
 
-            _this198.updating = true;
+            _this199.updating = true;
 
-            _this198.update();
+            _this199.update();
 
-            setInterval(_this198.update, 1000);
+            setInterval(_this199.update, 1000);
           };
 
           this.options = {
@@ -34373,10 +34673,10 @@
         }, {
           key: "countModelActif",
           value: function countModelActif() {
-            var _this199 = this;
+            var _this200 = this;
 
             this.adminService.countModelActif().subscribe(function (data) {
-              _this199.actif = data ? data : 0;
+              _this200.actif = data ? data : 0;
             }, function (error) {
               console.log(error);
             });
@@ -34399,20 +34699,20 @@
         }, {
           key: "getInscriptions",
           value: function getInscriptions() {
-            var _this200 = this;
+            var _this201 = this;
 
             this.originModels = [];
             this.adminService.getStatInscriptionModel().subscribe(function (data) {
               var tmp = data;
               tmp.forEach(function (inscrit) {
-                inscrit.date = _this200.adminService.formatDate(inscrit.date);
+                inscrit.date = _this201.adminService.formatDate(inscrit.date);
                 inscrit.count = parseInt(inscrit.count);
                 inscrit.inscription = parseInt(inscrit.count);
                 inscrit.suppression = 0;
               });
-              _this200.originModels = tmp;
+              _this201.originModels = tmp;
 
-              _this200.getSuppression();
+              _this201.getSuppression();
             }, function (error) {
               console.log(error);
             });
@@ -34420,20 +34720,20 @@
         }, {
           key: "getSuppression",
           value: function getSuppression() {
-            var _this201 = this;
+            var _this202 = this;
 
             this.adminService.getStatSuppressionModel().subscribe(function (data) {
               var tmp = data;
               tmp.forEach(function (inscrit) {
-                inscrit.date = _this201.adminService.formatDate(inscrit.date);
+                inscrit.date = _this202.adminService.formatDate(inscrit.date);
                 inscrit.count = parseInt(inscrit.count);
                 inscrit.inscription = 0;
                 inscrit.suppression = parseInt(inscrit.count);
 
-                _this201.originModels.push(inscrit);
+                _this202.originModels.push(inscrit);
               }); // console.log(this.originModels)
 
-              _this201.resume();
+              _this202.resume();
             }, function (error) {
               console.log(error);
             });
@@ -34454,14 +34754,14 @@
         }, {
           key: "selectYear",
           value: function selectYear(event) {
-            var _this202 = this;
+            var _this203 = this;
 
             this.isIntegral = false;
             var value = event.target.value;
             this.currentYear = value;
             this.models = this.original.filter(function (element) {
               var year = element.date.substring(6, 10);
-              if (year === _this202.currentYear) return true;
+              if (year === _this203.currentYear) return true;
               return false;
             });
           }
@@ -34484,22 +34784,22 @@
         }, {
           key: "resume",
           value: function resume() {
-            var _this203 = this;
+            var _this204 = this;
 
             var find = false;
             this.models = [];
             this.originModels.forEach(function (element) {
               find = false;
 
-              for (var i = 0; i < _this203.models.length; i++) {
-                if (_this203.models[i].date === element.date) {
-                  _this203.models[i].inscription += element.inscription;
-                  _this203.models[i].suppression += element.suppression;
+              for (var i = 0; i < _this204.models.length; i++) {
+                if (_this204.models[i].date === element.date) {
+                  _this204.models[i].inscription += element.inscription;
+                  _this204.models[i].suppression += element.suppression;
                   find = true;
                 }
               }
 
-              if (!find) _this203.models.push(element);
+              if (!find) _this204.models.push(element);
             });
             this.original = this.models;
           }
@@ -35056,7 +35356,7 @@
 
       var LiveTipsClientsModelComponent = /*#__PURE__*/function () {
         function LiveTipsClientsModelComponent(_platform, router, store, modelService, chatService, socketService, profilService, popupService, creditService, timerService, profileService, roomTipsService) {
-          var _this204 = this;
+          var _this205 = this;
 
           _classCallCheck(this, LiveTipsClientsModelComponent);
 
@@ -35143,35 +35443,35 @@
           this.peerList = [];
 
           this.getPeerId = function () {
-            _this204.peer.on('open', function (id) {
+            _this205.peer.on('open', function (id) {
               console.log("Peer Id ", id);
-              _this204.peerId = id;
+              _this205.peerId = id;
               var data = {
                 role: 'model',
-                modelId: _this204.info.modelId,
-                room: _this204.info.idRoom + 'T',
-                peerId: _this204.peerId
+                modelId: _this205.info.modelId,
+                room: _this205.info.idRoom + 'T',
+                peerId: _this205.peerId
               };
 
-              _this204.socketService.newPeerIdModel(data);
+              _this205.socketService.newPeerIdModel(data);
             });
 
-            _this204.peer.on('call', function (call) {
+            _this205.peer.on('call', function (call) {
               console.log("Someone call model");
-              call.answer(_this204.lazyStream);
+              call.answer(_this205.lazyStream);
               console.log("After answer stream");
               call.on('stream', function (remoteStream) {
                 console.log("On receive stream in model");
 
-                if (!_this204.peerList.includes(call.peer)) {
-                  _this204.streamRemoteVideo(remoteStream, call.peer);
+                if (!_this205.peerList.includes(call.peer)) {
+                  _this205.streamRemoteVideo(remoteStream, call.peer);
 
-                  _this204.currentPeer = call.peerConnection;
+                  _this205.currentPeer = call.peerConnection;
 
-                  _this204.peerList.push(call.peer);
+                  _this205.peerList.push(call.peer);
                 }
 
-                console.log("Peer list ", _this204.peerList);
+                console.log("Peer list ", _this205.peerList);
               });
             });
           };
@@ -35198,12 +35498,12 @@
         }, {
           key: "verifySound",
           value: function verifySound() {
-            var _this205 = this;
+            var _this206 = this;
 
             this.profileService.getInfo().subscribe(function (data) {
               // console.log(data.setting);
-              _this205.sound_notification = data.setting.sound_notification === 1 ? true : false;
-              _this205.sound_message = data.setting.sound_message === 1 ? true : false;
+              _this206.sound_notification = data.setting.sound_notification === 1 ? true : false;
+              _this206.sound_message = data.setting.sound_message === 1 ? true : false;
             });
           }
         }, {
@@ -35223,42 +35523,42 @@
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this206 = this;
+            var _this207 = this;
 
             this.modelService.getInfo().subscribe(function (data) {
               // console.log('Get info ', data);
               if (data.profile.status === 'En vip') {
-                _this206.onStop();
+                _this207.onStop();
 
-                _this206.router.navigate(['/modele/live-vip']);
+                _this207.router.navigate(['/modele/live-vip']);
               }
 
               if (data.profile.status === 'En ligne') {
-                _this206.onStop();
+                _this207.onStop();
 
-                _this206.router.navigate(['/modele/chat']);
+                _this207.router.navigate(['/modele/chat']);
               }
 
               if (data.profile.status === 'En live choice') {
-                _this206.onStop();
+                _this207.onStop();
 
-                _this206.router.navigate(['/modele/live-choice-us']);
+                _this207.router.navigate(['/modele/live-choice-us']);
               }
 
-              _this206.info.bg = data.path_soft;
-              _this206.info.modelId = data.id;
-              _this206.info.pseudo = data.pseudo;
+              _this207.info.bg = data.path_soft;
+              _this207.info.modelId = data.id;
+              _this207.info.pseudo = data.pseudo;
 
-              _this206.getInfoRoom();
+              _this207.getInfoRoom();
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this207 = this;
+            var _this208 = this;
 
             this.roomTipsService.getRoomModel(this.info.modelId).subscribe(function (data) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this207, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee98() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this208, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee98() {
                 return regeneratorRuntime.wrap(function _callee98$(_context98) {
                   while (1) {
                     switch (_context98.prev = _context98.next) {
@@ -35294,7 +35594,7 @@
           key: "getActifRoom",
           value: function getActifRoom() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee99() {
-              var _this208 = this;
+              var _this209 = this;
 
               return regeneratorRuntime.wrap(function _callee99$(_context99) {
                 while (1) {
@@ -35302,7 +35602,7 @@
                     case 0:
                       this.roomTipsService.getActifs(this.info.idRoom).subscribe(function (data) {
                         // console.log('Actifs ', data);
-                        _this208.info.actif = data ? data.length : 0;
+                        _this209.info.actif = data ? data.length : 0;
                       });
 
                     case 1:
@@ -35317,7 +35617,7 @@
           key: "getStatRoom",
           value: function getStatRoom(idRoom) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee100() {
-              var _this209 = this;
+              var _this210 = this;
 
               return regeneratorRuntime.wrap(function _callee100$(_context100) {
                 while (1) {
@@ -35333,7 +35633,7 @@
                     case 2:
                       this.roomTipsService.getStatRoom(this.info.idRoom).subscribe(function (data) {
                         if (!data) return null;
-                        _this209.info.gain = data.gain;
+                        _this210.info.gain = data.gain;
                       });
 
                     case 3:
@@ -35347,11 +35647,11 @@
         }, {
           key: "getCredit",
           value: function getCredit() {
-            var _this210 = this;
+            var _this211 = this;
 
             this.creditService.getCredit().subscribe(function (data) {
-              _this210.info.creditModel = data ? data.credit : 0;
-              _this210.info.idCreditModel = data ? data.id : 0;
+              _this211.info.creditModel = data ? data.credit : 0;
+              _this211.info.idCreditModel = data ? data.id : 0;
             }); // Launch the timer
 
             this.initTimer();
@@ -35359,41 +35659,41 @@
         }, {
           key: "initSocket",
           value: function initSocket() {
-            var _this211 = this;
+            var _this212 = this;
 
             this.joinSub = this.socketService.listen("joined ".concat(this.info.idRoom, "T")).subscribe(function (data) {
               // console.log('joined ', data);
-              _this211.getActifRoom();
+              _this212.getActifRoom();
 
-              if (_this211.sound_notification) {
-                _this211.socketService.soundIncome();
+              if (_this212.sound_notification) {
+                _this212.socketService.soundIncome();
               }
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.info.idRoom, "T")).subscribe(function (data) {
-              _this211.getActifRoom();
+              _this212.getActifRoom();
 
-              if (_this211.sound_notification) {
-                _this211.socketService.soundOutcome();
+              if (_this212.sound_notification) {
+                _this212.socketService.soundOutcome();
               } // console.log('leaved ', data);
 
             });
             this.messageSub = this.socketService.listen("message ".concat(this.info.idRoom, "T")).subscribe(function (data) {
               // this.socketService.soundOutcome();
-              _this211.messages.push(data); // this.getMessages();
+              _this212.messages.push(data); // this.getMessages();
 
             });
             this.newTipsSub = this.socketService.listen("new tips ".concat(this.info.idRoom, "T")).subscribe(function (data) {
               // console.log('new tips ', data);
               if (data.credit) {
-                _this211.info.creditModel += data.credit;
+                _this212.info.creditModel += data.credit;
               }
 
-              _this211.getStatRoom(_this211.info.idRoom);
+              _this212.getStatRoom(_this212.info.idRoom);
 
-              _this211.socketService.soundIncome();
+              _this212.socketService.soundIncome();
             });
             this.peerSub = this.socketService.listen("ask peerId ".concat(this.info.idRoom, "T")).subscribe(function (data) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this211, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee101() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this212, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee101() {
                 return regeneratorRuntime.wrap(function _callee101$(_context101) {
                   while (1) {
                     switch (_context101.prev = _context101.next) {
@@ -35427,12 +35727,12 @@
               if (data.clientId) {
                 console.log('Toggle audio from ', data.clientId);
 
-                _this211.toggleAudioClientStream(data.peerId, data.isAudio);
+                _this212.toggleAudioClientStream(data.peerId, data.isAudio);
               }
             });
             this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.info.idRoom, "T")).subscribe(function (data) {
               if (data.clientId) {
-                _this211.toggleVideoClientStream(data.peerId, data.isVideo);
+                _this212.toggleVideoClientStream(data.peerId, data.isVideo);
               }
             });
             this.getMessages();
@@ -35440,11 +35740,11 @@
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this212 = this;
+            var _this213 = this;
 
             this.chatService.getMessage(this.info.idRoom, 'tips').subscribe(function (data) {
               // console.log('Messages ', data);
-              _this212.messages = data;
+              _this213.messages = data;
             });
           }
         }, {
@@ -35455,7 +35755,7 @@
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this213 = this;
+            var _this214 = this;
 
             if (!this.info.message) return null;
             var data = {
@@ -35482,14 +35782,14 @@
             this.socketService.sendMessage(msg);
             this.chatService.postMessage(data).subscribe(function (data) {
               // this.getMessages();
-              _this213.info.message = null;
+              _this214.info.message = null;
             });
           }
         }, {
           key: "liveOut",
           value: function liveOut() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee102() {
-              var _this214 = this;
+              var _this215 = this;
 
               return regeneratorRuntime.wrap(function _callee102$(_context102) {
                 while (1) {
@@ -35505,18 +35805,18 @@
                     case 5:
                       _context102.next = 7;
                       return _context102.sent.subscribe(function (data) {
-                        _this214.timer.reinit = true;
+                        _this215.timer.reinit = true;
 
-                        _this214.clearTimer(); // set to zero
+                        _this215.clearTimer(); // set to zero
 
 
                         // set to zero
-                        _this214.socketService.leaveTips(_this214.info.idRoom, 'model', _this214.info.modelId); // this.roomPrivateService.leaveRoom();
+                        _this215.socketService.leaveTips(_this215.info.idRoom, 'model', _this215.info.modelId); // this.roomPrivateService.leaveRoom();
 
 
                         // this.roomPrivateService.leaveRoom();
-                        _this214.profilService.updateStatus(_this214.info.modelId, 'En ligne').subscribe(function (data) {
-                          _this214.loading = false;
+                        _this215.profilService.updateStatus(_this215.info.modelId, 'En ligne').subscribe(function (data) {
+                          _this215.loading = false;
                           window.location.href = '/modele/chat'; // this.router.navigate(['/modele/chat']);
                           // setTimeout(
                           //   () => {
@@ -35525,7 +35825,7 @@
                           // );
                         });
                       }, function (error) {
-                        _this214.loading = false;
+                        _this215.loading = false;
                       });
 
                     case 7:
@@ -35541,14 +35841,14 @@
           key: "initTimer",
           value: function initTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee104() {
-              var _this215 = this;
+              var _this216 = this;
 
               return regeneratorRuntime.wrap(function _callee104$(_context104) {
                 while (1) {
                   switch (_context104.prev = _context104.next) {
                     case 0:
                       this.timerService.beginTimerModel(this.info.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_3__["TypeTimer"].TIPS).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this215, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee103() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this216, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee103() {
                           var created, updated, _this$timerService$co5, hour, minute, second;
 
                           return regeneratorRuntime.wrap(function _callee103$(_context103) {
@@ -35585,13 +35885,13 @@
         }, {
           key: "beginCountCredit",
           value: function beginCountCredit(nbSecond) {
-            var _this216 = this;
+            var _this217 = this;
 
             var delay = nbSecond * 1000;
             this.timer.timer = setInterval(function () {
-              if (_this216.info.actif > 0) {
-                _this216.creditService.getCredit().subscribe(function (data) {
-                  _this216.info.creditModel = data ? data.credit : 0;
+              if (_this217.info.actif > 0) {
+                _this217.creditService.getCredit().subscribe(function (data) {
+                  _this217.info.creditModel = data ? data.credit : 0;
                 });
               }
             }, delay);
@@ -35641,15 +35941,15 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this217 = this;
+            var _this218 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
               }).then(function (ms) {
-                _this217.lazyStream = ms;
-                _this217.video.nativeElement.srcObject = _this217.lazyStream;
+                _this218.lazyStream = ms;
+                _this218.video.nativeElement.srcObject = _this218.lazyStream;
                 jquery__WEBPACK_IMPORTED_MODULE_4__('#video_live_model').prop('volume', 0);
               });
             }
@@ -35683,32 +35983,32 @@
         }, {
           key: "callPeer",
           value: function callPeer(id) {
-            var _this218 = this;
+            var _this219 = this;
 
             var call = this.peer.call(id, this.lazyStream);
             call.on('stream', function (remoteStream) {
-              if (!_this218.peerList.includes(call.peer)) {
-                _this218.streamRemoteVideo(remoteStream, call.peer);
+              if (!_this219.peerList.includes(call.peer)) {
+                _this219.streamRemoteVideo(remoteStream, call.peer);
 
-                _this218.currentPeer = call.peerConnection;
+                _this219.currentPeer = call.peerConnection;
 
-                _this218.peerList.push(call.peer);
+                _this219.peerList.push(call.peer);
               }
             });
           }
         }, {
           key: "callClient",
           value: function callClient(clientId, peerId) {
-            var _this219 = this;
+            var _this220 = this;
 
             var call = this.peer.call(peerId, this.lazyStream);
             call.on('stream', function (remoteStream) {
-              if (!_this219.peerList.includes(call.peer)) {
-                _this219.streamRemoteVideo(remoteStream, call.peer, clientId);
+              if (!_this220.peerList.includes(call.peer)) {
+                _this220.streamRemoteVideo(remoteStream, call.peer, clientId);
 
-                _this219.currentPeer = call.peerConnection;
+                _this220.currentPeer = call.peerConnection;
 
-                _this219.peerList.push(call.peer);
+                _this220.peerList.push(call.peer);
               }
             });
           }
@@ -36301,7 +36601,7 @@
 
       var ReactivateAccountComponent = /*#__PURE__*/function () {
         function ReactivateAccountComponent(activatedRoute, http, store, router, notificationService, clientService) {
-          var _this220 = this;
+          var _this221 = this;
 
           _classCallCheck(this, ReactivateAccountComponent);
 
@@ -36317,7 +36617,7 @@
           this.errorMessageToken = null;
           this.successMessageToken = null;
           this.activatedRoute.queryParams.subscribe(function (params) {
-            _this220.token = params['token'];
+            _this221.token = params['token'];
           });
         }
 
@@ -36329,7 +36629,7 @@
         }, {
           key: "confirmToken",
           value: function confirmToken() {
-            var _this221 = this;
+            var _this222 = this;
 
             if (!this.token) {
               this.errorToken = true;
@@ -36342,15 +36642,15 @@
             this.clientService.reactivateAccount().subscribe(function (data) {
               // console.log("Client token ", data);
               if (!data.success) {
-                _this221.errorMessageToken = data.message;
-                _this221.errorToken = true;
+                _this222.errorMessageToken = data.message;
+                _this222.errorToken = true;
               } else {
-                _this221.errorToken = false;
-                _this221.successMessageToken = data.message;
+                _this222.errorToken = false;
+                _this222.successMessageToken = data.message;
 
-                _this221.notificationService.infoMsg("Votre compte est réactivé");
+                _this222.notificationService.infoMsg("Votre compte est réactivé");
 
-                _this221.router.navigate(['/client/connexion']);
+                _this222.router.navigate(['/client/connexion']);
               }
             });
           }
@@ -36647,14 +36947,14 @@
         }, {
           key: "verifyToken",
           value: function verifyToken() {
-            var _this222 = this;
+            var _this223 = this;
 
             var token = this.store.get("token");
             this.authService.verifyToken(token).subscribe(function (data) {
               if (data.role === 'client') {
-                _this222.router.navigateByUrl("client/accueil/registered");
+                _this223.router.navigateByUrl("client/accueil/registered");
               } else if (data.role === 'model') {
-                _this222.router.navigateByUrl("modele/profile");
+                _this223.router.navigateByUrl("modele/profile");
               }
             }, function (error) {});
           }
@@ -36724,7 +37024,7 @@
           key: "login",
           value: function login(event) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee107() {
-              var _this223 = this;
+              var _this224 = this;
 
               var user;
               return regeneratorRuntime.wrap(function _callee107$(_context107) {
@@ -36748,40 +37048,40 @@
                       return this.authService.loginClient(user).subscribe(function (res) {
                         // console.log(res);
                         if (res.error) {
-                          _this223.errorAuth = res.message;
-                          _this223.loading = false;
+                          _this224.errorAuth = res.message;
+                          _this224.loading = false;
                         } else {
-                          _this223.errorAuth = null;
+                          _this224.errorAuth = null;
 
                           if (res.role && res.role === 'client' && res.access_token) {
-                            _this223.authService.saveToken(res.access_token, res.id).then(function () {
-                              _this223.isRemember(user).then(function () {
-                                _this223.loading = false;
+                            _this224.authService.saveToken(res.access_token, res.id).then(function () {
+                              _this224.isRemember(user).then(function () {
+                                _this224.loading = false;
 
-                                _this223.router.navigate(['/client/accueil/registered']);
+                                _this224.router.navigate(['/client/accueil/registered']);
                               });
                             });
                           } else if (res.access_token) {
-                            _this223.authService.saveToken(res.access_token).then(function () {
-                              _this223.logService.createLog("connection").subscribe(function (data) {
-                                _this223.isRemember(user).then(function () {
-                                  _this223.roomService.createRoom().subscribe(function (data) {
-                                    _this223.store.set("room", data.room);
+                            _this224.authService.saveToken(res.access_token).then(function () {
+                              _this224.logService.createLog("connection").subscribe(function (data) {
+                                _this224.isRemember(user).then(function () {
+                                  _this224.roomService.createRoom().subscribe(function (data) {
+                                    _this224.store.set("room", data.room);
 
-                                    _this223.loading = false;
+                                    _this224.loading = false;
 
-                                    _this223.router.navigate(['/modele/profile']);
+                                    _this224.router.navigate(['/modele/profile']);
                                   });
                                 });
                               }, function (error) {
-                                _this223.loading = false;
+                                _this224.loading = false;
                                 console.log(error);
                               });
                             });
                           }
                         }
                       }, function (err) {
-                        _this223.loading = false;
+                        _this224.loading = false;
                         console.log(err);
                       });
 
@@ -37763,7 +38063,7 @@
         }, {
           key: "sendMail",
           value: function sendMail() {
-            var _this224 = this;
+            var _this225 = this;
 
             this.error = null;
 
@@ -37775,7 +38075,7 @@
             var message = this.messageForm.value;
             this.adminService.sendMail(message.email, message.objet, message.message).subscribe(function (data) {
               if (data.success) {
-                _this224.notificationService.info('Message', "Envoy\xE9 \xE0 ".concat(message.email));
+                _this225.notificationService.info('Message', "Envoy\xE9 \xE0 ".concat(message.email));
               }
             }, function (error) {
               console.log(error);
@@ -38768,6 +39068,24 @@
       var _components_client_albums_model_albums_model_component__WEBPACK_IMPORTED_MODULE_141__ = __webpack_require__(
       /*! ./components/client/albums-model/albums-model.component */
       "qJ+Y");
+      /* harmony import */
+
+
+      var _components_modele_dashboard_commission_commission_component__WEBPACK_IMPORTED_MODULE_142__ = __webpack_require__(
+      /*! ./components/modele/dashboard/commission/commission.component */
+      "moc3");
+      /* harmony import */
+
+
+      var _services_commission_commission_service__WEBPACK_IMPORTED_MODULE_143__ = __webpack_require__(
+      /*! ./services/commission/commission.service */
+      "ZfOr");
+      /* harmony import */
+
+
+      var _components_admin_connected_dashboard_admin_model_commissions_model_admin_commissions_model_admin_component__WEBPACK_IMPORTED_MODULE_144__ = __webpack_require__(
+      /*! ./components/admin/connected/dashboard-admin/model/commissions-model-admin/commissions-model-admin.component */
+      "WRny");
 
       var config = {
         // url: 'http://localhost:4000/',
@@ -38839,7 +39157,7 @@
         }, {
           provide: _angular_core__WEBPACK_IMPORTED_MODULE_8__["LOCALE_ID"],
           useValue: "fr"
-        }, _services_popup_popup_service__WEBPACK_IMPORTED_MODULE_67__["PopupService"], _services_profil_profil_service__WEBPACK_IMPORTED_MODULE_69__["ProfilService"], _services_log_log_service__WEBPACK_IMPORTED_MODULE_70__["LogService"], _services_credit_credit_service__WEBPACK_IMPORTED_MODULE_71__["CreditService"], _services_room_room_service__WEBPACK_IMPORTED_MODULE_73__["RoomService"], _services_chat_chat_service__WEBPACK_IMPORTED_MODULE_74__["ChatService"], _services_client_client_service__WEBPACK_IMPORTED_MODULE_78__["ClientService"], _services_timer_timer_service__WEBPACK_IMPORTED_MODULE_80__["TimerService"], _services_admin_admin_service__WEBPACK_IMPORTED_MODULE_114__["AdminService"], _services_banish_banish_service__WEBPACK_IMPORTED_MODULE_119__["BanishService"], _services_tips_tips_service__WEBPACK_IMPORTED_MODULE_124__["TipsService"], _services_subscribe_subscribe_service__WEBPACK_IMPORTED_MODULE_129__["SubscribeService"], _services_between_shop_between_shop_service__WEBPACK_IMPORTED_MODULE_130__["BetweenShopService"], _services_roomTips_room_tips_service__WEBPACK_IMPORTED_MODULE_135__["RoomTipsService"]],
+        }, _services_popup_popup_service__WEBPACK_IMPORTED_MODULE_67__["PopupService"], _services_profil_profil_service__WEBPACK_IMPORTED_MODULE_69__["ProfilService"], _services_log_log_service__WEBPACK_IMPORTED_MODULE_70__["LogService"], _services_credit_credit_service__WEBPACK_IMPORTED_MODULE_71__["CreditService"], _services_room_room_service__WEBPACK_IMPORTED_MODULE_73__["RoomService"], _services_chat_chat_service__WEBPACK_IMPORTED_MODULE_74__["ChatService"], _services_client_client_service__WEBPACK_IMPORTED_MODULE_78__["ClientService"], _services_timer_timer_service__WEBPACK_IMPORTED_MODULE_80__["TimerService"], _services_admin_admin_service__WEBPACK_IMPORTED_MODULE_114__["AdminService"], _services_banish_banish_service__WEBPACK_IMPORTED_MODULE_119__["BanishService"], _services_tips_tips_service__WEBPACK_IMPORTED_MODULE_124__["TipsService"], _services_subscribe_subscribe_service__WEBPACK_IMPORTED_MODULE_129__["SubscribeService"], _services_between_shop_between_shop_service__WEBPACK_IMPORTED_MODULE_130__["BetweenShopService"], _services_roomTips_room_tips_service__WEBPACK_IMPORTED_MODULE_135__["RoomTipsService"], _services_commission_commission_service__WEBPACK_IMPORTED_MODULE_143__["CommissionService"]],
         imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__["BrowserAnimationsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"].withConfig({
           warnOnNgModelWithFormControl: "never"
         }), _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_19__["MatSlideToggleModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_20__["MatDialogModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_51__["MatTabsModule"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_65__["MatSnackBarModule"], ag_charts_angular__WEBPACK_IMPORTED_MODULE_28__["AgChartsAngularModule"], ngx_notification_msg__WEBPACK_IMPORTED_MODULE_33__["NgxNotificationMsgModule"], angular_notifier__WEBPACK_IMPORTED_MODULE_34__["NotifierModule"].withConfig(customNotifierOptions), _angular_common_http__WEBPACK_IMPORTED_MODULE_35__["HttpClientModule"], ng2_file_upload__WEBPACK_IMPORTED_MODULE_39__["FileUploadModule"], ngx_socket_io__WEBPACK_IMPORTED_MODULE_75__["SocketIoModule"].forRoot(config), ngx_localstorage__WEBPACK_IMPORTED_MODULE_58__["NgxLocalStorageModule"].forRoot(), ng_gallery__WEBPACK_IMPORTED_MODULE_85__["GalleryModule"], ng_gallery_lightbox__WEBPACK_IMPORTED_MODULE_86__["LightboxModule"], _ctrl_ngx_emoji_mart__WEBPACK_IMPORTED_MODULE_88__["PickerModule"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_90__["MatTooltipModule"], ng_lazyload_image__WEBPACK_IMPORTED_MODULE_92__["LazyLoadImageModule"], ng_payment_card__WEBPACK_IMPORTED_MODULE_93__["NgPaymentCardModule"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_21__["MatMenuModule"]]]
@@ -38847,12 +39165,98 @@
 
       (function () {
         (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsetNgModuleScope"](AppModule, {
-          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"], _components_client_enter_enter_component__WEBPACK_IMPORTED_MODULE_13__["EnterComponent"], _layouts_header_header_component__WEBPACK_IMPORTED_MODULE_6__["HeaderComponent"], _layouts_header_connected_connected_component__WEBPACK_IMPORTED_MODULE_5__["ConnectedComponent"], _layouts_header_disconnected_disconnected_component__WEBPACK_IMPORTED_MODULE_4__["DisconnectedComponent"], _components_client_signup_signup_component__WEBPACK_IMPORTED_MODULE_14__["SignupComponent"], _components_client_signin_signin_component__WEBPACK_IMPORTED_MODULE_15__["SigninComponent"], _components_modele_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_17__["DashboardComponent"], _components_client_profil_profil_component__WEBPACK_IMPORTED_MODULE_18__["ProfilComponent"], _components_client_profil_password_password_component__WEBPACK_IMPORTED_MODULE_22__["PasswordComponent"], _components_client_profil_delete_delete_component__WEBPACK_IMPORTED_MODULE_23__["DeleteComponent"], _components_modele_dashboard_gain_gain_component__WEBPACK_IMPORTED_MODULE_24__["GainComponent"], _components_modele_dashboard_information_information_component__WEBPACK_IMPORTED_MODULE_25__["InformationComponent"], _components_modele_dashboard_solde_solde_component__WEBPACK_IMPORTED_MODULE_26__["SoldeComponent"], _components_modele_inscription_model_inscription_model_component__WEBPACK_IMPORTED_MODULE_27__["InscriptionModelComponent"], _components_modele_dashboard_connexion_connexion_component__WEBPACK_IMPORTED_MODULE_29__["ConnexionComponent"], _components_modele_dashboard_setting_setting_component__WEBPACK_IMPORTED_MODULE_30__["SettingComponent"], _components_modele_dashboard_password_modele_password_modele_component__WEBPACK_IMPORTED_MODULE_31__["PasswordModeleComponent"], _modals_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_32__["ForgotPasswordComponent"], _components_modele_albums_albums_component__WEBPACK_IMPORTED_MODULE_36__["AlbumsComponent"], _components_modele_profil_model_profil_model_component__WEBPACK_IMPORTED_MODULE_37__["ProfilModelComponent"], _components_modele_dashboard_credit_credit_component__WEBPACK_IMPORTED_MODULE_40__["CreditComponent"], _components_modele_dashboard_credit_pack_argent_pack_argent_component__WEBPACK_IMPORTED_MODULE_41__["PackArgentComponent"], _components_modele_dashboard_credit_pack_bronze_pack_bronze_component__WEBPACK_IMPORTED_MODULE_42__["PackBronzeComponent"], _components_modele_dashboard_credit_pack_bienvenue_pack_bienvenue_component__WEBPACK_IMPORTED_MODULE_43__["PackBienvenueComponent"], _components_modele_dashboard_credit_pack_or_pack_or_component__WEBPACK_IMPORTED_MODULE_44__["PackOrComponent"], _components_home_home_connected_home_client_component__WEBPACK_IMPORTED_MODULE_45__["HomeClientComponent"], _components_home_home_disconnected_home_live_component__WEBPACK_IMPORTED_MODULE_47__["HomeLiveComponent"], _components_live_live_free_live_free_component__WEBPACK_IMPORTED_MODULE_48__["LiveFreeComponent"], _components_live_live_private_live_private_component__WEBPACK_IMPORTED_MODULE_49__["LivePrivateComponent"], _components_live_live_vip_live_vip_component__WEBPACK_IMPORTED_MODULE_50__["LiveVipComponent"], _components_live_live_private_live_private_cam_live_private_cam_component__WEBPACK_IMPORTED_MODULE_52__["LivePrivateCamComponent"], _components_live_topbar_topbar_component__WEBPACK_IMPORTED_MODULE_53__["TopbarComponent"], _components_live_live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_54__["LiveFreeChatComponent"], _components_live_live_vip_live_vip_stat_live_vip_stat_component__WEBPACK_IMPORTED_MODULE_55__["LiveVipStatComponent"], _components_client_out_out_component__WEBPACK_IMPORTED_MODULE_56__["OutComponent"], _components_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_57__["PageNotFoundComponent"], _layouts_scrolltop_scrolltop_component__WEBPACK_IMPORTED_MODULE_59__["ScrolltopComponent"], _components_client_buy_credit_buy_credit_component__WEBPACK_IMPORTED_MODULE_60__["BuyCreditComponent"], _layouts_header_connected_model_connected_model_component__WEBPACK_IMPORTED_MODULE_61__["ConnectedModelComponent"], _modals_confirm_logout_confirm_logout_confirm_logout_component__WEBPACK_IMPORTED_MODULE_62__["ConfirmLogoutComponent"], _components_modele_connexion_model_connexion_model_component__WEBPACK_IMPORTED_MODULE_63__["ConnexionModelComponent"], _modals_popup_info_popup_info_component__WEBPACK_IMPORTED_MODULE_66__["PopupInfoComponent"], _pipes_sanitize_sanitize_pipe__WEBPACK_IMPORTED_MODULE_68__["SanitizePipe"], _components_modele_live_chat_model_live_chat_model_component__WEBPACK_IMPORTED_MODULE_72__["LiveChatModelComponent"], _components_modele_live_private_model_live_private_model_component__WEBPACK_IMPORTED_MODULE_76__["LivePrivateModelComponent"], _components_modele_live_vip_model_live_vip_model_component__WEBPACK_IMPORTED_MODULE_77__["LiveVipModelComponent"], _modals_pack_modal_pack_modal_component__WEBPACK_IMPORTED_MODULE_79__["PackModalComponent"], _components_client_confirm_email_confirm_email_component__WEBPACK_IMPORTED_MODULE_81__["ConfirmEmailComponent"], _components_forgot_send_forgot_send_forgot_component__WEBPACK_IMPORTED_MODULE_82__["SendForgotComponent"], _components_forgot_new_password_new_password_component__WEBPACK_IMPORTED_MODULE_83__["NewPasswordComponent"], _components_forgot_send_forgot_model_send_forgot_model_component__WEBPACK_IMPORTED_MODULE_84__["SendForgotModelComponent"], _modals_popup_image_popup_image_component__WEBPACK_IMPORTED_MODULE_87__["PopupImageComponent"], _components_client_reactivate_account_reactivate_account_component__WEBPACK_IMPORTED_MODULE_89__["ReactivateAccountComponent"], _components_paiement_paiement_component__WEBPACK_IMPORTED_MODULE_91__["PaiementComponent"], _components_live_album_live_album_live_component__WEBPACK_IMPORTED_MODULE_94__["AlbumLiveComponent"], _components_admin_connected_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_95__["DashboardAdminComponent"], _components_admin_connected_topbar_admin_topbar_admin_component__WEBPACK_IMPORTED_MODULE_96__["TopbarAdminComponent"], _components_admin_connected_infobar_admin_infobar_admin_component__WEBPACK_IMPORTED_MODULE_97__["InfobarAdminComponent"], _components_admin_connected_leftbar_admin_leftbar_admin_component__WEBPACK_IMPORTED_MODULE_98__["LeftbarAdminComponent"], _components_admin_connected_dashboard_admin_main_dashboard_admin_main_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_99__["MainDashboardAdminComponent"], _components_admin_connected_dashboard_admin_main_dashboard_admin_main_left_dashboard_admin_main_left_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_100__["MainLeftDashboardAdminComponent"], _components_admin_connected_dashboard_admin_main_dashboard_admin_main_right_dashboard_admin_main_right_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_101__["MainRightDashboardAdminComponent"], _components_admin_connected_dashboard_admin_list_clients_admin_list_clients_admin_component__WEBPACK_IMPORTED_MODULE_102__["ListClientsAdminComponent"], _components_admin_connected_dashboard_admin_statistique_clients_admin_statistique_clients_admin_component__WEBPACK_IMPORTED_MODULE_103__["StatistiqueClientsAdminComponent"], _components_admin_connected_dashboard_admin_demande_clients_admin_demande_clients_admin_component__WEBPACK_IMPORTED_MODULE_104__["DemandeClientsAdminComponent"], _components_admin_connected_dashboard_admin_bloquer_clients_admin_bloquer_clients_admin_component__WEBPACK_IMPORTED_MODULE_105__["BloquerClientsAdminComponent"], _components_admin_connected_dashboard_admin_model_list_models_admin_list_models_admin_component__WEBPACK_IMPORTED_MODULE_106__["ListModelsAdminComponent"], _components_admin_connected_dashboard_admin_model_ask_models_admin_ask_models_admin_component__WEBPACK_IMPORTED_MODULE_107__["AskModelsAdminComponent"], _components_admin_connected_dashboard_admin_model_bloquer_models_admin_bloquer_models_admin_component__WEBPACK_IMPORTED_MODULE_108__["BloquerModelsAdminComponent"], _components_admin_connected_dashboard_admin_model_statistique_models_admin_statistique_models_admin_component__WEBPACK_IMPORTED_MODULE_109__["StatistiqueModelsAdminComponent"], _components_admin_connected_dashboard_admin_model_detail_model_admin_detail_model_admin_component__WEBPACK_IMPORTED_MODULE_110__["DetailModelAdminComponent"], _components_admin_connected_dashboard_admin_administration_paiement_admin_paiement_admin_component__WEBPACK_IMPORTED_MODULE_111__["PaiementAdminComponent"], _components_admin_connexion_admin_connexion_admin_component__WEBPACK_IMPORTED_MODULE_112__["ConnexionAdminComponent"], _components_admin_connected_dashboard_admin_administration_list_paiement_admin_list_paiement_admin_component__WEBPACK_IMPORTED_MODULE_113__["ListPaiementAdminComponent"], _components_admin_connected_dashboard_admin_model_detail_model_admin_motif_reject_motif_reject_component__WEBPACK_IMPORTED_MODULE_115__["MotifRejectComponent"], _components_admin_connected_dashboard_admin_administration_message_admin_message_admin_component__WEBPACK_IMPORTED_MODULE_116__["MessageAdminComponent"], _components_admin_connected_dashboard_admin_administration_setting_admin_setting_admin_component__WEBPACK_IMPORTED_MODULE_117__["SettingAdminComponent"], _components_live_topbar_model_topbar_model_component__WEBPACK_IMPORTED_MODULE_118__["TopbarModelComponent"], _modals_central_pay_central_pay_component__WEBPACK_IMPORTED_MODULE_120__["CentralPayComponent"], _components_admin_connected_dashboard_admin_model_suivi_models_admin_suivi_models_admin_component__WEBPACK_IMPORTED_MODULE_121__["SuiviModelsAdminComponent"], _components_live_tips_tips_component__WEBPACK_IMPORTED_MODULE_122__["TipsComponent"], _components_live_stat_tips_stat_tips_component__WEBPACK_IMPORTED_MODULE_123__["StatTipsComponent"], _components_live_gauge_bar_gauge_bar_component__WEBPACK_IMPORTED_MODULE_125__["GaugeBarComponent"], _components_live_live_free_saloon_live_free_saloon_component__WEBPACK_IMPORTED_MODULE_126__["LiveFreeSaloonComponent"], _components_modele_live_free_saloon_model_live_free_saloon_model_component__WEBPACK_IMPORTED_MODULE_127__["LiveFreeSaloonModelComponent"], _components_client_between_shop_between_shop_component__WEBPACK_IMPORTED_MODULE_128__["BetweenShopComponent"], _components_modele_live_chat_model_try_webcam_try_webcam_component__WEBPACK_IMPORTED_MODULE_131__["TryWebcamComponent"], _components_live_live_tips_clients_live_tips_clients_component__WEBPACK_IMPORTED_MODULE_132__["LiveTipsClientsComponent"], _components_modele_live_tips_clients_model_live_tips_clients_model_component__WEBPACK_IMPORTED_MODULE_133__["LiveTipsClientsModelComponent"], _components_modele_setting_tips_setting_tips_component__WEBPACK_IMPORTED_MODULE_134__["SettingTipsComponent"], _components_modele_live_tips_clients_model_stat_tips_model_stat_tips_model_component__WEBPACK_IMPORTED_MODULE_136__["StatTipsModelComponent"], _modals_profil_model_detail_profil_model_detail_component__WEBPACK_IMPORTED_MODULE_137__["ProfilModelDetailComponent"], _modals_suivi_pay_model_suivi_pay_model_component__WEBPACK_IMPORTED_MODULE_138__["SuiviPayModelComponent"], _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_0__["SafePipe"], _components_client_contact_contact_component__WEBPACK_IMPORTED_MODULE_139__["ContactComponent"], _layouts_footer_footer_component__WEBPACK_IMPORTED_MODULE_140__["FooterComponent"], _components_client_albums_model_albums_model_component__WEBPACK_IMPORTED_MODULE_141__["AlbumsModelComponent"]],
+          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"], _components_client_enter_enter_component__WEBPACK_IMPORTED_MODULE_13__["EnterComponent"], _layouts_header_header_component__WEBPACK_IMPORTED_MODULE_6__["HeaderComponent"], _layouts_header_connected_connected_component__WEBPACK_IMPORTED_MODULE_5__["ConnectedComponent"], _layouts_header_disconnected_disconnected_component__WEBPACK_IMPORTED_MODULE_4__["DisconnectedComponent"], _components_client_signup_signup_component__WEBPACK_IMPORTED_MODULE_14__["SignupComponent"], _components_client_signin_signin_component__WEBPACK_IMPORTED_MODULE_15__["SigninComponent"], _components_modele_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_17__["DashboardComponent"], _components_client_profil_profil_component__WEBPACK_IMPORTED_MODULE_18__["ProfilComponent"], _components_client_profil_password_password_component__WEBPACK_IMPORTED_MODULE_22__["PasswordComponent"], _components_client_profil_delete_delete_component__WEBPACK_IMPORTED_MODULE_23__["DeleteComponent"], _components_modele_dashboard_gain_gain_component__WEBPACK_IMPORTED_MODULE_24__["GainComponent"], _components_modele_dashboard_information_information_component__WEBPACK_IMPORTED_MODULE_25__["InformationComponent"], _components_modele_dashboard_solde_solde_component__WEBPACK_IMPORTED_MODULE_26__["SoldeComponent"], _components_modele_inscription_model_inscription_model_component__WEBPACK_IMPORTED_MODULE_27__["InscriptionModelComponent"], _components_modele_dashboard_connexion_connexion_component__WEBPACK_IMPORTED_MODULE_29__["ConnexionComponent"], _components_modele_dashboard_setting_setting_component__WEBPACK_IMPORTED_MODULE_30__["SettingComponent"], _components_modele_dashboard_password_modele_password_modele_component__WEBPACK_IMPORTED_MODULE_31__["PasswordModeleComponent"], _modals_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_32__["ForgotPasswordComponent"], _components_modele_albums_albums_component__WEBPACK_IMPORTED_MODULE_36__["AlbumsComponent"], _components_modele_profil_model_profil_model_component__WEBPACK_IMPORTED_MODULE_37__["ProfilModelComponent"], _components_modele_dashboard_credit_credit_component__WEBPACK_IMPORTED_MODULE_40__["CreditComponent"], _components_modele_dashboard_credit_pack_argent_pack_argent_component__WEBPACK_IMPORTED_MODULE_41__["PackArgentComponent"], _components_modele_dashboard_credit_pack_bronze_pack_bronze_component__WEBPACK_IMPORTED_MODULE_42__["PackBronzeComponent"], _components_modele_dashboard_credit_pack_bienvenue_pack_bienvenue_component__WEBPACK_IMPORTED_MODULE_43__["PackBienvenueComponent"], _components_modele_dashboard_credit_pack_or_pack_or_component__WEBPACK_IMPORTED_MODULE_44__["PackOrComponent"], _components_home_home_connected_home_client_component__WEBPACK_IMPORTED_MODULE_45__["HomeClientComponent"], _components_home_home_disconnected_home_live_component__WEBPACK_IMPORTED_MODULE_47__["HomeLiveComponent"], _components_live_live_free_live_free_component__WEBPACK_IMPORTED_MODULE_48__["LiveFreeComponent"], _components_live_live_private_live_private_component__WEBPACK_IMPORTED_MODULE_49__["LivePrivateComponent"], _components_live_live_vip_live_vip_component__WEBPACK_IMPORTED_MODULE_50__["LiveVipComponent"], _components_live_live_private_live_private_cam_live_private_cam_component__WEBPACK_IMPORTED_MODULE_52__["LivePrivateCamComponent"], _components_live_topbar_topbar_component__WEBPACK_IMPORTED_MODULE_53__["TopbarComponent"], _components_live_live_free_live_free_chat_live_free_chat_component__WEBPACK_IMPORTED_MODULE_54__["LiveFreeChatComponent"], _components_live_live_vip_live_vip_stat_live_vip_stat_component__WEBPACK_IMPORTED_MODULE_55__["LiveVipStatComponent"], _components_client_out_out_component__WEBPACK_IMPORTED_MODULE_56__["OutComponent"], _components_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_57__["PageNotFoundComponent"], _layouts_scrolltop_scrolltop_component__WEBPACK_IMPORTED_MODULE_59__["ScrolltopComponent"], _components_client_buy_credit_buy_credit_component__WEBPACK_IMPORTED_MODULE_60__["BuyCreditComponent"], _layouts_header_connected_model_connected_model_component__WEBPACK_IMPORTED_MODULE_61__["ConnectedModelComponent"], _modals_confirm_logout_confirm_logout_confirm_logout_component__WEBPACK_IMPORTED_MODULE_62__["ConfirmLogoutComponent"], _components_modele_connexion_model_connexion_model_component__WEBPACK_IMPORTED_MODULE_63__["ConnexionModelComponent"], _modals_popup_info_popup_info_component__WEBPACK_IMPORTED_MODULE_66__["PopupInfoComponent"], _pipes_sanitize_sanitize_pipe__WEBPACK_IMPORTED_MODULE_68__["SanitizePipe"], _components_modele_live_chat_model_live_chat_model_component__WEBPACK_IMPORTED_MODULE_72__["LiveChatModelComponent"], _components_modele_live_private_model_live_private_model_component__WEBPACK_IMPORTED_MODULE_76__["LivePrivateModelComponent"], _components_modele_live_vip_model_live_vip_model_component__WEBPACK_IMPORTED_MODULE_77__["LiveVipModelComponent"], _modals_pack_modal_pack_modal_component__WEBPACK_IMPORTED_MODULE_79__["PackModalComponent"], _components_client_confirm_email_confirm_email_component__WEBPACK_IMPORTED_MODULE_81__["ConfirmEmailComponent"], _components_forgot_send_forgot_send_forgot_component__WEBPACK_IMPORTED_MODULE_82__["SendForgotComponent"], _components_forgot_new_password_new_password_component__WEBPACK_IMPORTED_MODULE_83__["NewPasswordComponent"], _components_forgot_send_forgot_model_send_forgot_model_component__WEBPACK_IMPORTED_MODULE_84__["SendForgotModelComponent"], _modals_popup_image_popup_image_component__WEBPACK_IMPORTED_MODULE_87__["PopupImageComponent"], _components_client_reactivate_account_reactivate_account_component__WEBPACK_IMPORTED_MODULE_89__["ReactivateAccountComponent"], _components_paiement_paiement_component__WEBPACK_IMPORTED_MODULE_91__["PaiementComponent"], _components_live_album_live_album_live_component__WEBPACK_IMPORTED_MODULE_94__["AlbumLiveComponent"], _components_admin_connected_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_95__["DashboardAdminComponent"], _components_admin_connected_topbar_admin_topbar_admin_component__WEBPACK_IMPORTED_MODULE_96__["TopbarAdminComponent"], _components_admin_connected_infobar_admin_infobar_admin_component__WEBPACK_IMPORTED_MODULE_97__["InfobarAdminComponent"], _components_admin_connected_leftbar_admin_leftbar_admin_component__WEBPACK_IMPORTED_MODULE_98__["LeftbarAdminComponent"], _components_admin_connected_dashboard_admin_main_dashboard_admin_main_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_99__["MainDashboardAdminComponent"], _components_admin_connected_dashboard_admin_main_dashboard_admin_main_left_dashboard_admin_main_left_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_100__["MainLeftDashboardAdminComponent"], _components_admin_connected_dashboard_admin_main_dashboard_admin_main_right_dashboard_admin_main_right_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_101__["MainRightDashboardAdminComponent"], _components_admin_connected_dashboard_admin_list_clients_admin_list_clients_admin_component__WEBPACK_IMPORTED_MODULE_102__["ListClientsAdminComponent"], _components_admin_connected_dashboard_admin_statistique_clients_admin_statistique_clients_admin_component__WEBPACK_IMPORTED_MODULE_103__["StatistiqueClientsAdminComponent"], _components_admin_connected_dashboard_admin_demande_clients_admin_demande_clients_admin_component__WEBPACK_IMPORTED_MODULE_104__["DemandeClientsAdminComponent"], _components_admin_connected_dashboard_admin_bloquer_clients_admin_bloquer_clients_admin_component__WEBPACK_IMPORTED_MODULE_105__["BloquerClientsAdminComponent"], _components_admin_connected_dashboard_admin_model_list_models_admin_list_models_admin_component__WEBPACK_IMPORTED_MODULE_106__["ListModelsAdminComponent"], _components_admin_connected_dashboard_admin_model_ask_models_admin_ask_models_admin_component__WEBPACK_IMPORTED_MODULE_107__["AskModelsAdminComponent"], _components_admin_connected_dashboard_admin_model_bloquer_models_admin_bloquer_models_admin_component__WEBPACK_IMPORTED_MODULE_108__["BloquerModelsAdminComponent"], _components_admin_connected_dashboard_admin_model_statistique_models_admin_statistique_models_admin_component__WEBPACK_IMPORTED_MODULE_109__["StatistiqueModelsAdminComponent"], _components_admin_connected_dashboard_admin_model_detail_model_admin_detail_model_admin_component__WEBPACK_IMPORTED_MODULE_110__["DetailModelAdminComponent"], _components_admin_connected_dashboard_admin_administration_paiement_admin_paiement_admin_component__WEBPACK_IMPORTED_MODULE_111__["PaiementAdminComponent"], _components_admin_connexion_admin_connexion_admin_component__WEBPACK_IMPORTED_MODULE_112__["ConnexionAdminComponent"], _components_admin_connected_dashboard_admin_administration_list_paiement_admin_list_paiement_admin_component__WEBPACK_IMPORTED_MODULE_113__["ListPaiementAdminComponent"], _components_admin_connected_dashboard_admin_model_detail_model_admin_motif_reject_motif_reject_component__WEBPACK_IMPORTED_MODULE_115__["MotifRejectComponent"], _components_admin_connected_dashboard_admin_administration_message_admin_message_admin_component__WEBPACK_IMPORTED_MODULE_116__["MessageAdminComponent"], _components_admin_connected_dashboard_admin_administration_setting_admin_setting_admin_component__WEBPACK_IMPORTED_MODULE_117__["SettingAdminComponent"], _components_live_topbar_model_topbar_model_component__WEBPACK_IMPORTED_MODULE_118__["TopbarModelComponent"], _modals_central_pay_central_pay_component__WEBPACK_IMPORTED_MODULE_120__["CentralPayComponent"], _components_admin_connected_dashboard_admin_model_suivi_models_admin_suivi_models_admin_component__WEBPACK_IMPORTED_MODULE_121__["SuiviModelsAdminComponent"], _components_live_tips_tips_component__WEBPACK_IMPORTED_MODULE_122__["TipsComponent"], _components_live_stat_tips_stat_tips_component__WEBPACK_IMPORTED_MODULE_123__["StatTipsComponent"], _components_live_gauge_bar_gauge_bar_component__WEBPACK_IMPORTED_MODULE_125__["GaugeBarComponent"], _components_live_live_free_saloon_live_free_saloon_component__WEBPACK_IMPORTED_MODULE_126__["LiveFreeSaloonComponent"], _components_modele_live_free_saloon_model_live_free_saloon_model_component__WEBPACK_IMPORTED_MODULE_127__["LiveFreeSaloonModelComponent"], _components_client_between_shop_between_shop_component__WEBPACK_IMPORTED_MODULE_128__["BetweenShopComponent"], _components_modele_live_chat_model_try_webcam_try_webcam_component__WEBPACK_IMPORTED_MODULE_131__["TryWebcamComponent"], _components_live_live_tips_clients_live_tips_clients_component__WEBPACK_IMPORTED_MODULE_132__["LiveTipsClientsComponent"], _components_modele_live_tips_clients_model_live_tips_clients_model_component__WEBPACK_IMPORTED_MODULE_133__["LiveTipsClientsModelComponent"], _components_modele_setting_tips_setting_tips_component__WEBPACK_IMPORTED_MODULE_134__["SettingTipsComponent"], _components_modele_live_tips_clients_model_stat_tips_model_stat_tips_model_component__WEBPACK_IMPORTED_MODULE_136__["StatTipsModelComponent"], _modals_profil_model_detail_profil_model_detail_component__WEBPACK_IMPORTED_MODULE_137__["ProfilModelDetailComponent"], _modals_suivi_pay_model_suivi_pay_model_component__WEBPACK_IMPORTED_MODULE_138__["SuiviPayModelComponent"], _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_0__["SafePipe"], _components_client_contact_contact_component__WEBPACK_IMPORTED_MODULE_139__["ContactComponent"], _layouts_footer_footer_component__WEBPACK_IMPORTED_MODULE_140__["FooterComponent"], _components_client_albums_model_albums_model_component__WEBPACK_IMPORTED_MODULE_141__["AlbumsModelComponent"], _components_modele_dashboard_commission_commission_component__WEBPACK_IMPORTED_MODULE_142__["CommissionComponent"], _components_admin_connected_dashboard_admin_model_commissions_model_admin_commissions_model_admin_component__WEBPACK_IMPORTED_MODULE_144__["CommissionsModelAdminComponent"]],
           imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__["BrowserAnimationsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_19__["MatSlideToggleModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_20__["MatDialogModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_51__["MatTabsModule"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_65__["MatSnackBarModule"], ag_charts_angular__WEBPACK_IMPORTED_MODULE_28__["AgChartsAngularModule"], ngx_notification_msg__WEBPACK_IMPORTED_MODULE_33__["NgxNotificationMsgModule"], angular_notifier__WEBPACK_IMPORTED_MODULE_34__["NotifierModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_35__["HttpClientModule"], ng2_file_upload__WEBPACK_IMPORTED_MODULE_39__["FileUploadModule"], ngx_socket_io__WEBPACK_IMPORTED_MODULE_75__["SocketIoModule"], ngx_localstorage__WEBPACK_IMPORTED_MODULE_58__["NgxLocalStorageModule"], ng_gallery__WEBPACK_IMPORTED_MODULE_85__["GalleryModule"], ng_gallery_lightbox__WEBPACK_IMPORTED_MODULE_86__["LightboxModule"], _ctrl_ngx_emoji_mart__WEBPACK_IMPORTED_MODULE_88__["PickerModule"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_90__["MatTooltipModule"], ng_lazyload_image__WEBPACK_IMPORTED_MODULE_92__["LazyLoadImageModule"], ng_payment_card__WEBPACK_IMPORTED_MODULE_93__["NgPaymentCardModule"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_21__["MatMenuModule"]]
         });
       })();
       /***/
 
+    },
+
+    /***/
+    "ZfOr":
+    /*!***********************************************************!*\
+      !*** ./src/app/services/commission/commission.service.ts ***!
+      \***********************************************************/
+
+    /*! exports provided: CommissionService */
+
+    /***/
+    function ZfOr(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "CommissionService", function () {
+        return CommissionService;
+      });
+      /* harmony import */
+
+
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/common/http */
+      "tk/3");
+      /* harmony import */
+
+
+      var src_environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! src/environments/environment */
+      "AytR");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+
+      var httpOptions = {
+        headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
+          'Content-Type': 'application/json'
+        })
+      };
+
+      var CommissionService = /*#__PURE__*/function () {
+        function CommissionService(http) {
+          _classCallCheck(this, CommissionService);
+
+          this.http = http;
+          this.endpoint = src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].endpoint;
+        }
+
+        _createClass(CommissionService, [{
+          key: "getCommissions",
+          value: function getCommissions() {
+            return this.http.get("".concat(this.endpoint, "/commissions/model"), httpOptions);
+          }
+        }, {
+          key: "getAllCommissions",
+          value: function getAllCommissions() {
+            return this.http.get("".concat(this.endpoint, "/commissions"), httpOptions);
+          }
+        }, {
+          key: "verifyCommission",
+          value: function verifyCommission(credit) {
+            return this.http.post("".concat(this.endpoint, "/commissions/verify"), {
+              credit: credit
+            }, httpOptions);
+          }
+        }]);
+
+        return CommissionService;
+      }();
+
+      CommissionService.ɵfac = function CommissionService_Factory(t) {
+        return new (t || CommissionService)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]));
+      };
+
+      CommissionService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({
+        token: CommissionService,
+        factory: CommissionService.ɵfac,
+        providedIn: 'root'
+      });
+      /***/
     },
 
     /***/
@@ -39298,30 +39702,30 @@
         }, {
           key: "countClient",
           value: function countClient() {
-            var _this225 = this;
+            var _this226 = this;
 
             this.adminService.countClients(this.selected).subscribe(function (data) {
-              _this225.count = data.count;
+              _this226.count = data.count;
 
-              _this225.initPagination();
+              _this226.initPagination();
             });
           }
         }, {
           key: "listClients",
           value: function listClients() {
-            var _this226 = this;
+            var _this227 = this;
 
             this.adminService.getClients(this.selected, this.range, this.page, this.filter).subscribe(function (data) {
               // console.log(data)
-              _this226.clients = data;
+              _this227.clients = data;
 
-              _this226.clients.forEach(function (client) {
-                client.createdAt = _this226.adminService.formatDate(client.createdAt);
+              _this227.clients.forEach(function (client) {
+                client.createdAt = _this227.adminService.formatDate(client.createdAt);
               });
 
-              _this226.count = _this226.clients.length;
+              _this227.count = _this227.clients.length;
 
-              _this226.initPagination();
+              _this227.initPagination();
             }, function (error) {
               console.log(error);
             });
@@ -39369,10 +39773,10 @@
         }, {
           key: "deleteClient",
           value: function deleteClient(idClient) {
-            var _this227 = this;
+            var _this228 = this;
 
             this.adminService.deleteClient(idClient).subscribe(function (data) {
-              if (data.success) _this227.listClients();else if (data.error) _this227.notificationService.errorMsg(data.message);
+              if (data.success) _this228.listClients();else if (data.error) _this228.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -39380,14 +39784,14 @@
         }, {
           key: "blockClient",
           value: function blockClient(idClient) {
-            var _this228 = this;
+            var _this229 = this;
 
             var data = {
               idClient: idClient,
               reverse: false
             };
             this.adminService.blockClient(data).subscribe(function (data) {
-              if (data.success) _this228.listClients();else if (data.error) _this228.notificationService.errorMsg(data.message);
+              if (data.success) _this229.listClients();else if (data.error) _this229.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -39395,10 +39799,10 @@
         }, {
           key: "deactivateClient",
           value: function deactivateClient(idClient) {
-            var _this229 = this;
+            var _this230 = this;
 
             this.adminService.deactivateClient(idClient).subscribe(function (data) {
-              if (data.success) _this229.listClients();else if (data.error) _this229.notificationService.errorMsg(data.message);
+              if (data.success) _this230.listClients();else if (data.error) _this230.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -39406,10 +39810,10 @@
         }, {
           key: "activateClient",
           value: function activateClient(idClient) {
-            var _this230 = this;
+            var _this231 = this;
 
             this.adminService.activateClient(idClient).subscribe(function (data) {
-              if (data.success) _this230.listClients();else if (data.error) _this230.notificationService.errorMsg(data.message);
+              if (data.success) _this231.listClients();else if (data.error) _this231.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -39987,15 +40391,15 @@
         }, {
           key: "getModels",
           value: function getModels() {
-            var _this231 = this;
+            var _this232 = this;
 
             this.adminService.getCreditActifsModels().subscribe(function (data) {
-              _this231.models = data;
-              _this231.origModels = data;
+              _this232.models = data;
+              _this232.origModels = data;
 
-              _this231.models.forEach(function (model) {
-                model.createdAt = _this231.adminService.formatDate(model.createdAt);
-                model.nextPayment = _this231.nextPayment(model.credit.lastPayment);
+              _this232.models.forEach(function (model) {
+                model.createdAt = _this232.adminService.formatDate(model.createdAt);
+                model.nextPayment = _this232.nextPayment(model.credit.lastPayment);
                 model.payCredit = 0;
                 model.soldeCredit = model.credit.credit;
               }); // console.log(this.models);
@@ -40007,7 +40411,7 @@
         }, {
           key: "payModel",
           value: function payModel(index, idModel, pseudoModel, emailModel) {
-            var _this232 = this;
+            var _this233 = this;
 
             console.log(index);
             var payCredit = this.models[index].payCredit;
@@ -40020,9 +40424,9 @@
 
             this.adminService.payCreditModel(idModel, pseudoModel, emailModel, payCredit, this.today).subscribe(function (data) {
               // console.log(data);
-              _this232.getModels();
+              _this233.getModels();
 
-              _this232.notificationService.successMsg("".concat(payCredit, " cr\xE9dits pay\xE9s \xE0 ").concat(pseudoModel));
+              _this233.notificationService.successMsg("".concat(payCredit, " cr\xE9dits pay\xE9s \xE0 ").concat(pseudoModel));
             }, function (error) {
               console.log(error);
             });
@@ -40106,11 +40510,11 @@
         }, {
           key: "filterModel",
           value: function filterModel() {
-            var _this233 = this;
+            var _this234 = this;
 
             console.log('something change');
             this.models = this.origModels.filter(function (models) {
-              return models.pseudo.includes(_this233.filterPseudo);
+              return models.pseudo.includes(_this234.filterPseudo);
             });
           }
         }, {
@@ -41567,11 +41971,11 @@
         }, {
           key: "getSuiviPay",
           value: function getSuiviPay() {
-            var _this234 = this;
+            var _this235 = this;
 
             this.paiementService.getSuiviPay(this.modelId).subscribe(function (data) {
               console.log('Get suivi ', data);
-              _this234.pay = data;
+              _this235.pay = data;
             }, function (error) {
               console.log(error);
             });
@@ -43290,7 +43694,7 @@
 
       var LiveFreeSaloonModelComponent = /*#__PURE__*/function () {
         function LiveFreeSaloonModelComponent(_platform, router, store, modelService, route, chatService, roomVipService, socketService, profilService, timerService, creditService, banishService, profileService) {
-          var _this235 = this;
+          var _this236 = this;
 
           _classCallCheck(this, LiveFreeSaloonModelComponent);
 
@@ -43382,32 +43786,32 @@
 
           this.getPeerId = function () {
             // console.log("Get Peer");
-            _this235.peer.on('open', function (id) {
+            _this236.peer.on('open', function (id) {
               console.log("Peer Id ", id);
-              _this235.peerId = id;
+              _this236.peerId = id;
               var data = {
                 role: 'model',
-                modelId: _this235.info.modelId,
-                room: _this235.info.idRoom + 'V',
-                peerId: _this235.peerId
+                modelId: _this236.info.modelId,
+                room: _this236.info.idRoom + 'V',
+                peerId: _this236.peerId
               };
 
-              _this235.socketService.newPeerIdModel(data);
+              _this236.socketService.newPeerIdModel(data);
             });
 
-            _this235.peer.on('call', function (call) {
+            _this236.peer.on('call', function (call) {
               console.log('On Call');
-              call.answer(_this235.lazyStream);
+              call.answer(_this236.lazyStream);
               console.log('Answer stream');
               call.on('stream', function (remoteStream) {
                 console.log('Receive stream');
-                _this235.hasGotStreamClient = true;
+                _this236.hasGotStreamClient = true;
 
-                _this235.streamRemoteVideo(remoteStream);
+                _this236.streamRemoteVideo(remoteStream);
 
-                _this235.currentPeer = call.peerConnection;
+                _this236.currentPeer = call.peerConnection;
 
-                _this235.peerList.push(call.peer);
+                _this236.peerList.push(call.peer);
               }); // this.onStop();
               // navigator.mediaDevices.getUserMedia({
               //   video: true,
@@ -43457,32 +43861,32 @@
         }, {
           key: "VerifyHasGotStreamClient",
           value: function VerifyHasGotStreamClient() {
-            var _this236 = this;
+            var _this237 = this;
 
             setTimeout(function () {
               console.log('verify stream client after 10 sec');
 
-              if (!_this236.hasGotStreamClient) {
-                if (_this236.peerId) {
+              if (!_this237.hasGotStreamClient) {
+                if (_this237.peerId) {
                   var data = {
                     role: 'model',
-                    modelId: _this236.info.modelId,
-                    room: _this236.info.idRoom + 'V',
-                    peerId: _this236.peerId
+                    modelId: _this237.info.modelId,
+                    room: _this237.info.idRoom + 'V',
+                    peerId: _this237.peerId
                   };
 
-                  _this236.socketService.newPeerIdModel(data);
+                  _this237.socketService.newPeerIdModel(data);
                 } else {
-                  _this236.peer.on('open', function (id) {
-                    _this236.peerId = id;
+                  _this237.peer.on('open', function (id) {
+                    _this237.peerId = id;
                     var data = {
                       role: 'model',
-                      modelId: _this236.info.modelId,
-                      room: _this236.info.idRoom + 'V',
-                      peerId: _this236.peerId
+                      modelId: _this237.info.modelId,
+                      room: _this237.info.idRoom + 'V',
+                      peerId: _this237.peerId
                     };
 
-                    _this236.socketService.newPeerIdModel(data);
+                    _this237.socketService.newPeerIdModel(data);
                   });
                 }
               }
@@ -43496,12 +43900,12 @@
         }, {
           key: "verifySound",
           value: function verifySound() {
-            var _this237 = this;
+            var _this238 = this;
 
             this.profileService.getInfo().subscribe(function (data) {
               // console.log(data.setting);
-              _this237.sound_notification = data.setting.sound_notification === 1 ? true : false;
-              _this237.sound_message = data.setting.sound_message === 1 ? true : false;
+              _this238.sound_notification = data.setting.sound_notification === 1 ? true : false;
+              _this238.sound_message = data.setting.sound_message === 1 ? true : false;
             });
           }
         }, {
@@ -43520,66 +43924,66 @@
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this238 = this;
+            var _this239 = this;
 
             this.modelService.getInfo().subscribe(function (data) {
               // console.log('Get info ', data);
               if (data.profile.status === 'En live') {
-                _this238.onStop();
+                _this239.onStop();
 
-                _this238.router.navigate(['/modele/live-private']);
+                _this239.router.navigate(['/modele/live-private']);
               } else if (data.profile.status === 'En ligne') {
-                _this238.onStop();
+                _this239.onStop();
 
-                _this238.router.navigate(['/modele/chat']);
+                _this239.router.navigate(['/modele/chat']);
               }
 
-              _this238.info.bg = data.path_soft;
-              _this238.info.modelId = data.id;
-              _this238.info.pseudo = data.pseudo;
+              _this239.info.bg = data.path_soft;
+              _this239.info.modelId = data.id;
+              _this239.info.pseudo = data.pseudo;
 
-              _this238.getInfoRoom();
+              _this239.getInfoRoom();
 
-              _this238.getCredit();
+              _this239.getCredit();
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this239 = this;
+            var _this240 = this;
 
             this.roomVipService.getRoomModel(this.info.modelId).subscribe(function (data) {
               // console.log('Model room ', data);
-              _this239.info.idRoom = data.idRoom;
-              _this239.roomId = data.idRoom + 'V';
-              _this239.info.actif = data.actif < 0 ? 0 : data.actif;
-              _this239.info.actif = data.actif > 2 ? 2 : data.actif;
-              _this239.client.id = data.clientId;
-              _this239.stat.tarif_show = data.free;
-              _this239.stat.filledChoiceUs = data.free !== null ? true : false;
-              _this239.choiceUs.title = data.title;
-              _this239.choiceUs.description = data.description;
-              _this239.choiceUs.tarif = data.free;
+              _this240.info.idRoom = data.idRoom;
+              _this240.roomId = data.idRoom + 'V';
+              _this240.info.actif = data.actif < 0 ? 0 : data.actif;
+              _this240.info.actif = data.actif > 2 ? 2 : data.actif;
+              _this240.client.id = data.clientId;
+              _this240.stat.tarif_show = data.free;
+              _this240.stat.filledChoiceUs = data.free !== null ? true : false;
+              _this240.choiceUs.title = data.title;
+              _this240.choiceUs.description = data.description;
+              _this240.choiceUs.tarif = data.free;
 
-              _this239.getMessages();
+              _this240.getMessages();
 
-              _this239.initSocket();
+              _this240.initSocket();
 
-              _this239.getInfoClient();
+              _this240.getInfoClient();
             });
           }
         }, {
           key: "getCredit",
           value: function getCredit() {
-            var _this240 = this;
+            var _this241 = this;
 
             this.creditService.getCredit().subscribe(function (data) {
               // console.log("Credit ", data);
-              _this240.info.creditModel = data ? data.credit : 0;
-              _this240.info.idCreditModel = data ? data.id : 0;
-              _this240.stat.totalCredit = _this240.info.creditModel;
+              _this241.info.creditModel = data ? data.credit : 0;
+              _this241.info.idCreditModel = data ? data.id : 0;
+              _this241.stat.totalCredit = _this241.info.creditModel;
 
-              _this240.getGain();
+              _this241.getGain();
             }); // Launch the timer
 
             this.initTimer();
@@ -43592,7 +43996,7 @@
         }, {
           key: "initSocket",
           value: function initSocket() {
-            var _this241 = this;
+            var _this242 = this;
 
             if (!this.roomVipService.joinedRoom(this.info.idRoom)) {
               this.roomVipService.joinRoom(this.info.idRoom);
@@ -43603,56 +44007,56 @@
               // console.log('joined ', data);
               // this.info.actif = data < 1 ? 0 : data;
               // this.info.actif = data > 2 ? 2 : data;
-              _this241.info.actif = 2;
+              _this242.info.actif = 2;
 
-              if (_this241.sound_notification) {
-                _this241.socketService.soundIncome();
+              if (_this242.sound_notification) {
+                _this242.socketService.soundIncome();
               }
 
-              _this241.leaved = false;
+              _this242.leaved = false;
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               // console.log('leaved ', data);
               // this.info.actif = data < 1 ? 0 : data;
               // this.info.actif = data > 2 ? 2 : data;
-              _this241.info.actif = 1;
+              _this242.info.actif = 1;
 
-              if (_this241.sound_notification) {
-                _this241.socketService.soundOutcome();
+              if (_this242.sound_notification) {
+                _this242.socketService.soundOutcome();
               }
 
-              _this241.leaved = true;
+              _this242.leaved = true;
             });
             this.messageSub = this.socketService.listen("message ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               // console.log('Message from client ', data);
-              _this241.messages.push(data); // this.getMessages();
+              _this242.messages.push(data); // this.getMessages();
 
             });
             this.peerSub = this.socketService.listen("peerId ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               console.log('Received Peer Id ', data);
-              _this241.peerIdShare = data.peerId;
+              _this242.peerIdShare = data.peerId;
 
-              _this241.connectWithPeer();
+              _this242.connectWithPeer();
             });
             this.toggleAudioSub = this.socketService.listen("Toggle audio ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               if (data.clientId) {
-                _this241.toggleAudioClientStream(data.peerId, data.isAudio);
+                _this242.toggleAudioClientStream(data.peerId, data.isAudio);
               }
             });
             this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.info.idRoom, "V")).subscribe(function (data) {
               if (data.clientId) {
-                _this241.toggleVideoClientStream(data.peerId, data.isVideo);
+                _this242.toggleVideoClientStream(data.peerId, data.isVideo);
               }
             }); // Live Choice us change
 
             this.updateChoiceUsSub = this.socketService.listen("updateChoiceUs ".concat(this.info.idRoom, "V")).subscribe(function (data) {
-              _this241.choiceUs.title = data.title;
-              _this241.choiceUs.description = data.description;
-              _this241.choiceUs.tarif = data.tarif;
+              _this242.choiceUs.title = data.title;
+              _this242.choiceUs.description = data.description;
+              _this242.choiceUs.tarif = data.tarif;
 
-              _this241.getCostShow(_this241.choiceUs);
+              _this242.getCostShow(_this242.choiceUs);
 
-              _this241.stat.filledChoiceUs = true;
+              _this242.stat.filledChoiceUs = true;
             });
           }
         }, {
@@ -43684,7 +44088,7 @@
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this242 = this;
+            var _this243 = this;
 
             if (!this.info.message) return null;
             var data = {
@@ -43711,36 +44115,36 @@
             this.socketService.sendMessage(msg);
             this.chatService.postMessage(data).subscribe(function (data) {
               // this.getMessages();
-              _this242.info.message = null;
+              _this243.info.message = null;
             });
           }
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this243 = this;
+            var _this244 = this;
 
             this.chatService.getMessage(this.info.idRoom, 'vip').subscribe(function (data) {
               // console.log('Messages ', data);
-              _this243.messages = data;
+              _this244.messages = data;
             });
           }
         }, {
           key: "getInfoClient",
           value: function getInfoClient() {
-            var _this244 = this;
+            var _this245 = this;
 
             this.roomVipService.getInfo(this.client.id).subscribe( // info client
             function (data) {
               // console.log("Info client ", data);
-              _this244.client.pseudo = data.pseudo;
-              _this244.stat.client = data.pseudo;
+              _this245.client.pseudo = data.pseudo;
+              _this245.stat.client = data.pseudo;
             });
           }
         }, {
           key: "liveOut",
           value: function liveOut() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee112() {
-              var _this245 = this;
+              var _this246 = this;
 
               return regeneratorRuntime.wrap(function _callee112$(_context112) {
                 while (1) {
@@ -43754,8 +44158,8 @@
                     case 4:
                       _context112.next = 6;
                       return _context112.sent.subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this245, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee111() {
-                          var _this246 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this246, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee111() {
+                          var _this247 = this;
 
                           return regeneratorRuntime.wrap(function _callee111$(_context111) {
                             while (1) {
@@ -43766,8 +44170,8 @@
 
                                   _context111.next = 4;
                                   return this.socketService.leaveVip(this.info.idRoom, 'model').then(function (data) {
-                                    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this246, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee110() {
-                                      var _this247 = this;
+                                    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this247, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee110() {
+                                      var _this248 = this;
 
                                       return regeneratorRuntime.wrap(function _callee110$(_context110) {
                                         while (1) {
@@ -43776,7 +44180,7 @@
                                               this.roomVipService.leaveRoom();
                                               _context110.next = 3;
                                               return this.profilService.updateStatus(this.info.modelId, 'En ligne').subscribe(function (data) {
-                                                _this247.loading = false;
+                                                _this248.loading = false;
                                                 window.location.href = '/modele/chat'; // this.router.navigate(['/modele/chat']);
                                               });
 
@@ -43800,7 +44204,7 @@
                           }, _callee111, this);
                         }));
                       }, function (error) {
-                        _this245.loading = false;
+                        _this246.loading = false;
                       });
 
                     case 6:
@@ -43816,14 +44220,14 @@
           key: "initTimer",
           value: function initTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee114() {
-              var _this248 = this;
+              var _this249 = this;
 
               return regeneratorRuntime.wrap(function _callee114$(_context114) {
                 while (1) {
                   switch (_context114.prev = _context114.next) {
                     case 0:
                       this.timerService.beginTimerModel(this.info.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_3__["TypeTimer"].VIP).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this248, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee113() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this249, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee113() {
                           var created, updated, _this$timerService$co6, hour, minute, second;
 
                           return regeneratorRuntime.wrap(function _callee113$(_context113) {
@@ -43887,25 +44291,25 @@
         }, {
           key: "beginTimer",
           value: function beginTimer() {
-            var _this249 = this;
+            var _this250 = this;
 
             // console.log("timer second ", this.show.second);
             var delay = this.stat.time_show * 1000; // console.log(delay, " ms ");
 
             this.timer.timer = setInterval(function () {
-              if (_this249.info.actif > 1) _this249.getGain();
+              if (_this250.info.actif > 1) _this250.getGain();
             }, delay);
           }
         }, {
           key: "getGain",
           value: function getGain() {
-            var _this250 = this;
+            var _this251 = this;
 
             this.roomVipService.getRoomModel(this.info.modelId).subscribe(function (data) {
               // console.log("Gain ", data);
-              _this250.stat.winCredit = data.gain;
-              _this250.stat.actualCredit = _this250.stat.totalCredit - _this250.stat.winCredit;
-              _this250.info.winCredit = data.gain;
+              _this251.stat.winCredit = data.gain;
+              _this251.stat.actualCredit = _this251.stat.totalCredit - _this251.stat.winCredit;
+              _this251.info.winCredit = data.gain;
             });
           } // Timer set to 0
 
@@ -43954,16 +44358,16 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this251 = this;
+            var _this252 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
               }).then(function (ms) {
-                _this251.lazyStream = ms;
+                _this252.lazyStream = ms;
                 console.log('My stream ', ms);
-                _this251.video.nativeElement.srcObject = _this251.lazyStream; // this.remote_video.nativeElement.srcObject = ms;
+                _this252.video.nativeElement.srcObject = _this252.lazyStream; // this.remote_video.nativeElement.srcObject = ms;
                 // const _video = this.video.nativeElement;
                 // _video.srcObject = ms;
                 // _video.play();
@@ -44001,19 +44405,19 @@
         }, {
           key: "callPeer",
           value: function callPeer(id) {
-            var _this252 = this;
+            var _this253 = this;
 
             console.log('Call peer');
             var call = this.peer.call(id, this.lazyStream);
             call.on('stream', function (remoteStream) {
               console.log('Receive stream');
 
-              if (!_this252.peerList.includes(call.peer)) {
-                _this252.streamRemoteVideo(remoteStream);
+              if (!_this253.peerList.includes(call.peer)) {
+                _this253.streamRemoteVideo(remoteStream);
 
-                _this252.currentPeer = call.peerConnection;
+                _this253.currentPeer = call.peerConnection;
 
-                _this252.peerList.push(call.peer);
+                _this253.peerList.push(call.peer);
               }
             }); // this.onStop();
             // navigator.mediaDevices.getUserMedia({
@@ -44098,11 +44502,11 @@
         }, {
           key: "banish",
           value: function banish() {
-            var _this253 = this;
+            var _this254 = this;
 
             if (this.client.id === 0 || !this.client.id || !this.roomId) return null;
             this.banishService.banishClient(this.info.modelId, this.client.id).subscribe(function (data) {
-              _this253.socketService.banishClient(_this253.roomId, _this253.client.id); // console.log(data)
+              _this254.socketService.banishClient(_this254.roomId, _this254.client.id); // console.log(data)
 
             });
           } // -------- EMOJI -----------------
@@ -44846,31 +45250,31 @@
         }, {
           key: "countPay",
           value: function countPay() {
-            var _this254 = this;
+            var _this255 = this;
 
             this.adminService.countPay().subscribe(function (data) {
-              _this254.count = data ? data : 0;
+              _this255.count = data ? data : 0;
 
-              _this254.initPagination();
+              _this255.initPagination();
             });
           }
         }, {
           key: "listPay",
           value: function listPay() {
-            var _this255 = this;
+            var _this256 = this;
 
             this.adminService.getListPaiement(this.selected, this.range, this.page, this.filter).subscribe(function (data) {
               // console.log('Paiement ', data)
-              _this255.paiements = data;
+              _this256.paiements = data;
 
-              _this255.paiements.forEach(function (client) {
-                client.createdAt = _this255.adminService.formatDate(client.createdAt);
+              _this256.paiements.forEach(function (client) {
+                client.createdAt = _this256.adminService.formatDate(client.createdAt);
                 client.montant = client.montant ? client.montant + ' €' : '';
               });
 
-              _this255.count = _this255.paiements.length;
+              _this256.count = _this256.paiements.length;
 
-              _this255.initPagination();
+              _this256.initPagination();
             }, function (error) {
               console.log(error);
             });
@@ -44918,10 +45322,10 @@
         }, {
           key: "deletePay",
           value: function deletePay(idPay) {
-            var _this256 = this;
+            var _this257 = this;
 
             this.adminService.deletePaiement(idPay).subscribe(function (data) {
-              if (data.success) _this256.listPay();else if (data.error) _this256.notificationService.errorMsg(data.message);
+              if (data.success) _this257.listPay();else if (data.error) _this257.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -45521,7 +45925,7 @@
           key: "register",
           value: function register(event) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee117() {
-              var _this257 = this;
+              var _this258 = this;
 
               var user;
               return regeneratorRuntime.wrap(function _callee117$(_context117) {
@@ -45548,23 +45952,23 @@
                       return this.authService.registerClient(user).subscribe(function (res) {
                         // console.log(res);
                         if (res.error) {
-                          _this257.error = res.message;
-                          if (res.pseudo) _this257.pseudoExist = true;
-                          if (res.email) _this257.emailExist = true;
-                          _this257.loading = false;
+                          _this258.error = res.message;
+                          if (res.pseudo) _this258.pseudoExist = true;
+                          if (res.email) _this258.emailExist = true;
+                          _this258.loading = false;
                         } else {
-                          _this257.creditService.createCreditClient(res.id).subscribe(function (data) {
-                            _this257.submitted = false;
+                          _this258.creditService.createCreditClient(res.id).subscribe(function (data) {
+                            _this258.submitted = false;
 
-                            _this257.popupService.info('client', 'Félicitation', "Un email de confirmation est envoy\xE9 \xE0\n                <span style=\"font-style: italic; color: var(--pink)\">".concat(res.email, "</span>. <br>\n                <small>Veuillez v\xE9rifier dans vos spams</small>"));
+                            _this258.popupService.info('client', 'Félicitation', "Un email de confirmation est envoy\xE9 \xE0\n                <span style=\"font-style: italic; color: var(--pink)\">".concat(res.email, "</span>. <br>\n                <small>Veuillez v\xE9rifier dans vos spams</small>"));
 
-                            _this257.signForm.reset();
+                            _this258.signForm.reset();
 
-                            _this257.loading = false;
+                            _this258.loading = false;
                           });
                         }
                       }, function (err) {
-                        _this257.loading = false;
+                        _this258.loading = false;
                         console.log(err);
                       });
 
@@ -45984,6 +46388,10 @@
               icon: './../../../../../assets/icons/admin-icons/payement.png',
               route: '/suivi-modeles'
             }, {
+              label: 'Commissions',
+              icon: './../../../../../assets/icons/admin-icons/help-center.png',
+              route: '/commissions-model'
+            }, {
               label: 'Statistiques',
               icon: './../../../../../assets/icons/admin-icons/statistique.png',
               route: '/modeles-statistiques'
@@ -46235,7 +46643,7 @@
 
       var StatistiqueClientsAdminComponent = /*#__PURE__*/function () {
         function StatistiqueClientsAdminComponent(adminService) {
-          var _this258 = this;
+          var _this259 = this;
 
           _classCallCheck(this, StatistiqueClientsAdminComponent);
 
@@ -46249,32 +46657,32 @@
           this.isIntegral = false;
 
           this.useDefaultGridStyle = function () {
-            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this258.options);
+            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this259.options);
             var gridStyle = [{
               stroke: 'white',
               lineDash: [2, 1]
             }];
             options.axes[0].gridStyle = gridStyle;
             options.axes[1].gridStyle = gridStyle;
-            _this258.options = options;
+            _this259.options = options;
           };
 
           this.update = function () {
-            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this258.options);
-            options.data = _this258.getData();
-            _this258.options = options;
+            var options = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["cloneDeep"])(_this259.options);
+            options.data = _this259.getData();
+            _this259.options = options;
           };
 
           this.startUpdates = function () {
-            if (_this258.updating) {
+            if (_this259.updating) {
               return;
             }
 
-            _this258.updating = true;
+            _this259.updating = true;
 
-            _this258.update();
+            _this259.update();
 
-            setInterval(_this258.update, 1000);
+            setInterval(_this259.update, 1000);
           };
 
           this.options = {
@@ -46368,16 +46776,16 @@
         }, {
           key: "getInscriptions",
           value: function getInscriptions() {
-            var _this259 = this;
+            var _this260 = this;
 
             this.adminService.getStatInscriptionClient().subscribe(function (data) {
               var tmp = data;
               tmp.forEach(function (inscrit) {
-                inscrit.date = _this259.adminService.formatDate(inscrit.date);
+                inscrit.date = _this260.adminService.formatDate(inscrit.date);
                 inscrit.count = parseInt(inscrit.count);
               });
-              _this259.inscriptions = tmp;
-              _this259.original = tmp;
+              _this260.inscriptions = tmp;
+              _this260.original = tmp;
             }, function (error) {
               console.log(error);
             });
@@ -46398,14 +46806,14 @@
         }, {
           key: "selectYear",
           value: function selectYear(event) {
-            var _this260 = this;
+            var _this261 = this;
 
             this.isIntegral = false;
             var value = event.target.value;
             this.currentYear = value;
             this.inscriptions = this.original.filter(function (element) {
               var year = element.date.substring(6, 10);
-              if (year === _this260.currentYear) return true;
+              if (year === _this261.currentYear) return true;
               return false;
             });
           }
@@ -47288,22 +47696,22 @@
         }, {
           key: "getCredit",
           value: function getCredit() {
-            var _this261 = this;
+            var _this262 = this;
 
             this.creditService.getCredit().subscribe(function (data) {
               // console.log(data)
-              _this261.info.credit = data.credit;
+              _this262.info.credit = data.credit;
 
-              _this261.getCostPrivateShow();
+              _this262.getCostPrivateShow();
 
-              _this261.getCostVIPShow();
+              _this262.getCostVIPShow();
             });
           }
         }, {
           key: "getCostPrivateShow",
           value: function getCostPrivateShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee118() {
-              var _this262 = this;
+              var _this263 = this;
 
               return regeneratorRuntime.wrap(function _callee118$(_context118) {
                 while (1) {
@@ -47312,8 +47720,8 @@
                       _context118.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_6__["TypeTimer"].PRIVATE).subscribe(function (data) {
                         // console.log("Show Cost ", data)
-                        _this262.statPrivate.tarif_show = data.credit ? data.credit : 0;
-                        _this262.statPrivate.time_show = data.second ? data.second : 0;
+                        _this263.statPrivate.tarif_show = data.credit ? data.credit : 0;
+                        _this263.statPrivate.time_show = data.second ? data.second : 0;
                       });
 
                     case 2:
@@ -47331,7 +47739,7 @@
           key: "getCostVIPShow",
           value: function getCostVIPShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee119() {
-              var _this263 = this;
+              var _this264 = this;
 
               return regeneratorRuntime.wrap(function _callee119$(_context119) {
                 while (1) {
@@ -47340,8 +47748,8 @@
                       _context119.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_6__["TypeTimer"].VIP).subscribe(function (data) {
                         // console.log("Show Cost ", data)
-                        _this263.statVIP.tarif_show = data.credit ? data.credit : 0;
-                        _this263.statVIP.time_show = data.second ? data.second : 0;
+                        _this264.statVIP.tarif_show = data.credit ? data.credit : 0;
+                        _this264.statVIP.time_show = data.second ? data.second : 0;
                       });
 
                     case 2:
@@ -47369,18 +47777,18 @@
         }, {
           key: "verifySound",
           value: function verifySound() {
-            var _this264 = this;
+            var _this265 = this;
 
             this.profileService.getInfo().subscribe(function (data) {
               // console.log(data.setting);
-              _this264.sound_notification = data.setting.sound_notification === 1 ? true : false;
-              _this264.sound_message = data.setting.sound_message === 1 ? true : false; // console.log(this.sound_notification);
+              _this265.sound_notification = data.setting.sound_notification === 1 ? true : false;
+              _this265.sound_message = data.setting.sound_message === 1 ? true : false; // console.log(this.sound_notification);
             });
           }
         }, {
           key: "initSocket",
           value: function initSocket() {
-            var _this265 = this;
+            var _this266 = this;
 
             if (!this.roomService.joinedRoom()) {
               this.roomService.joinRoom();
@@ -47388,89 +47796,89 @@
             }
 
             this.socketService.listen("ask currentSaloon ".concat(this.info.idRoom, " ").concat(this.info.modelId)).subscribe(function (data) {
-              _this265.socketService.sendCurrentSaloon(_this265.info.idRoom, _this265.live_selected);
+              _this266.socketService.sendCurrentSaloon(_this266.info.idRoom, _this266.live_selected);
             });
             this.joinSub = this.socketService.listen("joined ".concat(this.info.idRoom)).subscribe(function (data) {
               // console.log('joined ', data);
-              _this265.info.actif = data.count < 1 ? 1 : data.count;
+              _this266.info.actif = data.count < 1 ? 1 : data.count;
 
-              _this265.joinChat(data.clientPseudo);
+              _this266.joinChat(data.clientPseudo);
 
-              if (_this265.sound_notification) {
-                _this265.socketService.soundIncome();
+              if (_this266.sound_notification) {
+                _this266.socketService.soundIncome();
               }
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.info.idRoom)).subscribe(function (data) {
               // console.log('leaved ', data);
-              _this265.info.actif = data.count < 1 ? 1 : data.count;
+              _this266.info.actif = data.count < 1 ? 1 : data.count;
 
-              _this265.leaveChat(data.clientPseudo);
+              _this266.leaveChat(data.clientPseudo);
 
-              if (_this265.sound_notification) {
-                _this265.socketService.soundOutcome();
+              if (_this266.sound_notification) {
+                _this266.socketService.soundOutcome();
               }
             });
             this.messageSub = this.socketService.listen("message ".concat(this.info.idRoom)).subscribe(function (data) {
               // console.log('Message from client ', data);
-              _this265.messages.push(data); // this.getMessages();
+              _this266.messages.push(data); // this.getMessages();
 
             });
             this.invitePrivateSub = this.socketService.listen("invite model to private ".concat(this.info.idRoom, " ").concat(this.info.modelId)).subscribe(function (data) {
               // console.log('Invitation to private ', data)
-              _this265.notificationService.invitationPrivate('LIVE PRIVE', 'Un client y participe !');
+              _this266.notificationService.invitationPrivate('LIVE PRIVE', 'Un client y participe !');
 
-              _this265.loading = true;
+              _this266.loading = true;
               setTimeout(function () {
-                _this265.loading = false;
+                _this266.loading = false;
 
-                _this265.socketService.responseInvitationModelToPrivate(_this265.info.idRoom, data.clientId, _this265.info.modelId, _this265.info.pseudo);
+                _this266.socketService.responseInvitationModelToPrivate(_this266.info.idRoom, data.clientId, _this266.info.modelId, _this266.info.pseudo);
 
-                _this265.launchLive(true);
+                _this266.launchLive(true);
               }, 3000);
             });
             this.inviteVIPSub = this.socketService.listen("invite model to vip ".concat(this.info.idRoom, " ").concat(this.info.modelId)).subscribe(function (data) {
               // console.log('Invitation to vip ', data)
-              _this265.addInvitationToVIP(data.clientId, data.clientPseudo, data.roomId, data.special);
+              _this266.addInvitationToVIP(data.clientId, data.clientPseudo, data.roomId, data.special);
             });
           }
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this266 = this;
+            var _this267 = this;
 
             this.modelService.getInfo().subscribe(function (data) {
               // console.log(data);
               if (data.profile.status === 'En vip') {
-                _this266.router.navigate(['/modele/live-vip']);
+                _this267.router.navigate(['/modele/live-vip']);
               }
 
               if (data.profile.status === 'En live') {
-                _this266.router.navigate(['/modele/live-private']);
+                _this267.router.navigate(['/modele/live-private']);
               }
 
-              _this266.info.bg = data.path_soft;
-              _this266.info.modelId = data.id;
-              _this266.info.pseudo = data.pseudo;
+              _this267.info.bg = data.path_soft;
+              _this267.info.modelId = data.id;
+              _this267.info.pseudo = data.pseudo;
 
-              _this266.getInfoRoom();
+              _this267.getInfoRoom();
 
-              _this266.initInfoChat(_this266.info.pseudo);
+              _this267.initInfoChat(_this267.info.pseudo);
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this267 = this;
+            var _this268 = this;
 
             this.roomService.getRoomModel(this.info.modelId).subscribe(function (data) {
               // console.log('Model room ', data);
-              _this267.info.idRoom = data.idRoom;
-              _this267.roomId = data.idRoom;
-              _this267.info.actif = data.actif < 1 ? 1 : data.actif;
+              _this268.info.idRoom = data.idRoom;
+              _this268.roomId = data.idRoom;
+              _this268.info.actif = data.actif < 1 ? 1 : data.actif;
 
-              _this267.getMessages();
+              _this268.getMessages();
 
-              _this267.initSocket();
+              _this268.initSocket();
             });
           }
         }, {
@@ -47481,7 +47889,7 @@
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this268 = this;
+            var _this269 = this;
 
             var data = {
               idRoom: this.info.idRoom,
@@ -47506,17 +47914,17 @@
             this.socketService.sendMessage(msg);
             this.chatService.postMessage(data).subscribe(function (data) {
               // this.getMessages();
-              _this268.info.message = null;
+              _this269.info.message = null;
             });
           }
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this269 = this;
+            var _this270 = this;
 
             this.chatService.getMessage(this.info.idRoom).subscribe(function (data) {
               // console.log(data);
-              _this269.messages = data;
+              _this270.messages = data;
             });
           }
         }, {
@@ -47524,7 +47932,7 @@
           value: function launchLive() {
             var invitedPrivate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee121() {
-              var _this270 = this;
+              var _this271 = this;
 
               var dialogRef;
               return regeneratorRuntime.wrap(function _callee121$(_context121) {
@@ -47538,8 +47946,8 @@
 
                       this.loading = true;
                       return _context121.abrupt("return", this.roomPrivateService.createRoom().subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this270, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee120() {
-                          var _this271 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this271, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee120() {
+                          var _this272 = this;
 
                           return regeneratorRuntime.wrap(function _callee120$(_context120) {
                             while (1) {
@@ -47547,11 +47955,11 @@
                                 case 0:
                                   _context120.next = 2;
                                   return this.askLeave().then(function (data) {
-                                    _this271.store.set("privateRoomId", data.room);
+                                    _this272.store.set("privateRoomId", data.room);
 
-                                    _this271.router.navigate(['/modele/live-private']);
+                                    _this272.router.navigate(['/modele/live-private']);
 
-                                    _this271.loading = false;
+                                    _this272.loading = false;
                                   });
 
                                 case 2:
@@ -47599,23 +48007,23 @@
                           data: {}
                         });
                         dialogRef.afterClosed().subscribe(function (result) {
-                          _this270.loading = true;
+                          _this271.loading = true;
 
                           if (result && result.success === true) {
-                            _this270.roomTipsService.createRoom(result.tips, result.description).subscribe(function (data) {
+                            _this271.roomTipsService.createRoom(result.tips, result.description).subscribe(function (data) {
                               // console.log(data);
-                              _this270.askLeaveTips();
+                              _this271.askLeaveTips();
 
-                              _this270.store.set("tipsRoomId", data.room);
+                              _this271.store.set("tipsRoomId", data.room);
 
-                              _this270.router.navigate(['/modele/live-tips-model']);
+                              _this271.router.navigate(['/modele/live-tips-model']);
 
-                              _this270.loading = false;
+                              _this271.loading = false;
                             }, function (error) {
                               console.log(error);
                             });
                           } else {
-                            _this270.loading = false;
+                            _this271.loading = false;
                           }
                         });
                       }
@@ -47761,7 +48169,7 @@
           key: "liveVIP",
           value: function liveVIP(clientId, roomId, special) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee125() {
-              var _this272 = this;
+              var _this273 = this;
 
               return regeneratorRuntime.wrap(function _callee125$(_context125) {
                 while (1) {
@@ -47769,7 +48177,7 @@
                     case 0:
                       this.loading = true;
                       this.roomVipService.createRoom(clientId, special).subscribe(function (data) {
-                        _this272.store.set("vipRoomId", data.room);
+                        _this273.store.set("vipRoomId", data.room);
 
                         var msg = {
                           roomId: roomId,
@@ -47779,15 +48187,15 @@
                           roomVIP: data.room + 'V'
                         };
 
-                        _this272.askLeaveVIP().then(function (data) {
-                          _this272.loading = false;
+                        _this273.askLeaveVIP().then(function (data) {
+                          _this273.loading = false;
 
-                          _this272.socketService.responsePositiveInvitationModelToVIP(roomId, clientId, _this272.info.modelId, _this272.info.pseudo, special);
+                          _this273.socketService.responsePositiveInvitationModelToVIP(roomId, clientId, _this273.info.modelId, _this273.info.pseudo, special);
 
                           if (!special) {
-                            _this272.router.navigate(['/modele/live-vip']);
+                            _this273.router.navigate(['/modele/live-vip']);
                           } else if (special && special === 'live choice') {
-                            _this272.router.navigate(['/modele/live-choice-us']);
+                            _this273.router.navigate(['/modele/live-choice-us']);
                           }
                         });
                       });
@@ -47809,14 +48217,14 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this273 = this;
+            var _this274 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
               }).then(function (ms) {
-                var _video = _this273.video.nativeElement;
+                var _video = _this274.video.nativeElement;
                 _video.srcObject = ms;
 
                 _video.play();
@@ -48952,7 +49360,7 @@
 
       var LiveTipsClientsComponent = /*#__PURE__*/function () {
         function LiveTipsClientsComponent(_platform, router, route, modelService, store, chatService, socketService, popupService, profilService, dialog, timerService, clientService, notificationService, albumService, banishService, creditService, roomTipsService, roomPrivateService) {
-          var _this274 = this;
+          var _this275 = this;
 
           _classCallCheck(this, LiveTipsClientsComponent);
 
@@ -49059,14 +49467,14 @@
           this.getPeerId = function () {
             console.log('Get peer waiting...');
 
-            _this274.peer.on('open', function (id) {
+            _this275.peer.on('open', function (id) {
               console.log("Peer Id ", id);
-              _this274.peerId = id; // Send peer client
+              _this275.peerId = id; // Send peer client
             });
 
-            _this274.peer.on('call', function (call) {
+            _this275.peer.on('call', function (call) {
               console.log('on call');
-              call.answer(_this274.lazyStream); // call.on('stream', (remoteStream) => {
+              call.answer(_this275.lazyStream); // call.on('stream', (remoteStream) => {
               //   console.log('On stream from call')
               //   if (!this.peerList.includes(call.peer)) {
               //     this.addOtherClientstreamRemoteVideo(this.clientStream.length,remoteStream, call.peer);
@@ -49161,27 +49569,27 @@
         }, {
           key: "VerifyHasGotStreamModel",
           value: function VerifyHasGotStreamModel() {
-            var _this275 = this;
+            var _this276 = this;
 
             setTimeout(function () {
               console.log('verify stream model after 10 sec');
 
-              if (!_this275.hasGotStreamModel) {
+              if (!_this276.hasGotStreamModel) {
                 // verify my peerId
-                if (_this275.peerId) {
-                  _this275.socketService.askModelPeerId({
-                    peerId: _this275.peerId,
-                    room: _this275.idRoom + 'P',
-                    clientId: _this275.clientId
+                if (_this276.peerId) {
+                  _this276.socketService.askModelPeerId({
+                    peerId: _this276.peerId,
+                    room: _this276.idRoom + 'P',
+                    clientId: _this276.clientId
                   });
                 } else {
-                  _this275.peer.on('open', function (id) {
-                    _this275.peerId = id;
+                  _this276.peer.on('open', function (id) {
+                    _this276.peerId = id;
 
-                    _this275.socketService.askModelPeerId({
-                      peerId: _this275.peerId,
-                      room: _this275.idRoom + 'P',
-                      clientId: _this275.clientId
+                    _this276.socketService.askModelPeerId({
+                      peerId: _this276.peerId,
+                      room: _this276.idRoom + 'P',
+                      clientId: _this276.clientId
                     });
                   });
                 }
@@ -49191,54 +49599,54 @@
         }, {
           key: "getModel",
           value: function getModel() {
-            var _this276 = this;
+            var _this277 = this;
 
             this.modelService.getModel(this.modelId).subscribe(function (data) {
-              _this276.bg = data.path_soft;
-              _this276.modelPseudo = data.pseudo;
-              _this276.info.pseudo = data.pseudo;
+              _this277.bg = data.path_soft;
+              _this277.modelPseudo = data.pseudo;
+              _this277.info.pseudo = data.pseudo;
 
               if (data.profile.status === "En vip") {
-                _this276.passedVIP = true;
+                _this277.passedVIP = true;
 
-                _this276.clearTimer();
+                _this277.clearTimer();
               } else if (data.profile.status === "En ligne" || data.profile.status === "En live choice") {
-                _this276.obsolete();
+                _this277.obsolete();
 
-                _this276.clearTimer();
+                _this277.clearTimer();
               }
 
-              _this276.getInfo();
+              _this277.getInfo();
             });
           }
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this277 = this;
+            var _this278 = this;
 
             this.clientService.getMyInfos().subscribe( // My info
             function (data) {
-              _this277.clientId = data.id;
-              _this277.clientPseudo = data.pseudo;
-              _this277.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
+              _this278.clientId = data.id;
+              _this278.clientPseudo = data.pseudo;
+              _this278.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
 
-              _this277.isBanished();
+              _this278.isBanished();
             });
           }
         }, {
           key: "isBanished",
           value: function isBanished() {
-            var _this278 = this;
+            var _this279 = this;
 
             this.banishService.isBanished(this.modelId, this.clientId).subscribe(function (data) {
               var ok = data.authorized;
 
               if (!ok) {
-                _this278.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
+                _this279.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
 
-                _this278.router.navigateByUrl('/client/accueil/registered');
+                _this279.router.navigateByUrl('/client/accueil/registered');
               } else {
-                _this278.getInfoRoom();
+                _this279.getInfoRoom();
               }
             });
           }
@@ -49246,7 +49654,7 @@
           key: "getCredit",
           value: function getCredit() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee129() {
-              var _this279 = this;
+              var _this280 = this;
 
               return regeneratorRuntime.wrap(function _callee129$(_context129) {
                 while (1) {
@@ -49254,7 +49662,7 @@
                     case 0:
                       _context129.next = 2;
                       return this.clientService.getCredit().subscribe(function (data) {
-                        _this279.clientCredit = data.credit;
+                        _this280.clientCredit = data.credit;
                       });
 
                     case 2:
@@ -49272,7 +49680,7 @@
           key: "getInfoRoom",
           value: function getInfoRoom() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee131() {
-              var _this280 = this;
+              var _this281 = this;
 
               return regeneratorRuntime.wrap(function _callee131$(_context131) {
                 while (1) {
@@ -49280,7 +49688,7 @@
                     case 0:
                       _context131.next = 2;
                       return this.roomTipsService.getRoomModel(this.modelId).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this280, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee130() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this281, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee130() {
                           return regeneratorRuntime.wrap(function _callee130$(_context130) {
                             while (1) {
                               switch (_context130.prev = _context130.next) {
@@ -49338,7 +49746,7 @@
           key: "getStatRoom",
           value: function getStatRoom(idRoom) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee132() {
-              var _this281 = this;
+              var _this282 = this;
 
               return regeneratorRuntime.wrap(function _callee132$(_context132) {
                 while (1) {
@@ -49354,7 +49762,7 @@
                     case 2:
                       this.roomTipsService.getStatRoom(this.idRoom).subscribe(function (data) {
                         if (!data) return null;
-                        _this281.info.gain = data.gain;
+                        _this282.info.gain = data.gain;
                       });
 
                     case 3:
@@ -49369,7 +49777,7 @@
           key: "getActifRoom",
           value: function getActifRoom() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee133() {
-              var _this282 = this;
+              var _this283 = this;
 
               return regeneratorRuntime.wrap(function _callee133$(_context133) {
                 while (1) {
@@ -49377,7 +49785,7 @@
                     case 0:
                       this.roomTipsService.getActifs(this.idRoom).subscribe(function (data) {
                         // console.log('Actifs ', data);
-                        _this282.info.actif = data ? data.length : 0;
+                        _this283.info.actif = data ? data.length : 0;
                       });
 
                     case 1:
@@ -49391,50 +49799,50 @@
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this283 = this;
+            var _this284 = this;
 
             this.chatService.getMessage(this.idRoom, 'tips').subscribe(function (data) {
-              _this283.messages = data;
+              _this284.messages = data;
             });
           }
         }, {
           key: "initSocket",
           value: function initSocket() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee135() {
-              var _this284 = this;
+              var _this285 = this;
 
               return regeneratorRuntime.wrap(function _callee135$(_context135) {
                 while (1) {
                   switch (_context135.prev = _context135.next) {
                     case 0:
                       this.joinSub = this.socketService.listen("joined ".concat(this.idRoom, "T")).subscribe(function (data) {
-                        _this284.getStatRoom(_this284.idRoom);
+                        _this285.getStatRoom(_this285.idRoom);
 
-                        _this284.getActifRoom();
+                        _this285.getActifRoom();
                       });
                       this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom, "T")).subscribe(function (data) {
-                        _this284.getStatRoom(_this284.idRoom);
+                        _this285.getStatRoom(_this285.idRoom);
 
-                        _this284.getActifRoom();
+                        _this285.getActifRoom();
                       });
                       this.messageSub = this.socketService.listen("message ".concat(this.idRoom, "T")).subscribe(function (data) {
-                        _this284.socketService.soundOutcome();
+                        _this285.socketService.soundOutcome();
 
-                        _this284.messages.push(data); // this.getMessages();
+                        _this285.messages.push(data); // this.getMessages();
 
                       });
                       this.newTipsSub = this.socketService.listen("new tips ".concat(this.idRoom, "T")).subscribe(function (data) {
                         // console.log('new tips ', data);
-                        _this284.getStatRoom(_this284.idRoom);
+                        _this285.getStatRoom(_this285.idRoom);
                       });
                       this.banishSub = this.socketService.listen("Banish client ".concat(this.idRoom, "T ").concat(this.clientId)).subscribe(function (data) {
-                        _this284.isBanished();
+                        _this285.isBanished();
                       }); // Model leaved the room
 
                       this.modelLeaveSub = this.socketService.listen("model leaved ".concat(this.idRoom, "T")).subscribe(function (data) {
-                        _this284.leaved = true;
+                        _this285.leaved = true;
 
-                        _this284.popupService.info('/client/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this284.modelPseudo, " a ferm\xE9 le live de ce room")); // this.lazyStream.getTracks().forEach(
+                        _this285.popupService.info('/client/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this285.modelPseudo, " a ferm\xE9 le live de ce room")); // this.lazyStream.getTracks().forEach(
                         //   (track) => {
                         //     track.stop();
                         //   }
@@ -49444,15 +49852,15 @@
 
                       this.peerSub = this.socketService.listen("ans peerId ".concat(this.clientId, " ").concat(this.idRoom, "T")).subscribe(function (data) {
                         console.log("ans peerId ", data);
-                        _this284.peerIdShare = data.peerId;
+                        _this285.peerIdShare = data.peerId;
 
-                        _this284.connectWithPeer();
+                        _this285.connectWithPeer();
                       });
                       this.newPeerSub = this.socketService.listen("new model peerId ".concat(this.idRoom, "T")).subscribe(function (data) {
                         console.log("new model peerId");
-                        _this284.peerIdShare = data.peerId;
+                        _this285.peerIdShare = data.peerId;
 
-                        _this284.connectWithPeer();
+                        _this285.connectWithPeer();
                       });
                       this.answerModelStreamSub = this.socketService.listen("Answer current model stream ".concat(this.idRoom, "T ").concat(this.clientId)).subscribe(function (data) {
                         console.log('Answer for stream ', data);
@@ -49463,18 +49871,18 @@
                         if (data.clientId) {
                           console.log('Toggle audio client ', data.clientId);
 
-                          _this284.toggleAudioClientStream(data.peerId, data.isAudio);
+                          _this285.toggleAudioClientStream(data.peerId, data.isAudio);
                         } else if (data.modelId) {
                           console.log('Toggle audio model');
 
-                          _this284.toggleAudioModelStream(data.isAudio);
+                          _this285.toggleAudioModelStream(data.isAudio);
                         }
                       });
                       this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.idRoom, "T")).subscribe(function (data) {
                         if (data.clientId) {
-                          _this284.toggleVideoClientStream(data.peerId, data.isVideo);
+                          _this285.toggleVideoClientStream(data.peerId, data.isVideo);
                         } else if (data.modelId) {
-                          _this284.toggleVideoModelStream(data.isVideo);
+                          _this285.toggleVideoModelStream(data.isVideo);
                         }
                       });
                       this.initTimer();
@@ -49494,7 +49902,7 @@
                       });
                       _context135.next = 18;
                       return this.roomTipsService.joinRoom(this.idRoom, true, 'tips', this.peerId).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this284, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee134() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this285, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee134() {
                           return regeneratorRuntime.wrap(function _callee134$(_context134) {
                             while (1) {
                               switch (_context134.prev = _context134.next) {
@@ -49544,7 +49952,7 @@
         }, {
           key: "initColor",
           value: function initColor() {
-            var _this285 = this;
+            var _this286 = this;
 
             if (this.store.get("ticket_chat")) {
               this.chatColor = this.store.get("ticket_chat");
@@ -49553,15 +49961,15 @@
 
             ;
             this.roomPrivateService.getColor().subscribe(function (data) {
-              _this285.chatColor = data.color;
+              _this286.chatColor = data.color;
 
-              _this285.store.set("ticket_chat", data.color);
+              _this286.store.set("ticket_chat", data.color);
             });
           }
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this286 = this;
+            var _this287 = this;
 
             if (!this.message) return null;
             var data = {
@@ -49588,7 +49996,7 @@
             this.socketService.sendMessage(msg);
             this.chatService.postMessage(data).subscribe(function (data) {
               // this.getMessages();
-              _this286.message = null;
+              _this287.message = null;
             });
           }
         }, {
@@ -49600,7 +50008,7 @@
           key: "liveOut",
           value: function liveOut() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee137() {
-              var _this287 = this;
+              var _this288 = this;
 
               return regeneratorRuntime.wrap(function _callee137$(_context137) {
                 while (1) {
@@ -49614,8 +50022,8 @@
                     case 3:
                       _context137.next = 5;
                       return _context137.sent.subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this287, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee136() {
-                          var _this288 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this288, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee136() {
+                          var _this289 = this;
 
                           return regeneratorRuntime.wrap(function _callee136$(_context136) {
                             while (1) {
@@ -49624,9 +50032,9 @@
                                   this.timer.reinit = true;
                                   _context136.next = 3;
                                   return this.roomTipsService.joinRoom(this.idRoom, false, 'tips').subscribe(function (data) {
-                                    _this288.socketService.leaveTips(_this288.idRoom, 'client', _this288.clientId).then(function (data) {
+                                    _this289.socketService.leaveTips(_this289.idRoom, 'client', _this289.clientId).then(function (data) {
                                       // this.roomTipsService.leaveRoom();
-                                      _this288.clientService.deleteLastChat();
+                                      _this289.clientService.deleteLastChat();
 
                                       window.location.href = '/client/accueil/registered'; // this.router.navigate(['/client/accueil/registered']);
                                       // setTimeout(
@@ -49668,14 +50076,14 @@
           key: "initTimer",
           value: function initTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee139() {
-              var _this289 = this;
+              var _this290 = this;
 
               return regeneratorRuntime.wrap(function _callee139$(_context139) {
                 while (1) {
                   switch (_context139.prev = _context139.next) {
                     case 0:
                       this.timerService.getTimer(this.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].TIPS).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this289, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee138() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this290, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee138() {
                           var created, updated, _this$timerService$co7, hour, minute, second;
 
                           return regeneratorRuntime.wrap(function _callee138$(_context138) {
@@ -49713,7 +50121,7 @@
           key: "getCostShow",
           value: function getCostShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee140() {
-              var _this290 = this;
+              var _this291 = this;
 
               return regeneratorRuntime.wrap(function _callee140$(_context140) {
                 while (1) {
@@ -49721,18 +50129,18 @@
                     case 0:
                       _context140.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].TIPS).subscribe(function (data) {
-                        _this290.show.id = data.id;
-                        _this290.show.credit = data.credit;
-                        _this290.show.second = data.second;
-                        _this290.show.type = data.type;
+                        _this291.show.id = data.id;
+                        _this291.show.credit = data.credit;
+                        _this291.show.second = data.second;
+                        _this291.show.type = data.type;
 
-                        if (_this290.clientCredit == 0) {
-                          _this290.aucunCredit();
+                        if (_this291.clientCredit == 0) {
+                          _this291.aucunCredit();
 
                           return null;
                         }
 
-                        _this290.beginTimer();
+                        _this291.beginTimer();
                       });
 
                     case 2:
@@ -49749,11 +50157,11 @@
         }, {
           key: "creditInsuffisant",
           value: function creditInsuffisant() {
-            var _this291 = this;
+            var _this292 = this;
 
             this.popupService.info(null, 'CREDIT INSUFFISANT', "Vous n'avez presque plus de cr\xE9dit. Veuillez vous recharger.");
             setTimeout(function () {
-              _this291.getCredit();
+              _this292.getCredit();
             }, 20000);
           }
         }, {
@@ -49801,7 +50209,7 @@
           key: "beginTimer",
           value: function beginTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee143() {
-              var _this292 = this;
+              var _this293 = this;
 
               var delay;
               return regeneratorRuntime.wrap(function _callee143$(_context143) {
@@ -49810,7 +50218,7 @@
                     case 0:
                       delay = this.show.second * 1000;
                       this.timer.timer = setInterval(function () {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this292, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee142() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this293, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee142() {
                           return regeneratorRuntime.wrap(function _callee142$(_context142) {
                             while (1) {
                               switch (_context142.prev = _context142.next) {
@@ -49885,7 +50293,7 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this293 = this;
+            var _this294 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
@@ -49896,7 +50304,7 @@
                 // _video.srcObject = ms;
                 // _video.play();
                 // console.log('my stream ', ms)
-                _this293.lazyStream = ms; // this.lazyStream.getAudioTracks().forEach(
+                _this294.lazyStream = ms; // this.lazyStream.getAudioTracks().forEach(
                 //   (track) => {
                 //     track.stop();
                 //   }
@@ -49936,20 +50344,20 @@
         }, {
           key: "relaunchPeerId",
           value: function relaunchPeerId() {
-            var _this294 = this;
+            var _this295 = this;
 
             this.peer.on('open', function (id) {
               console.log('Relaunch peer id ', id);
-              _this294.peerId = id; // Send peer client
+              _this295.peerId = id; // Send peer client
 
-              _this294.socketService.askModelPeerId({
-                peerId: _this294.peerId,
-                room: _this294.idRoom + 'T',
-                clientId: _this294.clientId
+              _this295.socketService.askModelPeerId({
+                peerId: _this295.peerId,
+                room: _this295.idRoom + 'T',
+                clientId: _this295.clientId
               });
 
-              _this294.roomTipsService.joinRoom(_this294.idRoom, true, 'tips', _this294.peerId).subscribe(function (data) {
-                _this294.socketService.joinTips(_this294.idRoom, _this294.modelId, _this294.clientId, _this294.clientPseudo, _this294.peerId);
+              _this295.roomTipsService.joinRoom(_this295.idRoom, true, 'tips', _this295.peerId).subscribe(function (data) {
+                _this295.socketService.joinTips(_this295.idRoom, _this295.modelId, _this295.clientId, _this295.clientPseudo, _this295.peerId);
               });
             });
           }
@@ -49961,7 +50369,7 @@
         }, {
           key: "callPeer",
           value: function callPeer(id) {
-            var _this295 = this;
+            var _this296 = this;
 
             console.log('CallPeer  id : ', id);
             if (!id) return null;
@@ -49973,13 +50381,13 @@
             if (call) {
               call.on('stream', function (remoteStream) {
                 console.log("On stream after call in client");
-                _this295.hasGotStreamModel = true;
+                _this296.hasGotStreamModel = true;
 
-                _this295.streamRemoteVideo(remoteStream);
+                _this296.streamRemoteVideo(remoteStream);
 
-                _this295.currentPeer = call.peerConnection;
+                _this296.currentPeer = call.peerConnection;
 
-                _this295.peerList.push(call.peer);
+                _this296.peerList.push(call.peer);
               });
             } // this.onStop();
             // navigator.mediaDevices.getUserMedia({
@@ -50024,7 +50432,7 @@
         }, {
           key: "callPeerClient",
           value: function callPeerClient(clientId, clientPeer) {
-            var _this296 = this;
+            var _this297 = this;
 
             console.log('CallPeerClient id ', clientId, 'My ID ', this.clientId, ' Peer ', clientPeer);
             if (!clientPeer) return null;
@@ -50036,12 +50444,12 @@
               call.on('stream', function (remoteStream) {
                 console.log("On stream in call other client");
 
-                if (!_this296.peerList.includes(call.peer)) {
-                  _this296.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
+                if (!_this297.peerList.includes(call.peer)) {
+                  _this297.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
 
-                  _this296.currentPeer = call.peerConnection;
+                  _this297.currentPeer = call.peerConnection;
 
-                  _this296.peerList.push(call.peer);
+                  _this297.peerList.push(call.peer);
                 }
               });
             } // this.onStop();
@@ -50080,7 +50488,7 @@
         }, {
           key: "getAlbums",
           value: function getAlbums() {
-            var _this297 = this;
+            var _this298 = this;
 
             // this.getActifRoom();
             var data = {
@@ -50089,7 +50497,7 @@
             };
             this.albumService.getModelAlbums(data).subscribe(function (data) {
               for (var i = 0; i < data.length; i++) {
-                _this297.albums.push({
+                _this298.albums.push({
                   url: data[i].path_album
                 });
               }
@@ -50222,7 +50630,7 @@
         }, {
           key: "selectTips",
           value: function selectTips(value) {
-            var _this298 = this;
+            var _this299 = this;
 
             // console.log('Tips ', value);
             this.loading = true;
@@ -50235,9 +50643,9 @@
 
             this.creditService.buyGift(this.clientId, this.modelId, value.credit).subscribe(function (data) {
               // console.log(data);
-              _this298.clientCredit = data.creditClient;
+              _this299.clientCredit = data.creditClient;
 
-              _this298.sendTips(value.symbole, value.credit, value.designation, value.vip);
+              _this299.sendTips(value.symbole, value.credit, value.designation, value.vip);
             }, function (error) {
               console.log(error);
             });
@@ -50250,7 +50658,7 @@
         }, {
           key: "sendTips",
           value: function sendTips(symbole, credit, designation) {
-            var _this299 = this;
+            var _this300 = this;
 
             var vip = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
             var data = {
@@ -50283,14 +50691,14 @@
             this.socketService.sendMessage(msg);
             this.chatService.postMessage(data).subscribe(function (data) {
               // this.getMessages();
-              _this299.loading = false;
-              _this299.showTips = false;
+              _this300.loading = false;
+              _this300.showTips = false;
             });
           }
         }, {
           key: "buyTips",
           value: function buyTips(value) {
-            var _this300 = this;
+            var _this301 = this;
 
             this.loading = true;
 
@@ -50301,15 +50709,15 @@
             }
 
             this.creditService.buyGift(this.clientId, this.modelId, value.credit).subscribe(function (data) {
-              _this300.clientCredit = data.creditClient;
+              _this301.clientCredit = data.creditClient;
 
-              _this300.roomTipsService.updateGain(_this300.idRoom, value.credit).subscribe(function (data) {
+              _this301.roomTipsService.updateGain(_this301.idRoom, value.credit).subscribe(function (data) {
                 // notify send and animation
-                _this300.socketService.newTips(_this300.idRoom + 'T', value.symbole, value.credit, value.designation, value.vip);
+                _this301.socketService.newTips(_this301.idRoom + 'T', value.symbole, value.credit, value.designation, value.vip);
 
-                _this300.sendTips(value.symbole, value.credit, value.designation, value.vip);
+                _this301.sendTips(value.symbole, value.credit, value.designation, value.vip);
 
-                _this300.notificationService.successMsg("Votre ".concat(value.symbole, " est envoy\xE9(e)"));
+                _this301.notificationService.successMsg("Votre ".concat(value.symbole, " est envoy\xE9(e)"));
               });
             }, function (error) {
               console.log(error);
@@ -50922,6 +51330,360 @@
     },
 
     /***/
+    "moc3":
+    /*!********************************************************************************!*\
+      !*** ./src/app/components/modele/dashboard/commission/commission.component.ts ***!
+      \********************************************************************************/
+
+    /*! exports provided: CommissionComponent */
+
+    /***/
+    function moc3(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "CommissionComponent", function () {
+        return CommissionComponent;
+      });
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
+
+
+      var _services_commission_commission_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ../../../../services/commission/commission.service */
+      "ZfOr");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/common */
+      "ofXK");
+
+      function CommissionComponent_div_19_img_3_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 16);
+        }
+
+        if (rf & 2) {
+          var ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx_r3.star, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+        }
+      }
+
+      var _c0 = function _c0(a0, a1) {
+        return {
+          "evenRow": a0,
+          "oddRow": a1
+        };
+      };
+
+      function CommissionComponent_div_19_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, CommissionComponent_div_19_img_3_Template, 1, 1, "img", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 15);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 15);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "div", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var item_r1 = ctx.$implicit;
+          var i_r2 = ctx.index;
+
+          var ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](7, _c0, i_r2 % 2 === 0, i_r2 % 2 !== 0));
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", item_r1.palier, " ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.hadGet(item_r1.palier));
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r1.commissionCredit);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r1.commissionEuro);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r1.primeCredit);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r1.primeEuro);
+        }
+      }
+
+      var CommissionComponent = /*#__PURE__*/function () {
+        function CommissionComponent(commissionService) {
+          _classCallCheck(this, CommissionComponent);
+
+          this.commissionService = commissionService;
+          this.commissionsPrimes = [{
+            palier: 1,
+            commissionCredit: 3401,
+            commissionEuro: 500,
+            primeCredit: 68,
+            primeEuro: 10
+          }, {
+            palier: 2,
+            commissionCredit: 6803,
+            commissionEuro: 1000,
+            primeCredit: 340,
+            primeEuro: 50
+          }, {
+            palier: 3,
+            commissionCredit: 10204,
+            commissionEuro: 1500,
+            primeCredit: 510,
+            primeEuro: 75
+          }, {
+            palier: 4,
+            commissionCredit: 13605,
+            commissionEuro: 2000,
+            primeCredit: 680,
+            primeEuro: 100
+          }, {
+            palier: 5,
+            commissionCredit: 19048,
+            commissionEuro: 2800,
+            primeCredit: 816,
+            primeEuro: 120
+          }, {
+            palier: 6,
+            commissionCredit: 23810,
+            commissionEuro: 3500,
+            primeCredit: 1020,
+            primeEuro: 150
+          }, {
+            palier: 7,
+            commissionCredit: 28571,
+            commissionEuro: 4200,
+            primeCredit: 1224,
+            primeEuro: 180
+          }, {
+            palier: 8,
+            commissionCredit: 33333,
+            commissionEuro: 4900,
+            primeCredit: 1429,
+            primeEuro: 210
+          }, {
+            palier: 9,
+            commissionCredit: 38095,
+            commissionEuro: 5600,
+            primeCredit: 1633,
+            primeEuro: 240
+          }, {
+            palier: 10,
+            commissionCredit: 42857,
+            commissionEuro: 6300,
+            primeCredit: 1837,
+            primeEuro: 270
+          }, {
+            palier: 11,
+            commissionCredit: 47619,
+            commissionEuro: 7000,
+            primeCredit: 2041,
+            primeEuro: 300
+          }, {
+            palier: 12,
+            commissionCredit: 52381,
+            commissionEuro: 7700,
+            primeCredit: 2245,
+            primeEuro: 330
+          }];
+          this.star = "./../../../../../assets/icons/star.png";
+          this.commissions = [];
+        }
+
+        _createClass(CommissionComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            this.getCommissions();
+          }
+        }, {
+          key: "getCommissions",
+          value: function getCommissions() {
+            var _this302 = this;
+
+            this.commissionService.getCommissions().subscribe(function (data) {
+              console.log('Commissions ', data);
+              _this302.commissions = data;
+            }, function (error) {
+              console.log(error);
+            });
+          }
+        }, {
+          key: "isCommission",
+          value: function isCommission(credit) {
+            this.commissionService.verifyCommission(credit).subscribe(function (data) {// console.log('verifyCommission - credit ', credit, ' - ', data);
+            }, function (error) {
+              console.log(error);
+            });
+          }
+        }, {
+          key: "hadGet",
+          value: function hadGet(palier) {
+            var result = false;
+            this.commissions.forEach(function (item) {
+              if (item.palierCredit === palier && item.used) result = true;
+            });
+            return result;
+          }
+        }]);
+
+        return CommissionComponent;
+      }();
+
+      CommissionComponent.ɵfac = function CommissionComponent_Factory(t) {
+        return new (t || CommissionComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_commission_commission_service__WEBPACK_IMPORTED_MODULE_1__["CommissionService"]));
+      };
+
+      CommissionComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+        type: CommissionComponent,
+        selectors: [["app-commission"]],
+        decls: 24,
+        vars: 2,
+        consts: [[1, "contain_commission"], [1, "container-fluid"], [1, "row"], [1, "col-2"], [1, "col-5", "header1", "borderRight"], [1, "col-5", "header1"], [1, "col-2", "header2"], [1, "col-3", "header2", "borderLeft"], [1, "col-2", "header2", "borderRight"], [1, "col-3", "header2"], ["class", "row", 3, "ngClass", 4, "ngFor", "ngForOf"], [1, "instruction"], ["alt", "", 1, "startBottom", 3, "src"], [1, "row", 3, "ngClass"], ["alt", "", "class", "start", 3, "src", 4, "ngIf"], [1, "col-3"], ["alt", "", 1, "start", 3, "src"]],
+        template: function CommissionComponent_Template(rf, ctx) {
+          if (rf & 1) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "div", 3);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 4);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "COMMISSIONS");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 5);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "PRIMES");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 2);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 6);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Paliers");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "div", 7);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Cr\xE9dits");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 8);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Euros (\u20AC)");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 9);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Cr\xE9dits");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "div", 6);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Euros (\u20AC)");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, CommissionComponent_div_19_Template, 12, 10, "div", 10);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 11);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](21, "img", 12);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "p");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, " \xA0Commission obtenue ");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          }
+
+          if (rf & 2) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](19);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.commissionsPrimes);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", ctx.star, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+          }
+        },
+        directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgClass"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"]],
+        styles: [".row[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 10px;\n}\n\n.header1[_ngcontent-%COMP%] {\n  background-color: var(--blue3);\n}\n\n.borderRight[_ngcontent-%COMP%] {\n  border-right: 1px solid white;\n}\n\n.borderLeft[_ngcontent-%COMP%] {\n  border-left: 1px solid white;\n}\n\n.header2[_ngcontent-%COMP%] {\n  background-color: var(--blue1);\n}\n\n.oddRow[_ngcontent-%COMP%] {\n  background-color: var(--blue2);\n  cursor: pointer;\n}\n\n.evenRow[_ngcontent-%COMP%] {\n  background-color: #524f4f47;\n  cursor: pointer;\n}\n\n.oddRow[_ngcontent-%COMP%]:hover, .evenRow[_ngcontent-%COMP%]:hover {\n  background-color: rgba(245, 245, 245, 0.158);\n}\n\nimg.start[_ngcontent-%COMP%] {\n  width: 10px;\n  position: absolute;\n  padding-left: 2px;\n}\n\n.instruction[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: row;\n  margin-top: 15px;\n  align-items: self-start;\n}\n\n.instruction[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  margin-right: 5px;\n  width: 13px;\n}\n\n.instruction[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-style: italic;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXGNvbW1pc3Npb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBQTtFQUNBLGFBQUE7QUFDRjs7QUFFQTtFQUNFLDhCQUFBO0FBQ0Y7O0FBRUE7RUFDRSw2QkFBQTtBQUNGOztBQUVBO0VBQ0UsNEJBQUE7QUFDRjs7QUFFQTtFQUNFLDhCQUFBO0FBQ0Y7O0FBRUE7RUFDRSw4QkFBQTtFQUNBLGVBQUE7QUFDRjs7QUFFQTtFQUNFLDJCQUFBO0VBQ0EsZUFBQTtBQUNGOztBQUVBO0VBQ0UsNENBQUE7QUFDRjs7QUFFQTtFQUNFLFdBQUE7RUFDQSxrQkFBQTtFQUNBLGlCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtFQUNBLHVCQUFBO0FBQ0Y7O0FBQ0U7RUFDRSxpQkFBQTtFQUNBLFdBQUE7QUFDSjs7QUFFRTtFQUNFLGtCQUFBO0FBQUoiLCJmaWxlIjoiY29tbWlzc2lvbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yb3cgZGl2IHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgcGFkZGluZzogMTBweDtcclxufVxyXG5cclxuLmhlYWRlcjEge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJsdWUzKTtcclxufVxyXG5cclxuLmJvcmRlclJpZ2h0IHtcclxuICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCB3aGl0ZTtcclxufVxyXG5cclxuLmJvcmRlckxlZnQge1xyXG4gIGJvcmRlci1sZWZ0OiAxcHggc29saWQgd2hpdGU7XHJcbn1cclxuXHJcbi5oZWFkZXIyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1ibHVlMSk7XHJcbn1cclxuXHJcbi5vZGRSb3cge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJsdWUyKTtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbi5ldmVuUm93IHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNTI0ZjRmNDc7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4ub2RkUm93OmhvdmVyLCAuZXZlblJvdzpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyNDUsIDI0NSwgMjQ1LCAwLjE1OCk7XHJcbn1cclxuXHJcbmltZy5zdGFydCB7XHJcbiAgd2lkdGg6IDEwcHg7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHBhZGRpbmctbGVmdDogMnB4O1xyXG59XHJcblxyXG4uaW5zdHJ1Y3Rpb24ge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcclxuICBtYXJnaW4tdG9wOiAxNXB4O1xyXG4gIGFsaWduLWl0ZW1zOiBzZWxmLXN0YXJ0O1xyXG5cclxuICBpbWcge1xyXG4gICAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbiAgICB3aWR0aDogMTNweDtcclxuICB9XHJcblxyXG4gIHAge1xyXG4gICAgZm9udC1zdHlsZTogaXRhbGljO1xyXG4gIH1cclxufVxyXG4iXX0= */"]
+      });
+      /***/
+    },
+
+    /***/
     "nak+":
     /*!***************************************************************!*\
       !*** ./src/app/services/notification/notification.service.ts ***!
@@ -51314,15 +52076,15 @@
         }, {
           key: "verifyToken",
           value: function verifyToken() {
-            var _this301 = this;
+            var _this303 = this;
 
             var token = this.store.get("token");
             console.log(token);
             this.authService.verifyToken(token).subscribe(function (data) {
               if (data.role === 'client') {
-                _this301.router.navigateByUrl("client/accueil/registered");
+                _this303.router.navigateByUrl("client/accueil/registered");
               } else if (data.role === 'model') {
-                _this301.router.navigateByUrl("modele/profile");
+                _this303.router.navigateByUrl("modele/profile");
               }
             }, function (error) {});
           }
@@ -51392,7 +52154,7 @@
           key: "login",
           value: function login(event) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee146() {
-              var _this302 = this;
+              var _this304 = this;
 
               var user;
               return regeneratorRuntime.wrap(function _callee146$(_context146) {
@@ -51416,29 +52178,29 @@
                       return this.authService.loginModel(user).subscribe(function (res) {
                         // console.log(res);
                         if (res.error) {
-                          _this302.errorAuth = res.message;
-                          _this302.loading = false;
+                          _this304.errorAuth = res.message;
+                          _this304.loading = false;
                         } else {
-                          _this302.errorAuth = null;
-                          if (res.access_token) _this302.authService.saveToken(res.access_token).then(function () {
-                            _this302.logService.createLog("connection").subscribe(function (data) {
-                              _this302.isRemember(user).then(function () {
-                                _this302.roomService.createRoom().subscribe(function (data) {
-                                  _this302.store.set("room", data.room);
+                          _this304.errorAuth = null;
+                          if (res.access_token) _this304.authService.saveToken(res.access_token).then(function () {
+                            _this304.logService.createLog("connection").subscribe(function (data) {
+                              _this304.isRemember(user).then(function () {
+                                _this304.roomService.createRoom().subscribe(function (data) {
+                                  _this304.store.set("room", data.room);
 
-                                  _this302.loading = false;
+                                  _this304.loading = false;
 
-                                  _this302.router.navigate(['/modele/profile']);
+                                  _this304.router.navigate(['/modele/profile']);
                                 });
                               });
                             }, function (error) {
-                              _this302.loading = false;
+                              _this304.loading = false;
                               console.log(error);
                             });
                           });
                         }
                       }, function (err) {
-                        _this302.loading = false;
+                        _this304.loading = false;
                         console.log(err);
                       });
 
@@ -51955,20 +52717,20 @@
         }, {
           key: "getLastShowPrivate",
           value: function getLastShowPrivate() {
-            var _this303 = this;
+            var _this305 = this;
 
             this.adminService.get10LastShowPrivate().subscribe(function (data) {
               // console.log(data)
               var tmp = data;
               tmp.forEach(function (value) {
                 value.pseudo = value.model.pseudo;
-                value.date = _this303.adminService.formatDate(value.createdAt);
-                value.duree = _this303.getDuree(value.createdAt, value.updatedAt);
+                value.date = _this305.adminService.formatDate(value.createdAt);
+                value.duree = _this305.getDuree(value.createdAt, value.updatedAt);
                 value.gain = value.gain;
                 value.type = 'Private';
               });
-              _this303.lastShowPrivate = tmp;
-              _this303.valueShow = _this303.lastShowPrivate;
+              _this305.lastShowPrivate = tmp;
+              _this305.valueShow = _this305.lastShowPrivate;
             }, function (error) {
               console.log(error);
             });
@@ -51976,19 +52738,19 @@
         }, {
           key: "getLastShowTips",
           value: function getLastShowTips() {
-            var _this304 = this;
+            var _this306 = this;
 
             this.adminService.get10LastShowTips().subscribe(function (data) {
               // console.log('Show tips ', data)
               var tmp = data;
               tmp.forEach(function (value) {
                 value.pseudo = value.model.pseudo;
-                value.date = _this304.adminService.formatDate(value.createdAt);
-                value.duree = _this304.getDuree(value.createdAt, value.updatedAt);
+                value.date = _this306.adminService.formatDate(value.createdAt);
+                value.duree = _this306.getDuree(value.createdAt, value.updatedAt);
                 value.gain = value.gain;
                 value.type = 'TIPS';
               });
-              _this304.lastShowTIPS = tmp;
+              _this306.lastShowTIPS = tmp;
             }, function (error) {
               console.log(error);
             });
@@ -51996,22 +52758,22 @@
         }, {
           key: "getLastShowVIP",
           value: function getLastShowVIP() {
-            var _this305 = this;
+            var _this307 = this;
 
             this.adminService.get10LastShowVIP().subscribe(function (data) {
               var tmp = data;
               tmp.forEach(function (value) {
                 value.pseudo = value.model.pseudo;
-                value.date = _this305.adminService.formatDate(value.createdAt);
-                value.duree = _this305.getDuree(value.createdAt, value.updatedAt);
+                value.date = _this307.adminService.formatDate(value.createdAt);
+                value.duree = _this307.getDuree(value.createdAt, value.updatedAt);
                 value.gain = value.gain;
                 value.type = 'VIP';
               });
-              _this305.lastShowVIP = tmp.filter(function (data) {
+              _this307.lastShowVIP = tmp.filter(function (data) {
                 return data.free === null;
               });
-              _this305.lastShowVIP = _this305.lastShowVIP.slice(0, 10);
-              console.log('Show VIP ', _this305.lastShowVIP);
+              _this307.lastShowVIP = _this307.lastShowVIP.slice(0, 10);
+              console.log('Show VIP ', _this307.lastShowVIP);
             }, function (error) {
               console.log(error);
             });
@@ -52019,22 +52781,22 @@
         }, {
           key: "getLastShowChoiceUS",
           value: function getLastShowChoiceUS() {
-            var _this306 = this;
+            var _this308 = this;
 
             this.adminService.get10LastShowChoiceUS().subscribe(function (data) {
               var tmp = data;
               tmp.forEach(function (value) {
                 value.pseudo = value.model.pseudo;
-                value.date = _this306.adminService.formatDate(value.createdAt);
-                value.duree = _this306.getDuree(value.createdAt, value.updatedAt);
+                value.date = _this308.adminService.formatDate(value.createdAt);
+                value.duree = _this308.getDuree(value.createdAt, value.updatedAt);
                 value.gain = value.gain;
                 value.type = 'CHOICE US';
               });
-              _this306.lastShowChoiceUS = tmp.filter(function (data) {
+              _this308.lastShowChoiceUS = tmp.filter(function (data) {
                 return data.free !== null;
               });
-              _this306.lastShowChoiceUS = _this306.lastShowChoiceUS.slice(0, 10);
-              console.log('Show CHOICE US ', _this306.lastShowChoiceUS);
+              _this308.lastShowChoiceUS = _this308.lastShowChoiceUS.slice(0, 10);
+              console.log('Show CHOICE US ', _this308.lastShowChoiceUS);
             }, function (error) {
               console.log(error);
             });
@@ -52042,7 +52804,7 @@
         }, {
           key: "getTopModels",
           value: function getTopModels() {
-            var _this307 = this;
+            var _this309 = this;
 
             this.adminService.getTop10Model().subscribe(function (data) {
               // console.log(data)
@@ -52052,12 +52814,12 @@
                 value.pseudo = value.pseudo;
                 value.showCreated = value.privateRooms.length + value.vipRooms.length;
                 value.gain = value.credit.credit;
-                value.lastShow = _this307.adminService.formatDate(value.credit.updatedAt);
+                value.lastShow = _this309.adminService.formatDate(value.credit.updatedAt);
                 value.rang = countLoop + 1;
                 countLoop++;
               }); // console.log(tmp)
 
-              _this307.topModels = tmp;
+              _this309.topModels = tmp;
             }, function (error) {
               console.log(error);
             });
@@ -52364,10 +53126,10 @@
         }, {
           key: "getInfos",
           value: function getInfos() {
-            var _this308 = this;
+            var _this310 = this;
 
             this.adminService.getInfosAdmin().subscribe(function (data) {
-              _this308.info = data;
+              _this310.info = data;
             }, function (error) {
               console.log(error);
             });
@@ -52577,12 +53339,12 @@
         }, {
           key: "delete",
           value: function _delete(id) {
-            var _this309 = this;
+            var _this311 = this;
 
             this.albumService.deleteAlbum(id).subscribe(function (data) {
-              _this309.notificationService.info("Suppression", "Photo Supprimée");
+              _this311.notificationService.info("Suppression", "Photo Supprimée");
 
-              _this309.dialogRef.close('success');
+              _this311.dialogRef.close('success');
             });
           }
         }]);
@@ -52739,7 +53501,7 @@
 
       var ConfirmEmailComponent = /*#__PURE__*/function () {
         function ConfirmEmailComponent(activatedRoute, http, store, router, notificationService) {
-          var _this310 = this;
+          var _this312 = this;
 
           _classCallCheck(this, ConfirmEmailComponent);
 
@@ -52754,7 +53516,7 @@
           this.errorMessageToken = null;
           this.successMessageToken = null;
           this.activatedRoute.queryParams.subscribe(function (params) {
-            _this310.token = params['token'];
+            _this312.token = params['token'];
           });
         }
 
@@ -52766,7 +53528,7 @@
         }, {
           key: "confirmToken",
           value: function confirmToken() {
-            var _this311 = this;
+            var _this313 = this;
 
             if (!this.token) {
               this.errorToken = true;
@@ -52779,15 +53541,15 @@
             this.http.post("".concat(this.endpoint, "/client/confirm"), {}, httpOptions).subscribe(function (data) {
               // console.log("Client token ", data);
               if (!data.success) {
-                _this311.errorMessageToken = data.message;
-                _this311.errorToken = true;
+                _this313.errorMessageToken = data.message;
+                _this313.errorToken = true;
               } else {
-                _this311.errorToken = false;
-                _this311.successMessageToken = data.message;
+                _this313.errorToken = false;
+                _this313.successMessageToken = data.message;
 
-                _this311.notificationService.infoMsg("Votre compte est confirmé");
+                _this313.notificationService.infoMsg("Votre compte est confirmé");
 
-                _this311.router.navigate(['/client/connexion']);
+                _this313.router.navigate(['/client/connexion']);
               }
             });
           }
@@ -53256,11 +54018,11 @@
         }, {
           key: "verifyPayment",
           value: function verifyPayment() {
-            var _this312 = this;
+            var _this314 = this;
 
             this.paiementService.hasPaid().subscribe(function (data) {
               // console.log(data);
-              if (data.success) _this312.hasPaid = true; // console.log('HasPaid ', this.hasPaid);
+              if (data.success) _this314.hasPaid = true; // console.log('HasPaid ', this.hasPaid);
             }, function (error) {
               console.log(error);
             });
@@ -53268,26 +54030,26 @@
         }, {
           key: "verifySubscription",
           value: function verifySubscription() {
-            var _this313 = this;
+            var _this315 = this;
 
             this.subscribeService.verify().subscribe(function (data) {
               // console.log('Sub ', data);
-              _this313.subscription = data;
+              _this315.subscription = data;
             });
           }
         }, {
           key: "getProfilModel",
           value: function getProfilModel() {
-            var _this314 = this;
+            var _this316 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
               // console.log('Profil ', data);
-              _this314.profilModel = data;
+              _this316.profilModel = data;
             });
             this.modelService.getModel(this.modelId).subscribe(function (data) {
               // console.log('Info ',data);
-              _this314.profilModel.pseudo = data.pseudo;
-              _this314.profilModel.path_soft = data.path_soft;
+              _this316.profilModel.pseudo = data.pseudo;
+              _this316.profilModel.path_soft = data.path_soft;
             });
             this.getAlbums('free');
             this.getAlbums('private');
@@ -53296,7 +54058,7 @@
         }, {
           key: "getAlbums",
           value: function getAlbums(type) {
-            var _this315 = this;
+            var _this317 = this;
 
             var data = {
               modelId: this.modelId,
@@ -53306,17 +54068,17 @@
               // console.log("Album ", type, data);
               switch (type) {
                 case 'free':
-                  _this315.albumsFree = data;
-                  _this315.totalAlbum = _this315.albumsFree.length;
-                  _this315.currentAlbum = _this315.albumsFree;
+                  _this317.albumsFree = data;
+                  _this317.totalAlbum = _this317.albumsFree.length;
+                  _this317.currentAlbum = _this317.albumsFree;
                   break;
 
                 case 'private':
-                  _this315.albumsPrivate = data;
+                  _this317.albumsPrivate = data;
                   break;
 
                 case 'vip':
-                  _this315.albumsVIP = data;
+                  _this317.albumsVIP = data;
                   break;
               }
             });
@@ -53357,7 +54119,7 @@
         }, {
           key: "openImage",
           value: function openImage(id, url) {
-            var _this316 = this;
+            var _this318 = this;
 
             var dialogRef = this.dialog.open(src_app_modals_popup_image_popup_image_component__WEBPACK_IMPORTED_MODULE_0__["PopupImageComponent"], {
               width: '100%',
@@ -53369,7 +54131,7 @@
               }
             });
             dialogRef.afterClosed().subscribe(function (data) {
-              if (data === 'success') _this316.ngOnInit();
+              if (data === 'success') _this318.ngOnInit();
             });
           }
         }]);
@@ -54927,7 +55689,7 @@
 
       var LivePrivateComponent = /*#__PURE__*/function () {
         function LivePrivateComponent(_platform, router, route, modelService, roomPrivateService, store, chatService, socketService, popupService, profilService, dialog, timerService, clientService, notificationService, roomVipService, albumService, banishService, creditService, roomTipsService) {
-          var _this317 = this;
+          var _this319 = this;
 
           _classCallCheck(this, LivePrivateComponent);
 
@@ -55028,14 +55790,14 @@
           this.getPeerId = function () {
             console.log('Get peer waiting...');
 
-            _this317.peer.on('open', function (id) {
+            _this319.peer.on('open', function (id) {
               console.log("Peer Id ", id);
-              _this317.peerId = id; // Send peer client
+              _this319.peerId = id; // Send peer client
             });
 
-            _this317.peer.on('call', function (call) {
+            _this319.peer.on('call', function (call) {
               console.log('on call');
-              call.answer(_this317.lazyStream); // call.on('stream', (remoteStream) => {
+              call.answer(_this319.lazyStream); // call.on('stream', (remoteStream) => {
               //   console.log('On stream from call')
               //   if (!this.peerList.includes(call.peer)) {
               //     this.addOtherClientstreamRemoteVideo(this.clientStream.length,remoteStream, call.peer);
@@ -55095,27 +55857,27 @@
         }, {
           key: "VerifyHasGotStreamModel",
           value: function VerifyHasGotStreamModel() {
-            var _this318 = this;
+            var _this320 = this;
 
             setTimeout(function () {
               console.log('verify stream model after 10 sec');
 
-              if (!_this318.hasGotStreamModel) {
+              if (!_this320.hasGotStreamModel) {
                 // verify my peerId
-                if (_this318.peerId) {
-                  _this318.socketService.askModelPeerId({
-                    peerId: _this318.peerId,
-                    room: _this318.idRoom + 'P',
-                    clientId: _this318.clientId
+                if (_this320.peerId) {
+                  _this320.socketService.askModelPeerId({
+                    peerId: _this320.peerId,
+                    room: _this320.idRoom + 'P',
+                    clientId: _this320.clientId
                   });
                 } else {
-                  _this318.peer.on('open', function (id) {
-                    _this318.peerId = id;
+                  _this320.peer.on('open', function (id) {
+                    _this320.peerId = id;
 
-                    _this318.socketService.askModelPeerId({
-                      peerId: _this318.peerId,
-                      room: _this318.idRoom + 'P',
-                      clientId: _this318.clientId
+                    _this320.socketService.askModelPeerId({
+                      peerId: _this320.peerId,
+                      room: _this320.idRoom + 'P',
+                      clientId: _this320.clientId
                     });
                   });
                 }
@@ -55126,7 +55888,7 @@
           key: "getCostVIPShow",
           value: function getCostVIPShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee147() {
-              var _this319 = this;
+              var _this321 = this;
 
               return regeneratorRuntime.wrap(function _callee147$(_context147) {
                 while (1) {
@@ -55134,8 +55896,8 @@
                     case 0:
                       _context147.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].VIP).subscribe(function (data) {
-                        _this319.statVIP.tarif_show = data.credit ? data.credit : 0;
-                        _this319.statVIP.time_show = data.second ? data.second : 0;
+                        _this321.statVIP.tarif_show = data.credit ? data.credit : 0;
+                        _this321.statVIP.time_show = data.second ? data.second : 0;
                       });
 
                     case 2:
@@ -55195,64 +55957,64 @@
         }, {
           key: "getModel",
           value: function getModel() {
-            var _this320 = this;
+            var _this322 = this;
 
             this.modelService.getModel(this.modelId).subscribe(function (data) {
-              _this320.bg = data.path_soft;
-              _this320.modelPseudo = data.pseudo;
+              _this322.bg = data.path_soft;
+              _this322.modelPseudo = data.pseudo;
 
               if (data.profile.status === "En vip") {
-                _this320.passedVIP = true;
+                _this322.passedVIP = true;
 
-                _this320.clearTimer();
+                _this322.clearTimer();
               } else if (data.profile.status === "En ligne") {
-                _this320.obsolete();
+                _this322.obsolete();
 
-                _this320.clearTimer();
+                _this322.clearTimer();
               }
 
               if (data.profile.status !== 'En live') {
-                _this320.popupService.info('/client/accueil/registered', 'Modèle Indisponible', 'La modèle est indisponible pour ce live');
+                _this322.popupService.info('/client/accueil/registered', 'Modèle Indisponible', 'La modèle est indisponible pour ce live');
 
-                _this320.clearTimer();
+                _this322.clearTimer();
               }
 
-              _this320.getCostVIPShow();
+              _this322.getCostVIPShow();
 
-              _this320.getInfo();
+              _this322.getInfo();
             });
           } // My infos client
 
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this321 = this;
+            var _this323 = this;
 
             this.clientService.getMyInfos().subscribe(function (data) {
-              _this321.clientId = data.id;
-              _this321.clientPseudo = data.pseudo;
-              _this321.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
+              _this323.clientId = data.id;
+              _this323.clientPseudo = data.pseudo;
+              _this323.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
 
-              _this321.clientCreditId = data.credit ? data.credit.id : 0;
+              _this323.clientCreditId = data.credit ? data.credit.id : 0;
 
-              _this321.isBanished();
+              _this323.isBanished();
             });
           } // Client if isBanished
 
         }, {
           key: "isBanished",
           value: function isBanished() {
-            var _this322 = this;
+            var _this324 = this;
 
             this.banishService.isBanished(this.modelId, this.clientId).subscribe(function (data) {
               var ok = data.authorized;
 
               if (!ok) {
-                _this322.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
+                _this324.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
 
-                _this322.router.navigateByUrl('/client/accueil/registered');
+                _this324.router.navigateByUrl('/client/accueil/registered');
               } else {
-                _this322.getInfoRoom();
+                _this324.getInfoRoom();
               }
             });
           } // Get credit client and verify
@@ -55261,7 +56023,7 @@
           key: "getCredit",
           value: function getCredit() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee149() {
-              var _this323 = this;
+              var _this325 = this;
 
               return regeneratorRuntime.wrap(function _callee149$(_context149) {
                 while (1) {
@@ -55269,13 +56031,13 @@
                     case 0:
                       _context149.next = 2;
                       return this.clientService.getCredit().subscribe(function (data) {
-                        _this323.clientCredit = data.credit;
-                        if (_this323.show.credit < _this323.clientCredit) return null;
-                        _this323.timer.fail = true; // if Not leaved
+                        _this325.clientCredit = data.credit;
+                        if (_this325.show.credit < _this325.clientCredit) return null;
+                        _this325.timer.fail = true; // if Not leaved
 
                         // if Not leaved
-                        if (!_this323.timer.reinit) {
-                          _this323.notificationService.failure("CREDIT INSUFFISANT", "Veuillez vous recharger.");
+                        if (!_this325.timer.reinit) {
+                          _this325.notificationService.failure("CREDIT INSUFFISANT", "Veuillez vous recharger.");
                         }
                       });
 
@@ -55294,7 +56056,7 @@
           key: "getInfoRoom",
           value: function getInfoRoom() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee151() {
-              var _this324 = this;
+              var _this326 = this;
 
               return regeneratorRuntime.wrap(function _callee151$(_context151) {
                 while (1) {
@@ -55302,7 +56064,7 @@
                     case 0:
                       _context151.next = 2;
                       return this.roomPrivateService.getRoomModel(this.modelId).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this324, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee150() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this326, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee150() {
                           return regeneratorRuntime.wrap(function _callee150$(_context150) {
                             while (1) {
                               switch (_context150.prev = _context150.next) {
@@ -55341,7 +56103,7 @@
           key: "getActifs",
           value: function getActifs() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee152() {
-              var _this325 = this;
+              var _this327 = this;
 
               return regeneratorRuntime.wrap(function _callee152$(_context152) {
                 while (1) {
@@ -55349,10 +56111,10 @@
                     case 0:
                       _context152.next = 2;
                       return this.roomPrivateService.getActif(this.idRoom).subscribe(function (data) {
-                        _this325.actif = data.clients.length + 1; // +1 for the model
+                        _this327.actif = data.clients.length + 1; // +1 for the model
 
                         // +1 for the model
-                        _this325.clients = data.clients;
+                        _this327.clients = data.clients;
                       });
 
                     case 2:
@@ -55366,11 +56128,11 @@
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this326 = this;
+            var _this328 = this;
 
             this.chatService.getMessage(this.idRoom, 'private').subscribe(function (data) {
               // console.log(data)
-              _this326.messages = data;
+              _this328.messages = data;
             });
           }
         }, {
@@ -55407,7 +56169,7 @@
           key: "initSocket",
           value: function initSocket() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee155() {
-              var _this327 = this;
+              var _this329 = this;
 
               return regeneratorRuntime.wrap(function _callee155$(_context155) {
                 while (1) {
@@ -55421,83 +56183,83 @@
                       //   }
                       // );
                       this.socketService.listen("currentSaloon ".concat(this.idRoom)).subscribe(function (data) {
-                        _this327.live_selected = data.live_selected;
+                        _this329.live_selected = data.live_selected;
                       });
                       this.joinSub = this.socketService.listen("joined ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this327.getActifs();
+                        _this329.getActifs();
 
-                        if (data.id === _this327.modelId) return false;
-                        if (data.id === _this327.clientId) return false;
+                        if (data.id === _this329.modelId) return false;
+                        if (data.id === _this329.clientId) return false;
 
-                        _this327.verifyExistClient(data.id, data.peerId);
+                        _this329.verifyExistClient(data.id, data.peerId);
                       });
                       this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this327.removeStream(data.clientId);
+                        _this329.removeStream(data.clientId);
 
-                        _this327.getActifs();
+                        _this329.getActifs();
                       });
                       this.messageSub = this.socketService.listen("message ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this327.socketService.soundOutcome(); // this.getMessages();
+                        _this329.socketService.soundOutcome(); // this.getMessages();
 
 
-                        _this327.messages.push(data);
+                        _this329.messages.push(data);
                       });
                       this.banishSub = this.socketService.listen("Banish client ".concat(this.idRoom, "P ").concat(this.clientId)).subscribe(function (data) {
-                        _this327.isBanished();
+                        _this329.isBanished();
                       }); // Model leaved the room
 
                       this.modelLeaveSub = this.socketService.listen("model leaved ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this327.leaved = true;
-                        _this327.actif--;
+                        _this329.leaved = true;
+                        _this329.actif--;
 
-                        _this327.popupService.info('/client/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this327.modelPseudo, " a ferm\xE9 le live de ce room"));
+                        _this329.popupService.info('/client/accueil/registered', 'LIVE INDISPONIBLE', "".concat(_this329.modelPseudo, " a ferm\xE9 le live de ce room"));
 
-                        _this327.lazyStream.getTracks().forEach(function (track) {
+                        _this329.lazyStream.getTracks().forEach(function (track) {
                           track.stop();
                         });
                       }); // Model passed to VIP
 
                       this.modelPassedVipSub = this.socketService.listen("Pass to VIP ".concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this327.passedVIP = true;
+                        _this329.passedVIP = true;
                       }); // Invitation to pass in VIP
 
                       this.invitationVipSub = this.socketService.listen("pass VIP ".concat(this.clientId, " ").concat(this.idRoom, "P")).subscribe(function (data) {
-                        _this327.invitedVIP = true; // this.invitationVIP();
+                        _this329.invitedVIP = true; // this.invitationVIP();
 
-                        _this327.liveVIP(data.special);
+                        _this329.liveVIP(data.special);
 
-                        _this327.roomVIP = data.roomVIP;
+                        _this329.roomVIP = data.roomVIP;
 
-                        _this327.store.set("roomVIP", _this327.roomVIP);
+                        _this329.store.set("roomVIP", _this329.roomVIP);
                       });
                       this.responsePositiveInvitationVIPSub = this.socketService.listen("response positive invitation model to vip ".concat(this.idRoom, "P ").concat(this.clientId)).subscribe(function (data) {
-                        _this327.loading = false;
+                        _this329.loading = false;
 
-                        _this327.liveVIP(data.special);
+                        _this329.liveVIP(data.special);
                       });
                       this.responseNegativeInvitationVIPSub = this.socketService.listen("response negative invitation model to vip ".concat(this.idRoom, "P ").concat(this.clientId)).subscribe(function (data) {
-                        _this327.loading = false;
+                        _this329.loading = false;
 
                         if (data && data.special) {
                           if (data.special === 'live free') {
-                            _this327.popupService.info(null, 'LIVE CHOICE US', "".concat(_this327.modelPseudo, " n'est pas disponible pour le moment."));
+                            _this329.popupService.info(null, 'LIVE CHOICE US', "".concat(_this329.modelPseudo, " n'est pas disponible pour le moment."));
                           }
                         } else {
-                          _this327.popupService.info(null, 'LIVE VIP', "".concat(_this327.modelPseudo, " n'est pas disponible pour le moment."));
+                          _this329.popupService.info(null, 'LIVE VIP', "".concat(_this329.modelPseudo, " n'est pas disponible pour le moment."));
                         }
                       }); // Invitation to pass in VIP
 
                       this.peerSub = this.socketService.listen("ans peerId ".concat(this.clientId, " ").concat(this.idRoom, "P")).subscribe(function (data) {
                         console.log("ans peerId ", data);
-                        _this327.peerIdShare = data.peerId;
+                        _this329.peerIdShare = data.peerId;
 
-                        _this327.connectWithPeer();
+                        _this329.connectWithPeer();
                       });
                       this.newPeerSub = this.socketService.listen("new model peerId ".concat(this.idRoom, "P")).subscribe(function (data) {
                         console.log("new model peerId");
-                        _this327.peerIdShare = data.peerId;
+                        _this329.peerIdShare = data.peerId;
 
-                        _this327.connectWithPeer();
+                        _this329.connectWithPeer();
                       });
                       this.answerModelStreamSub = this.socketService.listen("Answer current model stream ".concat(this.idRoom, "P ").concat(this.clientId)).subscribe(function (data) {
                         console.log('Answer for stream ', data);
@@ -55508,18 +56270,18 @@
                         if (data.clientId) {
                           console.log('Toggle audio client ', data.clientId);
 
-                          _this327.toggleAudioClientStream(data.peerId, data.isAudio);
+                          _this329.toggleAudioClientStream(data.peerId, data.isAudio);
                         } else if (data.modelId) {
                           console.log('Toggle audio model');
 
-                          _this327.toggleAudioModelStream(data.isAudio);
+                          _this329.toggleAudioModelStream(data.isAudio);
                         }
                       });
                       this.toggleVideoSub = this.socketService.listen("Toggle video ".concat(this.idRoom, "P")).subscribe(function (data) {
                         if (data.clientId) {
-                          _this327.toggleVideoClientStream(data.peerId, data.isVideo);
+                          _this329.toggleVideoClientStream(data.peerId, data.isVideo);
                         } else if (data.modelId) {
-                          _this327.toggleVideoModelStream(data.isVideo);
+                          _this329.toggleVideoModelStream(data.isVideo);
                         }
                       });
                       this.socketService.askCurrentSaloon(this.idRoom + 'P', this.modelId);
@@ -55537,7 +56299,7 @@
                       });
                       _context155.next = 21;
                       return this.roomPrivateService.updateActif(this.idRoom, true, 'private', this.peerId).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this327, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee154() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this329, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee154() {
                           return regeneratorRuntime.wrap(function _callee154$(_context154) {
                             while (1) {
                               switch (_context154.prev = _context154.next) {
@@ -55591,7 +56353,7 @@
         }, {
           key: "initColor",
           value: function initColor() {
-            var _this328 = this;
+            var _this330 = this;
 
             if (this.store.get("ticket_chat")) {
               this.chatColor = this.store.get("ticket_chat");
@@ -55600,15 +56362,15 @@
 
             ;
             this.roomPrivateService.getColor().subscribe(function (data) {
-              _this328.chatColor = data.color;
+              _this330.chatColor = data.color;
 
-              _this328.store.set("ticket_chat", data.color);
+              _this330.store.set("ticket_chat", data.color);
             });
           }
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this329 = this;
+            var _this331 = this;
 
             if (!this.message) return;
             var data = {
@@ -55635,7 +56397,7 @@
             this.socketService.sendMessage(msg);
             this.chatService.postMessage(data).subscribe(function (data) {
               // this.getMessages();
-              _this329.message = null;
+              _this331.message = null;
             });
           }
         }, {
@@ -55646,19 +56408,19 @@
         }, {
           key: "invitationToVIP",
           value: function invitationToVIP() {
-            var _this330 = this;
+            var _this332 = this;
 
             this.loading = true;
             this.socketService.clientInviteModelToVIP(this.idRoom + 'P', this.clientId, this.clientPseudo, this.modelId);
             setTimeout(function () {
-              if (_this330.loading) _this330.loading = false;
+              if (_this332.loading) _this332.loading = false;
             }, 10000);
           }
         }, {
           key: "liveVIP",
           value: function liveVIP(special) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee158() {
-              var _this331 = this;
+              var _this333 = this;
 
               return regeneratorRuntime.wrap(function _callee158$(_context158) {
                 while (1) {
@@ -55669,8 +56431,8 @@
 
                     case 2:
                       return _context158.abrupt("return", _context158.sent.subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this331, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee157() {
-                          var _this332 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this333, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee157() {
+                          var _this334 = this;
 
                           return regeneratorRuntime.wrap(function _callee157$(_context157) {
                             while (1) {
@@ -55682,20 +56444,20 @@
 
                                 case 3:
                                   _context157.sent.subscribe(function (data) {
-                                    _this332.clientCredit = data.credit ? data.credit : 0;
+                                    _this334.clientCredit = data.credit ? data.credit : 0;
 
                                     if (data.credit <= 0) {
-                                      _this332.aucunCredit();
+                                      _this334.aucunCredit();
 
                                       return null;
-                                    } else if (data.credit <= _this332.show.credit * 2) {
-                                      _this332.creditInsuffisant();
+                                    } else if (data.credit <= _this334.show.credit * 2) {
+                                      _this334.creditInsuffisant();
 
                                       return null;
                                     }
 
-                                    _this332.profilService.getSpecificProfil(_this332.modelId).subscribe(function (data) {
-                                      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this332, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee156() {
+                                    _this334.profilService.getSpecificProfil(_this334.modelId).subscribe(function (data) {
+                                      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this334, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee156() {
                                         return regeneratorRuntime.wrap(function _callee156$(_context156) {
                                           while (1) {
                                             switch (_context156.prev = _context156.next) {
@@ -55749,7 +56511,7 @@
           key: "getInfoRoomVIP",
           value: function getInfoRoomVIP() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee159() {
-              var _this333 = this;
+              var _this335 = this;
 
               return regeneratorRuntime.wrap(function _callee159$(_context159) {
                 while (1) {
@@ -55761,7 +56523,7 @@
                           return false;
                         }
 
-                        if (_this333.clientId !== data.clientId) {
+                        if (_this335.clientId !== data.clientId) {
                           return false;
                         }
 
@@ -55783,26 +56545,26 @@
         }, {
           key: "liveTips",
           value: function liveTips() {
-            var _this334 = this;
+            var _this336 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
-              if (_this334.clientCredit <= 10) {
-                _this334.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips.");
+              if (_this336.clientCredit <= 10) {
+                _this336.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips.");
 
                 return false;
               }
 
               if (data.status === "En tips") {
                 // Debiter d'abord
-                _this334.roomTipsService.debiterRoom(_this334.clientCreditId, 1).subscribe(function (data) {
-                  _this334.router.navigate(['/client/live/tips-clients', {
-                    model: _this334.modelId
+                _this336.roomTipsService.debiterRoom(_this336.clientCreditId, 1).subscribe(function (data) {
+                  _this336.router.navigate(['/client/live/tips-clients', {
+                    model: _this336.modelId
                   }]);
                 }, function (error) {
                   console.log(error);
                 });
               } else {
-                _this334.popupService.info(null, 'LIVE TIPS', "Votre mod\xE8le est n'a pas lanc\xE9 le live.");
+                _this336.popupService.info(null, 'LIVE TIPS', "Votre mod\xE8le est n'a pas lanc\xE9 le live.");
 
                 return false;
               }
@@ -55812,26 +56574,26 @@
         }, {
           key: "liveChoiceUs",
           value: function liveChoiceUs() {
-            var _this335 = this;
+            var _this337 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
-              if (_this335.clientCredit <= 10) {
-                _this335.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips.");
+              if (_this337.clientCredit <= 10) {
+                _this337.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips.");
 
                 return false;
               }
 
               if (data.status === "En vip") {
-                _this335.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est indisponible pour passer le live.");
+                _this337.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est indisponible pour passer le live.");
 
                 return false;
               } else {
-                _this335.loading = true;
+                _this337.loading = true;
 
-                _this335.socketService.clientInviteModelToVIP(_this335.idRoom + 'P', _this335.clientId, _this335.clientPseudo, _this335.modelId, 'live free');
+                _this337.socketService.clientInviteModelToVIP(_this337.idRoom + 'P', _this337.clientId, _this337.clientPseudo, _this337.modelId, 'live free');
 
                 setTimeout(function () {
-                  if (_this335.loading) _this335.loading = false;
+                  if (_this337.loading) _this337.loading = false;
                 }, 10000);
               }
             });
@@ -55840,7 +56602,7 @@
           key: "liveOut",
           value: function liveOut() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee161() {
-              var _this336 = this;
+              var _this338 = this;
 
               return regeneratorRuntime.wrap(function _callee161$(_context161) {
                 while (1) {
@@ -55854,8 +56616,8 @@
                     case 3:
                       _context161.next = 5;
                       return _context161.sent.subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this336, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee160() {
-                          var _this337 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this338, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee160() {
+                          var _this339 = this;
 
                           return regeneratorRuntime.wrap(function _callee160$(_context160) {
                             while (1) {
@@ -55864,10 +56626,10 @@
                                   this.timer.reinit = true;
                                   _context160.next = 3;
                                   return this.roomPrivateService.updateActif(this.idRoom, false, 'private').subscribe(function (data) {
-                                    _this337.socketService.leavePrivate(_this337.idRoom, 'client', _this337.clientId).then(function (data) {
-                                      _this337.roomPrivateService.leaveRoom();
+                                    _this339.socketService.leavePrivate(_this339.idRoom, 'client', _this339.clientId).then(function (data) {
+                                      _this339.roomPrivateService.leaveRoom();
 
-                                      _this337.clientService.deleteLastChat();
+                                      _this339.clientService.deleteLastChat();
 
                                       window.location.href = '/client/accueil/registered'; // this.router.navigate(['/client/accueil/registered']);
                                       // setTimeout(
@@ -55914,14 +56676,14 @@
           key: "initTimer",
           value: function initTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee163() {
-              var _this338 = this;
+              var _this340 = this;
 
               return regeneratorRuntime.wrap(function _callee163$(_context163) {
                 while (1) {
                   switch (_context163.prev = _context163.next) {
                     case 0:
                       this.timerService.getTimer(this.modelId, src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].PRIVATE).subscribe(function (data) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this338, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee162() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this340, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee162() {
                           var created, updated, _this$timerService$co8, hour, minute, second;
 
                           return regeneratorRuntime.wrap(function _callee162$(_context162) {
@@ -55959,7 +56721,7 @@
           key: "getCostShow",
           value: function getCostShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee164() {
-              var _this339 = this;
+              var _this341 = this;
 
               return regeneratorRuntime.wrap(function _callee164$(_context164) {
                 while (1) {
@@ -55967,22 +56729,22 @@
                     case 0:
                       _context164.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_4__["TypeTimer"].PRIVATE).subscribe(function (data) {
-                        _this339.show.id = data.id;
-                        _this339.show.credit = data.credit;
-                        _this339.show.second = data.second;
-                        _this339.show.type = data.type;
+                        _this341.show.id = data.id;
+                        _this341.show.credit = data.credit;
+                        _this341.show.second = data.second;
+                        _this341.show.type = data.type;
 
-                        if (_this339.clientCredit == 0) {
-                          _this339.aucunCredit();
+                        if (_this341.clientCredit == 0) {
+                          _this341.aucunCredit();
 
                           return null;
-                        } else if (_this339.clientCredit <= _this339.show.credit * 2) {
-                          _this339.creditInsuffisant();
+                        } else if (_this341.clientCredit <= _this341.show.credit * 2) {
+                          _this341.creditInsuffisant();
 
                           return null;
                         }
 
-                        _this339.beginTimer();
+                        _this341.beginTimer();
                       });
 
                     case 2:
@@ -55999,11 +56761,11 @@
         }, {
           key: "creditInsuffisant",
           value: function creditInsuffisant() {
-            var _this340 = this;
+            var _this342 = this;
 
             this.popupService.info(null, 'CREDIT INSUFFISANT', "Vous n'avez presque plus de cr\xE9dit. Veuillez vous recharger.");
             setTimeout(function () {
-              _this340.getCredit();
+              _this342.getCredit();
             }, 20000);
           }
         }, {
@@ -56051,7 +56813,7 @@
           key: "beginTimer",
           value: function beginTimer() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee167() {
-              var _this341 = this;
+              var _this343 = this;
 
               var delay;
               return regeneratorRuntime.wrap(function _callee167$(_context167) {
@@ -56066,14 +56828,14 @@
                       _context167.next = 5;
                       return _context167.sent.subscribe( // launch main creditation
                       function (data) {
-                        _this341.clientCredit = data.credit ? data.credit : 0;
+                        _this343.clientCredit = data.credit ? data.credit : 0;
 
                         if (data.credit <= 0) {
-                          _this341.aucunCredit();
+                          _this343.aucunCredit();
 
                           return null;
-                        } else if (data.credit <= _this341.show.credit * 2) {
-                          _this341.creditInsuffisant();
+                        } else if (data.credit <= _this343.show.credit * 2) {
+                          _this343.creditInsuffisant();
 
                           return null;
                         }
@@ -56081,8 +56843,8 @@
 
                     case 5:
                       this.timer.timer = setInterval(function () {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this341, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee166() {
-                          var _this342 = this;
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this343, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee166() {
+                          var _this344 = this;
 
                           return regeneratorRuntime.wrap(function _callee166$(_context166) {
                             while (1) {
@@ -56099,15 +56861,15 @@
                                 case 3:
                                   _context166.next = 5;
                                   return _context166.sent.subscribe(function (data) {
-                                    _this342.clientCredit = data.credit ? data.credit : 0;
+                                    _this344.clientCredit = data.credit ? data.credit : 0;
 
                                     if (data.credit <= 0) {
-                                      _this342.aucunCredit();
+                                      _this344.aucunCredit();
 
-                                      clearInterval(_this342.timer.timer);
+                                      clearInterval(_this344.timer.timer);
                                       return null;
-                                    } else if (data.credit <= _this342.show.credit * 2) {
-                                      _this342.creditInsuffisant();
+                                    } else if (data.credit <= _this344.show.credit * 2) {
+                                      _this344.creditInsuffisant();
 
                                       return null;
                                     }
@@ -56189,7 +56951,7 @@
         }, {
           key: "onStart",
           value: function onStart() {
-            var _this343 = this;
+            var _this345 = this;
 
             if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this._platform) && 'mediaDevices' in navigator) {
               navigator.mediaDevices.getUserMedia({
@@ -56200,7 +56962,7 @@
                 // _video.srcObject = ms;
                 // _video.play();
                 // console.log('my stream ', ms)
-                _this343.lazyStream = ms; // this.lazyStream.getVideoTracks().forEach(
+                _this345.lazyStream = ms; // this.lazyStream.getVideoTracks().forEach(
                 //   (track) => {
                 //     this.showVideo = false;
                 //     track.enabled = false;
@@ -56208,10 +56970,10 @@
                 //   }
                 // );
 
-                _this343.clientStream.push({
-                  clientId: _this343.clientId,
-                  stream: _this343.lazyStream,
-                  peerId: _this343.peerId,
+                _this345.clientStream.push({
+                  clientId: _this345.clientId,
+                  stream: _this345.lazyStream,
+                  peerId: _this345.peerId,
                   isAudio: false,
                   isVideo: true
                 });
@@ -56241,22 +57003,22 @@
         }, {
           key: "relaunchPeerId",
           value: function relaunchPeerId() {
-            var _this344 = this;
+            var _this346 = this;
 
             this.peer.on('open', function (id) {
               console.log('Relaunch peer id ', id);
-              _this344.peerId = id; // Send peer client
+              _this346.peerId = id; // Send peer client
 
-              _this344.socketService.askModelPeerId({
-                peerId: _this344.peerId,
-                room: _this344.idRoom + 'P',
-                clientId: _this344.clientId
+              _this346.socketService.askModelPeerId({
+                peerId: _this346.peerId,
+                room: _this346.idRoom + 'P',
+                clientId: _this346.clientId
               });
 
-              _this344.roomPrivateService.updateActif(_this344.idRoom, true, 'private', _this344.peerId).subscribe(function (data) {
-                _this344.socketService.joinPrivate(_this344.idRoom, _this344.modelId, _this344.clientId, _this344.clientPseudo, _this344.peerId);
+              _this346.roomPrivateService.updateActif(_this346.idRoom, true, 'private', _this346.peerId).subscribe(function (data) {
+                _this346.socketService.joinPrivate(_this346.idRoom, _this346.modelId, _this346.clientId, _this346.clientPseudo, _this346.peerId);
 
-                _this344.getActifs();
+                _this346.getActifs();
               });
             });
           }
@@ -56268,7 +57030,7 @@
         }, {
           key: "callPeer",
           value: function callPeer(id) {
-            var _this345 = this;
+            var _this347 = this;
 
             console.log('CallPeer  id : ', id);
             if (!id) return null;
@@ -56280,14 +57042,14 @@
             if (call) {
               call.on('stream', function (remoteStream) {
                 console.log("On stream after call in client");
-                _this345.hasGotStreamModel = true;
+                _this347.hasGotStreamModel = true;
 
-                _this345.streamRemoteVideo(remoteStream); // Add stream model
+                _this347.streamRemoteVideo(remoteStream); // Add stream model
 
 
-                _this345.currentPeer = call.peerConnection;
+                _this347.currentPeer = call.peerConnection;
 
-                _this345.peerList.push(call.peer);
+                _this347.peerList.push(call.peer);
               });
             } // this.onStop();
             // navigator.mediaDevices.getUserMedia({
@@ -56332,7 +57094,7 @@
         }, {
           key: "callPeerClient",
           value: function callPeerClient(clientId, clientPeer) {
-            var _this346 = this;
+            var _this348 = this;
 
             console.log('CallPeerClient id ', clientId, 'My ID ', this.clientId, ' Peer ', clientPeer);
             if (!clientPeer) return null;
@@ -56344,12 +57106,12 @@
               call.on('stream', function (remoteStream) {
                 console.log("On stream in call other client");
 
-                if (!_this346.peerList.includes(call.peer)) {
-                  _this346.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
+                if (!_this348.peerList.includes(call.peer)) {
+                  _this348.addOtherClientstreamRemoteVideo(clientId, remoteStream, call.peer);
 
-                  _this346.currentPeer = call.peerConnection;
+                  _this348.currentPeer = call.peerConnection;
 
-                  _this346.peerList.push(call.peer);
+                  _this348.peerList.push(call.peer);
                 }
               });
             } // this.onStop();
@@ -56388,7 +57150,7 @@
         }, {
           key: "getAlbums",
           value: function getAlbums() {
-            var _this347 = this;
+            var _this349 = this;
 
             this.getActifRoom();
             var data = {
@@ -56397,7 +57159,7 @@
             };
             this.albumService.getModelAlbums(data).subscribe(function (data) {
               for (var i = 0; i < data.length; i++) {
-                _this347.albums.push({
+                _this349.albums.push({
                   url: data[i].path_album
                 });
               }
@@ -56406,7 +57168,7 @@
         }, {
           key: "getActifRoom",
           value: function getActifRoom() {
-            var _this348 = this;
+            var _this350 = this;
 
             // console.log('Id room ', this.idRoom);
             this.roomPrivateService.getActifRoom(this.idRoom).subscribe(function (data) {
@@ -56414,7 +57176,7 @@
               var actifs = data;
               actifs.forEach(function (actif) {
                 if (actif.id && actif.peerId) {
-                  _this348.callPeerClient(actif.id, actif.peerId);
+                  _this350.callPeerClient(actif.id, actif.peerId);
                 }
               });
             }, function (error) {
@@ -56472,7 +57234,7 @@
         }, {
           key: "toggleVideo",
           value: function toggleVideo() {
-            var _this349 = this;
+            var _this351 = this;
 
             this.showVideo = !this.showVideo;
 
@@ -56487,8 +57249,8 @@
             }
 
             this.clientStream.forEach(function (stream) {
-              if (stream.clientId === _this349.clientId) {
-                stream.isVideo = _this349.showVideo;
+              if (stream.clientId === _this351.clientId) {
+                stream.isVideo = _this351.showVideo;
               }
             }); // this.onStop();
             // this.onStart();
@@ -56499,7 +57261,7 @@
         }, {
           key: "toggleAudio",
           value: function toggleAudio() {
-            var _this350 = this;
+            var _this352 = this;
 
             this.showAudio = !this.showAudio;
 
@@ -56514,8 +57276,8 @@
             }
 
             this.clientStream.forEach(function (stream) {
-              if (stream.clientId === _this350.clientId) {
-                stream.isAudio = _this350.showAudio;
+              if (stream.clientId === _this352.clientId) {
+                stream.isAudio = _this352.showAudio;
               }
             }); // this.onStop();
             // this.onStart();
@@ -56552,7 +57314,7 @@
         }, {
           key: "selectTips",
           value: function selectTips(value) {
-            var _this351 = this;
+            var _this353 = this;
 
             // console.log('Tips ', value);
             this.loading = true;
@@ -56565,9 +57327,9 @@
 
             this.creditService.buyGift(this.clientId, this.modelId, value.credit).subscribe(function (data) {
               // console.log(data);
-              _this351.clientCredit = data.creditClient;
+              _this353.clientCredit = data.creditClient;
 
-              _this351.sendTips(value.symbole, value.credit, value.designation, value.vip);
+              _this353.sendTips(value.symbole, value.credit, value.designation, value.vip);
             }, function (error) {
               console.log(error);
             });
@@ -56580,7 +57342,7 @@
         }, {
           key: "sendTips",
           value: function sendTips(symbole, credit, designation) {
-            var _this352 = this;
+            var _this354 = this;
 
             var vip = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
             var data = {
@@ -56613,8 +57375,8 @@
             this.socketService.sendMessage(msg);
             this.chatService.postMessage(data).subscribe(function (data) {
               // this.getMessages();
-              _this352.loading = false;
-              _this352.showTips = false;
+              _this354.loading = false;
+              _this354.showTips = false;
             });
           }
         }]);
@@ -57322,7 +58084,7 @@
         _createClass(EnterComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this353 = this;
+            var _this355 = this;
 
             this.titleService.setTitle(this.title);
             this.metaTagService.addTags([{
@@ -57349,11 +58111,11 @@
             }]);
             aos__WEBPACK_IMPORTED_MODULE_2__["init"]();
             Promise.resolve().then(function () {
-              var visited = _this353.store.get('visited'); // console.log(visited);
+              var visited = _this355.store.get('visited'); // console.log(visited);
 
 
-              if (!visited) _this353.store.set('visited', 'nice');else if (visited === 'nice') {
-                _this353.router.navigate(['/accueil']);
+              if (!visited) _this355.store.set('visited', 'nice');else if (visited === 'nice') {
+                _this355.router.navigate(['/accueil']);
               }
             });
           }
@@ -58627,7 +59389,7 @@
           key: "getCostPrivateShow",
           value: function getCostPrivateShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee169() {
-              var _this354 = this;
+              var _this356 = this;
 
               return regeneratorRuntime.wrap(function _callee169$(_context169) {
                 while (1) {
@@ -58636,8 +59398,8 @@
                       _context169.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_2__["TypeTimer"].PRIVATE).subscribe(function (data) {
                         // console.log("Show Cost ", data)
-                        _this354.statPrivate.tarif_show = data.credit ? data.credit : 0;
-                        _this354.statPrivate.time_show = data.second ? data.second : 0;
+                        _this356.statPrivate.tarif_show = data.credit ? data.credit : 0;
+                        _this356.statPrivate.time_show = data.second ? data.second : 0;
                       });
 
                     case 2:
@@ -58655,7 +59417,7 @@
           key: "getCostVIPShow",
           value: function getCostVIPShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee170() {
-              var _this355 = this;
+              var _this357 = this;
 
               return regeneratorRuntime.wrap(function _callee170$(_context170) {
                 while (1) {
@@ -58664,8 +59426,8 @@
                       _context170.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_2__["TypeTimer"].VIP).subscribe(function (data) {
                         // console.log("Show Cost ", data)
-                        _this355.statVIP.tarif_show = data.credit ? data.credit : 0;
-                        _this355.statVIP.time_show = data.second ? data.second : 0;
+                        _this357.statVIP.tarif_show = data.credit ? data.credit : 0;
+                        _this357.statVIP.time_show = data.second ? data.second : 0;
                       });
 
                     case 2:
@@ -58682,19 +59444,19 @@
         }, {
           key: "isBanished",
           value: function isBanished() {
-            var _this356 = this;
+            var _this358 = this;
 
             this.banishService.isBanished(this.modelId, this.clientId).subscribe(function (data) {
               var ok = data.authorized;
 
               if (!ok) {
-                _this356.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
+                _this358.popupService.info(null, 'Accès refusé', "Vous n' \xEAtes pas autoris\xE9 \xE0 entrer dans ce room.");
 
-                _this356.router.navigateByUrl('/client/accueil/registered');
+                _this358.router.navigateByUrl('/client/accueil/registered');
               } else {
-                _this356.getModel();
+                _this358.getModel();
 
-                _this356.getInfoRoom();
+                _this358.getInfoRoom();
               }
             });
           }
@@ -58718,7 +59480,7 @@
         }, {
           key: "initSocket",
           value: function initSocket() {
-            var _this357 = this;
+            var _this359 = this;
 
             // if (!this.roomService.joinedRoom()) {
             //   this.roomService.joinRoom();
@@ -58726,182 +59488,182 @@
             // }
             this.socketService.join(this.idRoom, this.modelId, this.clientPseudo, this.clientId);
             this.socketService.listen("currentSaloon ".concat(this.idRoom)).subscribe(function (data) {
-              _this357.live_selected = data.live_selected;
+              _this359.live_selected = data.live_selected;
             });
             this.joinSub = this.socketService.listen("joined ".concat(this.idRoom)).subscribe(function (data) {
               // console.log('Joined ', data);
-              _this357.actif = data.count < 0 ? 0 : data.count; // console.log('Actif ', this.actif);
+              _this359.actif = data.count < 0 ? 0 : data.count; // console.log('Actif ', this.actif);
             });
             this.leaveSub = this.socketService.listen("leaved ".concat(this.idRoom)).subscribe(function (data) {
               // console.log('leaved ', data);
-              _this357.actif = data.count < 0 ? 0 : data.count; // console.log('Actif ', this.actif);
+              _this359.actif = data.count < 0 ? 0 : data.count; // console.log('Actif ', this.actif);
             });
             this.messageSub = this.socketService.listen("message ".concat(this.idRoom)).subscribe(function (data) {
               // console.log('Msg to client ', data);
-              _this357.messages.push(data); // this.getMessages();
+              _this359.messages.push(data); // this.getMessages();
 
             });
             this.modelPassedPrivateSub = this.socketService.listen("Pass to private ".concat(this.idRoom)).subscribe(function (data) {
               // console.log('Pass to private ', data);
-              if (_this357.acceptedInvitationToPrivate) {
-                _this357.livePrivate();
+              if (_this359.acceptedInvitationToPrivate) {
+                _this359.livePrivate();
               } else {
-                _this357.passedToPrivate = true;
+                _this359.passedToPrivate = true;
               }
             });
             this.modelLeavedSub = this.socketService.listen("model leaved ".concat(this.idRoom)).subscribe(function (data) {
-              _this357.leaved = true;
+              _this359.leaved = true;
             });
             this.banishSub = this.socketService.listen("Banish client ".concat(this.idRoom, " ").concat(this.clientId)).subscribe(function (data) {
-              _this357.isBanished();
+              _this359.isBanished();
             });
             this.responseInvitationPrivateSub = this.socketService.listen("response invitation private ".concat(this.idRoom, " ").concat(this.clientId)).subscribe(function (data) {
-              _this357.loading = false; // console.log('Answer')
+              _this359.loading = false; // console.log('Answer')
 
-              _this357.acceptedInvitationToPrivate = true;
+              _this359.acceptedInvitationToPrivate = true;
 
-              if (_this357.passedToPrivate) {
-                _this357.livePrivate();
+              if (_this359.passedToPrivate) {
+                _this359.livePrivate();
               }
             });
             this.responsePositiveInvitationVIPSub = this.socketService.listen("response positive invitation model to vip ".concat(this.idRoom, " ").concat(this.clientId)).subscribe(function (data) {
-              _this357.loading = false;
-              _this357.acceptedVIP = true;
+              _this359.loading = false;
+              _this359.acceptedVIP = true;
 
-              _this357.acceptedInvitation(data.special);
+              _this359.acceptedInvitation(data.special);
             });
             this.responseNegativeInvitationVIPSub = this.socketService.listen("response negative invitation model to vip ".concat(this.idRoom, " ").concat(this.clientId)).subscribe(function (data) {
               // console.log(data)
-              _this357.loading = false;
-              _this357.acceptedVIP = false;
+              _this359.loading = false;
+              _this359.acceptedVIP = false;
 
               if (data && data.special) {
                 if (data.special === 'live choice') {
-                  _this357.popupService.info(null, 'LIVE CHOICE US', "".concat(_this357.modelPseudo, " n'est pas disponible pour le moment."));
+                  _this359.popupService.info(null, 'LIVE CHOICE US', "".concat(_this359.modelPseudo, " n'est pas disponible pour le moment."));
                 } else if (data.special === 'live tips') {
-                  _this357.popupService.info(null, 'LIVE TIPS', "".concat(_this357.modelPseudo, " n'est pas disponible pour le moment."));
+                  _this359.popupService.info(null, 'LIVE TIPS', "".concat(_this359.modelPseudo, " n'est pas disponible pour le moment."));
                 }
               } else {
-                _this357.popupService.info(null, 'LIVE VIP', "".concat(_this357.modelPseudo, " n'est pas disponible pour le moment."));
+                _this359.popupService.info(null, 'LIVE VIP', "".concat(_this359.modelPseudo, " n'est pas disponible pour le moment."));
               }
             }); // Model passed to VIP
 
             this.modelPassedVipSub = this.socketService.listen("Pass to VIP ".concat(this.idRoom)).subscribe(function (data) {
-              if (_this357.acceptedVIP) _this357.acceptedInvitation();
-              _this357.passedVIP = true;
+              if (_this359.acceptedVIP) _this359.acceptedInvitation();
+              _this359.passedVIP = true;
             });
             this.socketService.listen("Pass to tips ".concat(this.idRoom)).subscribe(function (data) {
               // console.log('Pass to private ', data);
-              _this357.live_selected = 'live_tips';
-              _this357.passedToTips = true;
+              _this359.live_selected = 'live_tips';
+              _this359.passedToTips = true;
             });
             this.socketService.askCurrentSaloon(this.idRoom, this.modelId);
           }
         }, {
           key: "getMyInfo",
           value: function getMyInfo() {
-            var _this358 = this;
+            var _this360 = this;
 
             this.loading = true;
             this.clientService.getMyInfos().subscribe( // My info
             function (data) {
               // console.log("My info ", data)
-              _this358.clientId = data.id;
-              _this358.clientPseudo = data.pseudo;
-              _this358.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
+              _this360.clientId = data.id;
+              _this360.clientPseudo = data.pseudo;
+              _this360.clientCredit = data.credit ? data.credit.credit : 0; // Client Credit
 
-              _this358.clientCreditId = data.credit ? data.credit.id : 0; // Client Credit Id
+              _this360.clientCreditId = data.credit ? data.credit.id : 0; // Client Credit Id
 
-              _this358.isBanished();
+              _this360.isBanished();
 
-              _this358.getCostVIPShow();
+              _this360.getCostVIPShow();
 
-              _this358.getCostPrivateShow();
+              _this360.getCostPrivateShow();
             }, function (error) {
-              _this358.loading = false;
+              _this360.loading = false;
             });
           }
         }, {
           key: "getModel",
           value: function getModel() {
-            var _this359 = this;
+            var _this361 = this;
 
             this.modelService.getModel(this.modelId).subscribe(function (data) {
               if (!data) {
-                _this359.invalideRoom();
+                _this361.invalideRoom();
 
-                _this359.clientService.lastRoom(null);
+                _this361.clientService.lastRoom(null);
 
                 setTimeout(function () {
-                  _this359.router.navigateByUrl('/client/accueil/registered');
+                  _this361.router.navigateByUrl('/client/accueil/registered');
                 }, 2000);
                 return null;
               } // console.log('Model ', data);
 
 
-              _this359.bg = data.path_soft;
-              _this359.modelPseudo = data.pseudo;
+              _this361.bg = data.path_soft;
+              _this361.modelPseudo = data.pseudo;
 
               if (data.profile.status === "Hors ligne") {
-                _this359.popupService.info('/client/accueil/registered', 'CHAT INDISPONIBLE', "".concat(_this359.modelPseudo, " est hors ligne."));
+                _this361.popupService.info('/client/accueil/registered', 'CHAT INDISPONIBLE', "".concat(_this361.modelPseudo, " est hors ligne."));
 
-                _this359.router.navigateByUrl('/client/accueil/registered');
+                _this361.router.navigateByUrl('/client/accueil/registered');
               } else if (data.profile.status === "En live") {
-                _this359.passedToPrivate = true;
+                _this361.passedToPrivate = true;
               } else if (data.profile.status === "En tips") {
-                _this359.popupService.info(null, 'CHAT INDISPONIBLE', "".concat(_this359.modelPseudo, " est en live tips."));
+                _this361.popupService.info(null, 'CHAT INDISPONIBLE', "".concat(_this361.modelPseudo, " est en live tips."));
 
-                _this359.passedToTips = true;
-                _this359.live_selected = 'live_tips';
+                _this361.passedToTips = true;
+                _this361.live_selected = 'live_tips';
               } else if (data.profile.status === "En live choice") {
-                _this359.popupService.info('/client/accueil/registered', 'CHAT INDISPONIBLE', "".concat(_this359.modelPseudo, " est en live CHOICE."));
+                _this361.popupService.info('/client/accueil/registered', 'CHAT INDISPONIBLE', "".concat(_this361.modelPseudo, " est en live CHOICE."));
 
-                _this359.live_selected = 'choice_us';
+                _this361.live_selected = 'choice_us';
               } else if (data.profile.status === "En vip") {
-                _this359.popupService.info('/client/accueil/registered', 'CHAT INDISPONIBLE', "".concat(_this359.modelPseudo, " est en live VIP."));
+                _this361.popupService.info('/client/accueil/registered', 'CHAT INDISPONIBLE', "".concat(_this361.modelPseudo, " est en live VIP."));
               }
 
-              _this359.getInfo();
+              _this361.getInfo();
             }, function (error) {
-              _this359.loading = false;
+              _this361.loading = false;
             });
           }
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this360 = this;
+            var _this362 = this;
 
             var id = parseInt(this.store.get("identification//"));
             this.roomService.getInfo(id).subscribe(function (data) {
-              _this360.id = data.id;
+              _this362.id = data.id;
 
-              _this360.getAlbums();
+              _this362.getAlbums();
             });
           }
         }, {
           key: "getInfoRoom",
           value: function getInfoRoom() {
-            var _this361 = this;
+            var _this363 = this;
 
             this.roomService.getRoomModel(this.modelId).subscribe(function (data) {
               if (!data) return null; // console.log('Model room ', data);
 
-              _this361.idRoom = data.idRoom;
-              _this361.actif = data.actif;
+              _this363.idRoom = data.idRoom;
+              _this363.actif = data.actif;
 
-              _this361.clientService.storeLastChat(_this361.idRoom);
+              _this363.clientService.storeLastChat(_this363.idRoom);
 
-              _this361.clientService.lastRoom(_this361.router.url);
+              _this363.clientService.lastRoom(_this363.router.url);
 
-              _this361.getMessages();
+              _this363.getMessages();
 
-              _this361.initSocket();
+              _this363.initSocket();
             });
           }
         }, {
           key: "initColor",
           value: function initColor() {
-            var _this362 = this;
+            var _this364 = this;
 
             if (this.store.get("ticket_chat")) {
               this.chatColor = this.store.get("ticket_chat");
@@ -58910,9 +59672,9 @@
 
             ;
             this.roomService.getColor().subscribe(function (data) {
-              _this362.chatColor = data.color;
+              _this364.chatColor = data.color;
 
-              _this362.store.set("ticket_chat", data.color);
+              _this364.store.set("ticket_chat", data.color);
             });
           }
         }, {
@@ -58923,7 +59685,7 @@
         }, {
           key: "sendMessage",
           value: function sendMessage() {
-            var _this363 = this;
+            var _this365 = this;
 
             if (!this.message) return null;
             var data = {
@@ -58949,56 +59711,56 @@
             this.socketService.sendMessage(msg);
             this.chatService.postMessage(data).subscribe(function (data) {
               // this.getMessages();
-              _this363.message = null;
+              _this365.message = null;
             });
           }
         }, {
           key: "getMessages",
           value: function getMessages() {
-            var _this364 = this;
+            var _this366 = this;
 
             this.chatService.getMessage(this.idRoom).subscribe(function (data) {
-              _this364.messages = data;
+              _this366.messages = data;
 
-              _this364.getCostShow(); // console.log(this.messages);
+              _this366.getCostShow(); // console.log(this.messages);
 
             });
           }
         }, {
           key: "livePrivate",
           value: function livePrivate() {
-            var _this365 = this;
+            var _this367 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
-              if (_this365.clientCredit <= _this365.costShowPrivate) {
-                _this365.popupService.info(null, 'CREDIT INSUFFISANT', "Votre cr\xE9dit est insuffisant pour lancer le live. Veuillez recharger votre compte.");
+              if (_this367.clientCredit <= _this367.costShowPrivate) {
+                _this367.popupService.info(null, 'CREDIT INSUFFISANT', "Votre cr\xE9dit est insuffisant pour lancer le live. Veuillez recharger votre compte.");
 
                 return false;
               } // console.log('To private ', data);
 
 
               if (data.status === 'En tips') {
-                _this365.popupService.info(null, 'MODELE EN LIVE TIPS', "Veuillez Passer en live TIPS.");
+                _this367.popupService.info(null, 'MODELE EN LIVE TIPS', "Veuillez Passer en live TIPS.");
 
                 return false;
               }
 
               if (data.status === 'En vip' || data.status === 'En live choice') {
-                _this365.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est dans un autre live pour le moment.");
+                _this367.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est dans un autre live pour le moment.");
 
                 return false;
               } else if (data.status === "En live") {
-                _this365.router.navigate(['/client/live/private', {
-                  model: _this365.modelId
+                _this367.router.navigate(['/client/live/private', {
+                  model: _this367.modelId
                 }]);
               } else {
                 // Send invitation to pass to private
-                _this365.loading = true;
+                _this367.loading = true;
 
-                _this365.socketService.clientInviteModelToPrivate(_this365.idRoom, _this365.clientId, _this365.clientPseudo, _this365.modelId);
+                _this367.socketService.clientInviteModelToPrivate(_this367.idRoom, _this367.clientId, _this367.clientPseudo, _this367.modelId);
 
                 setTimeout(function () {
-                  if (_this365.loading) _this365.loading = false;
+                  if (_this367.loading) _this367.loading = false;
                 }, 10000); // this.popupService.info(null,'LIVE INDISPONIBLE',
                 // `${this.modelPseudo} n\'a pas encore lancé le live.`);
               }
@@ -59007,41 +59769,41 @@
         }, {
           key: "liveVIP",
           value: function liveVIP() {
-            var _this366 = this;
+            var _this368 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
-              if (_this366.clientCredit <= _this366.costShowVip) {
-                _this366.popupService.info(null, 'CREDIT INSUFFISANT', "Veuillez recharger votre compte.");
+              if (_this368.clientCredit <= _this368.costShowVip) {
+                _this368.popupService.info(null, 'CREDIT INSUFFISANT', "Veuillez recharger votre compte.");
 
                 return false;
               }
 
               if (data.status === 'En live choice') {
-                _this366.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est dans un autre live pour le moment.");
+                _this368.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est dans un autre live pour le moment.");
 
                 return false;
               }
 
               if (data.status === 'En tips') {
-                _this366.popupService.info(null, 'MODELE EN LIVE TIPS', "Veuillez Passer en live TIPS.");
+                _this368.popupService.info(null, 'MODELE EN LIVE TIPS', "Veuillez Passer en live TIPS.");
 
                 return false;
               } // console.log('To vip ', data);
 
 
               if (data.status === "En vip") {
-                _this366.router.navigate(['/client/live/vip', {
-                  model: _this366.modelId
+                _this368.router.navigate(['/client/live/vip', {
+                  model: _this368.modelId
                 }]);
               } else {
                 // this.popupService.info(null,'LIVE VIP INDISPONIBLE',
                 // `${this.modelPseudo} n\'a pas encore lancé le live en VIP.`);
-                _this366.loading = true;
+                _this368.loading = true;
 
-                _this366.socketService.clientInviteModelToVIP(_this366.idRoom, _this366.clientId, _this366.clientPseudo, _this366.modelId);
+                _this368.socketService.clientInviteModelToVIP(_this368.idRoom, _this368.clientId, _this368.clientPseudo, _this368.modelId);
 
                 setTimeout(function () {
-                  if (_this366.loading) _this366.loading = false;
+                  if (_this368.loading) _this368.loading = false;
                 }, 10000);
               }
             });
@@ -59050,24 +59812,24 @@
         }, {
           key: "liveTips",
           value: function liveTips() {
-            var _this367 = this;
+            var _this369 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
-              if (_this367.clientCredit <= 10) {
-                _this367.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips au moins 10 cr\xE9dits.");
+              if (_this369.clientCredit <= 10) {
+                _this369.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips au moins 10 cr\xE9dits.");
 
                 return false;
               }
 
               if (data.status !== "En tips") {
-                _this367.popupService.info(null, 'LIVE TIPS', "".concat(_this367.modelPseudo, " n'as pas encore lanc\xE9 le live TIPS."));
+                _this369.popupService.info(null, 'LIVE TIPS', "".concat(_this369.modelPseudo, " n'as pas encore lanc\xE9 le live TIPS."));
 
                 return false;
               } else {
                 // Debiter d'abord
-                _this367.roomTipsService.debiterRoom(_this367.clientCreditId, 1).subscribe(function (data) {
-                  _this367.router.navigate(['/client/live/tips-clients', {
-                    model: _this367.modelId
+                _this369.roomTipsService.debiterRoom(_this369.clientCreditId, 1).subscribe(function (data) {
+                  _this369.router.navigate(['/client/live/tips-clients', {
+                    model: _this369.modelId
                   }]);
                 }, function (error) {
                   console.log(error);
@@ -59079,26 +59841,26 @@
         }, {
           key: "liveChoiceUs",
           value: function liveChoiceUs() {
-            var _this368 = this;
+            var _this370 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
-              if (_this368.clientCredit <= 10) {
-                _this368.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips.");
+              if (_this370.clientCredit <= 10) {
+                _this370.popupService.info(null, 'CREDIT INSUFFISANT', "Votre credit est insuffisant pour passer en live tips.");
 
                 return false;
               }
 
               if (data.status === "En vip") {
-                _this368.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est indisponible pour passer le live.");
+                _this370.popupService.info(null, 'MODELE INDISPONIBLE', "Votre mod\xE8le est indisponible pour passer le live.");
 
                 return false;
               } else {
-                _this368.loading = true;
+                _this370.loading = true;
 
-                _this368.socketService.clientInviteModelToVIP(_this368.idRoom, _this368.clientId, _this368.clientPseudo, _this368.modelId, 'live choice');
+                _this370.socketService.clientInviteModelToVIP(_this370.idRoom, _this370.clientId, _this370.clientPseudo, _this370.modelId, 'live choice');
 
                 setTimeout(function () {
-                  if (_this368.loading) _this368.loading = false;
+                  if (_this370.loading) _this370.loading = false;
                 }, 10000);
               }
             });
@@ -59121,7 +59883,7 @@
         }, {
           key: "getAlbums",
           value: function getAlbums() {
-            var _this369 = this;
+            var _this371 = this;
 
             var data = {
               modelId: this.modelId,
@@ -59129,21 +59891,21 @@
             };
             this.albumService.getModelAlbums(data).subscribe(function (data) {
               for (var i = 0; i < data.length; i++) {
-                _this369.albums.push({
+                _this371.albums.push({
                   url: data[i].path_album
                 });
               }
 
-              _this369.loading = false;
+              _this371.loading = false;
             }, function (error) {
-              _this369.loading = false;
+              _this371.loading = false;
             });
           }
         }, {
           key: "getCostShow",
           value: function getCostShow() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee171() {
-              var _this370 = this;
+              var _this372 = this;
 
               return regeneratorRuntime.wrap(function _callee171$(_context171) {
                 while (1) {
@@ -59151,10 +59913,10 @@
                     case 0:
                       _context171.next = 2;
                       return this.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_2__["TypeTimer"].PRIVATE).subscribe(function (data) {
-                        _this370.costShowPrivate = data.credit;
+                        _this372.costShowPrivate = data.credit;
 
-                        _this370.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_2__["TypeTimer"].VIP).subscribe(function (data) {
-                          _this370.costShowVip = data.credit;
+                        _this372.timerService.getCostShow(src_app_interfaces_timer_interface__WEBPACK_IMPORTED_MODULE_2__["TypeTimer"].VIP).subscribe(function (data) {
+                          _this372.costShowVip = data.credit;
                         });
                       });
 
@@ -59172,10 +59934,10 @@
         }, {
           key: "acceptedInvitation",
           value: function acceptedInvitation(special) {
-            var _this371 = this;
+            var _this373 = this;
 
             this.profilService.getSpecificProfil(this.modelId).subscribe(function (data) {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this371, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee172() {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this373, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee172() {
                 return regeneratorRuntime.wrap(function _callee172$(_context172) {
                   while (1) {
                     switch (_context172.prev = _context172.next) {
@@ -59205,7 +59967,7 @@
           key: "getInfoRoomVIP",
           value: function getInfoRoomVIP() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee173() {
-              var _this372 = this;
+              var _this374 = this;
 
               return regeneratorRuntime.wrap(function _callee173$(_context173) {
                 while (1) {
@@ -59217,7 +59979,7 @@
                           return false;
                         }
 
-                        if (_this372.clientId !== data.clientId) {
+                        if (_this374.clientId !== data.clientId) {
                           return false;
                         }
 
@@ -59264,7 +60026,7 @@
         }, {
           key: "selectTips",
           value: function selectTips(value) {
-            var _this373 = this;
+            var _this375 = this;
 
             // console.log('Tips ', value);
             this.loading = true;
@@ -59277,9 +60039,9 @@
 
             this.creditService.buyGift(this.clientId, this.modelId, value.credit).subscribe(function (data) {
               console.log(data);
-              _this373.clientCredit = data.creditClient;
+              _this375.clientCredit = data.creditClient;
 
-              _this373.sendTips(value.symbole, value.credit, value.designation, value.vip);
+              _this375.sendTips(value.symbole, value.credit, value.designation, value.vip);
             }, function (error) {
               console.log(error);
             });
@@ -59292,7 +60054,7 @@
         }, {
           key: "sendTips",
           value: function sendTips(symbole, credit, designation) {
-            var _this374 = this;
+            var _this376 = this;
 
             var vip = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
             var data = {
@@ -59323,8 +60085,8 @@
             this.socketService.sendMessage(msg);
             this.chatService.postMessage(data).subscribe(function (data) {
               // this.getMessages();
-              _this374.loading = false;
-              _this374.showTips = false;
+              _this376.loading = false;
+              _this376.showTips = false;
             });
           }
         }]);
@@ -60066,39 +60828,39 @@
         }, {
           key: "getInfo",
           value: function getInfo() {
-            var _this375 = this;
+            var _this377 = this;
 
             this.clientService.getMyInfos().subscribe(function (data) {
               // console.log("My info ", data);
               if (!data) return null;
-              _this375.info.clientId = data.id;
-              _this375.info.clientPseudo = data.pseudo;
-              _this375.info.clientEmail = data.email;
-              _this375.info.clientCredit = data.credit.credit;
-              _this375.info.clientCreditId = data.credit.id;
+              _this377.info.clientId = data.id;
+              _this377.info.clientPseudo = data.pseudo;
+              _this377.info.clientEmail = data.email;
+              _this377.info.clientCredit = data.credit.credit;
+              _this377.info.clientCreditId = data.credit.id;
             });
           }
         }, {
           key: "getSetting",
           value: function getSetting() {
-            var _this376 = this;
+            var _this378 = this;
 
             this.clientService.getSettingClient().subscribe(function (data) {
-              _this376.info.setting = data;
-              _this376.sound = _this376.info.setting.sound_notification == 1 ? true : false;
+              _this378.info.setting = data;
+              _this378.sound = _this378.info.setting.sound_notification == 1 ? true : false;
             });
           }
         }, {
           key: "recharge",
           value: function recharge() {
-            var _this377 = this;
+            var _this379 = this;
 
             var dialogRef = this.dialog.open(src_app_modals_pack_modal_pack_modal_component__WEBPACK_IMPORTED_MODULE_2__["PackModalComponent"], {
               width: '100vh',
               data: {}
             });
             dialogRef.afterClosed().subscribe(function (result) {
-              _this377.getInfo();
+              _this379.getInfo();
             });
           }
         }, {
@@ -60120,7 +60882,7 @@
         }, {
           key: "modifing",
           value: function modifing() {
-            var _this378 = this;
+            var _this380 = this;
 
             if (this.isModifing) {
               // console.log("New Pseudo ", this.info.clientPseudo);
@@ -60128,8 +60890,8 @@
               this.clientService.changePseudo(newPseudo).subscribe(function (data) {
                 // console.log(data);
                 if (data.access_token) {
-                  _this378.authService.saveToken(data.access_token, data.id).then(function () {
-                    _this378.notificationService.success("Sauvegarde", "Informations enregistrées");
+                  _this380.authService.saveToken(data.access_token, data.id).then(function () {
+                    _this380.notificationService.success("Sauvegarde", "Informations enregistrées");
                   });
                 }
               });
@@ -60140,12 +60902,12 @@
         }, {
           key: "tryChangeEmail",
           value: function tryChangeEmail() {
-            var _this379 = this;
+            var _this381 = this;
 
             if (this.isModifing) {
               this.showExclam = true;
               setTimeout(function () {
-                _this379.showExclam = false;
+                _this381.showExclam = false;
               }, 4000);
             }
           }
@@ -60601,7 +61363,7 @@
           key: "validate",
           value: function validate() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee174() {
-              var _this380 = this;
+              var _this382 = this;
 
               return regeneratorRuntime.wrap(function _callee174$(_context174) {
                 while (1) {
@@ -60623,26 +61385,26 @@
                         this.clientService.deleteAccount(this.password).subscribe(function (data) {
                           // console.log(data);
                           if (data.error) {
-                            _this380.error = true;
+                            _this382.error = true;
                           } else {
-                            _this380.popupService.info('client', 'Suppression', "Un email de confirmation vous est envoy\xE9 pour motif :\n            <span style=\"font-style: italic; color: var(--pink)\">Suppression de compte</span>");
+                            _this382.popupService.info('client', 'Suppression', "Un email de confirmation vous est envoy\xE9 pour motif :\n            <span style=\"font-style: italic; color: var(--pink)\">Suppression de compte</span>");
 
-                            _this380.onNoClick();
+                            _this382.onNoClick();
 
-                            _this380.authService.logoutUser('client', '/accueil');
+                            _this382.authService.logoutUser('client', '/accueil');
                           }
                         });
                       } else if (this.action === 'désactivation') {
                         this.clientService.deactivateAccount(this.password).subscribe(function (data) {
                           // console.log(data);
                           if (data.error) {
-                            _this380.error = true;
+                            _this382.error = true;
                           } else {
-                            _this380.popupService.info('client', 'Désactivation', "Un email de confirmation vous est envoy\xE9 pour motif :\n            <span style=\"font-style: italic; color: var(--pink)\">D\xE9sactivation de compte</span>");
+                            _this382.popupService.info('client', 'Désactivation', "Un email de confirmation vous est envoy\xE9 pour motif :\n            <span style=\"font-style: italic; color: var(--pink)\">D\xE9sactivation de compte</span>");
 
-                            _this380.onNoClick();
+                            _this382.onNoClick();
 
-                            _this380.authService.logoutUser('client', '/accueil');
+                            _this382.authService.logoutUser('client', '/accueil');
                           }
                         });
                       }
@@ -61045,31 +61807,31 @@
         }, {
           key: "countClient",
           value: function countClient() {
-            var _this381 = this;
+            var _this383 = this;
 
             this.adminService.countClientsBlocked().subscribe(function (data) {
-              _this381.count = data ? data : 0;
+              _this383.count = data ? data : 0;
 
-              _this381.initPagination();
+              _this383.initPagination();
             });
           }
         }, {
           key: "listClients",
           value: function listClients() {
-            var _this382 = this;
+            var _this384 = this;
 
             this.adminService.getClientsBlocked(this.range, this.page, this.filter).subscribe(function (data) {
               console.log(data);
-              _this382.clients = data;
+              _this384.clients = data;
 
-              _this382.clients.forEach(function (client) {
-                client.createdAt = _this382.adminService.formatDate(client.createdAt);
-                client.updatedAt = _this382.adminService.formatDate(client.updatedAt);
+              _this384.clients.forEach(function (client) {
+                client.createdAt = _this384.adminService.formatDate(client.createdAt);
+                client.updatedAt = _this384.adminService.formatDate(client.updatedAt);
               });
 
-              _this382.count = _this382.clients.length;
+              _this384.count = _this384.clients.length;
 
-              _this382.initPagination();
+              _this384.initPagination();
             }, function (error) {
               console.log(error);
             });
@@ -61112,10 +61874,10 @@
         }, {
           key: "deleteClient",
           value: function deleteClient(idClient) {
-            var _this383 = this;
+            var _this385 = this;
 
             this.adminService.deleteClient(idClient).subscribe(function (data) {
-              if (data.success) _this383.listClients();else if (data.error) _this383.notificationService.errorMsg(data.message);
+              if (data.success) _this385.listClients();else if (data.error) _this385.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -61123,14 +61885,14 @@
         }, {
           key: "deblockedClient",
           value: function deblockedClient(idClient) {
-            var _this384 = this;
+            var _this386 = this;
 
             var data = {
               idClient: idClient,
               reverse: true
             };
             this.adminService.blockClient(data).subscribe(function (data) {
-              if (data.success) _this384.listClients();else if (data.error) _this384.notificationService.errorMsg(data.message);
+              if (data.success) _this386.listClients();else if (data.error) _this386.notificationService.errorMsg(data.message);
             }, function (error) {
               console.log(error);
             });
@@ -61748,26 +62510,26 @@
         }, {
           key: "startMinuteur",
           value: function startMinuteur() {
-            var _this385 = this;
+            var _this387 = this;
 
             setInterval(function () {
-              if (!_this385.leaved) {
-                if (!_this385.reinit) {
-                  _this385.second++;
+              if (!_this387.leaved) {
+                if (!_this387.reinit) {
+                  _this387.second++;
 
-                  if (_this385.second > 59) {
-                    _this385.second = 0;
-                    _this385.minute++;
+                  if (_this387.second > 59) {
+                    _this387.second = 0;
+                    _this387.minute++;
 
-                    if (_this385.minute > 59) {
-                      _this385.minute = 0;
-                      _this385.hour++;
+                    if (_this387.minute > 59) {
+                      _this387.minute = 0;
+                      _this387.hour++;
                     }
                   }
                 } else {
-                  _this385.second = 0;
-                  _this385.minute = 0;
-                  _this385.hour = 0;
+                  _this387.second = 0;
+                  _this387.minute = 0;
+                  _this387.hour = 0;
                 }
               }
             }, 1000);
@@ -62444,17 +63206,17 @@
         }, {
           key: "init",
           value: function init() {
-            var _this386 = this;
+            var _this388 = this;
 
             this.getTotal().then(function (data) {
-              _this386.initPagination();
+              _this388.initPagination();
             });
           }
         }, {
           key: "getTotal",
           value: function getTotal() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee175() {
-              var _this387 = this;
+              var _this389 = this;
 
               return regeneratorRuntime.wrap(function _callee175$(_context175) {
                 while (1) {
@@ -62463,9 +63225,9 @@
                       _context175.next = 2;
                       return this.modelSrv.count().subscribe(function (data) {
                         // console.log(data);
-                        _this387.totalOffline = data.offline;
-                        _this387.totalInChat = data.chat;
-                        _this387.totalInLive = data.live;
+                        _this389.totalOffline = data.offline;
+                        _this389.totalInChat = data.chat;
+                        _this389.totalInLive = data.live;
                       });
 
                     case 2:
@@ -62506,7 +63268,7 @@
           key: "initPhoto",
           value: function initPhoto(contxt, indice) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee176() {
-              var _this388 = this;
+              var _this390 = this;
 
               var debut, model;
               return regeneratorRuntime.wrap(function _callee176$(_context176) {
@@ -62538,7 +63300,7 @@
                       _context176.next = 12;
                       return this.modelSrv.getList(model).subscribe(function (data) {
                         // console.log(data);
-                        _this388.photoLive = data;
+                        _this390.photoLive = data;
                       });
 
                     case 12:
@@ -62558,7 +63320,7 @@
                       _context176.next = 19;
                       return this.modelSrv.getList(model).subscribe(function (data) {
                         // console.log('In chat ', data);
-                        _this388.photoChat = data;
+                        _this390.photoChat = data;
                       }, function (error) {
                         console.log(error);
                       });
@@ -62580,7 +63342,7 @@
                       _context176.next = 26;
                       return this.modelSrv.getList(model).subscribe(function (data) {
                         // console.log(data);
-                        _this388.photoOffline = data;
+                        _this390.photoOffline = data;
                       });
 
                     case 26:
@@ -62650,7 +63412,7 @@
           key: "liveFree",
           value: function liveFree(id) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee177() {
-              var _this389 = this;
+              var _this391 = this;
 
               return regeneratorRuntime.wrap(function _callee177$(_context177) {
                 while (1) {
@@ -62660,9 +63422,9 @@
                         var status = data ? data.status : null;
 
                         if (status === 'En ligne') {
-                          _this389.navigateTo('/client/live/free', id);
+                          _this391.navigateTo('/client/live/free', id);
                         } else {
-                          _this389.popupService.info(null, 'LIVE CHAT', 'MODELE INDISPONIBLE');
+                          _this391.popupService.info(null, 'LIVE CHAT', 'MODELE INDISPONIBLE');
                         }
                       });
 
@@ -62677,7 +63439,7 @@
         }, {
           key: "livePrivate",
           value: function livePrivate(id, pseudo, status) {
-            var _this390 = this;
+            var _this392 = this;
 
             // console.log(status);
             this.profilService.getSpecificProfil(id).subscribe(function (data) {
@@ -62685,16 +63447,16 @@
 
               if (status === newStatus) {
                 if (status === 'En live') {
-                  _this390.navigateTo('/client/live/private', id);
+                  _this392.navigateTo('/client/live/private', id);
                 } else if (status === 'En tips') {
-                  _this390.navigateTo('/client/live/tips-clients', id);
+                  _this392.navigateTo('/client/live/tips-clients', id);
                 } else if (status === 'En live choice') {
-                  _this390.popupService.info(null, 'LIVE OCCUPE', "".concat(pseudo, " est en live CHOICE US en ce moment"));
+                  _this392.popupService.info(null, 'LIVE OCCUPE', "".concat(pseudo, " est en live CHOICE US en ce moment"));
                 } else if (status === 'En vip') {
-                  _this390.popupService.info(null, 'LIVE OCCUPE', "".concat(pseudo, " est en live VIP en ce moment"));
+                  _this392.popupService.info(null, 'LIVE OCCUPE', "".concat(pseudo, " est en live VIP en ce moment"));
                 }
               } else {
-                _this390.popupService.info(null, 'LIVE CHOISI', 'MODELE INDISPONIBLE POUR CE LIVE');
+                _this392.popupService.info(null, 'LIVE CHOISI', 'MODELE INDISPONIBLE POUR CE LIVE');
               }
             });
           }
@@ -63064,9 +63826,9 @@
       /*! @angular/common */
       "ofXK");
 
-      function SettingAdminComponent_div_31_Template(rf, ctx) {
+      function SettingAdminComponent_div_32_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 29);
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 30);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "p");
 
@@ -63086,7 +63848,7 @@
         }
       }
 
-      function SettingAdminComponent_tr_44_Template(rf, ctx) {
+      function SettingAdminComponent_tr_45_Template(rf, ctx) {
         if (rf & 1) {
           var _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
 
@@ -63100,9 +63862,9 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "img", 30);
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "img", 31);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function SettingAdminComponent_tr_44_Template_img_click_4_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function SettingAdminComponent_tr_45_Template_img_click_4_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r5);
 
             var item_r3 = ctx.$implicit;
@@ -63166,10 +63928,10 @@
         }, {
           key: "getTaboos",
           value: function getTaboos() {
-            var _this391 = this;
+            var _this393 = this;
 
             this.adminService.getTaboo().subscribe(function (data) {
-              _this391.listTaboo = data;
+              _this393.listTaboo = data;
             }, function (error) {
               console.log(error);
             });
@@ -63177,10 +63939,10 @@
         }, {
           key: "deleteTaboo",
           value: function deleteTaboo(idTaboo) {
-            var _this392 = this;
+            var _this394 = this;
 
             this.adminService.deleteTaboo(idTaboo).subscribe(function (data) {
-              _this392.getTaboos();
+              _this394.getTaboos();
             }, function (error) {
               console.log(error);
             });
@@ -63188,13 +63950,13 @@
         }, {
           key: "addTaboo",
           value: function addTaboo() {
-            var _this393 = this;
+            var _this395 = this;
 
             if (!this.text || this.text === '') return false;
             this.adminService.addTaboo(this.text).subscribe(function (data) {
-              _this393.text = null;
+              _this395.text = null;
 
-              _this393.getTaboos();
+              _this395.getTaboos();
             }, function (error) {
               console.log(error);
             });
@@ -63202,11 +63964,11 @@
         }, {
           key: "getInfosAdmin",
           value: function getInfosAdmin() {
-            var _this394 = this;
+            var _this396 = this;
 
             this.adminService.getInfosAdmin().subscribe(function (data) {
-              // console.log(data)
-              _this394.info = data;
+              console.log(data);
+              _this396.info = data;
             }, function (error) {
               console.log(error);
             });
@@ -63215,7 +63977,7 @@
           key: "profilChoose",
           value: function profilChoose(fileInput) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee178() {
-              var _this395 = this;
+              var _this397 = this;
 
               var mimeType, reader;
               return regeneratorRuntime.wrap(function _callee178$(_context178) {
@@ -63238,8 +64000,8 @@
                       reader.readAsDataURL(this.file);
 
                       reader.onload = function (event) {
-                        _this395.info.url = reader.result;
-                        _this395.changedProfil = true; // console.log('New url ', this.info.url)
+                        _this397.info.url = reader.result;
+                        _this397.changedProfil = true; // console.log('New url ', this.info.url)
                         // this.nameRecto = this.fileRecto.name;
                       };
 
@@ -63258,7 +64020,7 @@
           key: "uploadProfil",
           value: function uploadProfil() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee180() {
-              var _this396 = this;
+              var _this398 = this;
 
               return regeneratorRuntime.wrap(function _callee180$(_context180) {
                 while (1) {
@@ -63274,7 +64036,7 @@
 
                     case 3:
                       this.profilService.updatePhoto(this.formData).subscribe(function (events) {
-                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this396, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee179() {
+                        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this398, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee179() {
                           var path;
                           return regeneratorRuntime.wrap(function _callee179$(_context179) {
                             while (1) {
@@ -63310,7 +64072,7 @@
           key: "saveInfo",
           value: function saveInfo(pseudo, url) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee181() {
-              var _this397 = this;
+              var _this399 = this;
 
               return regeneratorRuntime.wrap(function _callee181$(_context181) {
                 while (1) {
@@ -63318,9 +64080,9 @@
                     case 0:
                       this.adminService.updateInfoAdmin(pseudo, url).subscribe(function (data) {
                         if (data.success) {
-                          _this397.notificationService.infoMsg("Information modifiée");
+                          _this399.notificationService.infoMsg("Information modifiée");
                         } else if (data.error) {
-                          _this397.notificationService.errorMsg(data.message);
+                          _this399.notificationService.errorMsg(data.message);
                         }
                       }, function (error) {
                         console.log(error);
@@ -63338,7 +64100,7 @@
           key: "changePassword",
           value: function changePassword() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee182() {
-              var _this398 = this;
+              var _this400 = this;
 
               return regeneratorRuntime.wrap(function _callee182$(_context182) {
                 while (1) {
@@ -63357,9 +64119,9 @@
                     case 4:
                       this.adminService.changePasswordAdmin(this.oldPassword, this.newPassword).subscribe(function (data) {
                         if (data.error) {
-                          _this398.errorPassword = data.message;
+                          _this400.errorPassword = data.message;
                         } else if (data.success) {
-                          _this398.notificationService.infoMsg('Mot de passe modifié');
+                          _this400.notificationService.infoMsg('Mot de passe modifié');
                         }
                       }, function (error) {
                         console.log(error);
@@ -63385,9 +64147,9 @@
       SettingAdminComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({
         type: SettingAdminComponent,
         selectors: [["app-setting-admin"]],
-        decls: 47,
+        decls: 48,
         vars: 8,
-        consts: [["title", "Administration", "subTitle", "Administration"], [1, "admin_container"], [1, "admin_bottom_bar"], [1, "container-fluid"], [1, "row"], [1, "col-lg-7"], [1, "contain_"], [1, "title_contain"], [1, "contain_setting"], [1, "contain_img"], ["alt", "", 3, "src", "click"], ["type", "text", 3, "ngModel", "ngModelChange"], ["type", "text", "disabled", "", 2, "cursor", "no-drop", 3, "ngModel", "ngModelChange"], [1, "btn", "btn_save", 3, "click"], [1, "form"], [1, "form-group"], ["for", "old"], ["type", "password", "name", "old", 1, "form-control", 3, "ngModel", "ngModelChange"], ["for", "new"], ["type", "password", "name", "new", 1, "form-control", 3, "ngModel", "ngModelChange"], ["class", "error", 4, "ngIf"], [1, "col-lg-5"], [1, "add_contain"], ["type", "text", "name", "word", 3, "ngModel", "ngModelChange"], [1, "btn", "btn_add_taboo", 3, "click"], [1, "list_contain"], [4, "ngFor", "ngForOf"], ["type", "file", "accept", "image/x-png,image/gif,image/jpeg", 2, "visibility", "hidden", 3, "change"], ["fileInput", ""], [1, "error"], ["alt", "", 1, "img_delete", 3, "src", "click"]],
+        consts: [["title", "Administration", "subTitle", "Administration"], [1, "admin_container"], [1, "admin_bottom_bar"], [1, "container-fluid"], [1, "row"], [1, "col-lg-7"], [1, "contain_"], [1, "title_contain"], [1, "contain_setting"], [1, "contain_img"], [1, "blockImg", 3, "click"], ["alt", "", 3, "src"], ["type", "text", 3, "ngModel", "ngModelChange"], ["type", "text", "disabled", "", 2, "cursor", "no-drop", 3, "ngModel", "ngModelChange"], [1, "btn", "btn_save", 3, "click"], [1, "form"], [1, "form-group"], ["for", "old"], ["type", "password", "name", "old", 1, "form-control", 3, "ngModel", "ngModelChange"], ["for", "new"], ["type", "password", "name", "new", 1, "form-control", 3, "ngModel", "ngModelChange"], ["class", "error", 4, "ngIf"], [1, "col-lg-5"], [1, "add_contain"], ["type", "text", "name", "word", 3, "ngModel", "ngModelChange"], [1, "btn", "btn_add_taboo", 3, "click"], [1, "list_contain"], [4, "ngFor", "ngForOf"], ["type", "file", "accept", "image/x-png,image/gif,image/jpeg", 2, "visibility", "hidden", 3, "change"], ["fileInput", ""], [1, "error"], ["alt", "", 1, "img_delete", 3, "src", "click"]],
         template: function SettingAdminComponent_Template(rf, ctx) {
           if (rf & 1) {
             var _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
@@ -63420,41 +64182,43 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](11, "div", 9);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](12, "img", 10);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](12, "div", 10);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function SettingAdminComponent_Template_img_click_12_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function SettingAdminComponent_Template_div_click_12_listener() {
               _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r6);
 
-              var _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵreference"](46);
+              var _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵreference"](47);
 
               return _r2.click();
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](13, "input", 11);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function SettingAdminComponent_Template_input_ngModelChange_13_listener($event) {
-              return ctx.info.pseudo = $event;
-            });
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](13, "img", 11);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](14, "input", 12);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function SettingAdminComponent_Template_input_ngModelChange_14_listener($event) {
+              return ctx.info.pseudo = $event;
+            });
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](15, "input", 13);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function SettingAdminComponent_Template_input_ngModelChange_15_listener($event) {
               return ctx.info.email = $event;
             });
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](15, "button", 13);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](16, "button", 14);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function SettingAdminComponent_Template_button_click_15_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function SettingAdminComponent_Template_button_click_16_listener() {
               return ctx.uploadProfil();
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](16, " Modifier ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](17, " Modifier ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
@@ -63464,27 +64228,27 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](17, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](18, "div", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](18, "div", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](19, "div", 7);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](19, " MOT DE PASSE ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](20, " MOT DE PASSE ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](20, "div", 14);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](21, "div", 15);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](22, "label", 16);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](22, "div", 16);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](23, "Ancien mot de passe");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](23, "label", 17);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](24, "Ancien mot de passe");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](24, "input", 17);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](25, "input", 18);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function SettingAdminComponent_Template_input_ngModelChange_24_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function SettingAdminComponent_Template_input_ngModelChange_25_listener($event) {
               return ctx.oldPassword = $event;
             });
 
@@ -63492,17 +64256,17 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](25, "div", 15);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](26, "div", 16);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](26, "label", 18);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](27, "label", 19);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](27, "Nouveau mot de passe");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](28, "Nouveau mot de passe");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](28, "input", 19);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](29, "input", 20);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function SettingAdminComponent_Template_input_ngModelChange_28_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function SettingAdminComponent_Template_input_ngModelChange_29_listener($event) {
               return ctx.newPassword = $event;
             });
 
@@ -63510,17 +64274,17 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](29, "button", 13);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](30, "button", 14);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function SettingAdminComponent_Template_button_click_29_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function SettingAdminComponent_Template_button_click_30_listener() {
               return ctx.changePassword();
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](30, " Modifier ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](31, " Modifier ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](31, SettingAdminComponent_div_31_Template, 3, 1, "div", 20);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](32, SettingAdminComponent_div_32_Template, 3, 1, "div", 21);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
@@ -63528,25 +64292,25 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](32, "div", 21);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](33, "div", 22);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](33, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](34, "div", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](34, "div", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](35, "div", 7);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](35, " MOTS TABOO ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](36, " MOTS TABOO ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](36, "div", 22);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](37, "div", 14);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](37, "div", 23);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](38, "div", 15);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](39, "input", 23);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](39, "div", 16);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function SettingAdminComponent_Template_input_ngModelChange_39_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](40, "input", 24);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function SettingAdminComponent_Template_input_ngModelChange_40_listener($event) {
               return ctx.text = $event;
             });
 
@@ -63554,13 +64318,13 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](40, "button", 24);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](41, "button", 25);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function SettingAdminComponent_Template_button_click_40_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function SettingAdminComponent_Template_button_click_41_listener() {
               return ctx.addTaboo();
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](41, " Ajouter ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](42, " Ajouter ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
@@ -63568,13 +64332,11 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](42, "div", 25);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](43, "div", 26);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](43, "table");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](44, "table");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](44, SettingAdminComponent_tr_44_Template, 5, 2, "tr", 26);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](45, SettingAdminComponent_tr_45_Template, 5, 2, "tr", 27);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
@@ -63588,9 +64350,11 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](45, "input", 27, 28);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("change", function SettingAdminComponent_Template_input_change_45_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](46, "input", 28, 29);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("change", function SettingAdminComponent_Template_input_change_46_listener($event) {
               return ctx.profilChoose($event);
             });
 
@@ -63598,7 +64362,7 @@
           }
 
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](12);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](13);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("src", ctx.info.url, _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsanitizeUrl"]);
 
@@ -63632,7 +64396,7 @@
           }
         },
         directives: [_infobar_admin_infobar_admin_component__WEBPACK_IMPORTED_MODULE_6__["InfobarAdminComponent"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["NgForOf"]],
-        styles: [".container-fluid[_ngcontent-%COMP%] {\n  margin: 0;\n  padding: 0;\n}\n\n.contain_[_ngcontent-%COMP%] {\n  background: var(--blue1);\n  min-height: 50vh;\n  border-radius: 5px;\n  padding: 20px;\n}\n\n.title_contain[_ngcontent-%COMP%] {\n  border-bottom: 1px solid white;\n  text-align: center;\n  padding-bottom: 5px;\n  margin-bottom: 10px;\n}\n\n.form[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\nbutton.btn_add_taboo[_ngcontent-%COMP%] {\n  background: var(--pink);\n  border: none;\n  color: white;\n  height: 35px;\n  padding-left: 15px;\n  padding-right: 15px;\n  border-radius: 3px;\n}\n\nlabel[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n  color: #e2e1e1;\n  font-size: 15px;\n}\n\n.form-group[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  border-radius: 3px;\n  background-color: var(--blue3);\n  border-color: var(--blue3);\n  color: white;\n  margin-bottom: 15px;\n  height: 30px;\n}\n\n.form-group[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus {\n  outline: none !important;\n  border: 1px solid white;\n  box-shadow: 0 0 10px #719ECE;\n}\n\n.taboos[_ngcontent-%COMP%] {\n  display: flex;\n  width: 100%;\n  justify-content: space-around;\n  margin-bottom: 10px;\n  margin-top: 10px;\n  height: 35px;\n  align-items: center;\n  border-bottom: 1px solid;\n}\n\ntd[_ngcontent-%COMP%] {\n  padding-top: 10px;\n  width: 100%;\n  border-bottom: 1px solid;\n}\n\nimg.img_delete[_ngcontent-%COMP%] {\n  width: 25px;\n  margin-bottom: 20px;\n  position: relative;\n  top: 10px;\n  cursor: pointer;\n}\n\n.contain_img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: 80%;\n  margin-left: 10%;\n  margin-bottom: 20px;\n  margin-top: 20px;\n}\n\n.contain_img[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n}\n\n.contain_img[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  background-color: var(--pink);\n  padding-left: 15px;\n  padding-right: 15px;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  color: white;\n}\n\n.contain_img[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  border-radius: 3px;\n  background-color: var(--blue3);\n  border-color: var(--blue3);\n  color: white;\n  margin-bottom: 15px;\n  height: 35px;\n  padding-left: 10px;\n}\n\n.contain_img[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus {\n  outline: none !important;\n  border: 1px solid white;\n  box-shadow: 0 0 10px #719ECE;\n}\n\n.error[_ngcontent-%COMP%] {\n  margin-top: 20px;\n  text-align: center;\n  color: red;\n}\n\nbutton.btn.btn_save[_ngcontent-%COMP%] {\n  background: var(--pink);\n  color: white;\n  width: 100%;\n  margin-top: 10px;\n}\n\n.form-group[_ngcontent-%COMP%] {\n  width: 100%;\n  text-align: center;\n}\n\n.form-group[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  height: 35px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXC4uXFwuLlxcc2V0dGluZy1hZG1pbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFNBQUE7RUFDQSxVQUFBO0FBQ0Y7O0FBRUE7RUFDRSx3QkFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSxhQUFBO0FBQ0Y7O0FBRUE7RUFDRSw4QkFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxtQkFBQTtBQUNGOztBQUVBO0VBQ0UsYUFBQTtFQUNBLHNCQUFBO0VBQ0EsdUJBQUE7RUFDQSxtQkFBQTtBQUNGOztBQUdBO0VBQ0UsdUJBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7QUFBRjs7QUFHQTtFQUNFLG1CQUFBO0VBQ0EsY0FBQTtFQUNBLGVBQUE7QUFBRjs7QUFHQTtFQUNFLGtCQUFBO0VBQ0EsOEJBQUE7RUFDQSwwQkFBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLFlBQUE7QUFBRjs7QUFHQTtFQUNFLHdCQUFBO0VBQ0EsdUJBQUE7RUFDQSw0QkFBQTtBQUFGOztBQUdBO0VBQ0UsYUFBQTtFQUNBLFdBQUE7RUFDQSw2QkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSx3QkFBQTtBQUFGOztBQUdBO0VBQ0UsaUJBQUE7RUFDQSxXQUFBO0VBQ0Esd0JBQUE7QUFBRjs7QUFHQTtFQUNFLFdBQUE7RUFDQSxtQkFBQTtFQUNBLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLGVBQUE7QUFBRjs7QUFHQTtFQUNFLFVBQUE7RUFDQSxnQkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7QUFBRjs7QUFHQTtFQUNFLGFBQUE7RUFDQSxzQkFBQTtBQUFGOztBQUdBO0VBQ0UsNkJBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsaUJBQUE7RUFDQSxvQkFBQTtFQUNBLFlBQUE7QUFBRjs7QUFHQTtFQUNFLGtCQUFBO0VBQ0EsOEJBQUE7RUFDQSwwQkFBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtBQUFGOztBQUdBO0VBQ0Usd0JBQUE7RUFDQSx1QkFBQTtFQUNBLDRCQUFBO0FBQUY7O0FBR0E7RUFDRSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0EsVUFBQTtBQUFGOztBQUdBO0VBQ0UsdUJBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLGdCQUFBO0FBQUY7O0FBR0E7RUFDRSxXQUFBO0VBQ0Esa0JBQUE7QUFBRjs7QUFHQTtFQUNFLFlBQUE7QUFBRiIsImZpbGUiOiJzZXR0aW5nLWFkbWluLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5lci1mbHVpZHtcclxuICBtYXJnaW46IDA7XHJcbiAgcGFkZGluZzogMDtcclxufVxyXG5cclxuLmNvbnRhaW5fIHtcclxuICBiYWNrZ3JvdW5kOiB2YXIoLS1ibHVlMSk7XHJcbiAgbWluLWhlaWdodDogNTB2aDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgcGFkZGluZzogMjBweDtcclxufVxyXG5cclxuLnRpdGxlX2NvbnRhaW4ge1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCB3aGl0ZTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgcGFkZGluZy1ib3R0b206IDVweDtcclxuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG59XHJcblxyXG4uZm9ybSB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbn1cclxuXHJcblxyXG5idXR0b24uYnRuX2FkZF90YWJvbyB7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tcGluayk7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBoZWlnaHQ6IDM1cHg7XHJcbiAgcGFkZGluZy1sZWZ0OiAxNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDE1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xyXG59XHJcblxyXG5sYWJlbCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICBjb2xvcjogI2UyZTFlMTtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuXHJcbi5mb3JtLWdyb3VwIGlucHV0IHtcclxuICBib3JkZXItcmFkaXVzOiAzcHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tYmx1ZTMpO1xyXG4gIGJvcmRlci1jb2xvcjogdmFyKC0tYmx1ZTMpO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG4gIGhlaWdodDogMzBweDtcclxufVxyXG5cclxuLmZvcm0tZ3JvdXAgaW5wdXQ6Zm9jdXMge1xyXG4gIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDtcclxuICBib3JkZXI6MXB4IHNvbGlkIHdoaXRlO1xyXG4gIGJveC1zaGFkb3c6IDAgMCAxMHB4ICM3MTlFQ0U7XHJcbn1cclxuXHJcbi50YWJvb3Mge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICBtYXJnaW4tdG9wOiAxMHB4O1xyXG4gIGhlaWdodDogMzVweDtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZDtcclxufVxyXG5cclxudGQge1xyXG4gIHBhZGRpbmctdG9wOiAxMHB4O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZDtcclxufVxyXG5cclxuaW1nLmltZ19kZWxldGUge1xyXG4gIHdpZHRoOiAyNXB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIHRvcDogMTBweDtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbi5jb250YWluX2ltZyBpbWcge1xyXG4gIHdpZHRoOiA4MCU7XHJcbiAgbWFyZ2luLWxlZnQ6IDEwJTtcclxuICBtYXJnaW4tYm90dG9tOiAyMHB4O1xyXG4gIG1hcmdpbi10b3A6IDIwcHg7XHJcbn1cclxuXHJcbi5jb250YWluX2ltZyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG59XHJcblxyXG4uY29udGFpbl9pbWcgYnV0dG9uIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1waW5rKTtcclxuICBwYWRkaW5nLWxlZnQ6IDE1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMTVweDtcclxuICBwYWRkaW5nLXRvcDogMTBweDtcclxuICBwYWRkaW5nLWJvdHRvbTogMTBweDtcclxuICBjb2xvcjogd2hpdGU7XHJcbn1cclxuXHJcbi5jb250YWluX2ltZyBpbnB1dCB7XHJcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJsdWUzKTtcclxuICBib3JkZXItY29sb3I6IHZhcigtLWJsdWUzKTtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTVweDtcclxuICBoZWlnaHQ6IDM1cHg7XHJcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG59XHJcblxyXG4uY29udGFpbl9pbWcgaW5wdXQ6Zm9jdXMge1xyXG4gIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDtcclxuICBib3JkZXI6MXB4IHNvbGlkIHdoaXRlO1xyXG4gIGJveC1zaGFkb3c6IDAgMCAxMHB4ICM3MTlFQ0U7XHJcbn1cclxuXHJcbi5lcnJvciB7XHJcbiAgbWFyZ2luLXRvcDogMjBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgY29sb3I6IHJlZDtcclxufVxyXG5cclxuYnV0dG9uLmJ0bi5idG5fc2F2ZSB7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tcGluayk7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbn1cclxuXHJcbi5mb3JtLWdyb3VwIHtcclxuICB3aWR0aDogMTAwJTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5mb3JtLWdyb3VwIGlucHV0IHtcclxuICBoZWlnaHQ6IDM1cHg7XHJcbn1cclxuIl19 */"]
+        styles: [".container-fluid[_ngcontent-%COMP%] {\n  margin: 0;\n  padding: 0;\n}\n\n.contain_[_ngcontent-%COMP%] {\n  background: var(--blue1);\n  min-height: 50vh;\n  border-radius: 5px;\n  padding: 20px;\n}\n\n.title_contain[_ngcontent-%COMP%] {\n  border-bottom: 1px solid white;\n  text-align: center;\n  padding-bottom: 5px;\n  margin-bottom: 10px;\n}\n\n.form[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\nbutton.btn_add_taboo[_ngcontent-%COMP%] {\n  background: var(--pink);\n  border: none;\n  color: white;\n  height: 35px;\n  padding-left: 15px;\n  padding-right: 15px;\n  border-radius: 3px;\n}\n\nlabel[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n  color: #e2e1e1;\n  font-size: 15px;\n}\n\n.form-group[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  border-radius: 3px;\n  background-color: var(--blue3);\n  border-color: var(--blue3);\n  color: white;\n  margin-bottom: 15px;\n  height: 30px;\n}\n\n.form-group[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus {\n  outline: none !important;\n  border: 1px solid white;\n  box-shadow: 0 0 10px #719ECE;\n}\n\n.taboos[_ngcontent-%COMP%] {\n  display: flex;\n  width: 100%;\n  justify-content: space-around;\n  margin-bottom: 10px;\n  margin-top: 10px;\n  height: 35px;\n  align-items: center;\n  border-bottom: 1px solid;\n}\n\ntd[_ngcontent-%COMP%] {\n  padding-top: 10px;\n  width: 100%;\n  border-bottom: 1px solid;\n}\n\nimg.img_delete[_ngcontent-%COMP%] {\n  width: 25px;\n  margin-bottom: 20px;\n  position: relative;\n  top: 10px;\n  cursor: pointer;\n}\n\n.contain_img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: 80%;\n  margin-left: 10%;\n  margin-bottom: 20px;\n  margin-top: 20px;\n}\n\n.contain_img[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n}\n\n.contain_img[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  background-color: var(--pink);\n  padding-left: 15px;\n  padding-right: 15px;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  color: white;\n}\n\n.contain_img[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  border-radius: 3px;\n  background-color: var(--blue3);\n  border-color: var(--blue3);\n  color: white;\n  margin-bottom: 15px;\n  height: 35px;\n  padding-left: 10px;\n}\n\n.contain_img[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus {\n  outline: none !important;\n  border: 1px solid white;\n  box-shadow: 0 0 10px #719ECE;\n}\n\n.error[_ngcontent-%COMP%] {\n  margin-top: 20px;\n  text-align: center;\n  color: red;\n}\n\nbutton.btn.btn_save[_ngcontent-%COMP%] {\n  background: var(--pink);\n  color: white;\n  width: 100%;\n  margin-top: 10px;\n}\n\n.form-group[_ngcontent-%COMP%] {\n  width: 100%;\n  text-align: center;\n}\n\n.form-group[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  height: 35px;\n}\n\n.blockImg[_ngcontent-%COMP%] {\n  margin-bottom: 15px;\n  background: linear-gradient(45deg, black, transparent);\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXC4uXFwuLlxcc2V0dGluZy1hZG1pbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFNBQUE7RUFDQSxVQUFBO0FBQ0Y7O0FBRUE7RUFDRSx3QkFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSxhQUFBO0FBQ0Y7O0FBRUE7RUFDRSw4QkFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxtQkFBQTtBQUNGOztBQUVBO0VBQ0UsYUFBQTtFQUNBLHNCQUFBO0VBQ0EsdUJBQUE7RUFDQSxtQkFBQTtBQUNGOztBQUdBO0VBQ0UsdUJBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7QUFBRjs7QUFHQTtFQUNFLG1CQUFBO0VBQ0EsY0FBQTtFQUNBLGVBQUE7QUFBRjs7QUFHQTtFQUNFLGtCQUFBO0VBQ0EsOEJBQUE7RUFDQSwwQkFBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLFlBQUE7QUFBRjs7QUFHQTtFQUNFLHdCQUFBO0VBQ0EsdUJBQUE7RUFDQSw0QkFBQTtBQUFGOztBQUdBO0VBQ0UsYUFBQTtFQUNBLFdBQUE7RUFDQSw2QkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSx3QkFBQTtBQUFGOztBQUdBO0VBQ0UsaUJBQUE7RUFDQSxXQUFBO0VBQ0Esd0JBQUE7QUFBRjs7QUFHQTtFQUNFLFdBQUE7RUFDQSxtQkFBQTtFQUNBLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLGVBQUE7QUFBRjs7QUFHQTtFQUNFLFVBQUE7RUFDQSxnQkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7QUFBRjs7QUFHQTtFQUNFLGFBQUE7RUFDQSxzQkFBQTtBQUFGOztBQUdBO0VBQ0UsNkJBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsaUJBQUE7RUFDQSxvQkFBQTtFQUNBLFlBQUE7QUFBRjs7QUFHQTtFQUNFLGtCQUFBO0VBQ0EsOEJBQUE7RUFDQSwwQkFBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtBQUFGOztBQUdBO0VBQ0Usd0JBQUE7RUFDQSx1QkFBQTtFQUNBLDRCQUFBO0FBQUY7O0FBR0E7RUFDRSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0EsVUFBQTtBQUFGOztBQUdBO0VBQ0UsdUJBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLGdCQUFBO0FBQUY7O0FBR0E7RUFDRSxXQUFBO0VBQ0Esa0JBQUE7QUFBRjs7QUFHQTtFQUNFLFlBQUE7QUFBRjs7QUFHQTtFQUNFLG1CQUFBO0VBQ0Esc0RBQUE7RUFDQSxlQUFBO0FBQUYiLCJmaWxlIjoic2V0dGluZy1hZG1pbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXItZmx1aWR7XHJcbiAgbWFyZ2luOiAwO1xyXG4gIHBhZGRpbmc6IDA7XHJcbn1cclxuXHJcbi5jb250YWluXyB7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tYmx1ZTEpO1xyXG4gIG1pbi1oZWlnaHQ6IDUwdmg7XHJcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gIHBhZGRpbmc6IDIwcHg7XHJcbn1cclxuXHJcbi50aXRsZV9jb250YWluIHtcclxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgd2hpdGU7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHBhZGRpbmctYm90dG9tOiA1cHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxufVxyXG5cclxuLmZvcm0ge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcblxyXG5cclxuYnV0dG9uLmJ0bl9hZGRfdGFib28ge1xyXG4gIGJhY2tncm91bmQ6IHZhcigtLXBpbmspO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgaGVpZ2h0OiAzNXB4O1xyXG4gIHBhZGRpbmctbGVmdDogMTVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxNXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDNweDtcclxufVxyXG5cclxubGFiZWwge1xyXG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbiAgY29sb3I6ICNlMmUxZTE7XHJcbiAgZm9udC1zaXplOiAxNXB4O1xyXG59XHJcblxyXG4uZm9ybS1ncm91cCBpbnB1dCB7XHJcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJsdWUzKTtcclxuICBib3JkZXItY29sb3I6IHZhcigtLWJsdWUzKTtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTVweDtcclxuICBoZWlnaHQ6IDMwcHg7XHJcbn1cclxuXHJcbi5mb3JtLWdyb3VwIGlucHV0OmZvY3VzIHtcclxuICBvdXRsaW5lOiBub25lICFpbXBvcnRhbnQ7XHJcbiAgYm9yZGVyOjFweCBzb2xpZCB3aGl0ZTtcclxuICBib3gtc2hhZG93OiAwIDAgMTBweCAjNzE5RUNFO1xyXG59XHJcblxyXG4udGFib29zIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYXJvdW5kO1xyXG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbiAgbWFyZ2luLXRvcDogMTBweDtcclxuICBoZWlnaHQ6IDM1cHg7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQ7XHJcbn1cclxuXHJcbnRkIHtcclxuICBwYWRkaW5nLXRvcDogMTBweDtcclxuICB3aWR0aDogMTAwJTtcclxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQ7XHJcbn1cclxuXHJcbmltZy5pbWdfZGVsZXRlIHtcclxuICB3aWR0aDogMjVweDtcclxuICBtYXJnaW4tYm90dG9tOiAyMHB4O1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICB0b3A6IDEwcHg7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4uY29udGFpbl9pbWcgaW1nIHtcclxuICB3aWR0aDogODAlO1xyXG4gIG1hcmdpbi1sZWZ0OiAxMCU7XHJcbiAgbWFyZ2luLWJvdHRvbTogMjBweDtcclxuICBtYXJnaW4tdG9wOiAyMHB4O1xyXG59XHJcblxyXG4uY29udGFpbl9pbWcge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxufVxyXG5cclxuLmNvbnRhaW5faW1nIGJ1dHRvbiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tcGluayk7XHJcbiAgcGFkZGluZy1sZWZ0OiAxNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDE1cHg7XHJcbiAgcGFkZGluZy10b3A6IDEwcHg7XHJcbiAgcGFkZGluZy1ib3R0b206IDEwcHg7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4uY29udGFpbl9pbWcgaW5wdXQge1xyXG4gIGJvcmRlci1yYWRpdXM6IDNweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1ibHVlMyk7XHJcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1ibHVlMyk7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgaGVpZ2h0OiAzNXB4O1xyXG4gIHBhZGRpbmctbGVmdDogMTBweDtcclxufVxyXG5cclxuLmNvbnRhaW5faW1nIGlucHV0OmZvY3VzIHtcclxuICBvdXRsaW5lOiBub25lICFpbXBvcnRhbnQ7XHJcbiAgYm9yZGVyOjFweCBzb2xpZCB3aGl0ZTtcclxuICBib3gtc2hhZG93OiAwIDAgMTBweCAjNzE5RUNFO1xyXG59XHJcblxyXG4uZXJyb3Ige1xyXG4gIG1hcmdpbi10b3A6IDIwcHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGNvbG9yOiByZWQ7XHJcbn1cclxuXHJcbmJ1dHRvbi5idG4uYnRuX3NhdmUge1xyXG4gIGJhY2tncm91bmQ6IHZhcigtLXBpbmspO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICB3aWR0aDogMTAwJTtcclxuICBtYXJnaW4tdG9wOiAxMHB4O1xyXG59XHJcblxyXG4uZm9ybS1ncm91cCB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcblxyXG4uZm9ybS1ncm91cCBpbnB1dCB7XHJcbiAgaGVpZ2h0OiAzNXB4O1xyXG59XHJcblxyXG4uYmxvY2tJbWcge1xyXG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDQ1ZGVnLCBibGFjaywgdHJhbnNwYXJlbnQpO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4iXX0= */"]
       });
       /***/
     },
@@ -63843,7 +64607,7 @@
           key: "login",
           value: function login(event) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee183() {
-              var _this399 = this;
+              var _this401 = this;
 
               var user;
               return regeneratorRuntime.wrap(function _callee183$(_context183) {
@@ -63866,18 +64630,18 @@
                       _context183.next = 8;
                       return this.adminService.login(user).subscribe(function (res) {
                         if (res.error) {
-                          _this399.errorAuth = res.message;
-                          _this399.loading = false;
+                          _this401.errorAuth = res.message;
+                          _this401.loading = false;
                         } else {
-                          _this399.errorAuth = null;
-                          if (res.access_token) _this399.authService.saveToken(res.access_token).then(function () {
-                            _this399.loading = false;
+                          _this401.errorAuth = null;
+                          if (res.access_token) _this401.authService.saveToken(res.access_token).then(function () {
+                            _this401.loading = false;
 
-                            _this399.router.navigate(['/admin']);
+                            _this401.router.navigate(['/admin']);
                           });
                         }
                       }, function (err) {
-                        _this399.loading = false;
+                        _this401.loading = false;
                         console.log(err);
                       });
 

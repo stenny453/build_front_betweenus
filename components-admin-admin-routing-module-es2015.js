@@ -80,7 +80,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _connected_dashboard_admin_administration_message_admin_message_admin_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./connected/dashboard-admin/administration/message-admin/message-admin.component */ "Z8Rj");
 /* harmony import */ var _connected_dashboard_admin_administration_setting_admin_setting_admin_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./connected/dashboard-admin/administration/setting-admin/setting-admin.component */ "yZ7H");
 /* harmony import */ var _connected_dashboard_admin_model_suivi_models_admin_suivi_models_admin_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./connected/dashboard-admin/model/suivi-models-admin/suivi-models-admin.component */ "c9Sc");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _connected_dashboard_admin_model_commissions_model_admin_commissions_model_admin_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./connected/dashboard-admin/model/commissions-model-admin/commissions-model-admin.component */ "WRny");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
 
 
 
@@ -170,6 +172,10 @@ const routes = [
             {
                 path: 'setting-admin',
                 component: _connected_dashboard_admin_administration_setting_admin_setting_admin_component__WEBPACK_IMPORTED_MODULE_16__["SettingAdminComponent"]
+            },
+            {
+                path: 'commissions-model',
+                component: _connected_dashboard_admin_model_commissions_model_admin_commissions_model_admin_component__WEBPACK_IMPORTED_MODULE_18__["CommissionsModelAdminComponent"]
             }
         ]
     }
@@ -177,9 +183,9 @@ const routes = [
 class AdminRoutingModule {
 }
 AdminRoutingModule.ɵfac = function AdminRoutingModule_Factory(t) { return new (t || AdminRoutingModule)(); };
-AdminRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_18__["ɵɵdefineNgModule"]({ type: AdminRoutingModule });
-AdminRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_18__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_18__["ɵɵsetNgModuleScope"](AdminRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] }); })();
+AdminRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_19__["ɵɵdefineNgModule"]({ type: AdminRoutingModule });
+AdminRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_19__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_19__["ɵɵsetNgModuleScope"](AdminRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] }); })();
 
 
 /***/ })

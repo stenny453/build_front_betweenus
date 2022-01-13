@@ -228,7 +228,13 @@
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      var _connected_dashboard_admin_model_commissions_model_admin_commissions_model_admin_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      /*! ./connected/dashboard-admin/model/commissions-model-admin/commissions-model-admin.component */
+      "WRny");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
 
@@ -284,6 +290,9 @@
         }, {
           path: 'setting-admin',
           component: _connected_dashboard_admin_administration_setting_admin_setting_admin_component__WEBPACK_IMPORTED_MODULE_16__["SettingAdminComponent"]
+        }, {
+          path: 'commissions-model',
+          component: _connected_dashboard_admin_model_commissions_model_admin_commissions_model_admin_component__WEBPACK_IMPORTED_MODULE_18__["CommissionsModelAdminComponent"]
         }]
       }];
 
@@ -295,15 +304,15 @@
         return new (t || AdminRoutingModule)();
       };
 
-      AdminRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_18__["ɵɵdefineNgModule"]({
+      AdminRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_19__["ɵɵdefineNgModule"]({
         type: AdminRoutingModule
       });
-      AdminRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_18__["ɵɵdefineInjector"]({
+      AdminRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_19__["ɵɵdefineInjector"]({
         imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]]
       });
 
       (function () {
-        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_18__["ɵɵsetNgModuleScope"](AdminRoutingModule, {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_19__["ɵɵsetNgModuleScope"](AdminRoutingModule, {
           imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]],
           exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]]
         });
